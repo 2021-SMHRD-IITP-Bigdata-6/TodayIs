@@ -7,4 +7,4 @@
 ##### 5. puch하기전에 팀 톡방에 말하고, push하기 말할때는 개발한 기능과 이름을 명시 ex)로그인 기능 버그 수정-웅철
 ##### 6. push 코멘트는 자기가 개발한 기능과 자신의 이름 적기 ex) 로그인 기능 버그 수정 - 웅철
 
-![image](https://user-images.githubusercontent.com/92897604/144380436-8eb5874e-b184-49fe-9beb-8e443c8fe1f4.png)
+![image](https://user-images.githubusercontent.com/92897604/144381835-f0df5670-1ed5-4850-9216-4af87b884166.png)
