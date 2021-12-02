@@ -3,7 +3,8 @@ public class Test_sh {
 
 	public static void main(String[] args) {
 
-		System.out.println("¹üÀÎÀâ¾Æ¶ó");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("í•œê¸€ ê¹¨ì§ í™•ì¸?");
 		
 	}
 
