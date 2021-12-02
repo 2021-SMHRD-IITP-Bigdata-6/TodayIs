@@ -2,8 +2,8 @@
 public class ravaenee {
 
 	public static void main(String[] args) {
-		System.out.println("Àü»çÀå");
-
+		System.out.println("ì „ì‚¬ì¥1");
+		System.out.println("ì „ì‚¬ì¥2");
 	}
 
 }
