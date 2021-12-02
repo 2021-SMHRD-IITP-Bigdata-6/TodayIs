@@ -2,7 +2,7 @@
 public class hyeon {
 
 	public static void main(String[] args) {
-		System.out.println("µåµð¾î ¼º°ø");
+		System.out.println("íŒ€ìž¥ë‹˜... ì±…ìž„ì§€ì„¸ìš”");
 	}
 
 }
