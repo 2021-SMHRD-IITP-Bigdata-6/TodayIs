@@ -2,13 +2,13 @@
 public class Test {
 
 	public static void main(String[] args) {
-		
-		// Github ÆÀ¿ø È¯°æ¼³Á¤
-		// 1. JDK ¹öÀü
-		// 2. Tomcat ¹öÀü
-		// 3. Encoding ¹æ½Ä(UTF-8)
-		// ÀÌ ³»¿ëÀº ÆÀ ³» ÇÑºĞ¸¸ ÀÛ¼ºÇØÁÖ¼¼¿ä!
-		// È¤½Ã Ãæµ¹À» °æÇèÇØº¸°í½ÍÀ¸½Ã´Ù¸é ÀÛ¼ºÇØº¸¼¼¿ä!
+
+		// Github íŒ€ì› í™˜ê²½ì„¤ì •
+		// 1. JDK ë²„ì „
+		// 2. Tomcat ë²„ì „
+		// 3. Encoding ë°©ì‹(UTF-8)
+		// ì´ ë‚´ìš©ì€ íŒ€ ë‚´ í•œë¶„ë§Œ ì‘ì„±í•´ì£¼ì„¸ìš”!1
+		// í˜¹ì‹œ ì¶©ëŒì„ ê²½í—˜í•´ë³´ê³ ì‹¶ìœ¼ì‹œë‹¤ë©´ ì‘ì„±í•´ë³´ì„¸ìš”!
 		System.out.println("First Code!");
 		System.out.println("psh test!");
 		System.out.println("github~");
