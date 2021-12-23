@@ -70,6 +70,17 @@
 		#background {
 	  		z-index: -1;
 		}
+		
+		.text {
+		  position: absolute;
+		  top: 25%;
+		  left: 50%;
+		  width: 200px;
+		  margin-left: -100px;
+		  letter-spacing: 5px;
+		  text-align: center;
+		  color: #ffffff;
+		}
 	</style>
 	
 </head>
@@ -122,8 +133,11 @@
 					  jQuery( '#Live' ).YTPlayer();
 				});
 			</script>
+			<div class="text">
+				<h1> 날씨, 지역, 온도 </h1>
+			</div>
 			<div id="Live" class="player" data-property="{
-			  videoURL: 'https://youtu.be/xv3XNJGLoU8',
+			  videoURL: 'https://youtu.be/3vyzpUva--s',
 			  mute: true,
 			  showControls: false,
 			  useOnMobile: true,
@@ -135,68 +149,6 @@
 			  startAt: 0,
 			  opacity: 1
 			}">
-			</div>
-				<div class="hero-bg">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h1 class="wp1">Introducing, Synthetica. A blissful
-									HTML5/CSS3 Template, free forever.</h1>
-								<a href="#intro" class="btn primary wp2">Learn more</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 hero-intro-text wp3">
-								<p>
-									Synthetica is a <span class="bold italic">FREE</span>,
-									HTML5/CSS3 template available for download exclusively via
-									Codrops.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-cell"
-				style="background-image: url(img/hero-bg-02.jpg);">
-				<div class="hero-bg">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h1 class="wp1">Get a head start, with the Synthetica
-									Sketch file.</h1>
-								<a href="http://tympanus.net/codrops/?p=26570"
-									class="btn primary wp2">Download Sketch File</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 hero-intro-text wp3">
-								<p>Create your landing page in minutes with Synthetica's
-									Sketch style guide.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-cell"
-				style="background-image: url(img/hero-bg-03.jpg);">
-				<div class="hero-bg">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12 text-center">
-								<h1 class="wp1">Download Synthetica today, it's free
-									forever.</h1>
-								<a href="http://tympanus.net/codrops/?p=26570"
-									class="btn primary wp2">Download Template</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2 hero-intro-text wp3">
-								<p>Available exclusively from Codrops.</p>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class='mouse-container'>
