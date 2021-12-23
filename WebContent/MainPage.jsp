@@ -58,6 +58,20 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
+
+	<style>
+		#Live {
+  			z-index: -1;
+		}
+			
+		#background {
+	  		z-index: -1;
+		}
+	</style>
+	
 </head>
 <body>
 	<div class="container-fluid">
@@ -99,7 +113,29 @@
 	</div>
 	<header class="hero">
 		<div class="carousel js-flickity">
-				<iframe class="carousel-cell" width="100%" height="100%" src="https://www.youtube.com/embed/xv3XNJGLoU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen><iframe width="560" height="315" src="https://www.youtube.com/embed/xv3XNJGLoU8?amp:mute=0&amp:autoplay=1&amp:loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<script type="text/javascript">
+				jQuery( function() {
+					  jQuery( '#background' ).YTPlayer();
+				});
+				
+				jQuery( function() {
+					  jQuery( '#Live' ).YTPlayer();
+				});
+			</script>
+			<div id="Live" class="player" data-property="{
+			  videoURL: 'https://youtu.be/xv3XNJGLoU8',
+			  mute: true,
+			  showControls: false,
+			  useOnMobile: true,
+			  quality: 'highres',
+			  containment: 'self',
+			  loop: true,
+			  autoPlay: true,
+			  stopMovieOnBlur: false,
+			  startAt: 0,
+			  opacity: 1
+			}">
+			</div>
 				<div class="hero-bg">
 					<div class="container">
 						<div class="row">
