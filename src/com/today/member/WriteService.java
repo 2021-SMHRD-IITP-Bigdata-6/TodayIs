@@ -26,13 +26,14 @@ public class WriteService extends HttpServlet {
 		
 		boardDAO dao = new boardDAO();
 		
-		int cnt =dao.Update(subject, content, img, id, region);
+		int cnt =dao.board_insert(subject, content, img, id, region);
 		
 		if (cnt > 0) {
-			response.sendRedirect("t_community_board.jsp.jsp");
+			response.sendRedirect("t_community_board.jsp");
 			
 		} else {
 			response.sendRedirect("t_write.jsp");
+			System.out.println("연결확인");
 		}
 	}
 
