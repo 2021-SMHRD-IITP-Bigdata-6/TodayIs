@@ -1,6 +1,9 @@
 package com.today.member;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.today.DAO.boardDAO;
 import com.today.DTO.boardDTO;
 
@@ -18,18 +24,41 @@ public class WriteService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		boardDTO dto = (boardDTO) session.getAttribute("dto");
-		String subject = request.getParameter("m_article_subject");
-		String content = request.getParameter("m_article_content");
-		String img = request.getParameter("m_article_img");
-		String id = request.getParameter("mb_id");
-		String region = request.getParameter("m_article_region");
-		
+
+        String m_article_img = "C:/Users/smhrd/git/TodayIs/WebContent/UploadWrite";    
+        int maxSize = 15*1024*1024; // 15MB
+        String encoding = "UTF-8";
+        MultipartRequest mr = new MultipartRequest(request, m_article_img, maxSize, encoding, new DefaultFileRenamePolicy());	
+        
+		String m_article_subject = mr.getParameter("m_article_subject");
+		String m_article_content = mr.getParameter("m_article_content");
+		String mb_id = mr.getParameter("mb_id");
+		String m_article_region = mr.getParameter("m_article_region");	
+		String m_board_type = mr.getParameter("inputArticle-Sort");
+		int article_seq =0;
 		boardDAO dao = new boardDAO();
 		
-		int cnt =dao.board_insert(subject, content, img, id, region);
-		
+		// 값이 제대로 뽑히는지 테스트
+		System.out.println(m_article_subject);
+		System.out.println(m_article_content);
+		System.out.println(mb_id);
+		System.out.println(m_article_region);
+		System.out.println(m_article_img);
+	    System.out.println(m_board_type);
+	    
+	    int cnt = 0;
+	    if(m_board_type.equals("메인 게시판")) {
+	    	cnt =dao.Tboard_insert(article_seq, m_article_subject, m_article_content, m_article_img, mb_id, m_article_region);
+	    } else if (m_board_type.equals("미션 게시판")) {
+	    	cnt =dao.Mboard_insert(m_article_subject, m_article_content, m_article_img, mb_id, m_article_region);
+	    }	
+	    	
+	    	
 		if (cnt > 0) {
+			boardDTO board_dto = new boardDTO(m_article_subject, m_article_content, m_article_img, mb_id, m_article_region);
+			session.setAttribute("dto", board_dto); 
 			response.sendRedirect("t_community_board.jsp");
+			
 			
 		} else {
 			response.sendRedirect("t_write.jsp");

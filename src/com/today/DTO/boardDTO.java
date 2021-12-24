@@ -13,15 +13,19 @@ public class boardDTO {
 		private int m_article_logitude;
 		
 		public boardDTO(int m_article_seq, String m_article_subject, String m_article_content, String m_article_img,
-				String m_article_date, String mb_id, String m_article_region) {
+				String m_article_date, int m_article_likes, String mb_id, String m_article_region,
+				int m_article_latitude, int m_article_logitude) {
 			super();
 			this.m_article_seq = m_article_seq;
 			this.m_article_subject = m_article_subject;
 			this.m_article_content = m_article_content;
 			this.m_article_img = m_article_img;
 			this.m_article_date = m_article_date;
+			this.m_article_likes = m_article_likes;
 			this.mb_id = mb_id;
 			this.m_article_region = m_article_region;
+			this.m_article_latitude = m_article_latitude;
+			this.m_article_logitude = m_article_logitude;
 		}
 
 		public int getM_article_seq() {
@@ -63,10 +67,61 @@ public class boardDTO {
 		public int getM_article_logitude() {
 			return m_article_logitude;
 		}
+
+		public boardDTO(int m_article_seq, String m_article_subject, String m_article_content, String m_article_img,
+				String m_article_date, int m_article_likes, String mb_id, String m_article_region) {
+			super();
+			this.m_article_seq = m_article_seq;
+			this.m_article_subject = m_article_subject;
+			this.m_article_content = m_article_content;
+			this.m_article_img = m_article_img;
+			this.m_article_date = m_article_date;
+			this.m_article_likes = m_article_likes;
+			this.mb_id = mb_id;
+			this.m_article_region = m_article_region;
+		}
+
+		public void setM_article_seq(int m_article_seq) {
+			this.m_article_seq = m_article_seq;
+		}
+
+		public void setM_article_subject(String m_article_subject) {
+			this.m_article_subject = m_article_subject;
+		}
+
+		public void setM_article_content(String m_article_content) {
+			this.m_article_content = m_article_content;
+		}
+
+		public void setM_article_img(String m_article_img) {
+			this.m_article_img = m_article_img;
+		}
+
+		public void setM_article_date(String m_article_date) {
+			this.m_article_date = m_article_date;
+		}
+
+		public void setM_article_likes(int m_article_likes) {
+			this.m_article_likes = m_article_likes;
+		}
+
+		public void setMb_id(String mb_id) {
+			this.mb_id = mb_id;
+		}
+
+		public void setM_article_region(String m_article_region) {
+			this.m_article_region = m_article_region;
+		}
+
+		public boardDTO(String m_article_subject, String m_article_content, String m_article_img, String mb_id,
+				String m_article_region) {
+			super();
+			this.m_article_subject = m_article_subject;
+			this.m_article_content = m_article_content;
+			this.m_article_img = m_article_img;
+			this.mb_id = mb_id;
+			this.m_article_region = m_article_region;
+		}
 		
-		
-		
-		
- 
 		
 }

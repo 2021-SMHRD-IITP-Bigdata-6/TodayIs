@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
 
 import com.today.DTO.boardDTO;
 
@@ -19,9 +22,9 @@ public class boardDAO {
 		public void getConn() {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				String url = "jdbc:oracle:thin:@127.0.0.1:1521";
-				String dbid = "hr";
-				String dbpw = "hr";
+				String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+				String dbid = "cgi_8_1_1216";
+				String dbpw = "smhrd1";
 
 				conn = DriverManager.getConnection(url, dbid, dbpw);
 
@@ -52,18 +55,44 @@ public class boardDAO {
 			}
 		}
 		
-		public int board_insert(String m_article_subject, String m_article_content, String m_article_img,
+		public int Tboard_insert(int article_seq, String m_article_subject, String m_article_content, String m_article_img,
 				 String mb_id, String m_article_region) {
 			int cnt = 0;
 			try {
 				getConn();
-				String sql = "insert into t_community values(article_seq, ?, ?, ?, ?, ?,sysdate)";
+				String sql = "insert into t_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
+				psmt = conn.prepareStatement(sql); 
+				psmt.setString(1, m_article_subject);
+				psmt.setString(2, m_article_content);
+				psmt.setString(3, m_article_img);
+				psmt.setString(4, m_article_region);
+				psmt.setString(5, "mb_id 1");
+				cnt = psmt.executeUpdate();
+							
+			
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return cnt;
+		}
+		
+		public int Mboard_insert(String m_article_subject, String m_article_content, String m_article_img,
+				 String mb_id, String m_article_region) {
+			int cnt = 0;
+			try {
+				getConn();
+				String sql = "insert into t_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(2, m_article_subject);
-				psmt.setString(3, m_article_content);
-				psmt.setString(4, m_article_img);
-				psmt.setString(5, m_article_region);
-				psmt.setString(7, mb_id);
+				psmt.setString(1, m_article_subject);
+				psmt.setString(2, m_article_content);
+				psmt.setString(3, m_article_img);
+				psmt.setString(4, m_article_region);
+				psmt.setString(5, "mb_id 1");
+				
 
 				cnt = psmt.executeUpdate();
 				
