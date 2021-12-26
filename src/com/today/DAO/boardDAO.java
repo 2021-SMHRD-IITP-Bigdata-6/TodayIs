@@ -60,15 +60,25 @@ public class boardDAO {
 			int cnt = 0;
 			try {
 				getConn();
-				String sql = "insert into t_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
-				psmt = conn.prepareStatement(sql); 
-				psmt.setString(1, m_article_subject);
-				psmt.setString(2, m_article_content);
-				psmt.setString(3, m_article_img);
-				psmt.setString(4, m_article_region);
-				psmt.setString(5, "mb_id 1");
+				String sql = "insert into t_community values(?, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
+//				psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS); 
+				String generatedColumns[] = { "article_seq" };
+				psmt = conn.prepareStatement(sql, generatedColumns); 
+				psmt.setInt(1, 0);
+				psmt.setString(2, m_article_subject);
+				psmt.setString(3, m_article_content);
+				psmt.setString(4, m_article_img);
+				psmt.setString(5, m_article_region);
+				psmt.setString(6, "mb_id 1");
 				cnt = psmt.executeUpdate();
-							
+				
+				
+				ResultSet rs = psmt.getGeneratedKeys();	
+				if (rs.next()) {
+					cnt = rs.getInt(1);
+					System.out.println("autoIncrement: " + cnt); // 출력
+				}
+				
 			
 			} catch (Exception e) {
 

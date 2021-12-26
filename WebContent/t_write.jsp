@@ -179,11 +179,12 @@
 					</table>
 					<table>
 					<tr>
-			  		  <td><input type="file" name="m_article_img" onchange="readURL(this)"></td>
+			  		  <td><input type="file" class="m_article_img"  name="m_article_img" onchange="readURL(this)"></td>
 			  		  <td><img style="width: 50%; height: 50%;" id="m_article_preview"></img></td>
 			  		  <td><input type="submit" value="등록하기"></td>	
 					</tr>
 					 </table>
+					 <input type="hidden" class="form-control" name ="m_article_img_name" id ="m_article_img_name" readonly>
 					 </form>
 			</div>
 		</div>
@@ -366,11 +367,16 @@
 	      document.getElementById('m_article_preview').src = e.target.result;
 	    };
 	    reader.readAsDataURL(input.files[0]);
+		console.log(input.files[0].name);
+		document.getElementById("m_article_img_name").value = input.files[0].name;
+
 	  } else {
 	    document.getElementById('m_article_preview').src = "";
 	  }
 	}
-	
+
+
+
 
 	</script>
 </body>

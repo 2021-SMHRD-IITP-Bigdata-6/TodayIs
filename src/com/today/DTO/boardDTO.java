@@ -11,6 +11,7 @@ public class boardDTO {
 		private String m_article_region;
 		private int m_article_latitude;
 		private int m_article_logitude;
+		private String m_board_type;
 		
 		public boardDTO(int m_article_seq, String m_article_subject, String m_article_content, String m_article_img,
 				String m_article_date, int m_article_likes, String mb_id, String m_article_region,
@@ -112,15 +113,26 @@ public class boardDTO {
 		public void setM_article_region(String m_article_region) {
 			this.m_article_region = m_article_region;
 		}
+		
 
-		public boardDTO(String m_article_subject, String m_article_content, String m_article_img, String mb_id,
-				String m_article_region) {
+		public String getM_board_type() {
+			return m_board_type;
+		}
+
+		public void setM_board_type(String m_board_type) {
+			this.m_board_type = m_board_type;
+		}
+
+		public boardDTO(int m_article_seq, String m_article_subject, String m_article_content, String m_article_img, String mb_id,
+				String m_article_region, String m_board_type) {
 			super();
 			this.m_article_subject = m_article_subject;
 			this.m_article_content = m_article_content;
 			this.m_article_img = m_article_img;
 			this.mb_id = mb_id;
 			this.m_article_region = m_article_region;
+			this.m_board_type = m_board_type;
+			this.m_article_seq = m_article_seq;
 		}
 		
 		

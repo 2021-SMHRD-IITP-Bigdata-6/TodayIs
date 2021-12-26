@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.boardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -89,16 +90,44 @@
 	bottom: 1px;
 	position: absolute;
 }
-//
-좋아요
- 
-기능
- 
-끝
+
+.content-box {
+	box-sizing: border-box;
+	width: 100%;
+	border: solid #5B6DCD 1px;
+	padding: 1px;
+	background-color: white;
+}
+
+.contents_style {
+	all: unset;
+	line-height: 1.9;
+	color: $alpha;
+	font-weight: 300;
+	margin-bottom: 20px;
+	padding: 5px;
+	letter-spacing: 0.3px;
+}
+
+.contents_style:after {
+	all: unset;
+}
+
+h4:after {
+	display: block;
+	width: 100%;
+	height: 2px;
+	margin-top: 15px;
+	content: '';
+	background-color: #7AE2DE;
+}
 </style>
 </head>
 
 <body>
+	<%
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -140,53 +169,71 @@
 	<section class="latest-articles has-padding alternate-bg" id="articles">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-sm-4">
-					<h3 style="font-weight: bold">게시물</h3>
+				<div class="col-md-4 col-sm-1">
+					<h3 style="font-weight: bold"><%=board_dto.getM_article_subject()%></h3>
+				</div>
+				<div class="col-md-4 col-sm-1"
+					style="float: right;">
+					<h4 style="float: right"><%=board_dto.getMb_id()%>회원님
+						<b>#<%=board_dto.getM_article_region()%></b>
+					</h4>
+
 				</div>
 				<div class="col-md-8 col-sm-8 sort">
-					<h5>Sort by</h5>
-					<select name="article-sort" id="inputArticle-Sort" class="">
-						<option value="">Experience Design</option>
-						<option value="">Visual Design</option>
-						<option value="">UI Patterns</option>
-						<option value="">Product Design</option>
-					</select>
+					<h4 style="float: right">
+						(<%=board_dto.getM_board_type()%>)
+					</h4>
+					<h4 style="float: right"><%=board_dto.getM_article_seq()%>번
+						게시글
+					</h4>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-md-8 no-padding">
 					<figure>
 						<figcaption class="overlay">
 							<div class="like-share-wrapper"></div>
-
 						</figcaption>
-						<img src="img/sedna-freebie.jpg" alt="Sedna Freebie">
+						<img src="<%=board_dto.getM_article_img()%>"
+							style="width: 100%; height: 100%;" id="m_article_preview">
+						<div></div>
 					</figure>
 				</div>
+
 				<div class="col-md-4">
 					<article class="article-post">
-						<div>
-							<ul class="article-footer">
-								<li>
+						<div class="content-box" style="padding: 10px">
+							<ul>
+								<li><h4 class="contents_style"><%=board_dto.getM_article_content()%></h4></li>
+							</ul>
 									<div class="like-button-wrapper">
 										<a href="#" class="like_button"><i
-											class="like-counter fa fa-heart-o"></i> <span class="count">0</span>
+											class="like-counter fa fa-heart-o"></i> <span><%=board_dto.getM_article_likes()%>0</span>
 										</a>
 									</div>
-								</li>
-
-								<li class="replymenu" style="margin-left: 2px"><a href="#"
-									onclick="return false;" style="font-size: 20px">Reply</a>
-
-									<ul class="replyhide">
-										<li>와 너무 추워요 ㅠㅠㅠ 정말 얼어죽는줄 알았어요.</li>
-										<li>안춥던데....</li>
-										<li>맞아요 정말 추웟어요 ㅠㅠ</li>
-										<li>좋은 공유 감사합니다.</li>
-										<li>고마워요 공유해주셔서</li>
-									</ul></li>
-							</ul>
+									<ul class="article-footer">
+										<li class="replymenu"><a href="#" onclick="return false;"
+											style="font-size: 20px">Reply</a>
+											<ul class="replyhide">
+												<li><div>
+														<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
+														<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
+														<!--  <c:if test="${sessionScope.userid != null }">-->
+														<textarea class="content-box" id="replytext"
+															placeholder="댓글을 작성하세요" style="width:auto;" ></textarea>
+														<br>
+														<!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
+														<!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
+														<!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
+														<button type="button" id="btnReply">댓글쓰기</button>
+														<!-- </c:if>-->
+													</div></li>
+											</ul></li>
+										<li></li>
+									</ul>
 						</div>
+
 					</article>
 				</div>
 
@@ -258,7 +305,9 @@
 	<script src="http://vjs.zencdn.net/5.4.6/video.min.js"></script>
 	<!-- jQuery local fallback -->
 	<script>
-	window.jQuery || document.write('<script src="js/min/jquery-1.11.2.min.js"><\/script>')
+		window.jQuery
+				|| document
+						.write('<script src="js/min/jquery-1.11.2.min.js"><\/script>')
 	</script>
 	<!-- JS Locals -->
 	<script src="js/min/bootstrap.min.js"></script>
@@ -290,21 +339,42 @@
 
 	<!-- 댓글 기능 종료 -->
 	<script>
-    $(document).ready(function(){
-        $(".replymenu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        }).mouseover(function(){
-            $(this).next("ul").slideDown();
-        });
-    });
-</script>
+		$(document).ready(function() {
+			$(".replymenu>a").mouseover(function() {
+				var submenu = $(this).next("ul");
+
+				// submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+				if (submenu.is(":visible")) {
+					submenu.slideUp();
+				} else {
+					submenu.slideDown();
+				}
+			}).click(function() {
+				$(this).next("ul").slideDown();
+			});
+		});
+
+		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
+		$("#btnReply").click(function() {
+			var replytext = $("#replytext").val(); //댓글 내용
+			var bno = "${dto.bno}"; //게시물 번호
+			var param = {
+				"replytext" : replytext,
+				"bno" : bno
+			};
+			//var param="replytext="+replytext+"&bno="+bno;
+			$.ajax({
+				type : "post", //데이터를 보낼 방식
+				url : "${path}/reply/insert.do", //데이터를 보낼 url
+				data : param, //보낼 데이터
+
+				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+					alert("댓글이 등록되었습니다.");
+					listReply2(); //댓글 목록 출력
+				}
+			});
+		});
+	</script>
 
 </body>
 
