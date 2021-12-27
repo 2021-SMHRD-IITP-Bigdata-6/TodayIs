@@ -68,6 +68,12 @@
     outline: none;
     background: transparent;
 }
+.input-fields{
+	width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: none;
+}
 .submit {
     width: 85%;
     padding: 10px 30px;

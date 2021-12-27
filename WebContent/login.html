@@ -2,7 +2,7 @@
     <html>
     	<meta charset="utf-8">
         <head>
-            <title>로그인 / 회원가입 폼 템플릿</title>
+            <title> to 로그인 / 회원가입 폼 템플릿</title>
             <link rel="stylesheet" href="css/login.css">
         </head>
         <body>
@@ -15,16 +15,36 @@
                     </div>
                     
                     <form id="login" action="" class="input-group">
-                        <input type="text" class="input-field" placeholder="User id" required>
-                        <input type="password" class="input-field" placeholder="Enter Password" required>
+                        <input type="text" name="mb_id" class="input-field" placeholder="User id" required>
+                        <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
                         <input type="checkbox" class="checkbox"><span>Remember Password</span>
                         <button class="submit">Login</button>
                     </form>
                     <form id="register" action="" class="input-group">
-                        <input type="text" class="input-field" placeholder="User id" required>
-                        <input type="email" class="input-field" placeholder="Your nick name" required>
-                        <input type="password" class="input-field" placeholder="Enter Password" required>
-                        <input type="region" class="input -field" placeholder="Your region" required>
+                        <input type="text" name="mb_id"  class="input-field" placeholder="User id" required>
+                        <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
+                        <input type="text" name="mb_nick_name"  class="input-field" placeholder="Your nick name" required>
+                        <input type="text" name="mb_phone_number"  class="input-field" placeholder="Your phone number" required>
+                        <li>사는 지역</li>
+                        <select name ="mb_region">
+                        	<option>-선택-</option>
+                        	<option>서울</option>
+                        	<option>부산</option>
+                        	<option>대구</option>
+                        	<option>인천</option>
+                        	<option>광주</option>
+                        	<option>대전</option>
+                        	<option>울산</option>
+                        	<option>강원</option>
+                        	<option>경기</option>
+                        	<option>경남</option>
+                        	<option>경북</option>
+                        	<option>전남</option>
+                        	<option>전북</option>
+                        	<option>제주</option>
+                        	<option>충남</option>
+                        	<option>충북</option>
+                        </select>
                         <button class = "submit">REGION</button>
                         <br>
                         <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
