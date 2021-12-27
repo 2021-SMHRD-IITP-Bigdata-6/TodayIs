@@ -355,7 +355,7 @@ h4:after {
 		});
 
 		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
-		$("#btnReply").click(function() {
+		$("#btnReply").ready(function() {
 			var comm_content = $("#replytext").val(); //댓글 내용
 			var article_seq = "${board_dto.getM_article_seq()}"; //게시물 번호
 			var mb_id = "${board_dto.getMb_id()}";  //작성자 아이디

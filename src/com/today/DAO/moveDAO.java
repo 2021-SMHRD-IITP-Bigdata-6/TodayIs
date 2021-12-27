@@ -54,21 +54,20 @@ public class moveDAO {
 	}
 			
 		
-		public String Move() {
+		public String Move(String w_local, String w_status) {
 			
-				int cnt = 0;
 				String weather_stat1 = null;
 	        try {
 	        	getConn();
 	           	           
-	           String sql = "select * from forecast where city_name = ?";
+	           String sql = "select * from t_live_weather where w_local = ?";
 	           psmt = conn.prepareStatement(sql);
 	           psmt.setString(1, "광주");
 	           
 	           rs  = psmt.executeQuery(); 
 	           
 	           if(rs.next()) { 
-	              weather_stat1 = rs.getString(3);//t
+	              w_status = rs.getString(3);
 	              
 	           }       
 	           }catch(Exception e) {

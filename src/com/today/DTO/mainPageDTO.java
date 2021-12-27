@@ -2,89 +2,86 @@ package com.today.DTO;
 
 public class mainPageDTO {
 
-	private String Weather_stat;
-	private String City_index;
-	private String City_name;
-	private String Temp;
-	private String Body_temp;
-	private String Hum;
-	private String Wind;
+	private String w_index;
+	private String w_local;
+	private String w_status;
+	private String w_temp;
+	private String w_body_temp;
+	private String w_humidity;
+	private String w_wind;
 	
-	public mainPageDTO(String weather_stat, String city_index, String city_name, String temp, String body_temp,
-			String hum, String wind) {
+	public mainPageDTO(String w_index, String w_local, String w_status, String w_temp, String w_body_temp,
+			String w_humidity, String w_wind) {
 		super();
-		Weather_stat = weather_stat;
-		City_index = city_index;
-		City_name = city_name;
-		Temp = temp;
-		Body_temp = body_temp;
-		Hum = hum;
-		Wind = wind;
+		this.w_index = w_index;
+		this.w_local = w_local;
+		this.w_status = w_status;
+		this.w_temp = w_temp;
+		this.w_body_temp = w_body_temp;
+		this.w_humidity = w_humidity;
+		this.w_wind = w_wind;
 	}
 
-
-	public mainPageDTO(String weather_stat, String city_name) {
+	public mainPageDTO(String w_local, String w_status) {
 		super();
-		Weather_stat = weather_stat;
-		City_name = city_name;
+		this.w_local = w_local;
+		this.w_status = w_status;
 	}
 
-	public String getWeather_stat() {
-		return Weather_stat;
+	public String getW_index() {
+		return w_index;
 	}
 
-	public void setWeather_stat(String weather_stat) {
-		Weather_stat = weather_stat;
+	public void setW_index(String w_index) {
+		this.w_index = w_index;
 	}
 
-	public String getCity_index() {
-		return City_index;
+	public String getW_local() {
+		return w_local;
 	}
 
-	public void setCity_index(String city_index) {
-		City_index = city_index;
+	public void setW_local(String w_local) {
+		this.w_local = w_local;
 	}
 
-	public String getCity_name() {
-		return City_name;
+	public String getW_status() {
+		return w_status;
 	}
 
-	public void setCity_name(String city_name) {
-		City_name = city_name;
+	public void setW_status(String w_status) {
+		this.w_status = w_status;
 	}
 
-	public String getTemp() {
-		return Temp;
+	public String getW_temp() {
+		return w_temp;
 	}
 
-	public void setTemp(String temp) {
-		Temp = temp;
+	public void setW_temp(String w_temp) {
+		this.w_temp = w_temp;
 	}
 
-	public String getBody_temp() {
-		return Body_temp;
+	public String getW_body_temp() {
+		return w_body_temp;
 	}
 
-	public void setBody_temp(String body_temp) {
-		Body_temp = body_temp;
+	public void setW_body_temp(String w_body_temp) {
+		this.w_body_temp = w_body_temp;
 	}
 
-	public String getHum() {
-		return Hum;
+	public String getW_humidity() {
+		return w_humidity;
 	}
 
-	public void setHum(String hum) {
-		Hum = hum;
+	public void setW_humidity(String w_humidity) {
+		this.w_humidity = w_humidity;
 	}
 
-	public String getWind() {
-		return Wind;
+	public String getW_wind() {
+		return w_wind;
 	}
 
-	public void setWind(String wind) {
-		Wind = wind;
+	public void setW_wind(String w_wind) {
+		this.w_wind = w_wind;
 	}
-	
-	
 	
 }

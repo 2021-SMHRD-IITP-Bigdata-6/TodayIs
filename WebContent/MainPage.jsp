@@ -146,9 +146,6 @@
 		</div>
 		<input type="text" name="move_region">
 		<button type="submit" value="submit"> 버튼 </button>
-		<div class="text">
-				<h1>날씨, 지역, 온도</h1>
-			</div>
 		<div class='mouse-container'>
 			<a href="#intro">
 				<div class='mouse'>
@@ -177,6 +174,7 @@
 			
 			if(weather_stat.equals("맑음") || weather_stat.equals("")){
 				$("#video1").attr("src", "mp4/Sun.mp4");	
+				System.out.prinln("오늘날씨 맑음, 직역, 기온");
 			}else if(weather_stat.equals("구름많음")){
 				$("#video2").attr("src", "mp4/CloudMore.mp4");
 			}else if(weather_stat.equals("구름적음")){
