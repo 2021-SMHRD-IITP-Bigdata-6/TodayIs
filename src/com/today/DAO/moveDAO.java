@@ -54,7 +54,9 @@ public class moveDAO {
 	}
 			
 		
-		public String Move(String w_local, String w_status) {
+		public String Move(String w_local) {
+			
+			String w_status= null;
 			
 				String weather_stat1 = null;
 	        try {
@@ -67,7 +69,7 @@ public class moveDAO {
 	           rs  = psmt.executeQuery(); 
 	           
 	           if(rs.next()) { 
-	              w_status = rs.getString(3);
+	        	w_status = rs.getString(3);
 	              
 	           }       
 	           }catch(Exception e) {
@@ -77,6 +79,6 @@ public class moveDAO {
 	        	  close();
 	         
 	        }
-	     return weather_stat1;
+	     return w_status;
 	}
 }

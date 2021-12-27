@@ -134,6 +134,7 @@ h4:after {
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto"); 
 	%>
+	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">

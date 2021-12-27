@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.mainPageDTO"%>
 <%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -78,16 +79,12 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-<%
 
-%>
-=======
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
 		
 	%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -97,11 +94,13 @@
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
+						 
 						<%if(dto != null) { %>
 							<li><%=dto.getMb_id() %> </li>
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
+							
 							<li><a href="#intro"> 로그인 </a></li>
 							<li><a href="#team"> 회원가입 </a></li>
 							<li><a href="#articles"> 게시판 </a></li>
@@ -128,6 +127,9 @@
 				</div>
 			</div>
 		</div>
+		<%if(move_dto != null){ %>
+			<h1><%=move_dto.getW_status() %></h1>
+		<%} %>
 	</div>
 	<header class="hero">
 		<div class="carousel js-flickity">
@@ -169,9 +171,13 @@
 		
 		
 		<script>
+		
+		
 		// 동적 화면 sql 실행
-		$("document").click(function() { // 로그인 후로 조건 변경 필요
-			var region = "${member_dto.getregion()}"; // 로그인된 사람 지역
+		var region = "${dto.getMb_region()}"; // 로그인된 사람 지역
+		
+		
+		$("document").ready(function() { // 로그인 후로 조건 변경 필요
 			$.ajax({
 				type : "post", //데이터를 보낼 방식
 				url : "MoveService", //데이터를 보낼 url
@@ -179,29 +185,38 @@
 
 				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
 					alert("로그인되었습니다.");
+				
 				}
 			});
 		});
 		
+		
 		$(document).ready(function(){
 			
-			if(weather_stat.equals("맑음") || weather_stat.equals("")){
+			if(w_status.equals("맑음") || w_status.equals("")){
 				$("#video1").attr("src", "mp4/Sun.mp4");	
-				System.out.prinln("오늘날씨 맑음, 직역, 기온");
-			}else if(weather_stat.equals("구름많음")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("구름많음")){
 				$("#video2").attr("src", "mp4/CloudMore.mp4");
-			}else if(weather_stat.equals("구름적음")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("구름조금")){
 				$("#video3").attr("src", "mp4/CloudLess.mp4");
-			}else if(weather_stat.equals("비많음")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("비많음")){
 				$("#video4").attr("src", "mp4/RainMore.mp4");
-			}else if(weather_stat.equals("비적음")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("비적음")){
 				$("#video5").attr("src", "mp4/RainLess.mp4");
-			}else if(weather_stat.equals("번개")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("번개")){
 				$("#video4").attr("src", "mp4/Lightning.mp4");
-			}else if(weather_stat.equals("눈")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("눈")){
 				$("#video5").attr("src", "mp4/Snow.mp4");
-			}else if(weather_stat.equals("흐림")){
+				document.getElementById('video').load();
+			}else if(w_status.equals("흐림")){
 				$("#video5").attr("src", "mp4/Grey.mp4");
+				document.getElementById('video').load();
 			}
 			
 			//console.log(1);

@@ -27,6 +27,11 @@ public class mainPageDTO {
 		this.w_local = w_local;
 		this.w_status = w_status;
 	}
+	
+	public mainPageDTO(String w_status) {
+		super();
+		this.w_status = w_status;
+	}
 
 	public String getW_index() {
 		return w_index;
