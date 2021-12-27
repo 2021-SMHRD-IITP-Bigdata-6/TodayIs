@@ -96,12 +96,22 @@
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
-							<li><a href="#intro"> 로그인 </a></li>
+							
+							
+							<%if(dto == null) { %>
+							<li><a href="login.html"> 로그인 </a></li>
 							<li><a href="#team"> 회원가입 </a></li>
-							<li><a href="#articles"> 게시판 </a></li>
-							<li><a href="#freebies"> 더보기 </a></li>
+							<%} else{ %>
+							<li><a href="LogoutService"> 로그아웃 </a></li>
+							<%} %>
+							
+							
+							<li><a href="#articles"> 공유 게시판 </a></li>
+							<li><a href="#articles"> 미션 게시판 </a></li>
+							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
 					</nav>
+					
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
 							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
