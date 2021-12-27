@@ -58,53 +58,45 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
+<script>
+	player1 = [ "videoplayback Snow.mp4", "videoplayback Rain.mp4",
+			"videoplayback Lightning.mp4" ];
 
-	<style>
-		#Live {
-  			z-index: -1;
+	function playit() {
+		var t = [ 'videoplayback Snow.mp4', 'videoplayback Rain.mp4',
+				'videoplayback Lightning.mp4' ];
+		var myNodelist = document.getElementsByTagName("source");
+		var i;
+		for (i = 0; i < myNodelist.length; i++) {
+			myNodelist[i].src = t[i];
 		}
-			
-		#background {
-	  		z-index: -1;
-		}
-		
-		.text {
-		  position: absolute;
-		  top: 25%;
-		  left: 50%;
-		  width: 200px;
-		  margin-left: -100px;
-		  letter-spacing: 5px;
-		  text-align: center;
-		  color: #ffffff;
-		}
-	</style>
-	
+	}
+</script>
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><img src="img/synthetica-logo.png"
-						alt="Synthetica Freebie"></a>
+					<a href="/index.html"><font size="2em" font-weight: bold>오늘은?</font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">The collective</a></li>
-							<li><a href="#team">The crew</a></li>
-							<li><a href="#articles">Articles</a></li>
-							<li><a href="#freebies">Freebies</a></li>
+							<li><a href="#intro"> 로그인 </a></li>
+							<li><a href="#team"> 회원가입 </a></li>
+							<li><a href="#articles"> 게시판 </a></li>
+							<li><a href="#freebies"> 더보기 </a></li>
 						</ul>
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
 							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
-							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
+							<li class="search"><a href="#search" class="show-search"><li
+									class="fa fa-search"></i></a></li>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -124,32 +116,14 @@
 	</div>
 	<header class="hero">
 		<div class="carousel js-flickity">
-			<script type="text/javascript">
-				jQuery( function() {
-					  jQuery( '#background' ).YTPlayer();
-				});
-				
-				jQuery( function() {
-					  jQuery( '#Live' ).YTPlayer();
-				});
-			</script>
+			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
 			<div class="text">
-				<h1> 날씨, 지역, 온도 </h1>
+				<h1>날씨, 지역, 온도</h1>
 			</div>
-			<div id="Live" class="player" data-property="{
-			  videoURL: 'https://youtu.be/3vyzpUva--s',
-			  mute: true,
-			  showControls: false,
-			  useOnMobile: true,
-			  quality: 'highres',
-			  containment: 'self',
-			  loop: true,
-			  autoPlay: true,
-			  stopMovieOnBlur: false,
-			  startAt: 0,
-			  opacity: 1
-			}">
-			</div>
+				<source src="/Snow.mp4" type="video/mp4" id="video1">
+				<source src="/Rain.mp4" type="video/mp4" id="video2">
+				<source src="/Lightning.mp4" type="video/mp4" id="video3">
+			</video>
 		</div>
 		<div class='mouse-container'>
 			<a href="#intro">
