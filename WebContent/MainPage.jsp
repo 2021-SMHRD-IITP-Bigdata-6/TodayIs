@@ -62,8 +62,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	player1 = [ "videoplayback Snow.mp4", "videoplayback Rain.mp4",
-			"videoplayback Lightning.mp4" ];
+	
+	player1 = [ "videoplayback Snow.mp4", "videoplayback Rain.mp4", "videoplayback Lightning.mp4" ];
 
 	function playit() {
 		var t = [ 'videoplayback Snow.mp4', 'videoplayback Rain.mp4',
@@ -81,7 +81,7 @@
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><font size="2em" font-weight: bold>오늘은?</font></a>
+					<a href="/index.html"><font size="30px" font-weight= bold> TODAY? </font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
@@ -117,14 +117,20 @@
 	<header class="hero">
 		<div class="carousel js-flickity">
 			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
-			<div class="text">
-				<h1>날씨, 지역, 온도</h1>
-			</div>
-				<source src="/Snow.mp4" type="video/mp4" id="video1">
-				<source src="/Rain.mp4" type="video/mp4" id="video2">
-				<source src="/Lightning.mp4" type="video/mp4" id="video3">
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
+				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
+				
+				<% // if문 
+				   // 날씨 정보 이후.. 사용하기
+				
+				%>
 			</video>
 		</div>
+		<div class="text">
+				<h1>날씨, 지역, 온도</h1>
+			</div>
 		<div class='mouse-container'>
 			<a href="#intro">
 				<div class='mouse'>
