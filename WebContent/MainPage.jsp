@@ -63,14 +63,16 @@
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var player = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
-
+		
 	function playit() {
 		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
 		var myNodelist = document.getElementsByTagName('source');
 		var i;
 		for (i = 0; i < myNodelist.length; i++) {
 			myNodelist[i].src = t[i];
+		
 		}
+		console.log(t);
 	}
 </script>
 </head>
@@ -117,14 +119,25 @@
 				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
 				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
-				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
-				
-				<% // if문 
-				   // 날씨 정보 이후.. 사용하기
-				
-				%>
-				
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">				
 			</video>
+			<script>
+			// 날씨 정보 이후.. 사용하기
+			var snow = player[0];
+			var rain = player[1];
+			var light = player[2];
+			var wind = player[3];
+			
+			if("snow".equals("눈")){
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
+			}else if("rain".equals("흐리고")){}
+				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+			}else if("rain".equals("흐리고")){
+				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">	
+			}else{
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
+			}
+			</script>
 		</div>
 		<div class="text">
 				<h1>날씨, 지역, 온도</h1>
