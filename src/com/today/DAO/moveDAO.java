@@ -1,0 +1,83 @@
+package com.today.DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import com.today.DTO.boardDTO;
+import com.today.DTO.mainPageDTO;
+
+public class moveDAO {
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	boardDTO boardDTO = null;
+	private boolean check;
+
+	// 데이터베이스 연결 호출 메소드
+	public void getConn() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+			String dbid = "cgi_8_1_1216";
+			String dbpw = "smhrd1";
+
+			conn = DriverManager.getConnection(url, dbid, dbpw);
+
+			if (conn != null) {
+				System.out.println("연결성공");
+			} else {
+				System.out.println("연결실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void close() {
+		try {
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+			if (rs != null) {
+				rs.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("연결 끊기 실패");
+			e.printStackTrace();
+		}
+		
+	}
+			
+		
+		public String Move() {
+			
+				int cnt = 0;
+				String weather_stat1 = null;
+	        try {
+	        	getConn();
+	           	           
+	           String sql = "select * from forecast where city_name = ?";
+	           psmt = conn.prepareStatement(sql);
+	           psmt.setString(1, "광주");
+	           
+	           rs  = psmt.executeQuery(); 
+	           
+	           if(rs.next()) { 
+	              weather_stat1 = rs.getString(3);//t
+	              
+	           }       
+	           }catch(Exception e) {
+		           System.out.println("sql 오류");
+		           e.printStackTrace();
+	          }finally {
+	        	  close();
+	         
+	        }
+	     return weather_stat1;
+	}
+}

@@ -77,6 +77,9 @@
 </script>
 </head>
 <body>
+<%
+
+%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -116,19 +119,21 @@
 	<header class="hero">
 		<div class="carousel js-flickity">
 			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
-				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
-				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">	
+				<!--  <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
-				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">				
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">-->
 			</video>
+			
+			<button onclick="Weather()"> hi </button>
 			<script>
 			// 날씨 정보 이후.. 사용하기
-			var snow = player[0];
+		/*	var snow = player[0];
 			var rain = player[1];
 			var light = player[2];
-			var wind = player[3];
+			var wind = player[3];*/
 			
-			if("snow".equals("눈")){
+		/*	if("snow".equals("눈")){
 				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
 			}else if("rain".equals("흐리고")){}
 				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
@@ -136,9 +141,11 @@
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">	
 			}else{
 				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
-			}
+			}*/
 			</script>
 		</div>
+		<input type="text" name="move_region">
+		<button type="submit" value="submit"> 버튼 </button>
 		<div class="text">
 				<h1>날씨, 지역, 온도</h1>
 			</div>
@@ -149,6 +156,36 @@
 				</div>
 			</a>
 		</div>
+		
+		
+		<script>
+		
+		$(document).ready(function(){
+			
+			console.log(1);
+			$("#video1").attr("src", "mp4/Lightning.mp4");
+			document.getElementById('video').load();
+			
+		
+		});
+
+		// 동적 화면 sql 실행
+		$("document").click(function() { // 로그인 후로 조건 변경 필요
+			var region = "${member_dto.getregion()}"; // 로그인된 사람 지역
+			$.ajax({
+				type : "post", //데이터를 보낼 방식
+				url : "MoveService", //데이터를 보낼 url
+				data : region, //보낼 데이터
+
+				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+					alert("로그인되었습니다.");
+				}
+			});
+		});
+		
+			
+		</script>
+		
 	</header>
 </body>
 </html>
