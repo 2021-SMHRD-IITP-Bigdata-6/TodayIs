@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -77,9 +78,16 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 <%
 
 %>
+=======
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		
+	%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -89,6 +97,11 @@
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
+						<%if(dto != null) { %>
+							<li><%=dto.getMb_id() %> </li>
+							<li><%=dto.getMb_nickname() %> </li>
+							<li><%=dto.getMb_region() %> </li>
+							<%} %>
 							<li><a href="#intro"> 로그인 </a></li>
 							<li><a href="#team"> 회원가입 </a></li>
 							<li><a href="#articles"> 게시판 </a></li>
@@ -135,7 +148,7 @@
 			
 		/*	if("snow".equals("눈")){
 				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
-			}else if("rain".equals("흐리고")){}
+			}else if("rain".equals("흐리고")){
 				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
 			}else if("rain".equals("흐리고")){
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">	

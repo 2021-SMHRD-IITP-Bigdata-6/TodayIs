@@ -1,8 +1,10 @@
+<%@page import="com.today.DTO.commDTO"%>
+<%@page import="com.today.DTO.boardDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js" lang="en-US">
 <!--<![endif]-->
 
@@ -63,6 +65,10 @@
 </head>
 
 <body>
+	<%
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
+	%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -121,7 +127,7 @@
 				<div class="col-md-4">
 					<article class="article-post">
 						<a href="#">
-							<div class="article-image has-overlay" style="background-image: url(img/article-01.jpg)">
+							<img src="<%=board_dto.getM_article_img() %>" style="width: 100%; height: 100%;" id="article-image has-overlay">
 								<span class="featured-tag">Featured</span>
 							</div>
 							<figure>

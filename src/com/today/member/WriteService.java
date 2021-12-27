@@ -24,7 +24,8 @@ public class WriteService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		boardDTO dto = (boardDTO) session.getAttribute("dto");
-
+		String uri = request.getRequestURI();
+		String path = request.getContextPath();
         String m_article_imgpath = "C:/Users/smhrd/git/TodayIs/WebContent/UploadWrite";    
         int maxSize = 15*1024*1024; // 15MB
         String encoding = "UTF-8";
@@ -47,6 +48,8 @@ public class WriteService extends HttpServlet {
 		System.out.println(m_article_region);
 		System.out.println(m_article_img_name);
 	    System.out.println(m_board_type);
+	    System.out.println(uri);
+	    System.out.println(path);
 	    
 	    int cnt = 0;
 	    if(m_board_type.equals("메인 게시판")) {
