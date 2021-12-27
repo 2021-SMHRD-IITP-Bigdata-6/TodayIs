@@ -62,8 +62,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	
-	player1[] = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
+	var player = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
 
 	function playit() {
 		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
