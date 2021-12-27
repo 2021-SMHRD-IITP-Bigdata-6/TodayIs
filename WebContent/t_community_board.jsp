@@ -1,6 +1,10 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.today.DAO.commDAO"%>
+<%@page import="com.today.DTO.commDTO"%>
 <%@page import="com.today.DTO.boardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -11,6 +15,7 @@
 
 <head>
 <script src="jquery-3.6.0.min.js"></script>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Synthetica HTML5/CSS3 Template</title>
@@ -127,6 +132,7 @@ h4:after {
 <body>
 	<%
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto"); 
 	%>
 	<div class="container-fluid">
 		<div class="row">
@@ -172,10 +178,8 @@ h4:after {
 				<div class="col-md-4 col-sm-1">
 					<h3 style="font-weight: bold"><%=board_dto.getM_article_subject()%></h3>
 				</div>
-				<div class="col-md-4 col-sm-1"
-					style="float: right;">
-					<h4 style="float: right"><%=board_dto.getMb_id()%>회원님
-						<b>#<%=board_dto.getM_article_region()%></b>
+				<div class="col-md-4 col-sm-1" style="float: right;">
+					<h4 style="float: right"><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b>
 					</h4>
 
 				</div>
@@ -183,7 +187,7 @@ h4:after {
 					<h4 style="float: right">
 						(<%=board_dto.getM_board_type()%>)
 					</h4>
-					<h4 style="float: right"><%=board_dto.getM_article_seq()%>번
+					<h4 style="float: right" ><%=board_dto.getM_article_seq()%>번
 						게시글
 					</h4>
 				</div>
@@ -207,31 +211,62 @@ h4:after {
 							<ul>
 								<li><h4 class="contents_style"><%=board_dto.getM_article_content()%></h4></li>
 							</ul>
-									<div class="like-button-wrapper">
-										<a href="#" class="like_button"><i
-											class="like-counter fa fa-heart-o"></i> <span><%=board_dto.getM_article_likes()%>0</span>
-										</a>
-									</div>
-									<ul class="article-footer">
-										<li class="replymenu"><a href="#" onclick="return false;"
-											style="font-size: 20px">Reply</a>
-											<ul class="replyhide">
-												<li><div>
-														<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
-														<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
-														<!--  <c:if test="${sessionScope.userid != null }">-->
-														<textarea class="content-box" id="replytext"
-															placeholder="댓글을 작성하세요" style="width:auto;" ></textarea>
-														<br>
-														<!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
-														<!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
-														<!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
-														<button type="button" id="btnReply">댓글쓰기</button>
-														<!-- </c:if>-->
-													</div></li>
-											</ul></li>
-										<li></li>
-									</ul>
+							<div class="like-button-wrapper">
+								<a href="#" class="like_button"><i
+									class="like-counter fa fa-heart-o"></i> <span><%=board_dto.getM_article_likes()%>0</span>
+								</a>
+							</div>
+							<ul>
+								<li>
+									<table>
+										<thead>
+											<tr>
+												<td>댓글내용</td>
+												<td>작성자</td>
+												<td>작성일자</td>
+												<td>삭제</td>
+											</tr>
+										</thead>
+
+										<tbody id='tbody'>
+											<%
+									commDAO comm_dao = new commDAO();
+									ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
+									
+									 for (int i = 0 ; i <arr.size(); i++)  {%>
+											<tr>
+												<td><%=arr.get(i).getComm_content() %></td>
+												<td><%=arr.get(i).getComm_date() %></td>
+												<!-- <td>=arr.get(i).getComm_seq() %></td> -->
+												<!--<td>=arr.get(i).getM_article_seq() %></td>-->
+												<td><%=arr.get(i).getMb_id() %></td>
+												<!--  <td><a href='DeleteCon.do?email==arr.get(i).getEmail() %>'> 삭제 </a></td>-->
+											</tr>
+											<% }%>
+										</tbody>
+									</table>
+								</li>
+							</ul>
+							<ul class="article-footer">
+								<li class="replymenu"><a href="#" onclick="return false;"
+									style="font-size: 20px">Reply</a>
+									<ul class="replyhide">
+										<li><div>
+												<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
+												<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
+												<!--  <c:if test="${sessionScope.userid != null }">-->
+												<textarea class="content-box" id="replytext"
+													placeholder="댓글을 작성하세요" style="width: auto;"></textarea>
+												<br>
+												<!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
+												<!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
+												<!-- 내가 댓글을 작성한 값이 스크립트문을 거쳐서 컨트롤러로 맵핑되게 된다. -->
+												<button type="button" id="btnReply" >댓글쓰기</button>
+												<!-- </c:if>-->
+											</div></li>
+									</ul></li>
+								<li></li>
+							</ul>
 						</div>
 
 					</article>
@@ -368,10 +403,11 @@ h4:after {
 
 				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
 					alert("댓글이 등록되었습니다.");
-					listReply2(); //댓글 목록 출력
 				}
 			});
 		});
+		
+
 	</script>
 
 </body>
