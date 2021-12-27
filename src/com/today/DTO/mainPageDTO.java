@@ -22,11 +22,6 @@ public class mainPageDTO {
 		Wind = wind;
 	}
 
-	public mainPageDTO(String weather_stat) {
-		super();
-		Weather_stat = weather_stat;
-	}
-	
 
 	public mainPageDTO(String weather_stat, String city_name) {
 		super();

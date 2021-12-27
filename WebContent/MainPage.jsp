@@ -62,10 +62,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	var player = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
+	var player = [ "Snow.mp4", "RainMore.mp4", "RainLess.mp4", "Lightning.mp4", "CloudMore.mp4", "CloudLess.mp4", "Sun.mp4", "Grey.mp4"];
 		
 	function playit() {
-		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
+		var t = ["Snow.mp4", "RainMore.mp4", "RainLess.mp4", "Lightning.mp4", "CloudMore.mp4", "CloudLess.mp4", "Sun.mp4", "Grey.mp4"];
 		var myNodelist = document.getElementsByTagName('source');
 		var i;
 		for (i = 0; i < myNodelist.length; i++) {
@@ -159,16 +159,6 @@
 		
 		
 		<script>
-		
-		$(document).ready(function(){
-			
-			console.log(1);
-			$("#video1").attr("src", "mp4/Lightning.mp4");
-			document.getElementById('video').load();
-			
-		
-		});
-
 		// 동적 화면 sql 실행
 		$("document").click(function() { // 로그인 후로 조건 변경 필요
 			var region = "${member_dto.getregion()}"; // 로그인된 사람 지역
@@ -183,7 +173,32 @@
 			});
 		});
 		
+		$(document).ready(function(){
 			
+			if(weather_stat.equals("맑음") || weather_stat.equals("")){
+				$("#video1").attr("src", "mp4/Sun.mp4");	
+			}else if(weather_stat.equals("구름많음")){
+				$("#video2").attr("src", "mp4/CloudMore.mp4");
+			}else if(weather_stat.equals("구름적음")){
+				$("#video3").attr("src", "mp4/CloudLess.mp4");
+			}else if(weather_stat.equals("비많음")){
+				$("#video4").attr("src", "mp4/RainMore.mp4");
+			}else if(weather_stat.equals("비적음")){
+				$("#video5").attr("src", "mp4/RainLess.mp4");
+			}else if(weather_stat.equals("번개")){
+				$("#video4").attr("src", "mp4/Lightning.mp4");
+			}else if(weather_stat.equals("눈")){
+				$("#video5").attr("src", "mp4/Snow.mp4");
+			}else if(weather_stat.equals("흐림")){
+				$("#video5").attr("src", "mp4/Grey.mp4");
+			}
+			
+			//console.log(1);
+			//$("#video1").attr("src", "mp4/Lightning.mp4");
+			//document.getElementById('video').load();
+			
+		});
+	
 		</script>
 		
 	</header>
