@@ -356,16 +356,14 @@ h4:after {
 
 		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
 		$("#btnReply").click(function() {
-			var replytext = $("#replytext").val(); //댓글 내용
-			var bno = "${dto.bno}"; //게시물 번호
-			var param = {
-				"replytext" : replytext,
-				"bno" : bno
-			};
+			var comm_content = $("#replytext").val(); //댓글 내용
+			var article_seq = "${board_dto.getM_article_seq()}"; //게시물 번호
+			var mb_id = "${board_dto.getMb_id()}";  //작성자 아이디
+			var param = { "comm_content" : comm_content, "article_seq" : article_seq, "mb_id" : mb_id };
 			//var param="replytext="+replytext+"&bno="+bno;
 			$.ajax({
 				type : "post", //데이터를 보낼 방식
-				url : "${path}/reply/insert.do", //데이터를 보낼 url
+				url : "ReplyService", //데이터를 보낼 url
 				data : param, //보낼 데이터
 
 				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
