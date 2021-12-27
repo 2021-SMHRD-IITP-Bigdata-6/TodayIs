@@ -63,10 +63,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
-	var player = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
+	var player = [ "Snow.mp4", "RainMore.mp4", "RainLess.mp4", "Lightning.mp4", "CloudMore.mp4", "CloudLess.mp4", "Sun.mp4", "Grey.mp4"];
 		
 	function playit() {
-		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
+		var t = ["Snow.mp4", "RainMore.mp4", "RainLess.mp4", "Lightning.mp4", "CloudMore.mp4", "CloudLess.mp4", "Sun.mp4", "Grey.mp4"];
 		var myNodelist = document.getElementsByTagName('source');
 		var i;
 		for (i = 0; i < myNodelist.length; i++) {
@@ -78,10 +78,16 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
+<%
+
+%>
+=======
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		
 	%>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
@@ -136,19 +142,21 @@
 	<header class="hero">
 		<div class="carousel js-flickity">
 			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
-				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
-				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">	
+				<!--  <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
-				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">				
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">-->
 			</video>
+			
+			<button onclick="Weather()"> hi </button>
 			<script>
 			// 날씨 정보 이후.. 사용하기
-			var snow = player[0];
+		/*	var snow = player[0];
 			var rain = player[1];
 			var light = player[2];
-			var wind = player[3];
+			var wind = player[3];*/
 			
-			if("snow".equals("눈")){
+		/*	if("snow".equals("눈")){
 				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
 			}else if("rain".equals("흐리고")){
 				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
@@ -156,12 +164,11 @@
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">	
 			}else{
 				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
-			}
+			}*/
 			</script>
 		</div>
-		<div class="text">
-				<h1>날씨, 지역, 온도</h1>
-			</div>
+		<input type="text" name="move_region">
+		<button type="submit" value="submit"> 버튼 </button>
 		<div class='mouse-container'>
 			<a href="#intro">
 				<div class='mouse'>
@@ -169,6 +176,52 @@
 				</div>
 			</a>
 		</div>
+		
+		
+		<script>
+		// 동적 화면 sql 실행
+		$("document").click(function() { // 로그인 후로 조건 변경 필요
+			var region = "${member_dto.getregion()}"; // 로그인된 사람 지역
+			$.ajax({
+				type : "post", //데이터를 보낼 방식
+				url : "MoveService", //데이터를 보낼 url
+				data : region, //보낼 데이터
+
+				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+					alert("로그인되었습니다.");
+				}
+			});
+		});
+		
+		$(document).ready(function(){
+			
+			if(weather_stat.equals("맑음") || weather_stat.equals("")){
+				$("#video1").attr("src", "mp4/Sun.mp4");	
+				System.out.prinln("오늘날씨 맑음, 직역, 기온");
+			}else if(weather_stat.equals("구름많음")){
+				$("#video2").attr("src", "mp4/CloudMore.mp4");
+			}else if(weather_stat.equals("구름적음")){
+				$("#video3").attr("src", "mp4/CloudLess.mp4");
+			}else if(weather_stat.equals("비많음")){
+				$("#video4").attr("src", "mp4/RainMore.mp4");
+			}else if(weather_stat.equals("비적음")){
+				$("#video5").attr("src", "mp4/RainLess.mp4");
+			}else if(weather_stat.equals("번개")){
+				$("#video4").attr("src", "mp4/Lightning.mp4");
+			}else if(weather_stat.equals("눈")){
+				$("#video5").attr("src", "mp4/Snow.mp4");
+			}else if(weather_stat.equals("흐림")){
+				$("#video5").attr("src", "mp4/Grey.mp4");
+			}
+			
+			//console.log(1);
+			//$("#video1").attr("src", "mp4/Lightning.mp4");
+			//document.getElementById('video').load();
+			
+		});
+	
+		</script>
+		
 	</header>
 </body>
 </html>
