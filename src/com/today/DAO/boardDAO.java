@@ -5,11 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
+
 
 import com.today.DTO.boardDTO;
+
 
 public class boardDAO {
 		Connection conn = null;
@@ -115,26 +116,41 @@ public class boardDAO {
 
 			return cnt;
 		}
-
-		public int comm_insert(String comm_content, String article_seq, String mb_id) {
-			int cnt = 0;
+		
+		public ArrayList<boardDTO> board_all() {
+			ArrayList<boardDTO> board_arr = new ArrayList<boardDTO>();
 			try {
 				getConn();
-				String sql = "insert into t_comment values(0, ?, ?, sysdate, ?)";
+
+				String sql = "select * from t_community";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, article_seq);
-				psmt.setString(2, comm_content);
-				psmt.setString(3, "mb_id 1");
+				rs = psmt.executeQuery();
 
-				cnt = psmt.executeUpdate();
-				
+				while (rs.next() == true) {
+					int m_article_seq = rs.getInt("m_article_seq");
+					String m_article_subject = rs.getString("m_article_subject");
+					String m_article_content = rs.getString("m_article_content");
+					String m_article_img = rs.getString("m_article_img");
+					String m_article_date = rs.getString("m_article_date");
+					int m_article_likes = rs.getInt("m_article_likes");
+					String mb_id = rs.getString("mb_id");
+					String m_article_region = rs.getString("m_article_region");
+					int m_article_latitude = rs.getInt("m_article_latitude");
+					int m_article_logitude = rs.getInt("m_article_logitude");
+
+					boardDTO dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude);
+					
+					board_arr.add(dto);
+				}
+
 			} catch (Exception e) {
-
 				e.printStackTrace();
 			} finally {
 				close();
-			}		
-			return cnt;
+			}
+			return board_arr;
 		}
+
+		
 	}
 

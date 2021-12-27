@@ -14,17 +14,17 @@
                         <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
                     </div>
                     
-                    <form id="login" action="" class="input-group">
+                    <form id="login" action="LoginService" method="post" class="input-group">
                         <input type="text" name="mb_id" class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
                         <input type="checkbox" class="checkbox"><span>Remember Password</span>
                         <button class="submit">Login</button>
                     </form>
-                    <form id="register" action="" class="input-group">
+                    <form id="register" action="JoinService" method="post" class="input-group">
                         <input type="text" name="mb_id"  class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
-                        <input type="text" name="mb_nick_name"  class="input-field" placeholder="Your nick name" required>
-                        <input type="text" name="mb_phone_number"  class="input-field" placeholder="Your phone number" required>
+                        <input type="text" name="mb_nickname"  class="input-field" placeholder="Your nick name" required>
+                        <input type="text" name="mb_phone"  class="input-field" placeholder="Your phone number" required>
                         <li>사는 지역</li>
                         <select name ="mb_region">
                         	<option>-선택-</option>

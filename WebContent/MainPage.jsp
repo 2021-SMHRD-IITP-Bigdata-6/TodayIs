@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,47 +59,47 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
-
-	<style>
-		#Live {
-  			z-index: -1;
-		}
-			
-		#background {
-	  		z-index: -1;
-		}
+<script>
+	var player = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
 		
-		.text {
-		  position: absolute;
-		  top: 25%;
-		  left: 50%;
-		  width: 200px;
-		  margin-left: -100px;
-		  letter-spacing: 5px;
-		  text-align: center;
-		  color: #ffffff;
+	function playit() {
+		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
+		var myNodelist = document.getElementsByTagName('source');
+		var i;
+		for (i = 0; i < myNodelist.length; i++) {
+			myNodelist[i].src = t[i];
+		
 		}
-	</style>
-	
+		console.log(t);
+	}
+</script>
 </head>
 <body>
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		
+	%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><img src="img/synthetica-logo.png"
-						alt="Synthetica Freebie"></a>
+					<a href="/index.html"><font size="20px" font-weight="bold"> TODAY? </font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">Login</a></li>
-							<li><a href="#team">The crew</a></li>
-							<li><a href="#articles">Articles</a></li>
-							<li><a href="#freebies">Freebies</a></li>
+						<%if(dto != null) { %>
+							<li><%=dto.getMb_id() %> </li>
+							<li><%=dto.getMb_nickname() %> </li>
+							<li><%=dto.getMb_region() %> </li>
+							<%} %>
+							<li><a href="#intro"> 로그인 </a></li>
+							<li><a href="#team"> 회원가입 </a></li>
+							<li><a href="#articles"> 게시판 </a></li>
+							<li><a href="#freebies"> 더보기 </a></li>
 						</ul>
 					</nav>
 					<div class="secondary-nav-wrapper">
@@ -124,33 +125,33 @@
 	</div>
 	<header class="hero">
 		<div class="carousel js-flickity">
-			<script type="text/javascript">
-				jQuery( function() {
-					  jQuery( '#background' ).YTPlayer();
-				});
-				
-				jQuery( function() {
-					  jQuery( '#Live' ).YTPlayer();
-				});
+			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
+				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">				
+			</video>
+			<script>
+			// 날씨 정보 이후.. 사용하기
+			var snow = player[0];
+			var rain = player[1];
+			var light = player[2];
+			var wind = player[3];
+			
+			if("snow".equals("눈")){
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
+			}else if("rain".equals("흐리고")){
+				<source src="mp4/Rain.mp4" type="video/mp4" id="video2">
+			}else if("rain".equals("흐리고")){
+				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">	
+			}else{
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">
+			}
 			</script>
-			<div class="text">
-				<h1> 날씨, 지역, 온도 </h1>
-			</div>
-			<div id="Live" class="player" data-property="{
-			  videoURL: 'https://youtu.be/3vyzpUva--s',
-			  mute: true,
-			  showControls: false,
-			  useOnMobile: true,
-			  quality: 'highres',
-			  containment: 'self',
-			  loop: true,
-			  autoPlay: true,
-			  stopMovieOnBlur: false,
-			  startAt: 0,
-			  opacity: 1
-			}">
-			</div>
 		</div>
+		<div class="text">
+				<h1>날씨, 지역, 온도</h1>
+			</div>
 		<div class='mouse-container'>
 			<a href="#intro">
 				<div class='mouse'>
