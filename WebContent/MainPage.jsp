@@ -63,12 +63,11 @@
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	
-	player1 = [ "videoplayback Snow.mp4", "videoplayback Rain.mp4", "videoplayback Lightning.mp4" ];
+	player1[] = [ "Snow.mp4", "Rain.mp4", "Lightning.mp4", "weat-field.mp4"];
 
 	function playit() {
-		var t = [ 'videoplayback Snow.mp4', 'videoplayback Rain.mp4',
-				'videoplayback Lightning.mp4' ];
-		var myNodelist = document.getElementsByTagName("source");
+		var t = [ 'Snow.mp4', 'Rain.mp4', 'Lightning.mp4', 'weat-field.mp4'];
+		var myNodelist = document.getElementsByTagName('source');
 		var i;
 		for (i = 0; i < myNodelist.length; i++) {
 			myNodelist[i].src = t[i];
@@ -81,7 +80,7 @@
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><font size="30px" font-weight= bold> TODAY? </font></a>
+					<a href="/index.html"><font size="20px" font-weight="bold"> TODAY? </font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
@@ -95,8 +94,7 @@
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
 							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
-							<li class="search"><a href="#search" class="show-search"><li
-									class="fa fa-search"></i></a></li>
+							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -126,6 +124,7 @@
 				   // 날씨 정보 이후.. 사용하기
 				
 				%>
+				
 			</video>
 		</div>
 		<div class="text">
