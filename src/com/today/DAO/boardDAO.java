@@ -115,5 +115,26 @@ public class boardDAO {
 
 			return cnt;
 		}
+
+		public int comm_insert(String comm_content, String article_seq, String mb_id) {
+			int cnt = 0;
+			try {
+				getConn();
+				String sql = "insert into t_comment values(0, ?, ?, sysdate, ?)";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, article_seq);
+				psmt.setString(2, comm_content);
+				psmt.setString(3, "mb_id 1");
+
+				cnt = psmt.executeUpdate();
+				
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				close();
+			}		
+			return cnt;
+		}
 	}
 
