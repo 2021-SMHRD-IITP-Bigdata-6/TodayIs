@@ -23,15 +23,16 @@ public class MoveService extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String w_local = request.getParameter("region");
+		String w_temp = request.getParameter("w_temp");
+		String w_status = request.getParameter("w_status");
 		moveDAO dao = new moveDAO();
 		
-		
-		// 댓글 데이터가 잘 받아지는지
-		String w_status = dao.Move(w_local);
+		w_status = dao.Move(w_local, w_status, w_temp);
 		
 		if (w_status != null) {
 			
-			mainPageDTO move_dto = new mainPageDTO(w_status);
+			mainPageDTO move_dto = new mainPageDTO(w_local, w_status, w_temp);
+			
 			session.setAttribute("move_dto", move_dto); 
 			response.sendRedirect("mainPage.jsp");
 			

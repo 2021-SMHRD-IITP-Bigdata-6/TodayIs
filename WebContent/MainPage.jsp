@@ -106,6 +106,12 @@
 							<li><a href="#articles"> 게시판 </a></li>
 							<li><a href="#freebies"> 더보기 </a></li>
 						</ul>
+						<!-- DB연동하여 지역,기온,날씨 정보 가져오기 --> 
+						<%if(move_dto != null){ %>
+							<h1>날씨 : <%=move_dto.getW_status() %></h1>
+							<h1>기온 : <%=move_dto.getW_temp()%></h1>
+							<h1>지역 : <%=move_dto.getW_local() %></h1>
+						<%} %>
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
@@ -127,9 +133,6 @@
 				</div>
 			</div>
 		</div>
-		<%if(move_dto != null){ %>
-			<h1><%=move_dto.getW_status() %></h1>
-		<%} %>
 	</div>
 	<header class="hero">
 		<div class="carousel js-flickity">

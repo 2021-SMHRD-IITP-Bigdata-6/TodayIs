@@ -14,6 +14,7 @@ public class moveDAO {
 	ResultSet rs = null;
 	boardDTO boardDTO = null;
 	private boolean check;
+	private String w_temp;
 
 	// 데이터베이스 연결 호출 메소드
 	public void getConn() {
@@ -54,11 +55,10 @@ public class moveDAO {
 	}
 			
 		
-		public String Move(String w_local) {
+		public String Move(String w_local, String w_temp, String w_status) {
 			
-			String w_status= null;
+			w_status= null;
 			
-				String weather_stat1 = null;
 	        try {
 	        	getConn();
 	           	           
@@ -69,7 +69,9 @@ public class moveDAO {
 	           rs  = psmt.executeQuery(); 
 	           
 	           if(rs.next()) { 
+	        	w_local = rs.getString(2);
 	        	w_status = rs.getString(3);
+	        	w_temp = rs.getString(4);
 	              
 	           }       
 	           }catch(Exception e) {
@@ -80,5 +82,5 @@ public class moveDAO {
 	         
 	        }
 	     return w_status;
-	}
+		}
 }
