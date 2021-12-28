@@ -211,7 +211,16 @@
 			});
 		});
 		
+		// w_status 값 가져오기
+		function w_status(){
+			  var w_status = "123";
+			   
+			  opener.document.getElementById("w_status").value = val;
+			  window.opener.form.w_status.value = val;
+			  window.location.href = "subPage.html?index=" + index;
+		}
 		
+		// staus값 가져와서 날씨와 비교 후 영상 보여주기
 		$(document).ready(function(){
 			
 			if(w_status.equals("맑음") || w_status.equals("")){
