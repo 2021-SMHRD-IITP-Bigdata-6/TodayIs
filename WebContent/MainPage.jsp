@@ -78,16 +78,16 @@
 </script>
 </head>
 <body>
-<<<<<<< HEAD
+
 <%
 
 %>
-=======
+
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		
 	%>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
