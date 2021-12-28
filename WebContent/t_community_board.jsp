@@ -82,11 +82,6 @@
 	line-height: 20px;
 }
 
-.replymenu .replyhide {
-	display: none;
-	word-spacing: 10px;
-	line-height: 20px;
-}
 
 //
 댓글 관련 스타일 끝 // 좋아요 기능
@@ -126,6 +121,13 @@ h4:after {
 	content: '';
 	background-color: #7AE2DE;
 }
+
+  th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+    font-size: small;
+  }
+
 </style>
 </head>
 
@@ -212,20 +214,21 @@ h4:after {
 							<ul>
 								<li><h4 class="contents_style"><%=board_dto.getM_article_content()%></h4></li>
 							</ul>
-							<div class="like-button-wrapper">
-								<a href="#" class="like_button"><i
-									class="like-counter fa fa-heart-o"></i> <span><%=board_dto.getM_article_likes()%>0</span>
-								</a>
+							<hr>
+							<div class="like-button-wrapper" >
+								<a href="#" class="like_button" ><i
+									class="like-counter fa fa-heart-o" ></i> <span><%=board_dto.getM_article_likes()%>0</span>
+								</a >
 							</div>
-							<ul>
-								<li>
-									<table>
+							<ul style="margin-top: 10px">
+								<li>			
+									<table style="width: 100%; table-layout : fixed; word-break:break-all; border: 1px solid #444444;">
 										<thead>
-											<tr>
-												<td>댓글내용</td>
-												<td>작성자</td>
-												<td>작성일자</td>
-												<td>삭제</td>
+											<tr >
+												<td width="50%">댓글내용</td>
+												<td width="20%">작성자</td>
+												<td width="20%">일자</td>
+												<td width="10%">삭제</td>
 											</tr>
 										</thead>
 
@@ -237,27 +240,26 @@ h4:after {
 									 for (int i = 0 ; i <arr.size(); i++)  {%>
 											<tr>
 												<td><%=arr.get(i).getComm_content() %></td>
-												<td><%=arr.get(i).getComm_date() %></td>
-												<!-- <td>=arr.get(i).getComm_seq() %></td> -->
-												<!--<td>=arr.get(i).getM_article_seq() %></td>-->
 												<td><%=arr.get(i).getMb_id() %></td>
-												<!--  <td><a href='DeleteCon.do?email==arr.get(i).getEmail() %>'> 삭제 </a></td>-->
+												<td><%=arr.get(i).getComm_date() %></td>
+												<td><a href='DeleteCon.do?email==arr.get(i).getEmail() %>'> 삭제 </a></td>
 											</tr>
 											<% }%>
 										</tbody>
 									</table>
 								</li>
 							</ul>
+							
 							<ul class="article-footer">
-								<li class="replymenu"><a href="#" onclick="return false;"
-									style="font-size: 20px">Reply</a>
-									<ul class="replyhide">
-										<li><div>
+								<li class="replymenu">
+								<a href="#" onclick="return false;"	style="font-size: 20px">Reply</a>
+									<ul class="replyhide" style="margin-top: 10px">
+										<li><div >
 												<!-- 세션에 저장되어있는 userid가 null이 아닐때 -->
 												<!-- 그러니까 로그인을 한 상태이어야만 댓글을 작성 할 수 있다.-->
 												<!--  <c:if test="${sessionScope.userid != null }">-->
 												<textarea class="content-box" id="replytext"
-													placeholder="댓글을 작성하세요" style="width: auto;"></textarea>
+													placeholder="댓글을 작성하세요" rows="5" cols="50"></textarea>
 												<br>
 												<!-- 댓글쓰기 버튼을 누르면 id값인 btnReply값이 넘어가서 -->
 												<!-- 위쪽에 있는 스크립트 구문이 실행되고 -->
@@ -268,6 +270,7 @@ h4:after {
 									</ul></li>
 								<li></li>
 							</ul>
+							
 						</div>
 
 					</article>
@@ -375,34 +378,7 @@ h4:after {
 
 	<!-- 댓글 기능 종료 -->
 	<script>
-		$(document).ready(function() {
-			$(".replymenu>a").mouseover(function() {
-				var submenu = $(this).next("ul");
 
-				// submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-				if (submenu.is(":visible")) {
-					submenu.slideUp();
-				} else {
-					submenu.slideDown();
-				}
-			}).click(function() {
-				$(this).next("ul").slideDown();
-			});
-			
-			// 댓글 초기화후 다시 불러오는 작업
-			var article_seq = "${board_dto.getM_article_seq()}";
-			$.ajax({
-				url : "ReplylistService",
-				type : "post",
-				data : 	article_seq,					
-				success : function() {	
-					alert("요청성공!");
-				},
-				error : function(){
-					alert("요청실패!");
-				}
-			});
-		});
 
 		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
 		$("#btnReply").click(function() {
@@ -417,6 +393,7 @@ h4:after {
 				data : param, //보낼 데이터
 
 				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+					location.reload();
 					alert("댓글이 등록되었습니다.");
 				}
 			});
