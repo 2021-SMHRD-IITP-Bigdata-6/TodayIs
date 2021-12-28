@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.today.DTO.boardDTO;
-import com.today.DTO.mainPageDTO;
 
 public class moveDAO {
 	Connection conn = null;
