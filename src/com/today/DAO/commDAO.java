@@ -133,6 +133,28 @@ public class commDAO {
 		}
 		return all;
 	}
+	
+	// 댓글 삭제
+	public int comm_delete(String COMM_SEQ) {
+		int cnt = 0;
+
+		try {
+			getConn();
+
+				String sql = "delete from t_comment where COMM_SEQ = ? ";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, COMM_SEQ);
+
+				cnt = psmt.executeUpdate();
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return cnt;
+	}
 
 	
 }
