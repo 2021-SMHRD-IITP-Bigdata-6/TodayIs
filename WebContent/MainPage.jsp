@@ -106,12 +106,6 @@
 							<li><a href="#articles"> 게시판 </a></li>
 							<li><a href="#freebies"> 더보기 </a></li>
 						</ul>
-						<!-- DB연동하여 지역,기온,날씨 정보 가져오기 --> 
-						<%if(move_dto != null){ %>
-							<h1>날씨 : <%=move_dto.getW_status() %></h1>
-							<h1>기온 : <%=move_dto.getW_temp()%></h1>
-							<h1>지역 : <%=move_dto.getW_local() %></h1>
-						<%} %>
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
@@ -138,9 +132,18 @@
 		<div class="carousel js-flickity">
 			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
 				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">	
-				<!--  <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
+				<!-- <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
-				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">-->
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4"> -->
+			</video>
+			<div>
+				<!-- DB연동하여 지역,기온,날씨 정보 가져오기 --> 
+						<%if(move_dto != null){ %>
+							<h1>날씨 : <%=move_dto.getW_status() %></h1>
+							<h1>기온 : <%=move_dto.getW_temp()%></h1>
+							<h1>지역 : <%=move_dto.getW_local() %></h1>
+						<%} %>	
+				</div>
 			</video>
 			
 			<button onclick="Weather()"> hi </button>
