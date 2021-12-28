@@ -15,7 +15,7 @@ import com.today.DTO.memberDTO;
 public class UpdateService implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -39,7 +39,7 @@ public class UpdateService implements Command {
 		}else {
 			response.sendRedirect("main.jsp");
 		}
-		return null;
+		
 	}
 
 }

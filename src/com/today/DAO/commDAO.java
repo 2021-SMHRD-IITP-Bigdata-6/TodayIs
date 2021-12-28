@@ -105,4 +105,34 @@ public class commDAO {
 		return al;
 	}
 	
+	//댓글 전체 조회
+	public ArrayList<commDTO> comm_selectall() {
+		ArrayList<commDTO> all = new ArrayList<commDTO>();
+		try {
+			getConn();
+
+			String sql = "select * from t_comment";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+
+			while (rs.next() == true) {
+				int comm_seq = rs.getInt("comm_seq");
+				int article_seq = rs.getInt("article_seq");		
+				String content = rs.getString("comm_content");
+				String date = rs.getString("comm_date").substring(0,10);
+				String id = rs.getString("mb_id");
+				
+				comm_dto = new commDTO(comm_seq, article_seq, content, date, id);
+				all.add(comm_dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return all;
+	}
+
+	
 }

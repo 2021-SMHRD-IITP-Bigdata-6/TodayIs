@@ -338,6 +338,7 @@
 	
 	var selected_big
 	var selected_small
+	
 	// 지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기
 	$('#big').on('click', function(){
 		selected_big = $('#big option:selected').text();
@@ -373,11 +374,7 @@
 	  } else {
 	    document.getElementById('m_article_preview').src = "";
 	  }
-	}
-
-
-
-
+	};
 	</script>
 </body>
 </html>

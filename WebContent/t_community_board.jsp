@@ -133,6 +133,7 @@ h4:after {
 	<%
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto"); 
+
 	%>
 	<div class="container-fluid">
 		<div class="row">
@@ -387,10 +388,24 @@ h4:after {
 			}).click(function() {
 				$(this).next("ul").slideDown();
 			});
+			
+			// 댓글 초기화후 다시 불러오는 작업
+			var article_seq = "${board_dto.getM_article_seq()}";
+			$.ajax({
+				url : "ReplylistService",
+				type : "post",
+				data : 	article_seq,					
+				success : function() {	
+					alert("요청성공!");
+				},
+				error : function(){
+					alert("요청실패!");
+				}
+			});
 		});
 
 		//댓글 쓰기 (버튼을 눌러서 id값이 넘어와 실행되는 자바스크립트 구문)
-		$("#btnReply").ready(function() {
+		$("#btnReply").click(function() {
 			var comm_content = $("#replytext").val(); //댓글 내용
 			var article_seq = "${board_dto.getM_article_seq()}"; //게시물 번호
 			var mb_id = "${board_dto.getMb_id()}";  //작성자 아이디
