@@ -110,7 +110,7 @@
 							<%} %>
 							
 							
-							<li><a href="#articles"> 공유 게시판 </a></li>
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>

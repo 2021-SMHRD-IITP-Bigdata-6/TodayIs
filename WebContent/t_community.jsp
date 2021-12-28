@@ -93,18 +93,19 @@
 	position: absolute;
 }
 //
-
-
 </style>
 </head>
 
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
+	
+	commDAO comm_dao = new commDAO();
+	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	%>
 
 
@@ -120,9 +121,9 @@
 					<nav>
 						<ul class="primary-nav">
 							<li><a href="#intro">The collective</a></li>
-							<li><a href="#team">The crew</a></li>
-							<li><a href="#articles">Articles</a></li>
-							<li><a href="#freebies">Freebies</a></li>
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
+							<li><a href="#articles"> 미션 게시판 </a></li>
+							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
 					</nav>
 					<div class="secondary-nav-wrapper">
@@ -165,202 +166,89 @@
 			</div>
 			<section class="latest-articles has-padding alternate-bg"
 				id="articles">
-				<div class="container">
+				<div class="container" style="margin-left: 10%; margin-right: 10%;">
 					<%
+						try {
 						for (int i = 0; i < arr.size(); i++) {
 					%>
+					<!-- 1번 게시물 -->
 					<div class="row">
 						<div class="col-md-4">
 							<article class="article-post">
 								<a href="#"> <img src="<%=arr.get(i).getM_article_img()%>"
 									style="width: 100%; height: 100%;"
 									id="article-image has-overlay">
-						</div>
-						<figure>
-							<figcaption>
-								<h2><%=arr.get(i).getM_article_subject()%></h2>
-								<p class="getM_article_content"><%=arr.get(i).getM_article_content()%></p>
-							</figcaption>
-						</figure>
-						</a>
-						<div>
-							<ul class="article-footer">
-								<li>
-									<div class="like-button-wrapper">
-										<a href="#" class="like_button"><i
-											class="like-counter fa fa-heart-o"></i> <span><%=arr.get(i).getM_article_likes()%></span>
-										</a>
-									</div>
-								</li>
-								<li class="replymenu" style="margin-left: 2px"><a href="#"
-									onclick="return false;" style="font-size: 20px">Reply</a>
-									<ul class="replyhide">
-										<li>와 너무 추워요 ㅠㅠㅠ 정말 얼어죽는줄 알았어요.</li>
-										<li>안춥던데....</li>
-										<li>맞아요 정말 추웟어요 ㅠㅠ</li>
-										<li>좋은 공유 감사합니다.</li>
-										<li>고마워요 공유해주셔서</li>
-									</ul></li>
 
-							</ul>
-							<ul>
-								<li class="article-category"></li>
-								<li class="article-comments"><span><i
-										class="fa fa-comments"></i> 51</span></li>
-							</ul>
+									<figure>
+										<figcaption>
+											<h2><%=arr.get(i).getM_article_subject()%></h2>
+											
+											<p class="getM_article_content"><%=arr.get(i).getM_article_content()%></p>
+										</figcaption>
+									</figure>
+								</a>
+								<div>
+									<ul class="article-footer">
+										<li>
+											<div class="like-button-wrapper">
+												<a href="#" class="like_button"><i
+													class="like-counter fa fa-heart-o"></i> <span><%=arr.get(i).getM_article_likes()%></span>
+												</a>
+											</div>
+										</li>
+										<li class="replymenu" style="margin-left: 2px"><a
+											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
+											<ul class="replyhide">
+											<% 
+											
+											for (int j = 0 ; j < all.size(); j++){
+												if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
+												
+													%> <li><%=all.get(j).getComm_content() %></li>
+								
+											<%	}
+											}
+											
+											%>
+											</ul></li>
+
+									</ul>
+									<ul>
+										<li class="article-category"></li>
+										<li class="article-comments"><span><i
+												class="fa fa-comments"></i> 51</span></li>
+									</ul>
+								</div>
+							</article>
 						</div>
-						</article>
 					</div>
-
-					<%}%>
+					<%
+						}
+					} catch (Exception e) {
+					}
+					%>
 				</div>
 			</section>
+
+			<%
+				try {
+				for (int i = 0; i < arr.size(); i++) {
+					for (int j = 0 ; j < all.size(); j++){
+						if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
+							System.out.println(all.get(j).getComm_content());
+		
+						}
+					}
+
+
+			}
+			} catch (Exception e) {
+
+			}
+			%>
+
 			<!-- END SECTION: Articles -->
 			<!-- SECTION: Freebies -->
-			<section class="freebies has-padding" id="freebies">
-				<div class="container freebies-intro">
-					<div class="row">
-						<div class="col-md-12">
-							<h4>Freshest Freebies</h4>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 content-left">
-							<p>A posuere donec senectus suspendisse bibendum magna
-								ridiculus a justo orci parturient suspendisse ad rhoncus cursus
-								ut parturient viverra elit aliquam ultrices est sem. Tellus nam
-								ad fermentum ac enim est duis facilisis congue a lacus
-								adipiscing consequat risus consectetur scelerisque integer
-								suspendisse a mus integer elit.</p>
-						</div>
-						<div class="col-md-6 content-right">
-							<p>A posuere donec senectus suspendisse bibendum magna
-								ridiculus a justo orci parturient suspendisse ad rhoncus cursus
-								ut parturient viverra elit aliquam ultrices est sem. Tellus nam
-								ad fermentum ac enim est duis facilisis congue a lacus
-								adipiscing consequat risus consectetur scelerisque integer
-								suspendisse a mus integer elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6 no-padding">
-							<article class="item wp5">
-								<figure class="has-overlay">
-									<figcaption class="overlay">
-										<div class="like-share-wrapper">
-											<ul>
-												<li>
-													<div class="like-button-wrapper">
-														<a href="#" class="like_button"><i
-															class="like-counter fa fa-heart-o"></i></a> <span
-															class="count">0</span>
-													</div>
-												</li>
-											</ul>
-										</div>
-										<div class="freebie-content">
-											<span class="date">03/01/2016</span>
-											<h2>Sedna HTML CSS Template</h2>
-											<div class="group">
-												<a
-													href="http://tympanus.net/codrops/2015/08/11/freebie-sedna-one-page-website-template/"
-													class="btn secondary">Download</a>
-											</div>
-										</div>
-									</figcaption>
-									<img src="img/sedna-freebie.jpg" alt="Sedna Freebie">
-								</figure>
-							</article>
-						</div>
-						<div class="col-md-6 no-padding">
-							<article class="item wp6">
-								<figure class="has-overlay">
-									<figcaption class="overlay">
-										<div class="like-share-wrapper">
-											<ul>
-												<li>
-													<div class="like-button-wrapper">
-														<a href="#" class="like_button"><i
-															class="like-counter fa fa-heart-o"></i></a> <span
-															class="count">0</span>
-													</div>
-												</li>
-											</ul>
-										</div>
-										<div class="freebie-content">
-											<span class="date">03/01/2016</span>
-											<h2>Land.io Sketch Template</h2>
-											<div class="group">
-												<a
-													href="http://tympanus.net/codrops/2015/09/16/freebie-land-io-ui-kit-landing-page-design-sketch/"
-													class="btn secondary">Download</a>
-											</div>
-										</div>
-									</figcaption>
-									<img src="img/landio-freebie.jpg" alt="Land.io Freebie">
-								</figure>
-							</article>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 no-padding">
-							<article class="item wp7">
-								<figure class="has-overlay">
-									<figcaption class="overlay">
-										<div class="like-share-wrapper">
-											<ul>
-												<li>
-													<div class="like-button-wrapper">
-														<a href="#" class="like_button"><i
-															class="like-counter fa fa-heart-o"></i></a> <span
-															class="count">0</span>
-													</div>
-												</li>
-											</ul>
-										</div>
-										<div class="freebie-content">
-											<span class="date">03/01/2016</span>
-											<h2>Synthetica HTML5/CSS3 Template</h2>
-											<div class="group">
-												<a href="http://tympanus.net/codrops/?p=26570"
-													class="btn secondary">Download</a>
-											</div>
-										</div>
-									</figcaption>
-									<img src="img/freebie-03.jpg" alt="Synthetica Freebie">
-								</figure>
-							</article>
-						</div>
-						<div class="col-md-6 no-padding">
-							<article class="item wp8">
-								<figure class="has-overlay">
-									<figcaption class="overlay">
-										<div class="like-share-wrapper">
-											<ul>
-												<li>
-													<div class="like-button-wrapper">
-														<a href="#" class="like_button"><i
-															class="like-counter fa fa-heart-o"></i></a> <span
-															class="count">0</span>
-													</div>
-												</li>
-											</ul>
-										</div>
-										<div class="freebie-content">
-											<span class="date">03/01/2016</span>
-											<h2>Free logo concepts by Koby West</h2>
-											<div class="group">
-												<a href="#" class="btn secondary">Download</a>
-											</div>
-										</div>
-									</figcaption>
-									<img src="img/freebie-04.jpg" alt="Synthetica">
-								</figure>
-							</article>
-						</div>
-						<div class="is-centered">
 							<a href="#" class="btn secondary view-more">View more</a>
 						</div>
 					</div>
@@ -464,21 +352,41 @@
 
 			<!-- 댓글 기능 종료 -->
 			<script>
-    $(document).ready(function(){
-        $(".replymenu>a").click(function(){
-            var submenu = $(this).next("ul");
- 
-            // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-            if( submenu.is(":visible") ){
-                submenu.slideUp();
-            }else{
-                submenu.slideDown();
-            }
-        }).mouseover(function(){
-            $(this).next("ul").slideDown();
-        });
-    });
-</script>
+				$(document).ready(function() {
+					$(".replymenu>a").click(function() {
+						var submenu = $(this).next("ul");
+
+						// submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+						if (submenu.is(":visible")) {
+							submenu.slideUp();
+						} else {
+							submenu.slideDown();
+						}
+					}).mouseover(function() {
+						$(this).next("ul").slideDown();
+					});
+
+					// 댓글 초기화후 다시 불러오는 작업
+
+					var article_seq = "${arr.get(0).getM_article_seq()}";
+					console.log(article_seq);
+						$.ajax({
+						url : "ReplylistService",
+						type : "post",
+						data : article_seq,
+						success : function() {
+							console.log("불러와짐.")
+						},
+						error : function() {
+							alert("요청실패!");
+						}
+					});
+				});
+				
+
+				
+
+			</script>
 </body>
 
 </html>
