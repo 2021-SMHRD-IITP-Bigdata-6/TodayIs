@@ -13,6 +13,7 @@ import com.today.DTO.memberDTO;
 @WebServlet("/LoginService")
 public class LoginService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
 
 		String mb_id = request.getParameter("mb_id");
@@ -31,8 +32,8 @@ public class LoginService extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
-
 			response.sendRedirect("MainPage.jsp");
+			
 		}else {
 			response.sendRedirect("login.html");
 

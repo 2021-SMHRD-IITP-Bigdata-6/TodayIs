@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.mainPageDTO"%>
 <%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -77,14 +78,14 @@
 	}
 </script>
 </head>
-<body>
-<%
 
-%>
-	<%
-		memberDTO dto = (memberDTO) session.getAttribute("dto");
-		
-	%>
+<body>
+ <%
+      memberDTO dto = (memberDTO) session.getAttribute("dto");
+      mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
+      
+   %>
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">

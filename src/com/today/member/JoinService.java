@@ -15,6 +15,7 @@ import com.today.DTO.memberDTO;
 @WebServlet("/JoinService")
 public class JoinService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
 		String mb_id = request.getParameter("mb_id");
 		String mb_pw = request.getParameter("mb_pw");
