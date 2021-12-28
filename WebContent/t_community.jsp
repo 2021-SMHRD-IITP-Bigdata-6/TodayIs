@@ -79,26 +79,32 @@
 	line-height: 20px;
 }
 
-.replymenu .replyhide {
+.replymenu {
 	display: none;
 	word-spacing: 10px;
 	line-height: 20px;
 }
 
-//
-댓글 관련 스타일 끝 // 좋아요 기능
+.replyhide{
+	display: none;
+	word-spacing: 10px;
+	line-height: 20px;}
+
+//댓글 관련 스타일 끝 // 좋아요 기능
 	a.like_button {
 	right: 60px;
 	bottom: 1px;
 	position: absolute;
 }
-//
+
+}
+
 </style>
 </head>
 
 <body>
 	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 
 	boardDAO board_dao = new boardDAO();
@@ -106,6 +112,7 @@
 	
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
+	int cnt =0;
 	%>
 
 
@@ -166,13 +173,13 @@
 			</div>
 			<section class="latest-articles has-padding alternate-bg"
 				id="articles">
-				<div class="container" style="margin-left: 10%; margin-right: 10%;">
+				<div class="container" >
 					<%
 						try {
 						for (int i = 0; i < arr.size(); i++) {
 					%>
 					<!-- 1번 게시물 -->
-					<div class="row">
+					<div>
 						<div class="col-md-4">
 							<article class="article-post">
 								<a href="#"> <img src="<%=arr.get(i).getM_article_img()%>"
@@ -199,24 +206,25 @@
 										<li class="replymenu" style="margin-left: 2px"><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
+									
 											<% 
-											
+											cnt =0;									
 											for (int j = 0 ; j < all.size(); j++){
 												if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
-												
-													%> <li><%=all.get(j).getComm_content() %></li>
-								
+											%><li> <%=all.get(j).getMb_id() %> </li> 
+											  <li> <%=all.get(j).getComm_date() %> </li> 
+											  <li> <%=all.get(j).getComm_content() %> </li> 
+											  <% cnt +=1; %>
+											  <br>
 											<%	}
-											}
-											
-											%>
+											} %>		
+								
 											</ul></li>
 
 									</ul>
 									<ul>
 										<li class="article-category"></li>
-										<li class="article-comments"><span><i
-												class="fa fa-comments"></i> 51</span></li>
+										<li class="article-comments"><span><i class="fa fa-comments"></i><%=cnt %> </span></li>
 									</ul>
 								</div>
 							</article>
@@ -230,22 +238,21 @@
 				</div>
 			</section>
 
-			<%
-				try {
-				for (int i = 0; i < arr.size(); i++) {
-					for (int j = 0 ; j < all.size(); j++){
-						if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
-							System.out.println(all.get(j).getComm_content());
-		
-						}
-					}
-
-
-			}
-			} catch (Exception e) {
-
-			}
-			%>
+	<%
+//				try {
+//				for (int i = 0; i < arr.size(); i++) {
+//					for (int j = 0 ; j < all.size(); j++){
+//						if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
+//							System.out.println(all.get(j).getComm_content());
+//						}
+//					}
+//
+//
+//			}
+//			} catch (Exception e) {
+//
+//			}
+			%>	
 
 			<!-- END SECTION: Articles -->
 			<!-- SECTION: Freebies -->
@@ -368,19 +375,6 @@
 
 					// 댓글 초기화후 다시 불러오는 작업
 
-					var article_seq = "${arr.get(0).getM_article_seq()}";
-					console.log(article_seq);
-						$.ajax({
-						url : "ReplylistService",
-						type : "post",
-						data : article_seq,
-						success : function() {
-							console.log("불러와짐.")
-						},
-						error : function() {
-							alert("요청실패!");
-						}
-					});
 				});
 				
 

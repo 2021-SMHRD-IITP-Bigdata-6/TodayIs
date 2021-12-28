@@ -55,7 +55,7 @@ public class commDTO {
 		this.comm_date = comm_date;
 	}
 
-	public commDTO(int article_seq, int comm_seq, String comm_content, String mb_id, String comm_date) {
+	public commDTO(int article_seq, int comm_seq, String comm_content, String comm_date,  String mb_id) {
 		super();
 		this.article_seq = article_seq;
 		this.comm_seq = comm_seq;
