@@ -118,7 +118,7 @@
 					
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
-							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
+							<li class="subscribe"><a href="t_community_board.jsp">글작성하기</a></li>
 							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
 						</ul>
 					</div>

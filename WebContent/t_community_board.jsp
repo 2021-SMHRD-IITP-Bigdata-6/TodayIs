@@ -242,7 +242,7 @@ h4:after {
 												<td><%=arr.get(i).getComm_content() %></td>
 												<td><%=arr.get(i).getMb_id() %></td>
 												<td><%=arr.get(i).getComm_date() %></td>
-												<td><a href='DeleteCon.do?email==arr.get(i).getEmail() %>'> 삭제 </a></td>
+												<td><a href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq() %>'> 삭제 </a></td>
 											</tr>
 											<% }%>
 										</tbody>

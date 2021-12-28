@@ -373,23 +373,6 @@
 						$(this).next("ul").slideDown();
 					});
 
-					// 댓글 초기화후 다시 불러오는 작업
-
-					var article_seq = "${arr.get(0).getM_article_seq()}";
-					console.log(article_seq);
-						$.ajax({
-						url : "ReplylistService",
-						type : "post",
-						data : article_seq,
-						success : function() {
-							console.log("불러와짐.")
-						},
-						error : function() {
-							alert("요청실패!");
-						}
-					});
-				});
-				
 
 				
 
