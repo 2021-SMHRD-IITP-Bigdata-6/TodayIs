@@ -102,8 +102,8 @@
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
-							<li><a href="#intro"> 로그인 </a></li>
-							<li><a href="#team"> 회원가입 </a></li>
+							<li><a href="login.html"> 로그인 </a></li>
+							<li><a href="login.html"> 회원가입 </a></li>
 							<li><a href="#articles"> 게시판 </a></li>
 							<li><a href="#freebies"> 더보기 </a></li>
 						</ul>
