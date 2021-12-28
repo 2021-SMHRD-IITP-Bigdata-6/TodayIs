@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.mainPageDTO"%>
 <%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -77,16 +78,13 @@
 	}
 </script>
 </head>
+
 <body>
-
-<%
-
-%>
-
-	<%
-		memberDTO dto = (memberDTO) session.getAttribute("dto");
-		
-	%>
+ <%
+      memberDTO dto = (memberDTO) session.getAttribute("dto");
+      mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
+      
+   %>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -102,6 +100,7 @@
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
+	
 							
 							
 							<%if(dto == null) { %>
@@ -112,7 +111,7 @@
 							<%} %>
 							
 							
-							<li><a href="#articles"> 공유 게시판 </a></li>
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
