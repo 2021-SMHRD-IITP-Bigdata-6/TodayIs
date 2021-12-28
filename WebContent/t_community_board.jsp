@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="com.today.DTO.commDTO"%>
@@ -132,8 +133,9 @@ h4:after {
 </head>
 
 <body>
-	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	<% 	
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");		
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto"); 
 
 	%>
@@ -147,10 +149,24 @@ h4:after {
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">The collective</a></li>
-							<li><a href="#team">The crew</a></li>
-							<li><a href="#articles">Articles</a></li>
-							<li><a href="#freebies">Freebies</a></li>
+						<%if(dto != null) { %>
+							<li><%=dto.getMb_id() %> </li>
+							<li><%=dto.getMb_nickname() %> </li>
+							<li><%=dto.getMb_region() %> </li>
+							<%} %>
+	
+							
+							
+							<%if(dto == null) { %>
+							<li><a href="login.html"> 로그인 </a></li>
+							<li><a href="#team"> 회원가입 </a></li>
+							<%} else{ %>
+							<li><a href="LogoutService"> 로그아웃 </a></li>
+							<%} %>
+							
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
+							<li><a href="#articles"> 미션 게시판 </a></li>
+							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
 					</nav>
 					<div class="secondary-nav-wrapper">

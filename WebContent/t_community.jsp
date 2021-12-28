@@ -109,6 +109,8 @@
 
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
+
+	
 	
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
@@ -182,8 +184,8 @@
 					<div>
 						<div class="col-md-4">
 							<article class="article-post">
-								<a href="#"> <img src="<%=arr.get(i).getM_article_img()%>"
-									style="width: 100%; height: 100%;"
+								<a href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq() %>"> <img src="<%=arr.get(i).getM_article_img()%>"
+									style="width: 100%; height: 100%;" 
 									id="article-image has-overlay">
 
 									<figure>
