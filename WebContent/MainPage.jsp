@@ -95,6 +95,7 @@
 		moveDAO move_dao = new moveDAO();
 		
 		mainLifeDAO life_dao = new mainLifeDAO();
+		mainLifeDTO life_dto = null;
 
 	%>
 
@@ -198,7 +199,7 @@
 			<% } %>
 		</div>
 		<div>
-			<%if(life_dao != null){ %>
+			<%if(dto != null){ %>
 				<h3>빨래지수: <%=life_dao.life_dto(dto.getMb_region()).getw_wash() %></h3>
 				<h3>외출지수: <%=life_dao.life_dto(dto.getMb_region()).getW_out() %></h3>
 				<h3>운동지수: <%=life_dao.life_dto(dto.getMb_region()).getW_exercise() %></h3>
@@ -207,6 +208,8 @@
 				<h3>잠지수: <%=life_dao.life_dto(dto.getMb_region()).getW_sleep() %></h3>
 				<h3>감기지수: <%=life_dao.life_dto(dto.getMb_region()).getW_cold() %></h3>
 				<h3>불지수: <%=life_dao.life_dto(dto.getMb_region()).getW_fire() %></h3>
+				<h3>불지수: <%=life_dao.life_dto(dto.getMb_region()).getW_region() %></h3>
+				
 			<%} %>
 		</div>		 
 		
