@@ -1,26 +1,22 @@
+<%@page import="com.today.DTO.memberDTO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
     <html>
     	<meta charset="utf-8">
         <head>
             <title> to 로그인 / 회원가입 폼 템플릿</title>
-            <link rel="stylesheet" href="css/login.css">
+            <link rel="stylesheet" href="css/update.css">
         </head>
         <body>
             <div class="wrap" style="background-image: url(./imgs/background.jpg);">
                 <div class="form-wrap">
-                    <div class="button-wrap">
-                        <div id="btn"></div>
-                        <button type="button" class="togglebtn" onclick="login()">로그인</button>
-                        <button type="button" class="togglebtn" onclick="register()">회원가입</button>
+                    <div class="button-wrap" style="width:150px;">
+                        <div id="btn" style="width:150px;"></div>
+                        <button type="button" style= width:150px; class="togglebtn" onclick="login()">정보 수정</button>
                     </div>
                     
                     <form id="login" action="LoginService" method="post" class="input-group">
-                        <input type="text" name="mb_id" class="input-field" placeholder="User id" required>
-                        <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
-                        <button class="submit">로그인</button>
-                    </form>
-                    <form id="register" action="JoinService" method="post" class="input-group">
-                        <input type="text" name="mb_id"  class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
                         <input type="text" name="mb_nickname"  class="input-field" placeholder="Your nick name" required>
                         <input type="text" name="mb_phone"  class="input-field" placeholder="Your phone number" required>
@@ -43,29 +39,21 @@
                         	<option>제주</option>
                         	<option>충남</option>
                         	<option>충북</option>
-                        </select>
-                        <button class = "submit">회원가입</button>
-                        
+                        </select> 
+                        <br>
+                        <button class="submit">정보수정</button>
                     </form>
                 </div>
             </div>
             
             <script>
                 var x = document.getElementById("login");
-                var y = document.getElementById("register");
                 var z = document.getElementById("btn");
                 
                 
-                function login(){
+                function tochange(){
                     x.style.left = "50px";
-                    y.style.left = "450px";
                     z.style.left = "0";
-                }
-
-                function register(){
-                    x.style.left = "-400px";
-                    y.style.left = "50px";
-                    z.style.left = "110px";
                 }
             </script>
         </body>

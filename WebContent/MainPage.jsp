@@ -52,6 +52,7 @@
 <meta name="msapplication-config"
 	content="img/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+
 <!-- end favicon links -->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/normalize.min.css">
@@ -106,7 +107,7 @@
 							<li><a href="login.html"> 로그인 </a></li>
 							<%} else{ %>
 							<li><a href="LogoutService"> 로그아웃 </a></li>
-							<li><a href="UpdateService"> 정보수정 </a></li>
+							<li><a href="update.jsp"> 정보수정 </a></li>
 							<%} %>
 							
 							
