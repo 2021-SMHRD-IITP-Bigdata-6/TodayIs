@@ -22,6 +22,17 @@ public class mainPageDTO {
 		this.w_wind = w_wind;
 	}
 	
+	public mainPageDTO(String w_local, String w_status, String w_temp, String w_body_temp, String w_humidity,
+			String w_wind) {
+		super();
+		this.w_local = w_local;
+		this.w_status = w_status;
+		this.w_temp = w_temp;
+		this.w_body_temp = w_body_temp;
+		this.w_humidity = w_humidity;
+		this.w_wind = w_wind;
+	}
+
 	public mainPageDTO(String w_local, String w_status, String w_temp) {
 		super();
 		this.w_local = w_local;

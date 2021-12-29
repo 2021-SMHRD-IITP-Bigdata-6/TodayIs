@@ -22,10 +22,6 @@ public class LoginService extends HttpServlet {
 		memberDAO dao = new memberDAO();
 		memberDTO dto_two = new memberDTO(mb_id, mb_pw);
 		memberDTO dto = dao.Login(dto_two);
-		System.out.println(mb_id);
-		System.out.println(mb_pw);
-		System.out.println(dto);
-		System.out.println(dto_two);
 		
 		if (dto!=null) {
 			System.out.println("여긴오나");
