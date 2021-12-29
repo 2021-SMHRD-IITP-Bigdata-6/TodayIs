@@ -82,18 +82,20 @@
 		}
 		console.log(t);
 	}
+	
+	
 </script>
 </head>
 
 <body>
 
 	<%
-		memberDTO dto = (memberDTO) session.getAttribute("dto");
-		mainPageDTO move_dto = (mainPageDTO) session.getAttribute("move_dto");
+		memberDTO dto = (memberDTO)session.getAttribute("dto");
+		mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
 		moveDAO move_dao = new moveDAO();
+		
 		mainLifeDAO life_dao = new mainLifeDAO();
-		System.out.print(life_dao.life_dto("제주"));
-	
+
 	%>
 
 	<div class="container-fluid">
@@ -195,8 +197,20 @@
 				<%=move_dao.Move(dto.getMb_region()).getW_wind()%></h3>
 			<% } %>
 		</div>
+		<div>
+			<%if(life_dao != null){ %>
+				<h3>빨래지수: <%=life_dao.life_dto(dto.getMb_region()).getw_wash() %></h3>
+				<h3>외출지수: <%=life_dao.life_dto(dto.getMb_region()).getW_out() %></h3>
+				<h3>운동지수: <%=life_dao.life_dto(dto.getMb_region()).getW_exercise() %></h3>
+				<h3>세차지수: <%=life_dao.life_dto(dto.getMb_region()).getW_washcar() %></h3>
+				<h3>강우지수: <%=life_dao.life_dto(dto.getMb_region()).getW_rain() %></h3>
+				<h3>잠지수: <%=life_dao.life_dto(dto.getMb_region()).getW_sleep() %></h3>
+				<h3>감기지수: <%=life_dao.life_dto(dto.getMb_region()).getW_cold() %></h3>
+				<h3>불지수: <%=life_dao.life_dto(dto.getMb_region()).getW_fire() %></h3>
+			<%} %>
+		</div>		 
 		
-		<div></div>
+		
 	<header class="hero">
 		<div class="carousel js-flickity">
 			<video id="video" width="100%" autoplay="1" loop="1" controls="0"
