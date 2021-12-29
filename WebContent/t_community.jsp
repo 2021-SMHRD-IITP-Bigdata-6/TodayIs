@@ -118,7 +118,7 @@
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
 
-	
+
 	
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
@@ -222,7 +222,7 @@
 										<li style="position: absolute; right : 20%;">
 											<div class="like-button-wrapper">
 												<a href="#" class="like_button"><i
-													class="like-counter fa fa-heart-o"></i> <span><%=arr.get(i).getM_article_likes()%></span>
+													class="like-counter fa fa-heart-o" onclick="like_func()"></i> <span><%=arr.get(i).getM_article_likes()%></span>
 												</a>
 											</div>
 										</li>
@@ -249,9 +249,7 @@
 											</tr>  
 											  <% cnt +=1; %>
 											<%	}
-											} %>
-											
-												
+											} %>	
 											</table>
 											</ul>
 											</li>
@@ -393,7 +391,7 @@
 
 			<!-- 댓글 기능 종료 -->
 			<script>
-
+				// 댓글 펼치기 기능
 				$(document).ready(function() {
 					$(".replymenu>a").click(function() {
 						var submenu = $(this).next("ul");
@@ -413,6 +411,14 @@
 				});
 				
 				
+				// 좋아요 기능 
+				function like_func(){
+				var article_seq = "${board_dto.getM_article_seq()}";
+				var mb_id = "${dto.getMb_id()}";
+				var boardno = $( mb_id, article_seq).val();
+				console.log(boardno)
+
+				}
 
 			</script>
 </body>
