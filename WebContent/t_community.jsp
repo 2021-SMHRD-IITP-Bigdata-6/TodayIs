@@ -115,11 +115,12 @@
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");	
 
-	boardDAO board_dao = new boardDAO();
-	ArrayList<boardDTO> arr = board_dao.board_all();
-
+	
 
 	
+	
+	boardDAO board_dao = new boardDAO();
+	ArrayList<boardDTO> arr = board_dao.board_all();
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt =0;
@@ -415,8 +416,8 @@
 				function like_func(){
 				var article_seq = "${board_dto.getM_article_seq()}";
 				var mb_id = "${dto.getMb_id()}";
-				var boardno = $(mb_id, article_seq);
-				console.log(boardno)
+				console.log(mb_id);
+				console.log(article_seq);
 
 				}
 
