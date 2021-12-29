@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import com.today.DTO.boardDTO;
 import com.today.DTO.mainLifeDTO;
 
@@ -15,6 +16,7 @@ public class mainLifeDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	boardDTO boardDTO = null;
+	mainLifeDTO life_dto = null;
 
 	// 데이터베이스 연결 호출 메소드
 	public void getConn() {
@@ -54,9 +56,10 @@ public class mainLifeDAO {
 
 	}
 
+
 	public mainLifeDTO life_dto(String t_region) {
 		
-		mainLifeDTO life_dto = null;
+		
 		
         try {
         	getConn();

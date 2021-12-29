@@ -95,6 +95,7 @@
 		moveDAO move_dao = new moveDAO();
 		
 		mainLifeDAO life_dao = new mainLifeDAO();
+		mainLifeDTO life_dto = null;
 
 	%>
 
@@ -129,7 +130,7 @@
 							<%} %>
 							
 							
-							<li><a href="BoardCommViewService"> 공유 게시판 </a></li>
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
@@ -198,7 +199,7 @@
 			<% } %>
 		</div>
 		<div>
-			<%if(life_dao != null){ %>
+			<%if(dto != null){ %>
 				<h3>빨래지수: <%=life_dao.life_dto(dto.getMb_region()).getw_wash() %></h3>
 				<h3>외출지수: <%=life_dao.life_dto(dto.getMb_region()).getW_out() %></h3>
 				<h3>운동지수: <%=life_dao.life_dto(dto.getMb_region()).getW_exercise() %></h3>

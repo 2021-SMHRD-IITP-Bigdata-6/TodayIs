@@ -13,6 +13,7 @@ public class mainLifeDTO {
 	private String w_fire;
 	
 	
+	
 	public mainLifeDTO(String t_region, String w_wash, String w_out, String w_exercise, String w_washcar, String w_rain,
 			String w_sleep, String w_cold, String w_fire) {
 		super();
