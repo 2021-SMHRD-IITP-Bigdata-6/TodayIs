@@ -98,7 +98,13 @@
 	position: absolute;
 }
 
-}
+
+
+  th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+    font-size: small;
+  }
 
 </style>
 </head>
@@ -223,19 +229,30 @@
 										<li class="replymenu" style="margin-left: 2px"><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
-									
+											<table style="width: 100%; table-layout : fixed; word-break:break-all; border: 1px solid #444444;">
+											<tr>
+												<td width="50%">댓글내용</td>
+												<td width="20%">작성자</td>
+												<td width="20%">일자</td>
+											</tr>
+											
+											
 											<% 
 											cnt =0;									
 											for (int j = 0 ; j < all.size(); j++){
 												if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
-											%><li> <%=all.get(j).getMb_id() %> </li> 
-											  <li> <%=all.get(j).getComm_date() %> </li> 
-											  <li> <%=all.get(j).getComm_content() %> </li> 
+											%>
+											<tr>
+											<td width="50%"> <%=all.get(j).getComm_content() %> </td>
+											<td width="20%"> <%=all.get(j).getMb_id() %> </td> 
+											<td width="20%"> <%=all.get(j).getComm_date() %> </td> 
+											</tr>  
 											  <% cnt +=1; %>
-											  <br>
 											<%	}
-											} %>		
-								
+											} %>
+											
+												
+											</table>
 											</ul>
 											</li>
 									</ul>
