@@ -13,16 +13,15 @@
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 	%>
 
-	<div class="wrap" style="background-image: url(./imgs/background.jpg);">
-		<div class="form-wrap">
-			<div class="button-wrap" style="width: 150px;">
-				<div id="btn" style="width: 150px;"></div>
-				<button type="button" style="width: 150px;" class="togglebtn"
-					onclick="login()">정보 수정</button>
+	<div class="wrap" style="background-color: #414A52;">
+		<div class="form-wrap" style="border-radius: 80px/ 80px">
+			<div class="button-wrap">
+				<div id="btn"></div>
+				<button type="button" class="togglebtn"
+					onclick="login()" style="color: #7AE2DE; font-weight: bolder;" >~님 정보수정 페이지</button>
 			</div>
 
-			<form id="login" action="UpdateService" method="post"
-				class="input-group">
+			<form id="login" action="UpdateService" method="post" class="input-group">
 				<input type="password" name="mb_pw" class="input-field"
 					placeholder="Enter Password" required>
 					<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
@@ -46,7 +45,7 @@
 					<option>충남</option>
 					<option>충북</option>
 				</select> <br>
-				<button class="submit">정보수정</button>
+				<button class="submit" style="color: #7AE2DE; font-weight: bolder;">정보수정</button>
 			</form>
 		</div>
 	</div>
