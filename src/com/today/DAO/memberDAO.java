@@ -135,5 +135,33 @@ public class memberDAO {
 	      return dto;
 	   
 	}
+	
+	
+	// 업데이트 DAO
+	public int Update(String mb_pw, String mb_phone, String mb_region, String mb_id) {
+
+		try {
+			getConn();
+
+			String sql = "update t_member set mb_pw=?, mb_phone = ?, mb_region = ? where mb_id= ? ";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, mb_pw);
+			psmt.setString(2, mb_phone);
+			psmt.setString(3, mb_region);
+			psmt.setString(4, mb_id);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+
+			close();
+		}
+		return cnt;
+
+	}
 
 }
