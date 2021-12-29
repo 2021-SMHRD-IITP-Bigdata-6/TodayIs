@@ -1,8 +1,8 @@
 package com.today.DTO;
 
 public class mainLifeDTO {
-
-	private String t_region;
+	private String w_indexindex;
+	private String w_region;
 	private String w_wash;
 	private String w_out;
 	private String w_exercise;
@@ -14,10 +14,11 @@ public class mainLifeDTO {
 	
 	
 	
-	public mainLifeDTO(String t_region, String w_wash, String w_out, String w_exercise, String w_washcar, String w_rain,
-			String w_sleep, String w_cold, String w_fire) {
+	public mainLifeDTO(String w_indexindex, String w_region, String w_wash, String w_out, String w_exercise,
+			String w_washcar, String w_rain, String w_sleep, String w_cold, String w_fire) {
 		super();
-		this.t_region = t_region;
+		this.w_indexindex = w_indexindex;
+		this.w_region = w_region;
 		this.w_wash = w_wash;
 		this.w_out = w_out;
 		this.w_exercise = w_exercise;
@@ -29,13 +30,59 @@ public class mainLifeDTO {
 	}
 
 
-	public String getT_region() {
-		return t_region;
+	public mainLifeDTO(String w_region, String w_wash, String w_out, String w_exercise, String w_washcar, String w_rain,
+			String w_sleep, String w_cold, String w_fire) {
+		super();
+		this.w_region = w_region;
+		this.w_wash = w_wash;
+		this.w_out = w_out;
+		this.w_exercise = w_exercise;
+		this.w_washcar = w_washcar;
+		this.w_rain = w_rain;
+		this.w_sleep = w_sleep;
+		this.w_cold = w_cold;
+		this.w_fire = w_fire;
 	}
 
 
-	public void setT_region(String t_region) {
-		this.t_region = t_region;
+	
+	public String getW_indexindex() {
+		return w_indexindex;
+	}
+
+
+	public void setW_indexindex(String w_indexindex) {
+		this.w_indexindex = w_indexindex;
+	}
+
+
+	public String getW_region() {
+		return w_region;
+	}
+
+
+	public void setW_region(String w_region) {
+		this.w_region = w_region;
+	}
+
+
+	public String getW_wash() {
+		return w_wash;
+	}
+
+
+	public void setW_wash(String w_wash) {
+		this.w_wash = w_wash;
+	}
+
+
+	public String getw_region() {
+		return w_region;
+	}
+
+
+	public void setw_region(String w_region) {
+		this.w_region = w_region;
 	}
 
 

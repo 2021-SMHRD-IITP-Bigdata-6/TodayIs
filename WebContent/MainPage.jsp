@@ -208,6 +208,8 @@
 				<h3>잠지수: <%=life_dao.life_dto(dto.getMb_region()).getW_sleep() %></h3>
 				<h3>감기지수: <%=life_dao.life_dto(dto.getMb_region()).getW_cold() %></h3>
 				<h3>불지수: <%=life_dao.life_dto(dto.getMb_region()).getW_fire() %></h3>
+				<h3>불지수: <%=life_dao.life_dto(dto.getMb_region()).getW_region() %></h3>
+				
 			<%} %>
 		</div>		 
 		

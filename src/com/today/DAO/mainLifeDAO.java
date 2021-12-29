@@ -57,37 +57,40 @@ public class mainLifeDAO {
 	}
 
 
-	public mainLifeDTO life_dto(String t_region) {
+
+
+	public mainLifeDTO life_dto(String w_indexindex) {
+
 		
 		
 		
         try {
         	getConn();
            	           
-           String sql = "select * from t_life_number where t_region = ?";
+           String sql = "select * from t_life_number where w_indexindex = ?";
            psmt = conn.prepareStatement(sql);
-           if(t_region.equals("파주")||t_region.equals("인천")||t_region.equals("이천")||t_region.equals("양평")||t_region.equals("수원")||t_region.equals("백령도")||t_region.equals("서울") || t_region.equals("강화")||t_region.equals("동두천")) {
-        	   psmt.setString(1, "서울/경기지역");
-           }else if (t_region.equals("충주")||t_region.equals("추풍령")||t_region.equals("청주")||t_region.equals("제천")||t_region.equals("보은")) {
-        	   psmt.setString(1, "충북지역");
-           }else if (t_region.equals("홍성")||t_region.equals("천안")||t_region.equals("세종")||t_region.equals("서산")||t_region.equals("부여")||t_region.equals("보령")||t_region.equals("금산")||t_region.equals("대전")) {
-        	   psmt.setString(1, "충남지역");
-           }else if (t_region.equals("홍천")||t_region.equals("정선군")||t_region.equals("영월")||t_region.equals("대관령")||t_region.equals("고산")) {
-        	   psmt.setString(1, "강원영서지역");
-           }else if (t_region.equals("태백")||t_region.equals("춘천")||t_region.equals("철원")||t_region.equals("인제")||t_region.equals("원주")||t_region.equals("동해")||t_region.equals("속초")||t_region.equals("북춘천")||t_region.equals("북강릉")) {
-        	   psmt.setString(1, "강원영동지역");
-           }else if (t_region.equals("정읍")||t_region.equals("전주")||t_region.equals("장수")||t_region.equals("임실")||t_region.equals("순창군")||t_region.equals("부안")||t_region.equals("남원")||t_region.equals("군산")||t_region.equals("고창") || t_region.equals("고창군") || t_region.equals("고흥")) {
-        	   psmt.setString(1, "전북지역");
-           }else if (t_region.equals("해남")||t_region.equals("진도군")||t_region.equals("장흥")||t_region.equals("완도")||t_region.equals("영광군")||t_region.equals("여수")||t_region.equals("순천")||t_region.equals("보성군")||t_region.equals("목포")||t_region.equals("광주")||t_region.equals("광양시")||t_region.equals("흑산도") || t_region.equals("강진군")) {
-        	   psmt.setString(1, "전남지역");
-           }else if (t_region.equals("포항")||t_region.equals("청송군")||t_region.equals("의성")||t_region.equals("울진")||t_region.equals("울산")||t_region.equals("영천")||t_region.equals("영주")||t_region.equals("영덕")||t_region.equals("안동")||t_region.equals("상주")||t_region.equals("부산")||t_region.equals("봉화")||t_region.equals("문경")||t_region.equals("대구")||t_region.equals("구미")) {
-        	   psmt.setString(1, "경북지역");
-           }else if (t_region.equals("합천")||t_region.equals("함양군")||t_region.equals("통영")||t_region.equals("창원")||t_region.equals("진주")||t_region.equals("의령군")||t_region.equals("양산시")||t_region.equals("성산")||t_region.equals("산청")||t_region.equals("북창원")||t_region.equals("밀양")||t_region.equals("남해")||t_region.equals("김해시")||t_region.equals("경주시") || t_region.equals("거제") || t_region.equals("거창")) {
-        	   psmt.setString(1, "경남지역");
-           }else if (t_region.equals("제주")||t_region.equals("서귀포")) {
-        	   psmt.setString(1, "제주도지역");
-           }else if (t_region.equals("울릉도")) {
-        	   psmt.setString(1, "울릉도지역");
+           if(w_indexindex.equals("파주")||w_indexindex.equals("인천")||w_indexindex.equals("이천")||w_indexindex.equals("양평")||w_indexindex.equals("수원")||w_indexindex.equals("백령도")||w_indexindex.equals("서울") || w_indexindex.equals("강화")||w_indexindex.equals("동두천")) {
+        	   psmt.setString(1, "0");
+           }else if (w_indexindex.equals("충주")||w_indexindex.equals("추풍령")||w_indexindex.equals("청주")||w_indexindex.equals("제천")||w_indexindex.equals("보은")) {
+        	   psmt.setString(1, "1");
+           }else if (w_indexindex.equals("홍성")||w_indexindex.equals("천안")||w_indexindex.equals("세종")||w_indexindex.equals("서산")||w_indexindex.equals("부여")||w_indexindex.equals("보령")||w_indexindex.equals("금산")||w_indexindex.equals("대전")) {
+        	   psmt.setString(1, "2");
+           }else if (w_indexindex.equals("홍천")||w_indexindex.equals("정선군")||w_indexindex.equals("영월")||w_indexindex.equals("대관령")||w_indexindex.equals("고산")) {
+        	   psmt.setString(1, "3");
+           }else if (w_indexindex.equals("태백")||w_indexindex.equals("춘천")||w_indexindex.equals("철원")||w_indexindex.equals("인제")||w_indexindex.equals("원주")||w_indexindex.equals("동해")||w_indexindex.equals("속초")||w_indexindex.equals("북춘천")||w_indexindex.equals("북강릉")) {
+        	   psmt.setString(1, "4");
+           }else if (w_indexindex.equals("정읍")||w_indexindex.equals("전주")||w_indexindex.equals("장수")||w_indexindex.equals("임실")||w_indexindex.equals("순창군")||w_indexindex.equals("부안")||w_indexindex.equals("남원")||w_indexindex.equals("군산")||w_indexindex.equals("고창") || w_indexindex.equals("고창군") || w_indexindex.equals("고흥")) {
+        	   psmt.setString(1, "5");
+           }else if (w_indexindex.equals("해남")||w_indexindex.equals("진도군")||w_indexindex.equals("장흥")||w_indexindex.equals("완도")||w_indexindex.equals("영광군")||w_indexindex.equals("여수")||w_indexindex.equals("순천")||w_indexindex.equals("보성군")||w_indexindex.equals("목포")||w_indexindex.equals("광주")||w_indexindex.equals("광양시")||w_indexindex.equals("흑산도") || w_indexindex.equals("강진군")) {
+        	   psmt.setString(1, "6");
+           }else if (w_indexindex.equals("포항")||w_indexindex.equals("청송군")||w_indexindex.equals("의성")||w_indexindex.equals("울진")||w_indexindex.equals("울산")||w_indexindex.equals("영천")||w_indexindex.equals("영주")||w_indexindex.equals("영덕")||w_indexindex.equals("안동")||w_indexindex.equals("상주")||w_indexindex.equals("부산")||w_indexindex.equals("봉화")||w_indexindex.equals("문경")||w_indexindex.equals("대구")||w_indexindex.equals("구미")) {
+        	   psmt.setString(1, "7");
+           }else if (w_indexindex.equals("합천")||w_indexindex.equals("함양군")||w_indexindex.equals("통영")||w_indexindex.equals("창원")||w_indexindex.equals("진주")||w_indexindex.equals("의령군")||w_indexindex.equals("양산시")||w_indexindex.equals("성산")||w_indexindex.equals("산청")||w_indexindex.equals("북창원")||w_indexindex.equals("밀양")||w_indexindex.equals("남해")||w_indexindex.equals("김해시")||w_indexindex.equals("경주시") || w_indexindex.equals("거제") || w_indexindex.equals("거창")) {
+        	   psmt.setString(1, "8");
+           }else if (w_indexindex.equals("제주")||w_indexindex.equals("서귀포")) {
+        	   psmt.setString(1, "9");
+           }else if (w_indexindex.equals("울릉도")) {
+        	   psmt.setString(1, "10");
            }
 
            
@@ -95,18 +98,18 @@ public class mainLifeDAO {
            
            if(rs.next()) { 
         	
-        	String t_local = rs.getNString(2);
-        	String w_wash = rs.getNString(3);
-        	String w_out = rs.getNString(4);
-        	String w_exercise = rs.getNString(5);
-        	String w_washcar = rs.getNString(6);
-        	String w_rain = rs.getNString(7);
-        	String w_sleep = rs.getNString(8);
-        	String w_cold = rs.getNString(9);
-        	String w_fire = rs.getNString(10);   
+        	String w_index = rs.getString(1);
+        	String w_local = rs.getString(2);
+        	String w_wash = rs.getString(3);
+        	String w_out = rs.getString(4);
+        	String w_exercise = rs.getString(5);
+        	String w_washcar = rs.getString(6);
+        	String w_rain = rs.getString(7);
+        	String w_sleep = rs.getString(8);
+        	String w_cold = rs.getString(9);
+        	String w_fire = rs.getString(10);   
         	
-        	life_dto = new mainLifeDTO(t_local, w_wash, w_out, w_exercise, w_washcar, 
-        			              w_rain, w_sleep, w_cold, w_fire);
+        	life_dto = new mainLifeDTO(w_indexindex, w_local, w_wash, w_out, w_exercise, w_washcar, w_rain, w_sleep, w_cold, w_fire);
            }       
          }catch(Exception e) {
 	           System.out.println("sql 오류");
