@@ -35,9 +35,9 @@ public class UpdateService implements Command {
 		if(cnt>0) {
 			memberDTO update_dto =  new memberDTO(mb_id, mb_phone, mb_region);
 			session.setAttribute("dto", update_dto);
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("MainPage.jsp");
 		}else {
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("MainPage.jsp");
 		}
 		
 	}

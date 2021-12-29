@@ -105,7 +105,6 @@
 							
 							<%if(dto == null) { %>
 							<li><a href="login.html"> 로그인 </a></li>
-							<li><a href="#team"> 회원가입 </a></li>
 							<%} else{ %>
 							<li><a href="LogoutService"> 로그아웃 </a></li>
 							<li><a href="UpdateService"> 정보수정 </a></li>
