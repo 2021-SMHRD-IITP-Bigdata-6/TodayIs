@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@page import="com.today.DAO.boardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
@@ -106,6 +107,7 @@
 	<%
 	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
+	memberDTO dto = (memberDTO) session.getAttribute("dto");	
 
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
@@ -115,6 +117,7 @@
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt =0;
+
 	%>
 
 
@@ -129,7 +132,14 @@
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">The collective</a></li>
+							<%if(dto == null) { %>
+							<li><a href="login.html"> 로그인 </a></li>
+							<li><a href="#team"> 회원가입 </a></li>
+							<%} else{ %>
+							<li><a href="LogoutService"> 로그아웃 </a></li>
+							<%} %>
+							
+							
 							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
@@ -137,9 +147,12 @@
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
-							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
-							<li class="search"><a href="#search" class="show-search"><i
-									class="fa fa-search"></i></a></li>
+							<%if(dto == null) { %>
+							<li class="subscribe"><a href="">글작성시 로그인이 필요합니다.</a></li>
+							<%} else{ %>
+							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
+							<%} %>
+							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -198,7 +211,9 @@
 								</a>
 								<div>
 									<ul class="article-footer">
-										<li>
+										<li style="position: absolute; right : 0%; color: #7AE2DE; font-weight: bold;" ><a href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>삭제</a></li>
+										<li style="position: absolute; right : 10%; color: #7AE2DE; font-weight: bold;">수정</li>
+										<li style="position: absolute; right : 20%;">
 											<div class="like-button-wrapper">
 												<a href="#" class="like_button"><i
 													class="like-counter fa fa-heart-o"></i> <span><%=arr.get(i).getM_article_likes()%></span>
@@ -221,8 +236,8 @@
 											<%	}
 											} %>		
 								
-											</ul></li>
-
+											</ul>
+											</li>
 									</ul>
 									<ul>
 										<li class="article-category"></li>
@@ -361,6 +376,7 @@
 
 			<!-- 댓글 기능 종료 -->
 			<script>
+
 				$(document).ready(function() {
 					$(".replymenu>a").click(function() {
 						var submenu = $(this).next("ul");
@@ -379,7 +395,6 @@
 
 				});
 				
-
 				
 
 			</script>
