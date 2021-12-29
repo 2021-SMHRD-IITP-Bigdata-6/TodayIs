@@ -18,7 +18,8 @@
     margin: 6% auto;
     background: #fff;
     padding: 5px;
-    overflow: hidden;    
+    overflow: hidden;
+    box-shadow: 38px 30px 97px #7ae2de;    
 }
 .form-wraps {
     width: 380px;

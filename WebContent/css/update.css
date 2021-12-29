@@ -19,6 +19,7 @@
     background: #fff;
     padding: 5px;
     overflow: hidden;
+	box-shadow: 38px 30px 97px #7ae2de;
 }
 .button-wrap {
     width: 150px;
@@ -33,7 +34,7 @@
     background-color: #414A52;
 }
 .togglebtn {
-    padding: 10px 30px;
+    padding: 10px 7px;
     cursor: pointer;
     background: transparent;
     border: 0;

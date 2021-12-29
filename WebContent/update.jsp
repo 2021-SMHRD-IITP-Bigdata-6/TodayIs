@@ -11,6 +11,8 @@
 <body>
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		String mb_id = request.getParameter("mb_id");
+		System.out.print(mb_id);
 	%>
 
 	<div class="wrap" style="background-color: #414A52;">
@@ -18,7 +20,7 @@
 			<div class="button-wrap">
 				<div id="btn"></div>
 				<button type="button" class="togglebtn"
-					onclick="login()" style="color: #7AE2DE; font-weight: bolder;" >~님 정보수정 페이지</button>
+					onclick="login()" style="color: #7AE2DE; font-weight: bolder;" ><%=mb_id %> 님 정보수정 </button>
 			</div>
 
 			<form id="login" action="UpdateService" method="post" class="input-group">
@@ -26,8 +28,9 @@
 					placeholder="Enter Password" required>
 					<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
 					<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
-				    <li>사는 지역</li> <select name="mb_region" class="input-fields">
-					<option>-선택-</option>
+				    
+				    <select name="mb_region" class="input-fields">
+					<option>-지역 선택-</option>
 					<option>서울</option>
 					<option>부산</option>
 					<option>대구</option>
