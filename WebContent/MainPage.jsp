@@ -107,7 +107,7 @@
 							<li><a href="login.html"> 로그인 </a></li>
 							<%} else{ %>
 							<li><a href="LogoutService"> 로그아웃 </a></li>
-							<li><a href="update.jsp"> 정보수정 </a></li>
+							<li><a href="update.jsp?"> 정보수정 </a></li>
 							<%} %>
 							
 							

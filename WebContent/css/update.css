@@ -59,9 +59,9 @@
     cursor: pointer;
 }
 .input-group {
-    top: 180px;
+    top: 150px;
     position: absolute;
-    width: 280px;
+    width: 285px;
     transition: .5s;
 }
 .input-field {
