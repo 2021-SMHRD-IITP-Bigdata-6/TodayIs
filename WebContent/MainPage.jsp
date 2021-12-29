@@ -119,7 +119,7 @@
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
 							<%if(dto == null) { %>
-							<li class="subscribe"><a href="">글을 작성시 로그인이 필요합니다.</a></li>
+							<li class="subscribe"><a href="">글작성시 로그인이 필요합니다.</a></li>
 							<%} else{ %>
 							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
 							<%} %>
