@@ -70,9 +70,11 @@
 </head>
 
 <body>
+
 		<%
 		boardDTO dto = (boardDTO)request.getAttribute("dto");
 		%>
+		
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">

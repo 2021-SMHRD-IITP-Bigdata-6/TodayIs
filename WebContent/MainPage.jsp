@@ -101,8 +101,7 @@
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
 	
-							
-							
+						
 							<%if(dto == null) { %>
 							<li><a href="login.html"> 로그인 </a></li>
 							<%} else{ %>
@@ -119,7 +118,11 @@
 					
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
-							<li class="subscribe"><a href="t_community_board.jsp">글작성하기</a></li>
+							<%if(dto == null) { %>
+							<li class="subscribe"><a href="">글을 작성시 로그인이 필요합니다.</a></li>
+							<%} else{ %>
+							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
+							<%} %>
 							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
 						</ul>
 					</div>
