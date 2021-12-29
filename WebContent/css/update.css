@@ -13,7 +13,7 @@
 }
 .form-wrap {
     width: 380px;
-    height: 480px;
+    height: 410px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -25,11 +25,12 @@
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
+    margin: inherit;
     border: 0;
     outline: none;
     border-radius: 30px;
+    border-bottom: solid 5px #7AE2DE;
+    background-color: #414A52;
 }
 .togglebtn {
     padding: 10px 30px;
@@ -39,12 +40,12 @@
     outline: none;
     position: relative;
     width: 150px;
+    
 }
 #btn {
     top: 0;
     left: 0;
     position: absolute;
-    width: 150px;
     height: 100%;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
@@ -59,9 +60,9 @@
     cursor: pointer;
 }
 .input-group {
-    top: 180px;
+    top: 120px;
     position: absolute;
-    width: 280px;
+    width: 285px;
     transition: .5s;
 }
 .input-field {
@@ -85,10 +86,11 @@
     cursor: pointer;
     display: block;
     margin: auto;
-    background: linear-gradient(to right, #ff105f, #ffad06);
     border: 0;
     outline: none;
     border-radius: 30px;
+    border-bottom: solid 5px #7AE2DE;
+    background-color: #414A52;
 }
 .checkbox {
     margin: 30px 10px 30px 0;

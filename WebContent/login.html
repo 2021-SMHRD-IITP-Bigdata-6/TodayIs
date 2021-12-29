@@ -6,20 +6,20 @@
             <link rel="stylesheet" href="css/login.css">
         </head>
         <body>
-            <div class="wrap" style="background-image: url(./imgs/background.jpg);">
-                <div class="form-wrap">
+            <div class="wrap" style="background-color: #414A52;" >
+                <div class="form-wrap" style="border-radius: 80px/ 80px">
                     <div class="button-wrap">
                         <div id="btn"></div>
-                        <button type="button" class="togglebtn" onclick="login()">로그인</button>
-                        <button type="button" class="togglebtn" onclick="register()">회원가입</button>
+                        <button type="button" class="togglebtn" onclick="login()" style="color: #7AE2DE; font-weight: bolder;" >로그인</button>
+                        <button type="button" class="togglebtn" onclick="register()" style="color: #7AE2DE; font-weight: bolder;" >회원가입</button>
                     </div>
                     
                     <form id="login" action="LoginService" method="post" class="input-group">
                         <input type="text" name="mb_id" class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
-                        <button class="submit">로그인</button>
+                        <button class="submit" style="color: #7AE2DE; font-weight: bolder;" >로그인</button>
                     </form>
-                    <form id="register" action="JoinService" method="post" class="input-group">
+                    <form id="register" action="JoinService" style ="top: 100px; "method="post" class="input-group">
                         <input type="text" name="mb_id"  class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
                         <input type="text" name="mb_nickname"  class="input-field" placeholder="Your nick name" required>
@@ -44,7 +44,7 @@
                         	<option>충남</option>
                         	<option>충북</option>
                         </select>
-                        <button class = "submit">회원가입</button>
+                        <button class = "submit" style="color: #7AE2DE; font-weight: bolder;" >회원가입</button>
                         
                     </form>
                 </div>

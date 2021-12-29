@@ -138,18 +138,21 @@ public class memberDAO {
 	
 	
 	// 업데이트 DAO
-	public int Update(String mb_pw, String mb_phone, String mb_region, String mb_id) {
-
+	public int Update(String mb_id, String mb_pw, String mb_nickname, String mb_phone, String mb_region) {
+		
 		try {
 			getConn();
+			
+			System.out.println("dao="+mb_id);
 
-			String sql = "update t_member set mb_pw=?, mb_phone = ?, mb_region = ? where mb_id= ? ";
+			String sql = "update t_member set mb_pw=?, mb_phone = ?, mb_nickname=?, mb_region = ? where mb_id= ? ";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, mb_pw);
 			psmt.setString(2, mb_phone);
-			psmt.setString(3, mb_region);
-			psmt.setString(4, mb_id);
+			psmt.setString(3, mb_nickname);
+			psmt.setString(4, mb_region);
+			psmt.setString(5, mb_id);
 
 			cnt = psmt.executeUpdate();
 
