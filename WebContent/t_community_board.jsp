@@ -155,9 +155,7 @@ h4:after {
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
-	
-							
-							
+			
 							<%if(dto == null) { %>
 							<li><a href="login.html"> 로그인 </a></li>
 							<li><a href="#team"> 회원가입 </a></li>
@@ -241,7 +239,7 @@ h4:after {
 								<li>			
 									<table style="width: 100%; table-layout : fixed; word-break:break-all; border: 1px solid #444444;">
 										<thead>
-											<tr >
+											<tr>
 												<td width="50%">댓글내용</td>
 												<td width="20%">작성자</td>
 												<td width="20%">일자</td>
@@ -415,6 +413,8 @@ h4:after {
 				}
 			});
 		});
+		
+		
 		
 
 	</script>

@@ -14,7 +14,6 @@ import com.today.DTO.mainPageDTO;
 
 @WebServlet("/MoveService")
 public class MoveService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		System.out.println("왔다.");

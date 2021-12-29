@@ -56,6 +56,7 @@
 <meta name="msapplication-config"
 	content="img/favicon/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+
 <!-- end favicon links -->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/normalize.min.css">
@@ -99,8 +100,7 @@
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><font size="20px" font-weight="bold">
-							TODAY? </font></a>
+					<a href="/index.html"><font size="20px">TODAY? </font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
@@ -121,15 +121,12 @@
 							%>
 							<li><a href="login.html"> 로그인 </a></li>
 							<li><a href="team"> 회원가입 </a></li>
-							<%
-								} else {
-							%>
+							<%} else{ %>
 							<li><a href="LogoutService"> 로그아웃 </a></li>
-							<%
-								}
-							%>
-
-
+							<li><a href="update.jsp?mb_id=<%=dto.getMb_id() %>"> 정보수정 </a></li>
+							<%} %>
+							
+							
 							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
@@ -138,18 +135,14 @@
 
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
-							<%
-								if (dto == null) {
-							%>
-							<li class="subscribe"><a href="">글을 작성시 로그인이 필요합니다.</a></li>
-							<%
-								} else {
-							%>
+							<%if(dto == null) { %>
+							<li class="subscribe"><a href="">글작성시 로그인이 필요합니다.</a></li>
+							<%} else{ %>
 							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
 							<%
 								}
 							%>
-							<li class="search"><a href="#search" class="show-search"><li>class="fa fa-search"></i></a></li>
+							<li class="search"><a href="#search" class="show-search"></a>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -200,7 +193,7 @@
 				<%=move_dao.Move(dto.getMb_region()).getW_humidity()%></h3>
 			<h3 style="color: black;"> 풍향 :
 				<%=move_dao.Move(dto.getMb_region()).getW_wind()%></h3>
-				<%}%>
+			<% } %>
 		</div>
 		
 		<div></div>

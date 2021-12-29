@@ -73,8 +73,11 @@
 <body>
 
 		<%
-		boardDTO board_dto = (boardDTO)request.getAttribute("dto");
-		memberDTO dto = (memberDTO) session.getAttribute("dto");	
+		boardDTO board_dto = (boardDTO)session.getAttribute("board_dto");		
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		
+
+		
 		%>
 		
 	<div class="container-fluid">
@@ -92,7 +95,7 @@
 							<li><%=dto.getMb_nickname() %> </li>
 							<li><%=dto.getMb_region() %> </li>
 							<%} %>
-	
+
 						
 							<%if(dto == null) { %>
 							<li><a href="login.html"> 로그인 </a></li>
@@ -105,7 +108,7 @@
 							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
-						</ul>>
+						</ul>
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
@@ -158,9 +161,9 @@
 							<tr>
 							    <td><input type="text" class="form-control" id ="inputArticle"
 									placeholder="게시판을 선택해주세요" name="inputArticle-Sort" maxlength="20" readonly></td>
-								<td colspan="2"><input type="text" class="form-control"
+								<td colspan="2"><input type="text" class="form-control" id ="inputSubject"
 									placeholder="글 제목" name="m_article_subject" maxlength="50"></td>
-								<td><input type="text" class="form-control"
+								<td><input type="text" class="form-control" id ="inputmb_id"
 									placeholder="글쓴이" name="mb_id" maxlength="20"></td>
 								 <td> 
 								<select id="big" name="h_area1" class="form-control" onChange="cat1_change(this.value,h_area2)" class="h_area1">
@@ -189,7 +192,7 @@
 									placeholder="지역을 선택" name="m_article_region" maxlength="20" readonly></td>
 							</tr>
 							<tr>
-								<td colspan="7"><textarea class="form-control" placeholder="글 내용"
+								<td colspan="7"><textarea class="form-control" placeholder="글 내용" id="inputcontent"
 										name="m_article_content" maxlength="2048" style="height: 350px;"></textarea></td>
 							</tr>
 						
@@ -198,7 +201,7 @@
 					<table>
 					<tr>
 			  		  <td><input type="file" class="m_article_img"  name="m_article_img" onchange="readURL(this)"></td>
-			  		  <td><img style="width: 50%; height: 50%;" id="m_article_preview"></img></td>
+			  		  <td><img style="width: 50%; height: 50%;" id="m_article_preview" ></img></td>
 			  		  <td><input type="submit" value="등록하기"></td>	
 					</tr>
 					 </table>
@@ -377,7 +380,7 @@
 		console.log(selected_article);
 		document.getElementById("inputArticle").value = selected_article;
 	});
-	
+
 	// 사진 게시물 미리보기 기능
 	function readURL(input) {
 	  if (input.files && input.files[0]) {
@@ -393,6 +396,30 @@
 	    document.getElementById('m_article_preview').src = "";
 	  }
 	};
+	
+	
+	//주제 내용을 각각 로드
+	m_article_subject = "${board_dto.getM_article_subject()}";
+	document.getElementById("inputSubject").value = m_article_subject;
+	
+	m_article_mb_id = "${board_dto.getMb_id()}";
+	document.getElementById("inputmb_id").value = m_article_mb_id;
+	
+	m_article_board_type = "${board_dto.getM_board_type()}";
+	document.getElementById("inputArticle").value = m_article_board_type;
+	
+	m_article_inputcontent = "${board_dto.getM_article_content()}";
+	document.getElementById("inputcontent").value = m_article_inputcontent;
+
+	m_article_inputregion = "${board_dto.getM_article_region()}";
+	document.getElementById("region").value = m_article_inputregion;
+
+
+
+	$(document).ready(function() {
+		m_article_inputimg = "${board_dto.getM_article_img()}";
+		$("#m_article_preview").attr("src",m_article_inputimg);
+	});
 	</script>
 </body>
 </html>

@@ -6,28 +6,27 @@
             <link rel="stylesheet" href="css/login.css">
         </head>
         <body>
-            <div class="wrap" style="background-image: url(./imgs/background.jpg);">
-                <div class="form-wrap">
+            <div class="wrap" style="background-color: #414A52;" >
+                <div class="form-wrap" style="border-radius: 80px/ 80px">
                     <div class="button-wrap">
                         <div id="btn"></div>
-                        <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
-                        <button type="button" class="togglebtn" onclick="register()">REGISTER</button>
+                        <button type="button" class="togglebtn" onclick="login()" style="color: #7AE2DE; font-weight: bolder;" >로그인</button>
+                        <button type="button" class="togglebtn" onclick="register()" style="color: #7AE2DE; font-weight: bolder;" >회원가입</button>
                     </div>
                     
                     <form id="login" action="LoginService" method="post" class="input-group">
                         <input type="text" name="mb_id" class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
-                        <input type="checkbox" class="checkbox"><span>Remember Password</span>
-                        <button class="submit">Login</button>
+                        <button class="submit" style="color: #7AE2DE; font-weight: bolder;" >로그인</button>
                     </form>
-                    <form id="register" action="JoinService" method="post" class="input-group">
+                    <form id="register" action="JoinService" style ="top: 100px; "method="post" class="input-group">
                         <input type="text" name="mb_id"  class="input-field" placeholder="User id" required>
                         <input type="password" name="mb_pw"  class="input-field" placeholder="Enter Password" required>
                         <input type="text" name="mb_nickname"  class="input-field" placeholder="Your nick name" required>
                         <input type="text" name="mb_phone"  class="input-field" placeholder="Your phone number" required>
-                        <li>사는 지역</li>
-                        <select name ="mb_region">
-                        	<option>-선택-</option>
+                        
+                        <select name ="mb_region" class="input-fields">
+                        	<option>-지역 선택-</option>
                         	<option>서울</option>
                         	<option>부산</option>
                         	<option>대구</option>
@@ -45,10 +44,8 @@
                         	<option>충남</option>
                         	<option>충북</option>
                         </select>
-                        <button class = "submit">REGION</button>
-                        <br>
-                        <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
-                        <button class="submit">REGISTER</button>
+                        <button class = "submit" style="color: #7AE2DE; font-weight: bolder;" >회원가입</button>
+                        
                     </form>
                 </div>
             </div>

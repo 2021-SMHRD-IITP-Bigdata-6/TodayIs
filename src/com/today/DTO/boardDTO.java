@@ -134,6 +134,25 @@ public class boardDTO {
 			this.m_board_type = m_board_type;
 			this.m_article_seq = m_article_seq;
 		}
+
+		public boardDTO(int m_article_seq, String m_article_subject, String m_article_content, String m_article_img,
+				String m_article_date, int m_article_likes, String mb_id, String m_article_region,
+				int m_article_latitude, int m_article_logitude, String m_board_type) {
+			super();
+			this.m_article_seq = m_article_seq;
+			this.m_article_subject = m_article_subject;
+			this.m_article_content = m_article_content;
+			this.m_article_img = m_article_img;
+			this.m_article_date = m_article_date;
+			this.m_article_likes = m_article_likes;
+			this.mb_id = mb_id;
+			this.m_article_region = m_article_region;
+			this.m_article_latitude = m_article_latitude;
+			this.m_article_logitude = m_article_logitude;
+			this.m_board_type = m_board_type;
+		}
+		
+		
 		
 		
 }

@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@page import="com.today.DAO.boardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
@@ -97,7 +98,13 @@
 	position: absolute;
 }
 
-}
+
+
+  th, td {
+    border: 1px solid #444444;
+    padding: 10px;
+    font-size: small;
+  }
 
 </style>
 </head>
@@ -106,15 +113,17 @@
 	<%
 	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
+	memberDTO dto = (memberDTO) session.getAttribute("dto");	
 
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
 
-	
+
 	
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt =0;
+
 	%>
 
 
@@ -129,7 +138,14 @@
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">The collective</a></li>
+							<%if(dto == null) { %>
+							<li><a href="login.html"> 로그인 </a></li>
+							<li><a href="#team"> 회원가입 </a></li>
+							<%} else{ %>
+							<li><a href="LogoutService"> 로그아웃 </a></li>
+							<%} %>
+							
+							
 							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 							<li><a href="#articles"> 미션 게시판 </a></li>
 							<li><a href="#freebies"> 지도로 보기 </a></li>
@@ -137,9 +153,12 @@
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
-							<li class="subscribe"><a href="#get-started">Subscribe</a></li>
-							<li class="search"><a href="#search" class="show-search"><i
-									class="fa fa-search"></i></a></li>
+							<%if(dto == null) { %>
+							<li class="subscribe"><a href="">글작성시 로그인이 필요합니다.</a></li>
+							<%} else{ %>
+							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
+							<%} %>
+							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -198,31 +217,42 @@
 								</a>
 								<div>
 									<ul class="article-footer">
-										<li>
+										<li style="position: absolute; right : 0%; color: #7AE2DE; font-weight: bold;" ><a href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>삭제</a></li>
+										<li style="position: absolute; right : 10%; color: #7AE2DE; font-weight: bold;"><a href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>수정</a></li>
+										<li style="position: absolute; right : 20%;">
 											<div class="like-button-wrapper">
 												<a href="#" class="like_button"><i
-													class="like-counter fa fa-heart-o"></i> <span><%=arr.get(i).getM_article_likes()%></span>
+													class="like-counter fa fa-heart-o" onclick="like_func()"></i> <span><%=arr.get(i).getM_article_likes()%></span>
 												</a>
 											</div>
 										</li>
 										<li class="replymenu" style="margin-left: 2px"><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
-									
+											<table style="width: 100%; table-layout : fixed; word-break:break-all; border: 1px solid #444444;">
+											<tr>
+												<td width="50%">댓글내용</td>
+												<td width="20%">작성자</td>
+												<td width="20%">일자</td>
+											</tr>
+											
+											
 											<% 
 											cnt =0;									
 											for (int j = 0 ; j < all.size(); j++){
 												if(arr.get(i).getM_article_seq()==all.get(j).getComm_seq()) {
-											%><li> <%=all.get(j).getMb_id() %> </li> 
-											  <li> <%=all.get(j).getComm_date() %> </li> 
-											  <li> <%=all.get(j).getComm_content() %> </li> 
+											%>
+											<tr>
+											<td width="50%"> <%=all.get(j).getComm_content() %> </td>
+											<td width="20%"> <%=all.get(j).getMb_id() %> </td> 
+											<td width="20%"> <%=all.get(j).getComm_date() %> </td> 
+											</tr>  
 											  <% cnt +=1; %>
-											  <br>
 											<%	}
-											} %>		
-								
-											</ul></li>
-
+											} %>	
+											</table>
+											</ul>
+											</li>
 									</ul>
 									<ul>
 										<li class="article-category"></li>
@@ -361,6 +391,7 @@
 
 			<!-- 댓글 기능 종료 -->
 			<script>
+				// 댓글 펼치기 기능
 				$(document).ready(function() {
 					$(".replymenu>a").click(function() {
 						var submenu = $(this).next("ul");
@@ -379,8 +410,15 @@
 
 				});
 				
-
 				
+				// 좋아요 기능 
+				function like_func(){
+				var article_seq = "${board_dto.getM_article_seq()}";
+				var mb_id = "${dto.getMb_id()}";
+				var boardno = $( mb_id, article_seq).val();
+				console.log(boardno)
+
+				}
 
 			</script>
 </body>
