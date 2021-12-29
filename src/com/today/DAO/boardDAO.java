@@ -150,6 +150,8 @@ public class boardDAO {
 			}
 			return board_arr;
 		}
+		
+		//게시판 정보 전체 조회
 		public boardDTO board_tocomm(String M_article_seq) {
 			boardDTO dto =null;
 			try {

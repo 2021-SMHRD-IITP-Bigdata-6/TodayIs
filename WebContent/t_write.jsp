@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.memberDTO"%>
 <%@page import="com.today.DTO.boardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -72,7 +73,8 @@
 <body>
 
 		<%
-		boardDTO dto = (boardDTO)request.getAttribute("dto");
+		boardDTO board_dto = (boardDTO)request.getAttribute("dto");
+		memberDTO dto = (memberDTO) session.getAttribute("dto");	
 		%>
 		
 	<div class="container-fluid">
@@ -85,11 +87,25 @@
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-							<li><a href="#intro">The collective</a></li>
-							<li><a href="#team">The crew</a></li>
-							<li><a href="#articles">Articles</a></li>
-							<li><a href="#freebies">Freebies</a></li>
-						</ul>
+						<%if(dto != null) { %>
+							<li><%=dto.getMb_id() %> </li>
+							<li><%=dto.getMb_nickname() %> </li>
+							<li><%=dto.getMb_region() %> </li>
+							<%} %>
+	
+						
+							<%if(dto == null) { %>
+							<li><a href="login.html"> 로그인 </a></li>
+							<%} else{ %>
+							<li><a href="LogoutService"> 로그아웃 </a></li>
+							<li><a href="update.jsp"> 정보수정 </a></li>
+							<%} %>
+							
+							
+							<li><a href="t_community.jsp"> 공유 게시판 </a></li>
+							<li><a href="#articles"> 미션 게시판 </a></li>
+							<li><a href="#freebies"> 지도로 보기 </a></li>
+						</ul>>
 					</nav>
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
@@ -176,7 +192,7 @@
 								<td colspan="7"><textarea class="form-control" placeholder="글 내용"
 										name="m_article_content" maxlength="2048" style="height: 350px;"></textarea></td>
 							</tr>
-							</tr>
+						
 						</tbody>
 					</table>
 					<table>

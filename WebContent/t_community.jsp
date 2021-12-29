@@ -212,7 +212,7 @@
 								<div>
 									<ul class="article-footer">
 										<li style="position: absolute; right : 0%; color: #7AE2DE; font-weight: bold;" ><a href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>삭제</a></li>
-										<li style="position: absolute; right : 10%; color: #7AE2DE; font-weight: bold;">수정</li>
+										<li style="position: absolute; right : 10%; color: #7AE2DE; font-weight: bold;"><a href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>수정</a></li>
 										<li style="position: absolute; right : 20%;">
 											<div class="like-button-wrapper">
 												<a href="#" class="like_button"><i
