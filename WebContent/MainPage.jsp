@@ -1,3 +1,7 @@
+<%@page import="com.today.DAO.mainLifeDAO"%>
+<%@page import="com.today.DTO.mainLifeDTO"%>
+<%@page import="com.today.DAO.memberDAO"%>
+<%@page import="com.today.DAO.moveDAO"%>
 <%@page import="com.today.DTO.mainPageDTO"%>
 <%@page import="com.today.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -63,6 +67,7 @@
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
+<script src="jquery-3.6.0.min.js"></script>
 <script src="//code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var player = [ "Snow.mp4", "RainMore.mp4", "RainLess.mp4", "Lightning.mp4", "CloudMore.mp4", "CloudLess.mp4", "Sun.mp4", "Grey.mp4"];
@@ -81,30 +86,41 @@
 </head>
 
 <body>
- <%
-      memberDTO dto = (memberDTO) session.getAttribute("dto");
-      mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
-      
-   %>
+
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		mainPageDTO move_dto = (mainPageDTO) session.getAttribute("move_dto");
+		moveDAO move_dao = new moveDAO();
+		mainLifeDAO life_dao = new mainLifeDAO();
+		System.out.print(life_dao.life_dto("제주"));
+	
+	%>
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="header-nav-wrapper">
 				<div class="logo">
-					<a href="/index.html"><font size="20px" font-weight="bold"> TODAY? </font></a>
+					<a href="/index.html"><font size="20px">TODAY? </font></a>
 				</div>
 				<div class="primary-nav-wrapper">
 					<nav>
 						<ul class="primary-nav">
-						<%if(dto != null) { %>
-							<li><%=dto.getMb_id() %> </li>
-							<li><%=dto.getMb_nickname() %> </li>
-							<li><%=dto.getMb_region() %> </li>
-							<%} %>
-	
-						
-							<%if(dto == null) { %>
+
+							<%
+								if (dto != null) {
+							%>
+							<li><%=dto.getMb_id()%></li>
+							<li><%=dto.getMb_nickname()%></li>
+							<li id=Mb_region> <%=dto.getMb_region()%></li>
+							<%
+								}
+							%>
+
+							<%
+								if (dto == null) {
+							%>
 							<li><a href="login.html"> 로그인 </a></li>
+							<li><a href="team"> 회원가입 </a></li>
 							<%} else{ %>
 							<li><a href="LogoutService"> 로그아웃 </a></li>
 							<li><a href="update.jsp?mb_id=<%=dto.getMb_id() %>"> 정보수정 </a></li>
@@ -116,15 +132,17 @@
 							<li><a href="#freebies"> 지도로 보기 </a></li>
 						</ul>
 					</nav>
-					
+
 					<div class="secondary-nav-wrapper">
 						<ul class="secondary-nav">
 							<%if(dto == null) { %>
 							<li class="subscribe"><a href="">글작성시 로그인이 필요합니다.</a></li>
 							<%} else{ %>
 							<li class="subscribe"><a href="t_write.jsp">글작성하기</a></li>
-							<%} %>
-							<li class="search"><a href="#search" class="show-search"><li class="fa fa-search"></i></a></li>
+							<%
+								}
+							%>
+							<li class="search"><a href="#search" class="show-search"></a>
 						</ul>
 					</div>
 					<div class="search-wrapper">
@@ -142,16 +160,55 @@
 			</div>
 		</div>
 	</div>
+    <!-- DB연동하여 지역,기온,날씨 정보 가져오기 -->
+			<div>
+			<%
+				if (dto != null) {
+				%>
+			<h3 style="color: grey;">
+				날씨 :
+				<%=move_dao.Move(dto.getMb_region()).getW_status()%></h3>
+			<h3 style="color: grey;">
+				기온 :
+				<%=move_dao.Move(dto.getMb_region()).getW_temp()%></h3>
+			<h3 style="color: grey;">
+				지역 :
+				<%=move_dao.Move(dto.getMb_region()).getW_local()%></h3>
+			<%
+					}
+				%>
+		</div>
+		<!-- DB연동하여 세부 날씨 정보 가져오기 -->
+		<div>
+			<%if (dto != null) {%>
+			<h3 style="color: black;"> 날씨 :
+				<%=move_dao.Move(dto.getMb_region()).getW_status()%></h3>
+			<h3 style="color: black;"> 기온 :
+				<%=move_dao.Move(dto.getMb_region()).getW_temp()%></h3>
+			<h3 style="color: black;"> 지역 :
+				<%=move_dao.Move(dto.getMb_region()).getW_local()%></h3>
+			<h3 style="color: black;"> 체감 온도 :
+				<%=move_dao.Move(dto.getMb_region()).getW_body_temp()%></h3>
+			<h3 style="color: black;"> 미세먼지 :
+				<%=move_dao.Move(dto.getMb_region()).getW_humidity()%></h3>
+			<h3 style="color: black;"> 풍향 :
+				<%=move_dao.Move(dto.getMb_region()).getW_wind()%></h3>
+			<% } %>
+		</div>
+		
+		<div></div>
 	<header class="hero">
 		<div class="carousel js-flickity">
-			<video id="video" width="100%" autoplay="1" loop="1" controls="0" muted="1" style="margin-top: 0px; margin-left: 0px">
-				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">	
-				<!--  <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
+			<video id="video" width="100%" autoplay="1" loop="1" controls="0"
+				muted="1" style="margin-top: 0px; margin-left: 0px; position: absolute; z-index:1">
+				<source src="mp4/Snow.mp4" type="video/mp4" id="video1">
+				<!-- <source src="mp4/Rain.mp4" type="video/mp4" id="video2">			
 				<source src="mp4/Lightning.mp4" type="video/mp4" id="video3">
-				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4">-->
+				<source src="mp4/weat-field.mp4" type="video/mp4" id="video4"> -->
 			</video>
 			
-			<button onclick="Weather()"> hi </button>
+
+			<button onclick="Weather()">hi</button>
 			<script>
 			// 날씨 정보 이후.. 사용하기
 		/*	var snow = player[0];
@@ -171,7 +228,7 @@
 			</script>
 		</div>
 		<input type="text" name="move_region">
-		<button type="submit" value="submit"> 버튼 </button>
+		<button type="submit" value="submit">버튼</button>
 		<div class='mouse-container'>
 			<a href="#intro">
 				<div class='mouse'>
@@ -179,52 +236,34 @@
 				</div>
 			</a>
 		</div>
-		
-		
-		<script>
-		// 동적 화면 sql 실행
-		$("document").click(function() { // 로그인 후로 조건 변경 필요
-			var region = "${member_dto.getregion()}"; // 로그인된 사람 지역
-			$.ajax({
-				type : "post", //데이터를 보낼 방식
-				url : "MoveService", //데이터를 보낼 url
-				data : region, //보낼 데이터
 
-				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
-					alert("로그인되었습니다.");
-				}
-			});
-		});
+
+
+	</header>
+
+
+	<script type="text/javascript">
+	
+		// 동적 화면 sql 실행
+		// 로그인된 사람 지역
 		
-		$(document).ready(function(){
-			
-			if(weather_stat.equals("맑음") || weather_stat.equals("")){
-				$("#video1").attr("src", "mp4/Sun.mp4");	
-				System.out.prinln("오늘날씨 맑음, 직역, 기온");
-			}else if(weather_stat.equals("구름많음")){
-				$("#video2").attr("src", "mp4/CloudMore.mp4");
-			}else if(weather_stat.equals("구름적음")){
-				$("#video3").attr("src", "mp4/CloudLess.mp4");
-			}else if(weather_stat.equals("비많음")){
-				$("#video4").attr("src", "mp4/RainMore.mp4");
-			}else if(weather_stat.equals("비적음")){
-				$("#video5").attr("src", "mp4/RainLess.mp4");
-			}else if(weather_stat.equals("번개")){
-				$("#video4").attr("src", "mp4/Lightning.mp4");
-			}else if(weather_stat.equals("눈")){
-				$("#video5").attr("src", "mp4/Snow.mp4");
-			}else if(weather_stat.equals("흐림")){
-				$("#video5").attr("src", "mp4/Grey.mp4");
-			}
+
+		
+		// w_status 값 가져오기
+		
+
+		
+
+		
+		
+		// staus값 가져와서 날씨와 비교 후 영상 보여주기
+
 			
 			//console.log(1);
 			//$("#video1").attr("src", "mp4/Lightning.mp4");
 			//document.getElementById('video').load();
 			
-		});
 	
 		</script>
-		
-	</header>
 </body>
 </html>

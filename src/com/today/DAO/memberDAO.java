@@ -118,7 +118,7 @@ public class memberDAO {
 	            // 내가 가져온 이메일의 비밀번호와 데이터 베이스의 비밀번호와 비교한다.
 	            // 같다면?? 
 	            if (dto1.getMb_pw().equals(getmb_pw)) {
-	               dto = new memberDTO(getmb_id, getmb_phone, getmb_region, getmb_nickname);
+	               dto = new memberDTO(getmb_id, getmb_pw, getmb_nickname, getmb_phone, getmb_region);
 	            } else {
 	               
 	            }
