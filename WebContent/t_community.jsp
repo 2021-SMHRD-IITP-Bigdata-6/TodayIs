@@ -415,7 +415,7 @@
 				function like_func(){
 				var article_seq = "${board_dto.getM_article_seq()}";
 				var mb_id = "${dto.getMb_id()}";
-				var boardno = $( mb_id, article_seq).val();
+				var boardno = $(mb_id, article_seq);
 				console.log(boardno)
 
 				}
