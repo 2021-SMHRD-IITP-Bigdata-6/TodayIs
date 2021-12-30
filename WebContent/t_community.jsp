@@ -116,7 +116,7 @@
 	memberDTO dto = (memberDTO) session.getAttribute("dto");	
 
 	
-
+	
 	
 	
 	boardDAO board_dao = new boardDAO();
