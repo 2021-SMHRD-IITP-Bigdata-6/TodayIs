@@ -218,7 +218,7 @@
 		<div>
 			<%if (dto != null) {%>
 			<h3 style="color: black;"> 날씨 :
-				<%=move_dao.Move(dto.getMb_region()).getmove_dao.Move(dto.getMb_region()).getW_status()()%></h3>
+				<%=move_dao.Move(dto.getMb_region()).getW_status()%></h3>
 			<h3 style="color: black;"> 기온 :
 				<%=move_dao.Move(dto.getMb_region()).getW_temp()%></h3>
 			<h3 style="color: black;"> 지역 :
@@ -300,38 +300,7 @@
 
 		
 		// move_dao.Move(dto.getMb_region()).getW_status() 값 가져오기
-		$(document).ready(function(){
-			
-					if(move_dao.Move(dto.getMb_region()).getmove_dao.Move(dto.getMb_region()).getW_status()().equals("맑음") || move_dao.Move(dto.getMb_region()).getW_status().equals("")){
-						$("#video1").attr("src", "mp4/Sun.mp4");	
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름많음")){
-						$("#video2").attr("src", "mp4/CloudMore.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름조금")){
-						$("#video3").attr("src", "mp4/CloudLess.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비많음")){
-						$("#video4").attr("src", "mp4/RainMore.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비적음")){
-						$("#video5").attr("src", "mp4/RainLess.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("번개")){
-						$("#video4").attr("src", "mp4/Lightning.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("%눈%") || move_dao.Move(dto.getMb_region()).getW_status().equals("조금 눈 연속")){
-						$("#video5").attr("src", "mp4/Snow.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){
-						$("#video5").attr("src", "mp4/Grey.mp4");
-						document.getElementById('video').load();
-					}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("안개")){
-						$("#video5").attr("src", "mp4/smog.mp4");
-						document.getElementById('video').load();
-					}
-				}
-
+		
 		
 
 		
