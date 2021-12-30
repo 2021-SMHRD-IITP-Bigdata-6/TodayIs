@@ -115,6 +115,10 @@
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");	
 
+	
+	
+	
+	
 	boardDAO board_dao = new boardDAO();
 	ArrayList<boardDTO> arr = board_dao.board_all();
 
