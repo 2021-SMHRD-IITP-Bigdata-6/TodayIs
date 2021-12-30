@@ -40,7 +40,7 @@ public class JoinService extends HttpServlet {
 		if (cnt > 0) {
 			request.setAttribute("dto", dto);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("MainPage.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request, response);
 			
 			// JoinCon에서 joinSuccess.jsp로 값을 보낼  수 있는 두가지 방법

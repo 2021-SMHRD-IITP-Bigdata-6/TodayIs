@@ -39,9 +39,9 @@ public class UpdateService extends HttpServlet {
 		if(cnt>0) {
 			memberDTO update_dto =  new memberDTO(mb_id, mb_nickname, mb_region);
 			session.setAttribute("dto", update_dto);
-			response.sendRedirect("MainPage.jsp");
+			response.sendRedirect("index.jsp");
 		}else {
-			response.sendRedirect("MainPage.jsp");
+			response.sendRedirect("index.jsp");
 		}
 		
 	}

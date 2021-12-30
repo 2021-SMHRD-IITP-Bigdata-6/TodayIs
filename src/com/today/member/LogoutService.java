@@ -14,6 +14,6 @@ public class LogoutService extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("dto");
-		response.sendRedirect("MainPage.jsp");
+		response.sendRedirect("index.jsp");
 	}
 }

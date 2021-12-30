@@ -28,7 +28,7 @@ public class LoginService extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
-			response.sendRedirect("MainPage.jsp");
+			response.sendRedirect("index.jsp");
 			
 		}else {
 			response.sendRedirect("login.html");
