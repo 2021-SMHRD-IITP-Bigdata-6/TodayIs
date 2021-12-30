@@ -208,6 +208,7 @@
 					<div>
 						<div class="col-md-4">
 							<article class="article-post">
+							<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region() %></h3>
 								<a href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq() %>"> <img src="<%=arr.get(i).getM_article_img()%>"
 									style="width: 100%; height: 100%;" 
 									id="article-image has-overlay">

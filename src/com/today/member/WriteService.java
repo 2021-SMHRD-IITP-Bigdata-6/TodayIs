@@ -23,7 +23,7 @@ public class WriteService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		boardDTO dto = (boardDTO) session.getAttribute("dto");
+
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
         String m_article_imgpath = "C:/Users/smhrd/git/TodayIs/WebContent/UploadWrite";    

@@ -73,8 +73,10 @@
 <body>
 
 		<%
-		boardDTO board_dto = (boardDTO)request.getAttribute("dto");
+		boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
 		memberDTO dto = (memberDTO) session.getAttribute("dto");	
+		
+		
 		%>
 		
 	<div class="container-fluid">
@@ -160,8 +162,12 @@
 									placeholder="게시판을 선택해주세요" name="inputArticle-Sort" maxlength="20" readonly></td>
 								<td colspan="2"><input type="text" class="form-control"
 									placeholder="글 제목" name="m_article_subject" maxlength="50"></td>
-								<td><input type="text" class="form-control"
-									placeholder="글쓴이" name="mb_id" maxlength="20"></td>
+								<td><input type="hidden" class="form-control"
+									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id">
+									<input type="text" class="form-control"
+									placeholder="글쓴이" maxlength="20" id="inputnick" readonly>
+									</td>
+									
 								 <td> 
 								<select id="big" name="h_area1" class="form-control" onChange="cat1_change(this.value,h_area2)" class="h_area1">
 								  <option>-선택-</option>
@@ -393,6 +399,12 @@
 	    document.getElementById('m_article_preview').src = "";
 	  }
 	};
+	
+	m_article_mb_id = "${dto.getMb_id()}";
+	document.getElementById("inputmb_id").value = m_article_mb_id;
+	
+	dto_nickname = "${dto.getMb_nickname()}";
+	document.getElementById("inputnick").value = dto_nickname;
 	</script>
 </body>
 </html>

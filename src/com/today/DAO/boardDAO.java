@@ -7,17 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import com.today.DTO.boardDTO;
+import com.today.DTO.commDTO;
 
 
 public class boardDAO {
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		boardDTO boardDTO = null;
+
 		private boolean check;
 
 		// 데이터베이스 연결 호출 메소드
@@ -71,7 +74,7 @@ public class boardDAO {
 				psmt.setString(3, m_article_content);
 				psmt.setString(4, m_article_img);
 				psmt.setString(5, m_article_region);
-				psmt.setString(6, "mb_id 1");
+				psmt.setString(6, mb_id);
 				cnt = psmt.executeUpdate();
 				
 				
@@ -103,7 +106,7 @@ public class boardDAO {
 				psmt.setString(2, m_article_content);
 				psmt.setString(3, m_article_img);
 				psmt.setString(4, m_article_region);
-				psmt.setString(5, "mb_id 1");
+				psmt.setString(5, mb_id);
 				
 
 				cnt = psmt.executeUpdate();
@@ -142,6 +145,9 @@ public class boardDAO {
 					
 					board_arr.add(dto);
 				}
+				
+				// boardDTO의 getM_article_seq의 기준으로 역정렬한다.
+				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_seq).reversed()).collect(Collectors.toList());
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -176,6 +182,7 @@ public class boardDAO {
 					dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude, m_board_type);
 					
 				}
+
 
 			} catch (Exception e) {
 				e.printStackTrace();
