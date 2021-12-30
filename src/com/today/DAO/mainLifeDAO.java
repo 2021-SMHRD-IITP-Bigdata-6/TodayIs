@@ -57,7 +57,10 @@ public class mainLifeDAO {
 	}
 
 
+
+
 	public mainLifeDTO life_dto(String w_indexindex) {
+
 		
 		
 		
