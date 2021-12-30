@@ -18,7 +18,6 @@ public class ReplyService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("utf-8");
-		boardDTO dto = (boardDTO) session.getAttribute("dto");
 		
 		String comm_content = request.getParameter("comm_content");
 		String article_seq = request.getParameter("article_seq");

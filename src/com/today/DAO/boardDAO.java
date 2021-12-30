@@ -206,5 +206,67 @@ public class boardDAO {
 			return cnt;
 		}
 		
+		
+		//로그인용 보드 dto
+				public boardDTO board_tologin() {
+					boardDTO dto =null;
+					try {
+						getConn();
+						String sql = "select * from t_community";
+						psmt = conn.prepareStatement(sql);
+						rs = psmt.executeQuery();
+						
+						while (rs.next() == true) {
+							int m_article_seq = rs.getInt(1);
+							String m_article_subject = rs.getString(2);
+							String m_article_content = rs.getString(3);
+							String m_article_img = rs.getString(4);
+							String m_article_region = rs.getString(5);
+							int m_article_latitude = rs.getInt(6);
+							int m_article_logitude = rs.getInt(7);
+							String m_article_date = rs.getString(8);					
+							int m_article_likes = rs.getInt(9);
+							String mb_id = rs.getString(10);
+							dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude);
+							
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					}
+					return dto;
+				}
+
+				public int board_like(String article_seq, String like_count, String counter) {
+					boardDTO dto =null;
+					int cnt = 0;
+					int ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+					if (counter.equals("o")) {
+					ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+					} else {
+					ARTICLE_LIKES = Integer.parseInt(like_count)-1;
+					}
+					try {
+						getConn();
+						String sql = "Update t_community set ARTICLE_LIKES = ? where ARTICLE_SEQ = ? ";
+						psmt = conn.prepareStatement(sql);
+						psmt.setInt(1, ARTICLE_LIKES);
+						psmt.setString(2, article_seq);
+						
+
+						cnt = psmt.executeUpdate();
+						
+					
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					}	
+					return cnt;
+				}
+		
 	}
 

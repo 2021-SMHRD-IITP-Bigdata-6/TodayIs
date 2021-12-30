@@ -62,7 +62,7 @@ public class commDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, article_seq);
 			psmt.setString(2, comm_content);
-			psmt.setString(3, "mb_id 1");
+			psmt.setString(3, mb_id);
 
 			cnt = psmt.executeUpdate();
 			

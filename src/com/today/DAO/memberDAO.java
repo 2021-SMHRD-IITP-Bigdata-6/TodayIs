@@ -107,7 +107,6 @@ public class memberDAO {
 	         System.out.println(rs);
 	         System.out.println(dto1.getMb_id());
 
-	         // 데이터베이스에 값이 있다면
 	         if (rs.next()) {
 	            String getmb_id = rs.getString(1); // 데이터베이스의 이메일
 	            String getmb_pw = rs.getString(2); // 데이터베이스 의 패스워드

@@ -137,6 +137,8 @@ h4:after {
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");		
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		commDTO comm_dto = (commDTO) session.getAttribute("comm_dto"); 
+		
+		
 
 	%>
 	
@@ -399,7 +401,7 @@ h4:after {
 		$("#btnReply").click(function() {
 			var comm_content = $("#replytext").val(); //댓글 내용
 			var article_seq = "${board_dto.getM_article_seq()}"; //게시물 번호
-			var mb_id = "${board_dto.getMb_id()}";  //작성자 아이디
+			var mb_id = "${dto.getMb_id()}";  //작성자 아이디
 			var param = { "comm_content" : comm_content, "article_seq" : article_seq, "mb_id" : mb_id };
 			//var param="replytext="+replytext+"&bno="+bno;
 			$.ajax({
