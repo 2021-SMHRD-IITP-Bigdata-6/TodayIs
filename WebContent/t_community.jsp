@@ -204,9 +204,11 @@
 						for (int i = 0; i < arr.size(); i++) {
 					%>
 					<!-- 1번 게시물 -->
+					<input type="hidden" >
 					<div>
 						<div class="col-md-4">
 							<article class="article-post">
+							<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region() %></h3>
 								<a href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq() %>"> <img src="<%=arr.get(i).getM_article_img()%>"
 									style="width: 100%; height: 100%;" 
 									id="article-image has-overlay">
@@ -225,9 +227,10 @@
 										<li style="position: absolute; right : 10%; color: #7AE2DE; font-weight: bold;"><a href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq() %>'>수정</a></li>
 										<li style="position: absolute; right : 20%;">
 											<div class="like-button-wrapper">
-												<a href="#" class="like_button"><i
-													class="like-counter fa fa-heart-o" onclick="like_func()"></i> <span><%=arr.get(i).getM_article_likes()%></span>
+												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes() %>)" ><i
+													class="like-counter fa fa-heart-o" ></i> <span class="like_count" ><%=arr.get(i).getM_article_likes() %></span>
 												</a>
+												
 											</div>
 										</li>
 										<li class="replymenu" style="margin-left: 2px"><a
@@ -395,6 +398,30 @@
 
 			<!-- 댓글 기능 종료 -->
 			<script>
+				function func(a, b) {
+					console.log(a);
+					console.log(b);
+					var c = $(".like_button").parent().find(".like-counter");
+					if(c.hasClass("fa-heart")) {
+						var counter = "x";  
+					} else if(c.hasClass("fa-heart-o")){
+						var counter = "o";
+					}
+					var article_seq = a; //게시물 번호
+					var like_count = b;
+					
+					var param = {"article_seq" : article_seq,"like_count" : like_count, "counter" : counter };
+					$.ajax({
+						type : "post", //데이터를 보낼 방식
+						url : "LikeService", //데이터를 보낼 url
+						data : param, //보낼 데이터
+
+						success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
+						
+						}
+					});
+				}
+			
 				// 댓글 펼치기 기능
 				$(document).ready(function() {
 					$(".replymenu>a").click(function() {
@@ -411,18 +438,43 @@
 					});
 
 					// 댓글 초기화후 다시 불러오는 작업
-
+					
+	
 				});
 				
 				
-				// 좋아요 기능 
-				function like_func(){
-				var article_seq = "${board_dto.getM_article_seq()}";
-				var mb_id = "${dto.getMb_id()}";
-				var boardno = $( mb_id, article_seq).val();
-				console.log(boardno)
+				// 좋아요 +1 기능  기초 구현
+				$(".like_button").on("click", function(){
+			        var a = $(this).parent().find(".like-counter");
+					var t = $(this).parent().find(".like_count");
+					console.log(t.html());
+					if(a.hasClass("fa-heart-o")){
+						console.log("좋아요 +1")
+						// span태그 숫자 변경
+				        t.html(1 * t.html() + 1);
+						$(a).removeClass("fa-heart-o"),
+				        $(a).addClass("fa-heart")
+				        
+				        console.log(t.html());
+		
+				        //db 관련 정보들
 
-				}
+
+
+					}else if(a.hasClass("fa-heart")){
+						console.log("좋아요 -1")
+						t.html(1 * t.html() - 1);
+						$(a).removeClass("fa-heart"),
+				        $(a).addClass("fa-heart-o")
+				        console.log(t.html());
+					}
+					
+					
+				});
+				
+
+	
+	
 
 			</script>
 </body>

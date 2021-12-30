@@ -7,17 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import com.today.DTO.boardDTO;
+import com.today.DTO.commDTO;
 
 
 public class boardDAO {
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		boardDTO boardDTO = null;
+
 		private boolean check;
 
 		// 데이터베이스 연결 호출 메소드
@@ -71,7 +74,7 @@ public class boardDAO {
 				psmt.setString(3, m_article_content);
 				psmt.setString(4, m_article_img);
 				psmt.setString(5, m_article_region);
-				psmt.setString(6, "mb_id 1");
+				psmt.setString(6, mb_id);
 				cnt = psmt.executeUpdate();
 				
 				
@@ -103,7 +106,7 @@ public class boardDAO {
 				psmt.setString(2, m_article_content);
 				psmt.setString(3, m_article_img);
 				psmt.setString(4, m_article_region);
-				psmt.setString(5, "mb_id 1");
+				psmt.setString(5, mb_id);
 				
 
 				cnt = psmt.executeUpdate();
@@ -142,6 +145,9 @@ public class boardDAO {
 					
 					board_arr.add(dto);
 				}
+				
+				// boardDTO의 getM_article_seq의 기준으로 역정렬한다.
+				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_seq).reversed()).collect(Collectors.toList());
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -177,6 +183,7 @@ public class boardDAO {
 					
 				}
 
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -205,6 +212,68 @@ public class boardDAO {
 
 			return cnt;
 		}
+		
+		
+		//로그인용 보드 dto
+				public boardDTO board_tologin() {
+					boardDTO dto =null;
+					try {
+						getConn();
+						String sql = "select * from t_community";
+						psmt = conn.prepareStatement(sql);
+						rs = psmt.executeQuery();
+						
+						while (rs.next() == true) {
+							int m_article_seq = rs.getInt(1);
+							String m_article_subject = rs.getString(2);
+							String m_article_content = rs.getString(3);
+							String m_article_img = rs.getString(4);
+							String m_article_region = rs.getString(5);
+							int m_article_latitude = rs.getInt(6);
+							int m_article_logitude = rs.getInt(7);
+							String m_article_date = rs.getString(8);					
+							int m_article_likes = rs.getInt(9);
+							String mb_id = rs.getString(10);
+							dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude);
+							
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					}
+					return dto;
+				}
+
+				public int board_like(String article_seq, String like_count, String counter) {
+					boardDTO dto =null;
+					int cnt = 0;
+					int ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+					if (counter.equals("o")) {
+					ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+					} else {
+					ARTICLE_LIKES = Integer.parseInt(like_count)-1;
+					}
+					try {
+						getConn();
+						String sql = "Update t_community set ARTICLE_LIKES = ? where ARTICLE_SEQ = ? ";
+						psmt = conn.prepareStatement(sql);
+						psmt.setInt(1, ARTICLE_LIKES);
+						psmt.setString(2, article_seq);
+						
+
+						cnt = psmt.executeUpdate();
+						
+					
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					}	
+					return cnt;
+				}
 		
 	}
 

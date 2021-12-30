@@ -6,6 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import com.today.DTO.boardDTO;
 import com.today.DTO.commDTO;
 
@@ -62,7 +67,7 @@ public class commDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, article_seq);
 			psmt.setString(2, comm_content);
-			psmt.setString(3, "mb_id 1");
+			psmt.setString(3, mb_id);
 
 			cnt = psmt.executeUpdate();
 			
@@ -78,6 +83,7 @@ public class commDAO {
 	// 해당 글의 댓글 조회
 	public ArrayList<commDTO> comm_all(int article_seq) {
 		ArrayList<commDTO> al = new ArrayList<commDTO>();
+		
 		try {
 			getConn();
 
@@ -96,7 +102,9 @@ public class commDAO {
 				comm_dto = new commDTO(number, m_article_seq, content, date, id);
 				al.add(comm_dto);
 			}
-
+			// commDTO의 getComm_seq의 기준으로 정렬한다.
+			al.stream().sorted(Comparator.comparing(commDTO::getComm_seq)).collect(Collectors.toList());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

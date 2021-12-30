@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.today.DAO.boardDAO;
 import com.today.DAO.memberDAO;
+import com.today.DTO.boardDTO;
 import com.today.DTO.memberDTO;
 @WebServlet("/LoginService")
 public class LoginService extends HttpServlet {
@@ -23,13 +25,18 @@ public class LoginService extends HttpServlet {
 		memberDTO dto_two = new memberDTO(mb_id, mb_pw);
 		memberDTO dto = dao.Login(dto_two);
 		
+		//보드 dto 세션불러오기
+		boardDAO board_dao = new boardDAO();
+		boardDTO board_dto = board_dao.board_tologin();
+		
 		if (dto!=null) {
 			System.out.println("여긴오나");
 
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
 			response.sendRedirect("index.jsp");
-			
+			session.setAttribute("board_dto", board_dto);
+			response.sendRedirect("MainPage.jsp");			
 		}else {
 			response.sendRedirect("login.html");
 
