@@ -133,8 +133,8 @@ mainLifeDTO life_dto = null;
             		<p class="tm-welcome-text mb-1 text-white">
            			<%=move_dao.Move(dto.getMb_region()).getW_temp() %>℃
            			</p>
+           		
            		<%}%>
-           		<% System.out.print(move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 단속적")); %>
             <a
               href="#content"
               class="btn tm-btn-animate tm-btn-cta tm-icon-down"
@@ -145,6 +145,7 @@ mainLifeDTO life_dto = null;
         </div>
 
         <div id="tm-video-container">
+        <% if(dto != null){%>
         	 <% if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){ %>
 		     	<video autoplay muted loop id="tm-video">
 		            <source src="video/Grey.mp4" type="video/mp4" />
@@ -154,6 +155,7 @@ mainLifeDTO life_dto = null;
 		            <source src="video/Smog.mp4" type="video/mp4" />
 		          </video>
 		     <%} %>
+		         <%} %>
         </div>
 
         <i id="tm-video-control-button" class="fas fa-pause"></i>
