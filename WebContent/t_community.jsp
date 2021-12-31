@@ -141,7 +141,7 @@
 				<div class="row">
 					<div class="section-header col-md-12">
 						<h2>☁︎ Community</h2>
-						<span>mission : keywords</span>
+						<span>Region Shared</span>
 					</div>
 					<!-- /.section-header -->
 				</div>
