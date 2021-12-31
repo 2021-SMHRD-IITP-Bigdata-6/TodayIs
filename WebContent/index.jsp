@@ -143,21 +143,54 @@ mainLifeDTO life_dto = null;
             </a>
           </div>
         </div>
-
         <div id="tm-video-container">
         <% if(dto != null){%>
-        	 <% if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){ %>
+        	 <%if(move_dao.Move(dto.getMb_region()).getW_status().equals("맑음") 
+        		|| move_dao.Move(dto.getMb_region()).getW_status().equals("")){ %>
+		          <video autoplay muted loop id="tm-video">
+		            <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+		            <source src="video/Sun.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름많음")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/CloudMore.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름조금")){%>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/CloudLess.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비많음")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Forest .mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비적음")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Rainless.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("번개")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Lightning.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 단속적") 
+		    		 || move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 연속적")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Snow.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){ %>
 		     	<video autoplay muted loop id="tm-video">
 		            <source src="video/Grey.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("박무")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Smog.mp4" type="video/mp4" />
+		            <source src="video/smog.mp4" type="video/mp4" />
 		          </video>
 		     <%} %>
-		         <%} %>
-        </div>
-
+	  <%}else{ %>
+	  	<video autoplay muted loop id="tm-video">
+		     <source src="video/smog.mp4" type="video/mp4" />
+		</video>
+	  <%} %>	
+      </div>
         <i id="tm-video-control-button" class="fas fa-pause"></i>
       </div>
 
