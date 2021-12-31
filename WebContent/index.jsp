@@ -114,9 +114,10 @@ mainLifeDTO life_dto = null;
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="contact.html"
-                            >my</a
-                          >
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">region</a>
                         </li>
                       </ul>
                     </div>
