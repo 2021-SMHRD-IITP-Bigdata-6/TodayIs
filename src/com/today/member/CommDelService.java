@@ -24,9 +24,9 @@ public class CommDelService extends HttpServlet {
 		int cnt = dao.comm_delete(COMM_SEQ);
 		
 		if (cnt > 0) {
-			response.sendRedirect("t_community_board.jsp");
+			response.sendRedirect("t_community_click.jsp");
 		} else {
-			response.sendRedirect("t_community_board.jsp");
+			response.sendRedirect("t_community_click.jsp");
 		}
 	}
 

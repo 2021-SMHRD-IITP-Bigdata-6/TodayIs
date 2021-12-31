@@ -92,7 +92,7 @@ th, td {
 	
 	%>
 	<!-- nav bar -->
-
+ 
 	<!-- community_click-->
 	<div class="content-wrapper">
 		<div class="inner-container container">
@@ -125,9 +125,8 @@ th, td {
 					<a href="#">겨울왕국</a> <a href="#">엘사</a>
 				</div>
 				<!-- /.blog-tags -->
-			</div>
+			
 			<!-- /.row -->
-			<tbody id='tbody'>
 				<%
 					commDAO comm_dao = new commDAO();
 				ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
@@ -147,8 +146,7 @@ th, td {
 										<h4><%=arr.get(i).getMb_id()%></h4>
 										<span><%=arr.get(i).getComm_date()%></span>
 										<p><%=arr.get(i).getComm_content()%></p>
-										<a
-											href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
+										<a href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
 											삭제 </a>
 									</div>
 								</div>
@@ -160,15 +158,15 @@ th, td {
 						%>
 						</div>
 					<!-- /.col-md-12 -->
-				</div>
+			
 				<!-- /.row -->
-				<div class="row">
+			
 					<div class="col-md-12 comment-form">
 						<h2 class="comment-heading">Leave a Comment</h2>
 						<div class="box-content">
 							<p>
 								<label for="name">Nick-name :</label> <input type="text"
-									name="name" id="id_name" readonly>
+									name="name" id="id_name" placeholder="로그인이 필요합니다." readonly>
 							</p>
 							<p>
 								<label for="comment">Your comment:</label>
@@ -179,6 +177,7 @@ th, td {
 						<!-- /.box-content -->
 					</div>
 					<!-- /.comment-form -->
+				</div>
 				</div>
 				<!-- /.row -->
 		</div>
@@ -231,7 +230,7 @@ th, td {
 			});
 		});
 		
-		m_article_inputregion = "${comm_dto.getMb_id()}";
+		m_article_inputregion = "${dto.getMb_id()}";
 		document.getElementById("id_name").value = m_article_inputregion;
 		
 	</script>

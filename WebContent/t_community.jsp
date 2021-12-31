@@ -71,9 +71,6 @@
   	list-style: none;
  }
 
-::marker {
- 	all : none !important;
-}
 
 
 </style>
@@ -108,19 +105,57 @@
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-                                        <ul class="navbar-nav text-uppercase">
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="index.html">weather</a>
-                                            </li>
-                                            <li class="nav-item active">
-                                                <a class="nav-link tm-nav-link" href="ver1_community_mission.html">today <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="contact.html">my</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <div
+                      class="collapse navbar-collapse tm-nav"
+                      id="navbar-nav"
+                    >
+                      <ul class="navbar-nav text-uppercase">
+                        <%if(dto != null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#">
+                          	<%=dto.getMb_nickname()%> 's
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_region()%>
+                          </a>
+                        </li>
+                        <%} %>
+                        <%if(dto == null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="team">join</a>
+                        </li>
+                        <%}else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" 
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                        </li>
+                        <%} %>
+                        <li class="nav-item active">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
+                            >weather <span class="sr-only">(current)</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="about.html"
+                            >today</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
+                        </li>
+                      </ul>
+                    </div>
                                 </nav>
                             </div>
                         </div>
@@ -268,8 +303,7 @@
 		<!-- /.row -->
 	</div>
 	<!-- /.inner-content -->
-	</div>
-	<!-- /.content-wrapper -->
+
 
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
