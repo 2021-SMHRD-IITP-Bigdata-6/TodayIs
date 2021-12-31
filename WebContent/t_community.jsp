@@ -62,6 +62,7 @@
 }
 
 
+
 </style>
 </head>
 <body>
@@ -97,6 +98,7 @@
 				<li><a href="t_community.jsp"> 공유 게시판 </a></li>
 				<li><a href="#articles"> 미션 게시판 </a></li>
 				<li><a href="#freebies"> 지도로 보기 </a></li>
+				<li><a href="t_write.jsp"> 글쓰기 </a></li>
 			</ul>
 		</nav>
 
@@ -111,19 +113,19 @@
 					<!-- /.section-header -->
 				</div>
 				<!-- /.row -->
-				<div class="row">
-					<div class="blog-masonry masonry-true">
+				<div class="row" >
+					<div class="blog-masonry masonry-true" >
 						<%
 							try {
 							for (int i = 0; i < arr.size(); i++) {
 						%>
 						<!-- 1번 게시물 -->
-						
-						<div class="post-masonry col-md-4 col-sm-6" >
-							<div class="blog-thumb">
+					
+						<span class="post-masonry col-md-4 col-sm-6" >
+							<div class="blog-thumb" >
 								<!-- 사진 출력부-->
-								<img src="<%=arr.get(i).getM_article_img()%>">
-								<div class="overlay-b">
+								<img src="<%=arr.get(i).getM_article_img()%>" >
+								<div class="overlay-b" >
 									<div class="overlay-inner">
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
@@ -133,15 +135,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="blog-body">
+							<div class="blog-body" style="display: list-item;">
 								<div class="box-content" >
 									<!-- 글 제목-->
 									<h3 class="post-title"><%=arr.get(i).getM_article_subject()%>
 										<!-- 장소 검색기능-->
-										<a
-											href="BoardSearchService?region=<%=arr.get(i).getM_article_region()%>"><h3
-												style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">
-												#<%=arr.get(i).getM_article_region()%></h3></a>
+										<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
+										</a>
 									</h3>
 									<span class="blog-meta">2021-12-12</span>
 									<!-- 글 내용-->
@@ -157,8 +158,7 @@
 											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
-												<a class="like_button"
-													onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
 													<i class="like-counter fa fa-heart-o"></i> <span class="like_count"><%=arr.get(i).getM_article_likes()%></span>
 												</a>
 
@@ -166,7 +166,7 @@
 										</li>
 									</ul>
 									<ul>
-										<li class="replymenu" style="margin-left: 2px; list-style: none;"><a
+										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
 												<table style="width: 100%; table-layout: fixed; word-break: break-all; border: 1px solid #3399cc;">
@@ -202,7 +202,7 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</span>
 						<%
 							}
 						} catch (Exception e) {
@@ -247,8 +247,8 @@
         );
     </script>
 	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
-
+	<!-- 애니메이션 효과 -->
+	<!-- <script src="js/main.js"></script>-->
 	<!-- Preloader -->
 	<script type="text/javascript">
       //<![CDATA[
@@ -300,8 +300,6 @@
 			});
 
 			// 댓글 초기화후 다시 불러오는 작업
-
-
 		});
 		
 		
@@ -334,6 +332,8 @@
 			
 		});
 	
+	var element = document.getElementById(".post-masonry");
+	element.removeClass('isotope-item');
       
     </script>
 </body>

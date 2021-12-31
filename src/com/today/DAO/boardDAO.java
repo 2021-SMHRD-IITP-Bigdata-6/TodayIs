@@ -275,5 +275,43 @@ public class boardDAO {
 					return cnt;
 				}
 		
+				//게시판 정보 전체 조회
+				public ArrayList<boardDTO> board_to_region(String region) {
+					ArrayList<boardDTO> board_arr = new ArrayList<boardDTO>();
+					try {
+						getConn();
+
+						String sql = "select * from t_community where article_region = ? ";
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, region);
+						rs = psmt.executeQuery();
+
+						while (rs.next() == true) {
+							int m_article_seq = rs.getInt(1);
+							String m_article_subject = rs.getString(2);
+							String m_article_content = rs.getString(3);
+							String m_article_img = rs.getString(4);
+							String m_article_region = rs.getString(5);
+							int m_article_latitude = rs.getInt(6);
+							int m_article_logitude = rs.getInt(7);
+							String m_article_date = rs.getString(8);					
+							int m_article_likes = rs.getInt(9);
+							String mb_id = rs.getString(10);
+							boardDTO dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude);
+							
+							board_arr.add(dto);
+						}
+						
+						// boardDTO의 getM_article_seq의 기준으로 역정렬한다.
+						board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_seq).reversed()).collect(Collectors.toList());
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						close();
+					}
+					return board_arr;
+				}
+				
 	}
 
