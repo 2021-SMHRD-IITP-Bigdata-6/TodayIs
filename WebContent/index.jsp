@@ -114,9 +114,10 @@ mainLifeDTO life_dto = null;
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="contact.html"
-                            >my</a
-                          >
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">region</a>
                         </li>
                       </ul>
                     </div>
@@ -235,7 +236,28 @@ mainLifeDTO life_dto = null;
 	                    <span class="tm-text-secondary">
 	                   	<%=move_dao.Move(dto.getMb_region()).getW_body_temp()%>℃	
 	                    </span>
-	                <%}%><br />추워요.
+	                <%}%><br />
+	                <%
+ 	                float move = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_body_temp());
+	                int data = (int)move;
+	               
+	                if(data>= 40){ %>
+	                	 뜨거워요. 화상에 주의하세요.
+	                <%}else if(data >= 30){ %>
+	               	 	 더워요. 잠깐만 움직여도 땀이 날 거에요.
+	                <%}else if(data >= 25){ %>
+              			 낮에는 덥지만 저녁에는 선선할거에요.
+              	    <%}else if(data >= 20){ %>
+              			 날씨가 쌀쌀합니다. 가디건 챙기세요
+              	    <%}else if(data >= 15){ %>
+              			 추워요. 오늘은 코드 어떨가요?
+              	    <%}else if(data >= 10){ %>
+              			 추워요. 얇은 패딩을 추천합니다.
+              	    <%}else if(data >= 3){ %>
+              			 많이 추워요. 패딩과 목도리 잊지 마세요.
+              	    <%}else{ %>
+              			 이렇게 추운데..꼭 나가야 할까요?
+              	   <%} %>
                   </p>
                 </div>
               </div>
@@ -258,7 +280,18 @@ mainLifeDTO life_dto = null;
                     	<span class="tm-text-secondary">
                     	<%=move_dao.Move(dto.getMb_region()).getW_humidity()%>%
                     	</span>
-                    <%} %><br />대체로 좋아요.
+                    <%} %><br />
+                    <%
+	                float move2 = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_humidity());
+	                int data2 = (int)move2;
+	               
+	                if(data2>= 70){ %>
+	               	    습하네요.
+	                <%}else if(data2 >= 57){ %>
+	               		평균이에요.
+	                <%}else{ %>
+              			건조합니다.
+              	    <%} %>
                   </p>
                 </div>
               </div>
@@ -557,25 +590,29 @@ mainLifeDTO life_dto = null;
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
               <div class="p-5 tm-bg-gray">
-                <h3 class="tm-text-primary mb-4">Quick Links</h3>
+                <h3 class="tm-text-primary mb-4">Today Developers</h3>
                 <ul class="list-unstyled tm-footer-links">
-                  <li><a href="#">Duis bibendum</a></li>
-                  <li><a href="#">Purus non dignissim</a></li>
-                  <li><a href="#">Sapien metus gravida</a></li>
-                  <li><a href="#">Eget consequat</a></li>
-                  <li><a href="#">Praesent eu pulvinar</a></li>
+                  <li><a href="#">전웅철</a></li>
+                  <li><a href="#">박서현</a></li>
+                  <li><a href="#">김현철</a></li>
+                  <li><a href="#">유현지</a></li>
+                  <li><a href="login.html">그 외 도움을 주신분들♥</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
               <div class="p-5 tm-bg-gray h-100">
-                <h3 class="tm-text-primary mb-4">Our Pages</h3>
+                <h3 class="tm-text-primary mb-4">Today Menu</h3>
                 <ul class="list-unstyled tm-footer-links">
-                  <li><a href="#">Our Videos</a></li>
-                  <li><a href="#">License Terms</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Privacy Policies</a></li>
+                  <%if(dto == null){ %>
+                        <li><a href="login.html">login</a></li>
+                     <%}else{ %>
+                        <li><a href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
+                        <li><a href="region.html">map</a></li>
+                        <%} %>
+                  <li><a href="index.jsp">weather</a></li>
+                  <li><a href="#">today</a></li>
+                  <li><a href="#">my</a></li>
                 </ul>
               </div>
             </div>
