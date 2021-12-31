@@ -26,7 +26,7 @@ public class BoardViewService extends HttpServlet {
 		
 		boardDTO board_dto = dao.board_tocomm(M_article_seq);
 		session.setAttribute("board_dto", board_dto);
-		response.sendRedirect("t_community_board.jsp");
+		response.sendRedirect("t_community_click.jsp");
 	}
 
 }

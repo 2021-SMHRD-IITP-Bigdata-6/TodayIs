@@ -24,6 +24,9 @@
 <link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
 <link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <style>
@@ -60,6 +63,17 @@
 	padding: 10px;
 	font-size: small;
 }
+ li {
+ 	list-style: none;
+ }
+ 
+ ul {
+  	list-style: none;
+ }
+
+::marker {
+ 	all : none !important;
+}
 
 
 </style>
@@ -77,28 +91,49 @@
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
 	%>
-	<!-- 로그인  -->
-	<div class="primary-nav-wrapper">
-		<nav>
-			<ul class="primary-nav">
-				<%
-					if (dto == null) {
-				%>
-				<li><a href="login.html"> 로그인 </a></li>
-				<%
-					} else {
-				%>
-				<li><a href="LogoutService"> 로그아웃 </a></li>
-				<%
-					}
-				%>
 
+<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">						
+                        <div class="col-5 col-md-8 ml-auto mr-0">
+                            <div class="tm-site-nav">
+                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
+                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span>
+                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
+                                            <i class="fas fa-times tm-menu-opened-icon"></i>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                        <ul class="navbar-nav text-uppercase">
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="index.html">weather</a>
+                                            </li>
+                                            <li class="nav-item active">
+                                                <a class="nav-link tm-nav-link" href="ver1_community_mission.html">today <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+            
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
 
-				<li><a href="t_community.jsp"> 공유 게시판 </a></li>
-				<li><a href="#articles"> 미션 게시판 </a></li>
-				<li><a href="#freebies"> 지도로 보기 </a></li>
-			</ul>
-		</nav>
+            </div>
+
+            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
+		</div>
 
 		<!-- section-header -->
 		<div class="content-wrapper">
@@ -111,19 +146,19 @@
 					<!-- /.section-header -->
 				</div>
 				<!-- /.row -->
-				<div class="row">
-					<div class="blog-masonry masonry-true">
+				<div class="row" >
+					<div class="blog-masonry masonry-true" >
 						<%
 							try {
 							for (int i = 0; i < arr.size(); i++) {
 						%>
 						<!-- 1번 게시물 -->
-						
-						<div class="post-masonry col-md-4 col-sm-6" >
-							<div class="blog-thumb">
+					
+						<span class="post-masonry col-md-4 col-sm-6" >
+							<div class="blog-thumb" >
 								<!-- 사진 출력부-->
-								<img src="<%=arr.get(i).getM_article_img()%>">
-								<div class="overlay-b">
+								<img src="<%=arr.get(i).getM_article_img()%>" >
+								<div class="overlay-b" >
 									<div class="overlay-inner">
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
@@ -133,19 +168,18 @@
 									</div>
 								</div>
 							</div>
-							<div class="blog-body">
+							<div class="blog-body" >
 								<div class="box-content" >
 									<!-- 글 제목-->
-									<h3 class="post-title"><%=arr.get(i).getM_article_subject()%>
+									<h3 class="post-title"  ><%=arr.get(i).getM_article_subject()%>
 										<!-- 장소 검색기능-->
-										<a
-											href="BoardSearchService?region=<%=arr.get(i).getM_article_region()%>"><h3
-												style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">
-												#<%=arr.get(i).getM_article_region()%></h3></a>
+										<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
+										</a>
 									</h3>
 									<span class="blog-meta">2021-12-12</span>
 									<!-- 글 내용-->
-									<p class="getM_article_content"><%=arr.get(i).getM_article_content()%></p>
+									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
 									<!-- 댓글 구현부-->
 									<ul>
@@ -157,8 +191,7 @@
 											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
-												<a class="like_button"
-													onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
 													<i class="like-counter fa fa-heart-o"></i> <span class="like_count"><%=arr.get(i).getM_article_likes()%></span>
 												</a>
 
@@ -166,7 +199,7 @@
 										</li>
 									</ul>
 									<ul>
-										<li class="replymenu" style="margin-left: 2px; list-style: none;"><a
+										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
 												<table style="width: 100%; table-layout: fixed; word-break: break-all; border: 1px solid #3399cc;">
@@ -202,7 +235,7 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</span>
 						<%
 							}
 						} catch (Exception e) {
@@ -247,8 +280,8 @@
         );
     </script>
 	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
-
+	<!-- 애니메이션 효과 -->
+	<!-- <script src="js/main.js"></script>-->
 	<!-- Preloader -->
 	<script type="text/javascript">
       //<![CDATA[
@@ -300,8 +333,6 @@
 			});
 
 			// 댓글 초기화후 다시 불러오는 작업
-
-
 		});
 		
 		
@@ -334,6 +365,8 @@
 			
 		});
 	
+	var element = document.getElementById(".post-masonry");
+	element.removeClass('isotope-item');
       
     </script>
 </body>

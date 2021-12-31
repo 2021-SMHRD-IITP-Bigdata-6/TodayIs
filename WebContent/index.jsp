@@ -104,7 +104,7 @@ mainLifeDTO life_dto = null;
                         </li>
                         <%} %>
                         <li class="nav-item active">
-                          <a class="nav-link tm-nav-link" href="#"
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
                             >weather <span class="sr-only">(current)</span></a
                           >
                         </li>
