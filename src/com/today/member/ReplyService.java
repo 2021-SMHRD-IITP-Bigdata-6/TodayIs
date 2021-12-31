@@ -39,11 +39,11 @@ public class ReplyService extends HttpServlet {
 			
 			commDTO comm_dto = new commDTO(m_article_seq, comm_content, mb_id);
 			session.setAttribute("comm_dto", comm_dto); 
-			response.sendRedirect("t_community_board.jsp");
+			response.sendRedirect("t_community_click.jsp");
 			
 			
 		} else {
-			response.sendRedirect("t_community_board.jsp");
+			response.sendRedirect("t_community_click.jsp");
 			System.out.println("연결확인");
 		}
 	}

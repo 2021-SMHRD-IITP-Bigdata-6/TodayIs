@@ -163,8 +163,7 @@
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
-											style="width: 100%; height: 100%;" id="article-image
-											has-overlay"></a>
+											</a>
 									</div>
 								</div>
 							</div>
