@@ -71,10 +71,6 @@
   	list-style: none;
  }
 
-::marker {
- 	all : none !important;
-}
-
 
 </style>
 </head>
@@ -108,19 +104,54 @@
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-                                        <ul class="navbar-nav text-uppercase">
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="index.html">weather</a>
-                                            </li>
-                                            <li class="nav-item active">
-                                                <a class="nav-link tm-nav-link" href="ver1_community_mission.html">today <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="contact.html">my</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                      <ul class="navbar-nav text-uppercase">
+                        <%if(dto != null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#">
+                          	<%=dto.getMb_nickname()%> 's
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_region()%>
+                          </a>
+                        </li>
+                        <%} %>
+                        <%if(dto == null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="team">join</a>
+                        </li>
+                        <%}else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" 
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                        </li>
+                        <%} %>
+                        <li class="nav-item active">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
+                            >weather <span class="sr-only">(current)</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="about.html"
+                            >today</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
+                        </li>
+                      </ul>
+                    </div>
                                 </nav>
                             </div>
                         </div>
@@ -141,7 +172,7 @@
 				<div class="row">
 					<div class="section-header col-md-12">
 						<h2>☁︎ Community</h2>
-						<span>mission : keywords</span>
+						<span>Region Shared</span>
 					</div>
 					<!-- /.section-header -->
 				</div>
@@ -163,8 +194,7 @@
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
-											style="width: 100%; height: 100%;" id="article-image
-											has-overlay"></a>
+											</a>
 									</div>
 								</div>
 							</div>
@@ -181,14 +211,12 @@
 									<!-- 글 내용-->
 									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
-									<!-- 댓글 구현부-->
-									<ul>
-										<li
-											style="position: absolute; right: 10%; color: #7AE2DE; font-weight: bold; list-style: none;"><a
-											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										<li
-											style="position: absolute; right: 20%; color: #7AE2DE; font-weight: bold; list-style: none;"><a
-											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
+									<!-- 댓글 구현부-->									
+	
+										<ul>
+										<li class="upd"><a  href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
+										<li class="upd"><a  href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+										
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
 												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
@@ -198,7 +226,14 @@
 											</div>
 										</li>
 									</ul>
-									<ul>
+
+
+
+
+
+
+
+
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
@@ -269,8 +304,7 @@
 		<!-- /.row -->
 	</div>
 	<!-- /.inner-content -->
-	</div>
-	<!-- /.content-wrapper -->
+
 
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
