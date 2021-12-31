@@ -24,8 +24,6 @@
 <link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
 <link rel="stylesheet" href="t_css/templatemo-style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"/>
-      <!-- https://fonts.google.com/ -->
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
 
@@ -65,7 +63,17 @@
 	padding: 10px;
 	font-size: small;
 }
+ li {
+ 	list-style: none;
+ }
+ 
+ ul {
+  	list-style: none;
+ }
 
+::marker {
+ 	all : none !important;
+}
 
 
 </style>
@@ -121,11 +129,7 @@
 			</div>
             
 			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
-				<!--
-        			<div class="text-center">
-					<p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                	
-				</div>                
-                -->
+
             </div>
 
             <div id="tm-fixed-header-bg"></div> <!-- Header image -->
@@ -164,10 +168,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="blog-body" style="display: list-item;">
+							<div class="blog-body" >
 								<div class="box-content" >
 									<!-- 글 제목-->
-									<h3 class="post-title"><%=arr.get(i).getM_article_subject()%>
+									<h3 class="post-title"  ><%=arr.get(i).getM_article_subject()%>
 										<!-- 장소 검색기능-->
 										<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
@@ -175,7 +179,7 @@
 									</h3>
 									<span class="blog-meta">2021-12-12</span>
 									<!-- 글 내용-->
-									<p class="getM_article_content"><%=arr.get(i).getM_article_content()%></p>
+									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
 									<!-- 댓글 구현부-->
 									<ul>
