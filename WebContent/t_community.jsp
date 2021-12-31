@@ -72,7 +72,6 @@
  }
 
 
-
 </style>
 </head>
 <body>
@@ -212,14 +211,12 @@
 									<!-- 글 내용-->
 									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
-									<!-- 댓글 구현부-->
-									<ul>
-										<li
-											style="position: absolute; right: 10%; color: #7AE2DE; font-weight: bold; list-style: none;"><a
-											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										<li
-											style="position: absolute; right: 20%; color: #7AE2DE; font-weight: bold; list-style: none;"><a
-											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
+									<!-- 댓글 구현부-->									
+	
+										<ul>
+										<li class="upd"><a  href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
+										<li class="upd"><a  href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+										
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
 												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
@@ -229,7 +226,14 @@
 											</div>
 										</li>
 									</ul>
-									<ul>
+
+
+
+
+
+
+
+
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">

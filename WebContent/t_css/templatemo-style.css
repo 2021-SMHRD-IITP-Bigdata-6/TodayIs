@@ -1373,6 +1373,9 @@ h2.comment-heading {
   margin-left: 152px;
 }
 @media screen and (max-width: 768px) {
+
+	
+	
   .comment-form label {
     display: block;
   }
