@@ -16,18 +16,21 @@ public class BoardUpdateService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+
 		request.setCharacterEncoding("utf-8");
 		
 		String ARTICLE_SEQ = request.getParameter("ARTICLE_SEQ");
+		
 		boardDAO dao = new boardDAO();
 		boardDTO board_dto = dao.board_tocomm(ARTICLE_SEQ);
 		
-		if (board_dto != null) {
-			session.setAttribute("board_dto", board_dto); 
-			response.sendRedirect("t_write_update.jsp");
-		} else {
-			response.sendRedirect("t_community.jsp");
-		}
+		
+		System.out.println("게시물 수정 연결");
+		System.out.println(ARTICLE_SEQ);
+
+		session.setAttribute("board_dto", board_dto); 
+		response.sendRedirect("t_update.jsp");
+
 		
 		
 	}

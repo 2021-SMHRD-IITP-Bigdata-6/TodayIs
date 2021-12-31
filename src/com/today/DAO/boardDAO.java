@@ -147,7 +147,7 @@ public class boardDAO {
 				}
 				
 				// boardDTO의 getM_article_seq의 기준으로 역정렬한다.
-				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_seq).reversed()).collect(Collectors.toList());
+				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_date)).collect(Collectors.toList());
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -179,8 +179,8 @@ public class boardDAO {
 					String m_article_date = rs.getString(8);					
 					int m_article_likes = rs.getInt(9);
 					String mb_id = rs.getString(10);
-					dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude, m_board_type);
-					
+					dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude, m_board_type);	
+			
 				}
 
 
