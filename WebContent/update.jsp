@@ -17,13 +17,17 @@
 
 	<div class="wrap" style="background-color: #414A52;">
 		<div class="form-wrap" style="border-radius: 80px/ 80px">
+		
 			<div class="button-wrap">
 				<div id="btn"></div>
-				<button type="button" class="togglebtn"
-					onclick="login()" style="color: #7AE2DE; font-weight: bolder;" ><%=mb_id %> 님 정보수정 </button>
+				<button type="button" class="togglebtn" onclick="logout()" style="color: #7AE2DE; font-weight: bolder;" >LOGOUT</button>
+                <button type="button" class="togglebtn" onclick="update()" style="color: #7AE2DE; font-weight: bolder;" >UPDATE</button>
 			</div>
-
-			<form id="login" action="UpdateService" method="post" class="input-group">
+			
+			<form id="logout" action="LogoutService" style ="top: 100px; "method="post" class="input-group">
+				<button class="submit" onclick="location.href='LogoutService'" style="color: #7AE2DE; font-weight: bolder;"> LOGOUT </button>
+			</form>
+			<form id="update" action="UpdateService" style ="top: 100px; "method="post" class="input-group">
 				<input type="password" name="mb_pw" class="input-field"
 					placeholder="Enter Password" required>
 					<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
@@ -47,20 +51,31 @@
 					<option>제주</option>
 					<option>충남</option>
 					<option>충북</option>
-				</select> <br>
-				<button class="submit" style="color: #7AE2DE; font-weight: bolder;">정보수정</button>
+					</select> <br>
+				<button class="submit" style="color: #7AE2DE; font-weight: bolder;"> UPDATE </button>
 			</form>
 		</div>
 	</div>
 
 	<script>
-		var x = document.getElementById("login");
-		var z = document.getElementById("btn");
+		var a = document.getElementById("logout");
+		var b = document.getElementById("update");
+		var c = document.getElementById("btn");
+		
+		
+		function logout(){
+            a.style.left = "50px";
+            b.style.left = "450px";
+            c.style.left = "0";
+        }
 
-		function tochange() {
-			x.style.left = "50px";
-			z.style.left = "0";
-		}
+        function update(){
+            a.style.left = "-400px";
+            b.style.left = "50px";
+            c.style.left = "110px";
+        }
+        
 	</script>
+	
 </body>
 </html>

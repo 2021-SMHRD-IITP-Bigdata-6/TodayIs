@@ -94,16 +94,10 @@ mainLifeDTO life_dto = null;
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="login.html">login</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="team">join</a>
-                        </li>
                         <%}else{ %>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
-                        </li>
-                        <li class="nav-item">
                           <a class="nav-link tm-nav-link" 
-                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">logout</a>
                         </li>
                         <%} %>
                         <li class="nav-item active">
@@ -318,7 +312,10 @@ mainLifeDTO life_dto = null;
                     	<span class="tm-text-secondary">
                     	<%=move_dao.Move(dto.getMb_region()).getW_wind()%>
                     	</span>
-                    	<%} %><br />바람이 부네요.
+                    	<%} %><br />
+                    	<%if(dto != null){%>
+			                바람이 부네요
+	              	 <%} %>
                   </p>
                 </div>
               </div>
@@ -604,7 +601,7 @@ mainLifeDTO life_dto = null;
 		                if(data7>= 90){ %>
 		               	    외출시 일교차 주의하세요.
 		               	<%}else if(data7 >= 70){ %>
-							따듯하게 하세요.
+							따뜻하게 하세요.
 		               	<%}else if(data7 >= 50){ %>
 		               		비타민 섭취 좋아요.
 		               	<%}else if(data7 >= 30){ %>
@@ -678,7 +675,7 @@ mainLifeDTO life_dto = null;
 		                float move9 = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_temp());
 		                int data9 = (int)move9;
 		               
-		                if(data9>= 90){ %>
+		                if(data9>= 50){ %>
 		               	    목도리 장갑을 준비하세요.
 		               	<%}else if(data9 >= 80){ %>
 							피부에 영양을 주세요.
