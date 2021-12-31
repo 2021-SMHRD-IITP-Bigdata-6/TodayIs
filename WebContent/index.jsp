@@ -133,7 +133,6 @@ mainLifeDTO life_dto = null;
             		<p class="tm-welcome-text mb-1 text-white">
            			<%=move_dao.Move(dto.getMb_region()).getW_temp() %>℃
            			</p>
-           		
            		<%}%>
             <a
               href="#content"

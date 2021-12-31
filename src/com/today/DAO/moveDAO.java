@@ -63,7 +63,7 @@ public class moveDAO {
 	        try {
 	        	getConn();
 	           	           
-	           String sql = "select * from t_live_weather where w_local = ?";
+	           String sql = "select * from t_live_weather where w_region = ?";
 	           psmt = conn.prepareStatement(sql);
 	           psmt.setString(1, w_local);
 	           
