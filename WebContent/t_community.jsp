@@ -24,6 +24,11 @@
 <link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
 <link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"/>
+      <!-- https://fonts.google.com/ -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <style>
@@ -78,29 +83,53 @@
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
 	%>
-	<!-- 로그인  -->
-	<div class="primary-nav-wrapper">
-		<nav>
-			<ul class="primary-nav">
-				<%
-					if (dto == null) {
-				%>
-				<li><a href="login.html"> 로그인 </a></li>
-				<%
-					} else {
-				%>
-				<li><a href="LogoutService"> 로그아웃 </a></li>
-				<%
-					}
-				%>
 
+<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">						
+                        <div class="col-5 col-md-8 ml-auto mr-0">
+                            <div class="tm-site-nav">
+                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
+                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span>
+                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
+                                            <i class="fas fa-times tm-menu-opened-icon"></i>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                        <ul class="navbar-nav text-uppercase">
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="index.html">weather</a>
+                                            </li>
+                                            <li class="nav-item active">
+                                                <a class="nav-link tm-nav-link" href="ver1_community_mission.html">today <span class="sr-only">(current)</span></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+            
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+				<!--
+        			<div class="text-center">
+					<p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                	
+				</div>                
+                -->
+            </div>
 
-				<li><a href="t_community.jsp"> 공유 게시판 </a></li>
-				<li><a href="#articles"> 미션 게시판 </a></li>
-				<li><a href="#freebies"> 지도로 보기 </a></li>
-				<li><a href="t_write.jsp"> 글쓰기 </a></li>
-			</ul>
-		</nav>
+            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
+		</div>
 
 		<!-- section-header -->
 		<div class="content-wrapper">
