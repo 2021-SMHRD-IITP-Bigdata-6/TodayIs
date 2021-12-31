@@ -103,7 +103,6 @@ mainLifeDTO life_dto = null;
                              href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
                         </li>
                         <%} %>
-                  		<!-- update logout이 중간에 있으니까 layout이 안 이뻐요ㅠㅜ  -->
                         <li class="nav-item active">
                           <a class="nav-link tm-nav-link" href="#"
                             >weather <span class="sr-only">(current)</span></a
@@ -132,9 +131,10 @@ mainLifeDTO life_dto = null;
           		<!-- 메인페이지 기온 보여주기 -->
             	<% if(dto != null){%>
             		<p class="tm-welcome-text mb-1 text-white">
-           			<%=move_dao.Move(dto.getMb_region()).getW_temp() %> ℃
+           			<%=move_dao.Move(dto.getMb_region()).getW_temp() %>℃
            			</p>
            		<%}%>
+           		<% System.out.print(move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 단속적")); %>
             <a
               href="#content"
               class="btn tm-btn-animate tm-btn-cta tm-icon-down"
@@ -145,10 +145,15 @@ mainLifeDTO life_dto = null;
         </div>
 
         <div id="tm-video-container">
-          <video autoplay muted loop id="tm-video">
-            <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
-            <source src="video/Forest .mp4" type="video/mp4" />
-          </video>
+        	 <% if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Grey.mp4" type="video/mp4" />
+		          </video>
+		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("박무")){ %>
+		     	<video autoplay muted loop id="tm-video">
+		            <source src="video/Smog.mp4" type="video/mp4" />
+		          </video>
+		     <%} %>
         </div>
 
         <i id="tm-video-control-button" class="fas fa-pause"></i>
