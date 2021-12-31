@@ -187,9 +187,9 @@ mainLifeDTO life_dto = null;
 		     <%} %>
 	  <%}else{ %>
 	  	<video autoplay muted loop id="tm-video">
-		     <source src="video/sun.mp4" type="video/mp4" />
+	     <source src="video/sun.mp4" type="video/mp4" />
 		</video>
-	  <%} %>	
+ 	  <%} %>	
       </div>
         <i id="tm-video-control-button" class="fas fa-pause"></i>
       </div>
@@ -452,7 +452,7 @@ mainLifeDTO life_dto = null;
 			                <%}else{ %>
 		              		   운동하기 좋지 않아요.
 		              	    <%} %>
-		              <%} %>
+		              <%} %>  
                     </p>
                   </div>
                 </div>
