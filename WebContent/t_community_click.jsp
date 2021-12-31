@@ -28,6 +28,9 @@
 <link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
 <link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
 //
@@ -91,23 +94,105 @@ th, td {
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
 	%>
-	<!-- nav bar -->
+	
+<div class="tm-page-wrap mx-auto">
+      <div class="position-relative">
+         <div class="potition-absolute tm-site-header">
+            <div class="container-fluid position-relative">
+               <div class="row">                  
+                        <div class="col-5 col-md-8 ml-auto mr-0">
+                            <div class="tm-site-nav">
+                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
+                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span>
+                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
+                                            <i class="fas fa-times tm-menu-opened-icon"></i>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                      <ul class="navbar-nav text-uppercase">
+                        <%if(dto != null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#">
+                          	<%=dto.getMb_nickname()%> 's
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_region()%>
+                          </a>
+                        </li>
+                        <%} %>
+                        <%if(dto == null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="team">join</a>
+                        </li>
+                        <%}else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" 
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                        </li>
+                        <%} %>
+                        <li class="nav-item active">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
+                            >weather <span class="sr-only">(current)</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="about.html"
+                            >today</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
+                        </li>
+                      </ul>
+                    </div>
+                                </nav>
+                            </div>
+                        </div>
+               </div>
+            </div>
+         </div>
+            
+         <div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+            <!--
+                <div class="text-center">
+               <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
+            </div>                
+                -->
+            </div>
+
+            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
+      </div>
  
 	<!-- community_click-->
 	<div class="content-wrapper">
 		<div class="inner-container container">
 			<div class="row">
 				<div class="section-header col-md-12">
-					<h2>☁︎ COMMUNITY</h2>
-					<span>mission : keywords</span>
+					<h2>☁︎ COMMUNITY VIEW</h2>
+					<span><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b></span>
 				</div>
 				<!-- /.section-header -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
 				<div class="blog-image col-md-12">
+				<a href="t_community_search.jsp?region=<%=board_dto.getM_article_region() %>">
 					<h1 style="font-size: 200%">
-						#<%=board_dto.getM_article_region()%></h1>
+						#<%=board_dto.getM_article_region()%></h1></a>
 					<img src="<%=board_dto.getM_article_img()%>"
 						style="width: 100%; height: 100%;" id="m_article_preview">
 				</div>
@@ -119,13 +204,7 @@ th, td {
 						<p><%=board_dto.getM_article_content()%></p>
 					</div>
 				</div>
-				<!-- /.blog-info -->
-				<div class="blog-tags col-md-12">
-					<span>Tags</span>: <a href="#">눈</a> <a href="#">추움</a> <a href="#">얼어죽음</a>
-					<a href="#">겨울왕국</a> <a href="#">엘사</a>
-				</div>
-				<!-- /.blog-tags -->
-			
+
 			<!-- /.row -->
 				<%
 					commDAO comm_dao = new commDAO();
@@ -182,6 +261,7 @@ th, td {
 				<!-- /.row -->
 		</div>
 		<!-- /.inner-content -->
+	</div>
 	</div>
 	<!-- /.content-wrapper -->
 

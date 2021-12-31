@@ -24,6 +24,9 @@
 <link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
 <link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <style>
@@ -60,6 +63,13 @@
 	padding: 10px;
 	font-size: small;
 }
+ li {
+ 	list-style: none;
+ }
+ 
+ ul {
+  	list-style: none;
+ }
 
 
 
@@ -81,28 +91,84 @@
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
 	%>
-	<!-- 로그인  -->
-	<div class="primary-nav-wrapper">
-		<nav>
-			<ul class="primary-nav">
-				<%
-					if (dto == null) {
-				%>
-				<li><a href="login.html"> 로그인 </a></li>
-				<%
-					} else {
-				%>
-				<li><a href="LogoutService"> 로그아웃 </a></li>
-				<%
-					}
-				%>
 
+<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">						
+                        <div class="col-5 col-md-8 ml-auto mr-0">
+                            <div class="tm-site-nav">
+                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
+                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span>
+                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
+                                            <i class="fas fa-times tm-menu-opened-icon"></i>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                      <ul class="navbar-nav text-uppercase">
+                        <%if(dto != null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#">
+                          	<%=dto.getMb_nickname()%> 's
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_region()%>
+                          </a>
+                        </li>
+                        <%} %>
+                        <%if(dto == null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="team">join</a>
+                        </li>
+                        <%}else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" 
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                        </li>
+                        <%} %>
+                        <li class="nav-item active">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
+                            >weather <span class="sr-only">(current)</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="about.html"
+                            >today</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
+                        </li>
+                      </ul>
+                    </div>
+                                </nav>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+            
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
 
-				<li><a href="t_community.jsp"> 공유 게시판 </a></li>
-				<li><a href="#articles"> 미션 게시판 </a></li>
-				<li><a href="#freebies"> 지도로 보기 </a></li>
-			</ul>
-		</nav>
+            </div>
+
+            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
+		</div>
 
 		<!-- section-header -->
 		<div class="content-wrapper">
@@ -110,7 +176,7 @@
 				<div class="row">
 					<div class="section-header col-md-12">
 						<h2>☁︎ Community</h2>
-						<span>mission : keywords</span>
+						<span>Region Shared</span>
 					</div>
 					<!-- /.section-header -->
 				</div>
@@ -132,15 +198,14 @@
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
-											style="width: 100%; height: 100%;" id="article-image
-											has-overlay"></a>
+											</a>
 									</div>
 								</div>
 							</div>
-							<div class="blog-body" style="display: list-item;">
+							<div class="blog-body" >
 								<div class="box-content" >
 									<!-- 글 제목-->
-									<h3 class="post-title"><%=arr.get(i).getM_article_subject()%>
+									<h3 class="post-title"  ><%=arr.get(i).getM_article_subject()%>
 										<!-- 장소 검색기능-->
 										<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
@@ -148,7 +213,7 @@
 									</h3>
 									<span class="blog-meta">2021-12-12</span>
 									<!-- 글 내용-->
-									<p class="getM_article_content"><%=arr.get(i).getM_article_content()%></p>
+									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
 									<!-- 댓글 구현부-->
 									<ul>
@@ -238,8 +303,7 @@
 		<!-- /.row -->
 	</div>
 	<!-- /.inner-content -->
-	</div>
-	<!-- /.content-wrapper -->
+
 
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>

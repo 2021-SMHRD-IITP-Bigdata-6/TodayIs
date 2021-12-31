@@ -105,10 +105,7 @@
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div
-                      class="collapse navbar-collapse tm-nav"
-                      id="navbar-nav"
-                    >
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
                       <ul class="navbar-nav text-uppercase">
                         <%if(dto != null){ %>
                         <li class="nav-item">
