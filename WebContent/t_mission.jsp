@@ -41,7 +41,7 @@
 	line-height: 20px;
 }
 
-.replymenu {
+	.replymenu {
 	display: block;
 	word-spacing: 10px;
 	line-height: 20px;
@@ -86,10 +86,10 @@
 	%>
 
 <div class="tm-page-wrap mx-auto">
-		<div class="position-relative">
-			<div class="potition-absolute tm-site-header">
-				<div class="container-fluid position-relative">
-					<div class="row">						
+      <div class="position-relative">
+         <div class="potition-absolute tm-site-header">
+            <div class="container-fluid position-relative">
+               <div class="row">                  
                         <div class="col-5 col-md-8 ml-auto mr-0">
                             <div class="tm-site-nav">
                                 <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
@@ -101,25 +101,60 @@
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-                                        <ul class="navbar-nav text-uppercase">
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="index.html">weather</a>
-                                            </li>
-                                            <li class="nav-item active">
-                                                <a class="nav-link tm-nav-link" href="ver1_community_mission.html">today <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link tm-nav-link" href="contact.html">my</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                      <ul class="navbar-nav text-uppercase">
+                        <%if(dto != null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#">
+                          	<%=dto.getMb_nickname()%> 's
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_region()%>
+                          </a>
+                        </li>
+                        <%} %>
+                        <%if(dto == null){ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="login.html">login</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="team">join</a>
+                        </li>
+                        <%}else{ %>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" 
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                        </li>
+                        <%} %>
+                        <li class="nav-item active">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp"
+                            >weather <span class="sr-only">(current)</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="about.html"
+                            >today</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
+                        </li>
+                      </ul>
+                    </div>
                                 </nav>
                             </div>
                         </div>
-					</div>
-				</div>
-			</div>
+               </div>
+            </div>
+         </div>
             
 			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
 				<!--
@@ -139,8 +174,9 @@
             <div class="inner-container container">
                 <div class="row">
                     <div class="section-header col-md-12">
-                        <h2>☁︎ COMMUNITY MISSION_ver1</h2>
-                        <span>mission : keywords</span>
+                        <h2>☁︎ COMMUNITY MISSION</h2>
+                        <span>mission : TURE BLUE SKY</span>
+                        <a href="t_write.jsp" style="float: right;"><h2>New Write ☁︎</h2></a>
                     </div> <!-- /.section-header -->
                 </div> <!-- /.row -->
                 <div class="projects-holder-3">
@@ -282,7 +318,9 @@
                 </div> <!-- /.projects-holder-2 -->
             </div> <!-- /.inner-content -->
         </div> <!-- /.content-wrapper -->
-
+        </div>
+</div>
+</div>
         <script src="js/vendor/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>

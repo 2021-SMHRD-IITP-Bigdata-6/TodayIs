@@ -26,8 +26,8 @@ public class WriteService extends HttpServlet {
 
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
-        String m_article_imgpath = "C:/Users/smhrd/git/TodayIs/WebContent/UploadWrite";    
-        int maxSize = 15*1024*1024; // 15MB
+        String m_article_imgpath = "C:/Users/smhrd/git/RealMK2/WebContent/UploadWrite"; 
+        int maxSize = 50*1024*1024; // 50MB
         String encoding = "UTF-8";
         MultipartRequest mr = new MultipartRequest(request, m_article_imgpath, maxSize, encoding, new DefaultFileRenamePolicy());	
         
@@ -62,7 +62,7 @@ public class WriteService extends HttpServlet {
 		if (cnt > 0) {
 			boardDTO board_dto = new boardDTO(cnt ,m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region, m_board_type);
 			session.setAttribute("board_dto", board_dto); 
-			response.sendRedirect("t_community_board.jsp");
+			response.sendRedirect("t_community_click.jsp");
 			
 			
 		} else {

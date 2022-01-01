@@ -173,6 +173,7 @@
 					<div class="section-header col-md-12">
 						<h2>☁︎ Community</h2>
 						<span>Region Shared</span>
+						<a href="t_write.jsp" style="float: right;"><h2>New Write ☁︎</h2></a>
 					</div>
 					<!-- /.section-header -->
 				</div>
@@ -207,16 +208,19 @@
 											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
-									<span class="blog-meta">2021-12-12</span>
+									<span class="blog-meta"><%=arr.get(i).getM_article_date() %></span>
 									<!-- 글 내용-->
 									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
 									<!-- 댓글 구현부-->									
 	
 										<ul>
+										<!-- 작성자만 수정 삭제 가능 기능-->	
+										<% if(dto == null) {%>
+											<li class="upd" style="font-size: 15px">수정/삭제시 로그인이 필요해요</li>
+										<%} else if (dto.getMb_id().equals(arr.get(i).getMb_id())){ %>
 										<li class="upd"><a  href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li class="upd"><a  href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
 												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
@@ -225,7 +229,12 @@
 
 											</div>
 										</li>
+										<%} %>
 									</ul>
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
@@ -306,8 +315,6 @@
         );
     </script>
 	<script src="js/plugins.js"></script>
-	<!-- 애니메이션 효과 -->
-	<!-- <script src="js/main.js"></script>-->
 	<!-- Preloader -->
 	<script type="text/javascript">
       //<![CDATA[
