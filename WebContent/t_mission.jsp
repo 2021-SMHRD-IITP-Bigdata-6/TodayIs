@@ -68,15 +68,12 @@ tr {
 </head>
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
 	mboardDAO mboard_dao = new mboardDAO();
 	ArrayList<boardDTO> arr = mboard_dao.mboard_all();
-	
-	
-	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -99,31 +96,41 @@ tr {
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
+											<%
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="#"> <%=dto.getMb_nickname()%> 's
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="#" id=Mb_region> <%=dto.getMb_region()%>
 											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
+											<%
+												}
+											%>
+											<%
+												if (dto == null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="login.html">login</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="team">join</a></li>
-											<%}else{ %>
+											<%
+												} else {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
+												href="update.jsp?mb_id=<%=dto.getMb_id()%>">update</a></li>
+											<%
+												}
+											%>
 											<li class="nav-item active"><a
 												class="nav-link tm-nav-link" href="t_community.jsp">weather
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="about.html">today</a></li>
+												href="t_mission.jsp">today</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="contact.html">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
@@ -191,7 +198,9 @@ tr {
 					<div class="blog-masonry masonry-true">
 						<div class="row">
 							<!--미션글_1-->
-							<% for (int i = 0; i < arr.size(); i++) { %>
+							<%
+								for (int i = 0; i < arr.size(); i++) {
+							%>
 
 							<div class="post-masonry col-md-4 col-sm-6">
 								<div class="project-thumb">
@@ -199,8 +208,8 @@ tr {
 									<img src="<%=arr.get(i).getM_article_img()%>" alt="">
 									<div class="overlay-b">
 										<div class="overlay-inner">
-											<a href="t_community_click.jsp"
-												class="fancybox fa fa-expand" title="글내용"></a>
+											<a href="t_community_click.jsp" class="fancybox fa fa-expand"
+												title="글내용"></a>
 										</div>
 									</div>
 								</div>
@@ -208,23 +217,33 @@ tr {
 
 									<h2>
 										<a
-											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">#<%=arr.get(i).getM_article_region() %></a>
+											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+											<h3	style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
+												#<%=arr.get(i).getM_article_region()%></h3>
+										</a>
 									</h2>
-									<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject() %></span><br>
+									<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
 									<span class="blog-meta"
-										style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=arr.get(i).getM_article_date() %></span>
-									<p><%=arr.get(i).getM_article_content() %></p>
+										style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=arr.get(i).getM_article_date()%></span>
+									<p><%=arr.get(i).getM_article_content()%></p>
 
 									<ul>
 										<!-- 작성자만 수정 삭제 가능 기능-->
-										<% if(dto == null) {%>
-										<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제시 로그인이 필요해요</li>
-										<%} else if (dto.getMb_id().equals(arr.get(i).getMb_id())){ %>
-										<li class="upd"style="list-style: none;"><a
+										<%
+											if (dto == null) {
+										%>
+										<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제시
+											로그인이 필요해요</li>
+										<%
+											} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
+										%>
+										<li class="upd" style="list-style: none;"><a
 											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li class="upd" style="list-style: none;"><a
-											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										<%} %>
+											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+										<%
+											}
+										%>
 										<li style="right: 30%; list-style: none;">
 											<div class="like-button-wrapper">
 												<a class="like_button"
@@ -238,7 +257,9 @@ tr {
 									</ul>
 								</div>
 							</div>
-							<% } %>
+							<%
+								}
+							%>
 							<!-- /.row -->
 
 							<!--더보기 버튼<div class="load-more">

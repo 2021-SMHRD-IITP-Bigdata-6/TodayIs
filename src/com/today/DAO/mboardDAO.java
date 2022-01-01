@@ -187,5 +187,26 @@ public class mboardDAO {
 
 				return cnt;
 			}
+			
+			// 미션 게시판 글 삭제
+			public int Mboard_delete(String ARTICLE_SEQ) {
+				int cnt = 0;
+
+				try {
+					getConn();
+
+						String sql = "delete from t_mission_community where m_article_seq = ?";
+						psmt = conn.prepareStatement(sql);
+						psmt.setString(1, ARTICLE_SEQ);
+						cnt = psmt.executeUpdate();
+						
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					close();
+				}
+
+				return cnt;
+			}
 	
 }
