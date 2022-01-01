@@ -110,7 +110,7 @@ th, td {
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"  >
                       <ul class="navbar-nav text-uppercase">
                         <%if(dto != null){ %>
                         <li class="nav-item">
@@ -183,7 +183,7 @@ th, td {
 			</div>
 			<!-- /.row -->
 			<div class="row" style="display: block;">
-				<form name="form" method="post" action="WriteService" enctype="multipart/form-data">
+				<form name="form" method="post" action="WriteUpdateService?article_seq=<%=board_dto.getM_article_seq() %>" enctype="multipart/form-data">
 					<table class="table table-striped"
 						style="text-align: center;">
 						<thead>
@@ -196,11 +196,11 @@ th, td {
 						<tbody>
 							<tr>
 								<td colspan="3"><input type="text" class="form-control" id="inputSubject"
-									placeholder="글 제목" name="m_article_subject" maxlength="50"></td>
+									placeholder="글 제목" name="m_article_subject" maxlength="50"/></td>
 								<td><input type="hidden" class="form-control"
-									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id">
+									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id"/>
 									<input type="text" class="form-control"
-									placeholder="글쓴이" maxlength="20" id="inputnick" readonly></td>
+									placeholder="글쓴이" maxlength="20" id="inputnick" readonly/></td>
 									<td><select name="article-sort" id="inputArticle-Sort" class="" >
 											<option >메인 게시판</option>
 											<option>미션 게시판</option>

@@ -1,6 +1,3 @@
-@charset "UTF-8";
-
- /************** Blog Masonry Isotope *********************/
         $(window).load(function () {
             blogisotope = function () {
                 var e, t = $(".blog-masonry").width(),

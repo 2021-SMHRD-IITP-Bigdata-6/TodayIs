@@ -106,7 +106,7 @@ mainLifeDTO life_dto = null;
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
                             >today</a
                           >
                         </li>

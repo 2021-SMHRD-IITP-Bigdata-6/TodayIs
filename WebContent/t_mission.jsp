@@ -175,7 +175,8 @@
                 <div class="row">
                     <div class="section-header col-md-12">
                         <h2>☁︎ COMMUNITY MISSION</h2>
-                        <span>mission : BLUE SKY</span>
+                        <span>mission : TURE BLUE SKY</span>
+                        <a href="t_write.jsp" style="float: right;"><h2>New Write ☁︎</h2></a>
                     </div> <!-- /.section-header -->
                 </div> <!-- /.row -->
                 <div class="projects-holder-3">

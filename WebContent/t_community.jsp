@@ -215,7 +215,10 @@
 									<!-- 댓글 구현부-->									
 	
 										<ul>
-										<%if(dto != null){ %>
+										<!-- 작성자만 수정 삭제 가능 기능-->	
+										<% if(dto == null) {%>
+											<li class="upd" style="font-size: 15px">수정/삭제시 로그인이 필요해요</li>
+										<%} else if (dto.getMb_id().equals(arr.get(i).getMb_id())){ %>
 										<li class="upd"><a  href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li class="upd"><a  href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
 										<li style=" right: 30%; list-style: none;">
@@ -226,8 +229,6 @@
 
 											</div>
 										</li>
-										<%} else { %>
-										<li class="upd" style="font-size: 15px">수정/삭제 로그인이 필요해요</li>
 										<%} %>
 									</ul>
 

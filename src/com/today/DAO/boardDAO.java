@@ -60,13 +60,14 @@ public class boardDAO {
 			}
 		}
 		
+		// 공유 게시판 입력
 		public int Tboard_insert(int article_seq, String m_article_subject, String m_article_content, String m_article_img,
 				 String mb_id, String m_article_region) {
 			int cnt = 0;
 			try {
 				getConn();
 				String sql = "insert into t_community values(?, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
-//				psmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS); 
+
 				String generatedColumns[] = { "article_seq" };
 				psmt = conn.prepareStatement(sql, generatedColumns); 
 				psmt.setInt(1, 0);
@@ -95,12 +96,41 @@ public class boardDAO {
 			return cnt;
 		}
 		
+		// 메인 게시판 업데이트
+		public int Tboard_update(String article_seq, String m_article_subject, String m_article_content, String m_article_img,
+				 String mb_id, String m_article_region) {
+			int cnt = 0;
+			try {
+				getConn();
+				int m_article_seq = Integer.parseInt(article_seq);
+				String sql = "update t_community set article_subject = ?, article_content = ? , article_img = ?,"
+						+ "article_region = ?, article_date = sysdate,  where article_seq = ?";
+				psmt = conn.prepareStatement(sql); 
+				psmt.setString(1, m_article_subject);
+				psmt.setString(2, m_article_content);
+				psmt.setString(3, m_article_img);
+				psmt.setString(4, m_article_region);
+				psmt.setInt(6, m_article_seq);
+				cnt = psmt.executeUpdate();
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+
+			return cnt;
+		}
+		
+		
+		// 미션 게시판 입력
 		public int Mboard_insert(String m_article_subject, String m_article_content, String m_article_img,
 				 String mb_id, String m_article_region) {
 			int cnt = 0;
 			try {
 				getConn();
-				String sql = "insert into t_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
+				String sql = "insert into t_mission_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, m_article_subject);
 				psmt.setString(2, m_article_content);
@@ -121,6 +151,7 @@ public class boardDAO {
 			return cnt;
 		}
 		
+		//조건없이 게시판 전체 조회
 		public ArrayList<boardDTO> board_all() {
 			ArrayList<boardDTO> board_arr = new ArrayList<boardDTO>();
 			try {
@@ -157,7 +188,7 @@ public class boardDAO {
 			return board_arr;
 		}
 		
-		//게시판 정보 전체 조회
+		//게시판 정보 전체 조회(게시글 순번)
 		public boardDTO board_tocomm(String M_article_seq) {
 			boardDTO dto =null;
 			try {
@@ -214,7 +245,7 @@ public class boardDAO {
 		}
 		
 		
-		//로그인용 보드 dto
+		//로그인용 보드 dto 뿌리기
 				public boardDTO board_tologin() {
 					boardDTO dto =null;
 					try {
@@ -275,7 +306,7 @@ public class boardDAO {
 					return cnt;
 				}
 		
-				//게시판 정보 전체 조회
+				//게시판 정보 전체 조회(지역용)
 				public ArrayList<boardDTO> board_to_region(String region) {
 					ArrayList<boardDTO> board_arr = new ArrayList<boardDTO>();
 					try {
