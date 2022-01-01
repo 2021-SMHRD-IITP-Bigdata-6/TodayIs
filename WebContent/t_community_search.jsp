@@ -211,7 +211,7 @@
 											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
-									<span class="blog-meta">2021-12-12</span>
+									<span class="blog-meta"><%=arr.get(i).getM_article_date() %></span>
 									<!-- 글 내용-->
 									<p class="getM_article_content" style="list-style: none;" ><%=arr.get(i).getM_article_content()%></p>
 
