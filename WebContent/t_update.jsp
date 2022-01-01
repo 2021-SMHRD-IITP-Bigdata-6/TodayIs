@@ -89,9 +89,9 @@ th, td {
 </head>
 <body>
 		<%
-		boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		memberDTO dto = (memberDTO) session.getAttribute("dto");	
-		
+
 		
 		%>
 <div class="tm-page-wrap mx-auto">
@@ -110,7 +110,7 @@ th, td {
                                             <i class="fas fa-times tm-menu-opened-icon"></i>
                                         </span>
                                     </button>
-                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
+                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"  >
                       <ul class="navbar-nav text-uppercase">
                         <%if(dto != null){ %>
                         <li class="nav-item">
@@ -166,12 +166,7 @@ th, td {
          </div>
             
          <div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
-            <!--
-                <div class="text-center">
-               <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
-            </div>                
-                -->
-            </div>
+             </div>
 
             <div id="tm-fixed-header-bg"></div> <!-- Header image -->
       </div>
@@ -181,14 +176,14 @@ th, td {
 		<div class="inner-container container">
 			<div class="row" >
 				<div class="section-header col-md-10" >
-					<h2>☁︎ COMMUNITY WRITE</h2>
+					<h2>☁︎ COMMUNITY UPDATE </h2>
 
 				</div>
 				<!-- /.section-header -->
 			</div>
 			<!-- /.row -->
 			<div class="row" style="display: block;">
-				<form name="form" method="post" action="WriteService" enctype="multipart/form-data">
+				<form name="form" method="post" action="WriteUpdateService?article_seq=<%=board_dto.getM_article_seq() %>" enctype="multipart/form-data">
 					<table class="table table-striped"
 						style="text-align: center;">
 						<thead>
@@ -200,12 +195,12 @@ th, td {
 						</thead>
 						<tbody>
 							<tr>
-								<td colspan="3"><input type="text" class="form-control"
-									placeholder="글 제목" name="m_article_subject" maxlength="50"></td>
+								<td colspan="3"><input type="text" class="form-control" id="inputSubject"
+									placeholder="글 제목" name="m_article_subject" maxlength="50"/></td>
 								<td><input type="hidden" class="form-control"
-									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id">
+									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id"/>
 									<input type="text" class="form-control"
-									placeholder="글쓴이" maxlength="20" id="inputnick" readonly></td>
+									placeholder="글쓴이" maxlength="20" id="inputnick" readonly/></td>
 									<td><select name="article-sort" id="inputArticle-Sort" class="" >
 											<option >메인 게시판</option>
 											<option>미션 게시판</option>
@@ -213,7 +208,7 @@ th, td {
 									value="메인 게시판" name="inputArticle-Sort" maxlength="20" readonly></td>				
 								 <td>
 								<select id="big" name="h_area1" class="" onChange="cat1_change(this.value,h_area2)" class="h_area1" >
-								  <option >-지역-</option>
+								  <option ><%=board_dto.getM_article_region().substring(0,2) %></option>
 								  <option value='1'>서울</option>
 								  <option value='2'>부산</option>
 								  <option value='3'>대구</option>
@@ -232,13 +227,13 @@ th, td {
 								  <option value='16'>충북</option>
 								</select></td>
 								<td><select id="small" name="h_area2" class="h_area2" >
-								  <option>-시/구-</option>
+								  <option><%=board_dto.getM_article_region().substring(2) %></option>
 								</select><input type="hidden" class="form-control" id ="region" 
-									placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20" readonly></td>
+									placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20" readonly> </td>
 							</tr>
 							<tr>
-								<td colspan="7"><textarea class="form-control" placeholder="글 내용"
-								name="m_article_content" maxlength="2048" style="height: 350px;"></textarea></td>
+								<td colspan="7"><textarea class="form-control" placeholder="글 내용" id ="inputcontent"
+								name="m_article_content" maxlength="2048" style="height: 350px;"><%=board_dto.getM_article_content() %></textarea></td>
 							</tr>
 						
 					<tr>
@@ -384,6 +379,33 @@ th, td {
 	
 	dto_nickname = "${dto.getMb_nickname()}";
 	document.getElementById("inputnick").value = dto_nickname;
+	
+	
+	
+	//업데이트용 주제 내용을 각각 로드
+
+
+
+
+	$(document).ready(function() {
+		m_article_inputimg = "${board_dto.getM_article_img()}";
+		$("#m_article_preview").attr("src",m_article_inputimg);
+		
+		m_article_subject = "${board_dto.getM_article_subject()}";
+		document.getElementById("inputSubject").value = m_article_subject;
+		
+		m_article_mb_id = "${board_dto.getMb_id()}";
+		document.getElementById("inputmb_id").value = m_article_mb_id;
+		
+		m_article_board_type = "${board_dto.getM_board_type()}";
+		document.getElementById("inputArticle").value = m_article_board_type;
+		
+
+		m_article_inputregion = "${board_dto.getM_article_region()}";
+		document.getElementById("region").value = m_article_inputregion;
+	});
+	
+	
 	</script>
 </body>
 </html>

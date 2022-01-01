@@ -2,8 +2,6 @@ package com.today.member;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,13 +15,13 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.today.DAO.boardDAO;
 import com.today.DTO.boardDTO;
 
-@WebServlet("/WriteService")
-public class WriteService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/WriteUpdateService")
+public class WriteUpdateService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
+		String m_article_seq = request.getParameter("article_seq");
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
         String m_article_imgpath = "C:/Users/smhrd/git/RealMK2/WebContent/UploadWrite"; 
@@ -38,25 +36,13 @@ public class WriteService extends HttpServlet {
 		String m_board_type = mr.getParameter("inputArticle-Sort");
 		String m_article_img = mr.getParameter("m_article_img");
 		String m_article_img_name ="UploadWrite/" + mr.getParameter("m_article_img_name");
-		int m_article_seq =0;
 		boardDAO dao = new boardDAO();
 		
-		// 값이 제대로 뽑히는지 테스트
-		System.out.println(m_article_subject);
-		System.out.println(m_article_content);
-		System.out.println(mb_id);
-		System.out.println(m_article_region);
-		System.out.println(m_article_img_name);
-	    System.out.println(m_board_type);
-	    System.out.println(uri);
-	    System.out.println(path);
 	    
 	    int cnt = 0;
 	    if(m_board_type.equals("메인 게시판")) {
-	    	cnt =dao.Tboard_insert(m_article_seq, m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
-	    } else if (m_board_type.equals("미션 게시판")) {
-	    	cnt =dao.Mboard_insert(m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
-	    }	
+	    	cnt =dao.Tboard_update(m_article_seq, m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
+	    } 
 	    	
 	    	
 		if (cnt > 0) {

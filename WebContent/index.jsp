@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.boardDTO"%>
 <%@page import="com.today.DTO.mainLifeDTO"%>
 <%@page import="com.today.DAO.mainLifeDAO"%>
 <%@page import="com.today.DAO.moveDAO"%>
@@ -30,6 +31,8 @@
 // main 페이지 연결
 memberDTO dto = (memberDTO)session.getAttribute("dto");
 mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
+boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
+
 moveDAO move_dao = new moveDAO();
 	
 // main 상세 페이지 연결
@@ -103,7 +106,7 @@ mainLifeDTO life_dto = null;
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
                             >today</a
                           >
                         </li>
