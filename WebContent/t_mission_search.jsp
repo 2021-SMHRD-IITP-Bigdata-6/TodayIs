@@ -1,3 +1,4 @@
+<%@page import="com.today.DAO.mboardDAO"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.boardDAO"%>
@@ -84,11 +85,12 @@
 	request.setCharacterEncoding("utf-8");
 	String region = request.getParameter("region");
 	
-	boardDAO board_dao = new boardDAO();
-	ArrayList<boardDTO> arr = board_dao.board_to_region(region);
+	
+	mboardDAO mboard_dao = new mboardDAO();
+	ArrayList<boardDTO> arr = mboard_dao.mboard_to_region(region);
+	
 
-	commDAO comm_dao = new commDAO();
-	ArrayList<commDTO> all = comm_dao.comm_selectall();
+
 	int cnt = 0;
 	%>
 
@@ -175,8 +177,9 @@
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ Community</h2>
-						<span>Region Shared</span>
+                        <h2>☁︎ COMMUNITY MISSION</h2>
+                        <span>mission : TURE BLUE SKY</span>
+                        <a href="t_write.jsp" style="float: right;"><h2>New Write ☁︎</h2></a>
 					</div>
 					<!-- /.section-header -->
 				</div>
@@ -232,41 +235,6 @@
 											</div>
 										</li>
 										<%} %>
-									</ul>
-									<ul>
-										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
-											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
-											<ul class="replyhide">
-												<table style="width: 100%; table-layout: fixed; word-break: break-all; border: 1px solid #3399cc;">
-													<tr>
-														<td width="50%">댓글내용</td>
-														<td width="20%">작성자</td>
-														<td width="20%">일자</td>
-													</tr>
-													<%
-														cnt = 0;
-													for (int j = 0; j < all.size(); j++) {
-														if (arr.get(i).getM_article_seq() == all.get(j).getComm_seq()) {
-													%>
-													<tr>
-														<td width="50%"><%=all.get(j).getComm_content()%></td>
-														<td width="20%"><%=all.get(j).getMb_id()%></td>
-														<td width="20%"><%=all.get(j).getComm_date()%></td>
-													</tr>
-													<%
-														cnt += 1;
-													%>
-													<%
-														}
-													}
-													%>
-												</table>
-											</ul></li>
-									</ul>
-									<ul>
-										<li class="article-category" style=" list-style: none;"></li>
-										<li class="article-comments"  style=" list-style: none;"><span><i
-												class="fa fa-comments"></i><%=cnt%> </span></li>
 									</ul>
 								</div>
 							</div>

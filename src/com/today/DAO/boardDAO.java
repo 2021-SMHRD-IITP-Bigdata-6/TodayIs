@@ -76,6 +76,7 @@ public class boardDAO {
 				psmt.setString(4, m_article_img);
 				psmt.setString(5, m_article_region);
 				psmt.setString(6, mb_id);
+				
 				cnt = psmt.executeUpdate();
 				
 				
@@ -130,13 +131,13 @@ public class boardDAO {
 			int cnt = 0;
 			try {
 				getConn();
-				String sql = "insert into t_mission_community values(0, ?, ?, ?, ?, 0 , 0, sysdate, 0, ?)";
+				String sql = "insert into t_mission_community values(0, ?, ?, ?, sysdate, 0 , ?, ?, 0, 0)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, m_article_subject);
 				psmt.setString(2, m_article_content);
 				psmt.setString(3, m_article_img);
-				psmt.setString(4, m_article_region);
-				psmt.setString(5, mb_id);
+				psmt.setString(4, mb_id);
+				psmt.setString(5, m_article_region);
 				
 				cnt = psmt.executeUpdate();
 				

@@ -91,6 +91,8 @@ th, td {
 		<%
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		memberDTO dto = (memberDTO) session.getAttribute("dto");	
+		
+		System.out.print(board_dto.getM_board_type());
 
 		
 		%>
@@ -202,10 +204,20 @@ th, td {
 									<input type="text" class="form-control"
 									placeholder="글쓴이" maxlength="20" id="inputnick" readonly/></td>
 									<td><select name="article-sort" id="inputArticle-Sort" class="" >
-											<option >메인 게시판</option>
+
+										<%if(board_dto.getM_board_type().equals("메인 게시판")) {%>
+											<option>메인 게시판</option>
 											<option>미션 게시판</option>
-										</select><input type="hidden" class="form-control" id ="inputArticle"
-									value="메인 게시판" name="inputArticle-Sort" maxlength="20" readonly></td>				
+										<input type="hidden" class="form-control" id ="inputArticle"
+										value="메인 게시판" name="inputArticle-Sort" maxlength="20" readonly>
+										<%} else { %>	
+											<option>미션 게시판</option>
+											<option>메인 게시판</option>
+										<input type="hidden" class="form-control" id ="inputArticle"
+										value="미션 게시판" name="inputArticle-Sort" maxlength="20" readonly>
+										<% } %>
+										</select>
+										</td>
 								 <td>
 								<select id="big" name="h_area1" class="" onChange="cat1_change(this.value,h_area2)" class="h_area1" >
 								  <option ><%=board_dto.getM_article_region().substring(0,2) %></option>
@@ -400,7 +412,6 @@ th, td {
 		m_article_board_type = "${board_dto.getM_board_type()}";
 		document.getElementById("inputArticle").value = m_article_board_type;
 		
-
 		m_article_inputregion = "${board_dto.getM_article_region()}";
 		document.getElementById("region").value = m_article_inputregion;
 	});
