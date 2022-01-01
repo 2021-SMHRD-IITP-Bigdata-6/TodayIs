@@ -32,7 +32,10 @@
 <style>
 //
 댓글 관련 스타일
-
+li.upd{
+	display: flex;
+	justify-content: flex-end;
+}
 
 .replymenu a {
 	cursor: pointer;
