@@ -103,14 +103,14 @@ public class boardDAO {
 			try {
 				getConn();
 				int m_article_seq = Integer.parseInt(article_seq);
-				String sql = "update t_community set article_subject = ?, article_content = ? , article_img = ?,"
-						+ "article_region = ?, article_date = sysdate,  where article_seq = ?";
+				String sql = "update t_community set article_subject = ? article_content = ? article_img = ?"
+						+ "article_region = ? article_date = sysdate where article_seq = ?";
 				psmt = conn.prepareStatement(sql); 
 				psmt.setString(1, m_article_subject);
 				psmt.setString(2, m_article_content);
 				psmt.setString(3, m_article_img);
 				psmt.setString(4, m_article_region);
-				psmt.setInt(6, m_article_seq);
+				psmt.setInt(5, m_article_seq);
 				cnt = psmt.executeUpdate();
 
 			} catch (Exception e) {
