@@ -312,8 +312,6 @@
         );
     </script>
 	<script src="js/plugins.js"></script>
-	<!-- 애니메이션 효과 -->
-	<script src="js/Community.js"></script>
 	<!-- Preloader -->
 	<script type="text/javascript">
       //<![CDATA[

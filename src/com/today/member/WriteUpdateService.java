@@ -2,8 +2,6 @@ package com.today.member;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +15,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.today.DAO.boardDAO;
 import com.today.DTO.boardDTO;
 
-@WebServlet("/WriteService")
+@WebServlet("/WriteUpdateService")
 public class WriteUpdateService extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -54,9 +51,7 @@ public class WriteUpdateService extends HttpServlet {
 	    int cnt = 0;
 	    if(m_board_type.equals("메인 게시판")) {
 	    	cnt =dao.Tboard_update(m_article_seq, m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
-	    } else if (m_board_type.equals("미션 게시판")) {
-	    	cnt =dao.Mboard_insert(m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
-	    }	
+	    } 
 	    	
 	    	
 		if (cnt > 0) {
