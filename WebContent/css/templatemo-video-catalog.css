@@ -37,11 +37,11 @@ body {
 
 a {
     transition: all 0.3s ease;
-    color: #666;
+    color: #777777;
 }
 
 a:hover {
-    color: #29BBCC;
+    color: #3399cc;
     text-decoration: none;
 }
 
@@ -314,7 +314,7 @@ h2, p { color: #666666; }
 .tm-category-link.active,
 .tm-category-link:hover {
     border-bottom: 3px solid #3399CC;
-    color: #3399CC;
+    color: ##3399cc;
 }
 
 .tm-paging-link {

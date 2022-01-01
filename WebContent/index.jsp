@@ -79,11 +79,12 @@ mainLifeDTO life_dto = null;
                     >
                       <ul class="navbar-nav text-uppercase">
                         <%if(dto != null){ %>
-                        <li class="nav-item">
+                        <li class="nav-item active">
+                          
                           <a class="nav-link tm-nav-link" href="#">
                           	<%=dto.getMb_nickname()%> 's 
-                          	<%=dto.getMb_region()%>
-                          <span class="sr-only">(current)</span></a>
+                          	<%=dto.getMb_region()%><span class="sr-only">(current)</span>
+                          </a>
                         </li>
                         <%} %>
                         <%if(dto == null){ %>
@@ -96,7 +97,7 @@ mainLifeDTO life_dto = null;
                              href="update.jsp?mb_id=<%=dto.getMb_id() %>">logout</a>
                         </li>
                         <%} %>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="t_community.jsp">weather</a>
                         </li>
                         <li class="nav-item">
