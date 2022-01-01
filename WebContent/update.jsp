@@ -25,6 +25,7 @@
 			</div>
 			
 			<form id="logout" action="LogoutService" style ="top: 100px; "method="post" class="input-group">
+				<br><br><br><br><br>
 				<button class="submit" onclick="location.href='LogoutService'" style="color: #7AE2DE; font-weight: bolder;"> LOGOUT </button>
 			</form>
 			<form id="update" action="UpdateService" style ="top: 100px; "method="post" class="input-group">
