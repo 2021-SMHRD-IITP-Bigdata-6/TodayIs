@@ -221,6 +221,7 @@
 										<%} else if (dto.getMb_id().equals(arr.get(i).getMb_id())){ %>
 										<li class="upd"><a  href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li class="upd"><a  href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+										<%} %>
 										<li style=" right: 30%; list-style: none;">
 											<div class="like-button-wrapper" >
 												<a class="like_button" onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
@@ -229,9 +230,11 @@
 
 											</div>
 										</li>
-										<%} %>
 									</ul>
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">

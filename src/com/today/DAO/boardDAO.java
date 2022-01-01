@@ -103,8 +103,8 @@ public class boardDAO {
 			try {
 				getConn();
 				int m_article_seq = Integer.parseInt(article_seq);
-				String sql = "update t_community set article_subject = ? article_content = ? article_img = ?"
-						+ "article_region = ? article_date = sysdate where article_seq = ?";
+				String sql = "update t_community set article_subject = ?, article_content = ?, article_img = ?,"
+						+ "article_region = ?, article_date = sysdate where article_seq = ?";
 				psmt = conn.prepareStatement(sql); 
 				psmt.setString(1, m_article_subject);
 				psmt.setString(2, m_article_content);
@@ -138,7 +138,6 @@ public class boardDAO {
 				psmt.setString(4, m_article_region);
 				psmt.setString(5, mb_id);
 				
-
 				cnt = psmt.executeUpdate();
 				
 			} catch (Exception e) {
@@ -284,7 +283,7 @@ public class boardDAO {
 					if (counter.equals("o")) {
 					ARTICLE_LIKES = Integer.parseInt(like_count)+1;
 					} else {
-					ARTICLE_LIKES = Integer.parseInt(like_count)-1;
+					ARTICLE_LIKES = Integer.parseInt(like_count);
 					}
 					try {
 						getConn();

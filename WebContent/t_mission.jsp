@@ -1,3 +1,4 @@
+<%@page import="com.today.DAO.mboardDAO"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.boardDAO"%>
@@ -77,12 +78,11 @@
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
-	boardDAO board_dao = new boardDAO();
-	ArrayList<boardDTO> arr = board_dao.board_all();
-
-	commDAO comm_dao = new commDAO();
-	ArrayList<commDTO> all = comm_dao.comm_selectall();
-	int cnt = 0;
+	mboardDAO mboard_dao = new mboardDAO();
+	ArrayList<boardDTO> arr = mboard_dao.mboard_all();
+	
+	
+	
 	%>
 
 <div class="tm-page-wrap mx-auto">
