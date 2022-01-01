@@ -231,10 +231,6 @@
 											</div>
 										</li>
 									</ul>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">

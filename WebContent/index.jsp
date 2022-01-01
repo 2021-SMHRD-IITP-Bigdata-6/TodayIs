@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Catalog</title>
+    <title>Main</title>
     <link rel="stylesheet" href="fontawesome/css/all.min.css" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -81,13 +81,9 @@ mainLifeDTO life_dto = null;
                         <%if(dto != null){ %>
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="#">
-                          	<%=dto.getMb_nickname()%> 's
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
+                          	<%=dto.getMb_nickname()%> 's 
                           	<%=dto.getMb_region()%>
-                          </a>
+                          <span class="sr-only">(current)</span></a>
                         </li>
                         <%} %>
                         <%if(dto == null){ %>
@@ -101,9 +97,7 @@ mainLifeDTO life_dto = null;
                         </li>
                         <%} %>
                         <li class="nav-item active">
-                          <a class="nav-link tm-nav-link" href="t_community.jsp"
-                            >weather <span class="sr-only">(current)</span></a
-                          >
+                          <a class="nav-link tm-nav-link" href="t_community.jsp">weather</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="t_mission.jsp"
