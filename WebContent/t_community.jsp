@@ -32,7 +32,12 @@
 <style>
 //
 댓글 관련 스타일
-	.replymenu a {
+li.upd{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.replymenu a {
 	cursor: pointer;
 	word-spacing: 10px;
 	line-height: 20px;
@@ -55,7 +60,8 @@
  td {
 	border: 1px solid #3399cc;
 	padding: 10px;
-	font-size: small;
+	font-size: 13px;
+	text-align: center;
 }
 
  tr {
@@ -205,7 +211,7 @@
 									<h3 class="post-title"  ><%=arr.get(i).getM_article_subject()%>
 										<!-- 장소 검색기능-->
 										<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
-											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">#<%=arr.get(i).getM_article_region()%></h3>
+											<h3 style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
 									<span class="blog-meta"><%=arr.get(i).getM_article_date() %></span>
@@ -232,13 +238,13 @@
 										</li>
 									</ul>
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
-											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
+											href="#" onclick="return false;" style="font-size: 1rem; width: 100%">☞ reply</a>
 											<ul class="replyhide">
-												<table style="width: 100%; table-layout: fixed; word-break: break-all; border: 1px solid #3399cc;">
+												<table style="width: 100%; margin-top: 10px; table-layout: fixed; word-break: break-all; border: 0.5px solid #3399cc;">
 													<tr>
 														<td width="50%">댓글내용</td>
 														<td width="20%">작성자</td>
-														<td width="20%">일자</td>
+														<td width="20%">일 자</td>
 													</tr>
 													<%
 														cnt = 0;
