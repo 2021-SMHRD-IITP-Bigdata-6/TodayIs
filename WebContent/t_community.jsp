@@ -226,14 +226,6 @@
 											</div>
 										</li>
 									</ul>
-
-
-
-
-
-
-
-
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
