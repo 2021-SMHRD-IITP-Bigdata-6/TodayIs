@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.today.DAO.boardDAO;
+import com.today.DAO.mboardDAO;
 import com.today.DTO.boardDTO;
 
 @WebServlet("/WriteUpdateService")
@@ -37,12 +38,14 @@ public class WriteUpdateService extends HttpServlet {
 		String m_article_img = mr.getParameter("m_article_img");
 		String m_article_img_name ="UploadWrite/" + mr.getParameter("m_article_img_name");
 		boardDAO dao = new boardDAO();
-		
+		mboardDAO mdao = new mboardDAO();
 	    
 	    int cnt = 0;
 	    if(m_board_type.equals("메인 게시판")) {
 	    	cnt =dao.Tboard_update(m_article_seq, m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
-	    } 
+	    } else if (m_board_type.equals("미션 게시판")) {
+	    	cnt =mdao.Mboard_update(m_article_seq, m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region);
+	    }
 	    	
 	    	
 		if (cnt > 0) {

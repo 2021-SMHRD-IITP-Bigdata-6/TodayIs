@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <head>
 <title>회원 수정 템플릿</title>
-<link rel="stylesheet" href="css/update.css">
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 	<%
@@ -17,19 +17,17 @@
 
 	<div class="wrap" style="background-color: #414A52;">
 		<div class="form-wrap" style="border-radius: 80px/ 80px">
-		
 			<div class="button-wrap">
 				<div id="btn"></div>
 				<button type="button" class="togglebtn" onclick="logout()" style="color: #7AE2DE; font-weight: bolder;" >LOGOUT</button>
                 <button type="button" class="togglebtn" onclick="update()" style="color: #7AE2DE; font-weight: bolder;" >UPDATE</button>
 			</div>
 			
-			<form id="logout" action="LogoutService" style ="top: 100px; "method="post" class="input-group">
+			<form id="logout" action="LogoutService" method="post" class="input-group">
 				<button class="submit" onclick="location.href='LogoutService'" style="color: #7AE2DE; font-weight: bolder;"> LOGOUT </button>
 			</form>
-			<form id="update" action="UpdateService" style ="top: 100px; "method="post" class="input-group">
-				<input type="password" name="mb_pw" class="input-field"
-					placeholder="Enter Password" required>
+			<form id="update" action="UpdateService" style="top : 100px;" method="post" class="input-group">
+				<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required>
 					<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
 					<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
 				    

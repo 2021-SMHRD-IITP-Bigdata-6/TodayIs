@@ -140,7 +140,7 @@
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
                             >today</a
                           >
                         </li>
@@ -195,7 +195,7 @@
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
-											</a>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -214,7 +214,7 @@
 
 									<!-- 댓글 구현부-->									
 	
-										<ul>
+									<ul>
 										<!-- 작성자만 수정 삭제 가능 기능-->	
 										<% if(dto == null) {%>
 											<li class="upd" style="font-size: 15px">수정/삭제시 로그인이 필요해요</li>
@@ -231,10 +231,6 @@
 											</div>
 										</li>
 									</ul>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 										<li class="replymenu" style="margin-left: 2px; list-style: none;" ><a
 											href="#" onclick="return false;" style="font-size: 20px">Reply</a>
 											<ul class="replyhide">
@@ -397,10 +393,7 @@
 			
 			
 		});
-	
-	var element = document.getElementById(".post-masonry");
-	element.removeClass('isotope-item');
-      
+	      
     </script>
 </body>
 </html>

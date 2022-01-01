@@ -102,9 +102,9 @@ span {
     bottom: 68px;
     position: absolute;
 }
-#login {
+#logout {
     left: 50px;
 }
-#register {
+#update {
     left: 450px;
 }

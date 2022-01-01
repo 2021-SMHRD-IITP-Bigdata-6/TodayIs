@@ -205,6 +205,8 @@ th, td {
 					</div>
 				</div>
 
+		<%if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
+
 			<!-- /.row -->
 				<%
 					commDAO comm_dao = new commDAO();
@@ -257,6 +259,8 @@ th, td {
 					</div>
 					<!-- /.comment-form -->
 				</div>
+				
+				<%} %>
 				</div>
 				<!-- /.row -->
 		</div>

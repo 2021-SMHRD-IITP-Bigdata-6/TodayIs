@@ -314,6 +314,7 @@
         );
     </script>
 	<script src="js/plugins.js"></script>
+
 	<!-- 애니메이션 효과 -->
 	<!-- <script src="js/main.js"></script>-->
 	<!-- Preloader -->
@@ -399,8 +400,7 @@
 			
 		});
 	
-	var element = document.getElementById(".post-masonry");
-	element.removeClass('isotope-item');
+
       
     </script>
 </body>
