@@ -200,7 +200,7 @@ th, td {
 				<div class="blog-info col-md-12">
 					<div class="box-content">
 						<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
-						<span class="blog-meta">2021-12-12</span>
+						<span class="blog-meta">><%=board_dto.getM_article_date() %></span>
 						<p><%=board_dto.getM_article_content()%></p>
 					</div>
 				</div>

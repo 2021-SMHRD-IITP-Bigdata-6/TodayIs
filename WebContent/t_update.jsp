@@ -396,12 +396,12 @@ th, td {
 	
 	//업데이트용 주제 내용을 각각 로드
 
-
-
-
 	$(document).ready(function() {
 		m_article_inputimg = "${board_dto.getM_article_img()}";
 		$("#m_article_preview").attr("src",m_article_inputimg);
+		
+		m_article_img = "${board_dto.getM_article_img()}";
+		document.getElementById("m_article_img").value = m_article_img;
 		
 		m_article_subject = "${board_dto.getM_article_subject()}";
 		document.getElementById("inputSubject").value = m_article_subject;
