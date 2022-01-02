@@ -17,12 +17,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
     <!--
-
     TemplateMo 552 Video Catalog
-
-    https://templatemo.com/tm-552-video-catalog
-
-    -->
+    https://templatemo.com/tm-552-video-catalog -->
 <title> TODAY? MAIN PAGE </title>
 </head>
 <body>
