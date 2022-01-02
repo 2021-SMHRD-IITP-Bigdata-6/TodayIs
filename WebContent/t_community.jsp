@@ -80,7 +80,7 @@ ul {
 </head>
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("mboard_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("mboard_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -191,15 +191,9 @@ ul {
 						</h2>
 						<span>Region Shared</span>
 						<h2>
-							<a href="t_write.jsp" style="float: right;"><svg
-									xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-									fill="currentColor" class="bi bi-pencil-square"
-									viewBox="0 0 16 16">
-  <path
-										d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-  <path fill-rule="evenodd"
-										d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-</svg> </a>
+							<a href="t_write.jsp" style="float: right;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+</svg> new</a>
 						</h2>
 
 					</div>
@@ -237,8 +231,8 @@ ul {
 										<a
 											href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 											<h3
-												tyle="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
-												#<%=arr.get(i).getM_article_region()%></h3>
+												style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
+												<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
 									<span class="blog-meta"><%=arr.get(i).getM_article_date()%></span>
@@ -256,8 +250,8 @@ ul {
 										<%
 											} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 										%>
-										<li class="upd"><a
-											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+										<li class="upd" style="position: relative; top: 30%; left: 77%;">
+										<a href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
 													fill="currentColor" class="bi bi-pencil-square"
 													viewBox="0 0 16 16">
@@ -270,9 +264,10 @@ ul {
   <path fill-rule="evenodd"
 														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 </svg></a></li>
-										<li class="upd"><a
+										<li class="upd"
+											style="position: relative; top: -50%; right: -10%;"><a
 											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
-													style="position: relative; top: -10px; right: -82%;xmlns="
+													style="position: relative; top:-35px; right: -82%;xmlns="
 													http://www.w3.org/2000/svg" width="22" height="22"
 													fill="currentColor" class="bi bi-x-square"
 													viewBox="0 0 16 16">
@@ -288,22 +283,20 @@ ul {
 										<%
 											}
 										%>
-										<li style="right: 30%; list-style: none;">
-											<div class="like-button-wrapper">
-												<a class="like_button"
-													onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+										<span class="like-button-wrapper" style="position: relative; left:87%; top:37px;"> <a
+												class="like_button"
+												onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
 													<i class="like-counter fa fa-heart-o"></i> <span
 													class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-												</a>
-
-											</div>
-										</li>
+											</a>
+										</span>
+										
 									</ul>
 
-
+									<ul>
 									<li class="replymenu" style="list-style: none;"><a
 										href="#" onclick="return false;"
-										style="font-size: 1rem; width: 100%; position: relative; top: -90px;"><svg
+										style="font-size: 1rem; width: 100%; position: relative; top: -30px;"><svg
 												"xmlns="http://www.w3.org/2000/svg" width="20" height="20"
 												fill="currentColor" class="bi bi-hand-index-thumb"
 												viewBox="0 0 16 16">
@@ -311,8 +304,7 @@ ul {
 													d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z" />
 									</svg>Reply</a>
 										<ul class="replyhide">
-											<table
-												style="width: 100%; margin-top: 10px; table-layout: fixed; word-break: break-all; border: 0.5px solid #3399cc;">
+											<table style="width: 100%; margin-top: 10px; table-layout: fixed; word-break: break-all; border: 0.5px solid #3399cc;">
 												<tr>
 													<td width="50%">댓글내용</td>
 													<td width="20%">작성자</td>
@@ -336,7 +328,9 @@ ul {
 												}
 												%>
 											</table>
-										</ul></li>
+										</ul>
+									</li>
+								</ul>
 									<ul>
 										<li class="article-category" style="list-style: none;"></li>
 										<li class="article-comments" style="list-style: none;"><span><i

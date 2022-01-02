@@ -18,7 +18,13 @@
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
 <!--
 
+=======
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+    <!--
+>>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
     TemplateMo 552 Video Catalog
+<<<<<<< HEAD
 
     https://templatemo.com/tm-552-video-catalog
 
