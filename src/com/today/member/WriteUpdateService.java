@@ -39,9 +39,12 @@ public class WriteUpdateService extends HttpServlet {
 		String m_board_type = mr.getParameter("inputArticle-Sort");
 		String m_article_img = mr.getParameter("m_article_img");
 		String m_article_img_name ="UploadWrite/" + mr.getParameter("m_article_img_name");
-		if (!select_img.equals(m_article_img_name)) {
+		
+		if(m_article_img_name.equals("UploadWrite/")) {
 			m_article_img_name = select_img;
 		}
+		
+		
 		boardDAO dao = new boardDAO();
 		mboardDAO mdao = new mboardDAO();
 	    

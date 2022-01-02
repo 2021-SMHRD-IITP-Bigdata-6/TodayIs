@@ -90,9 +90,17 @@ th, td {
 <body>
 	<%
 	//업데이트후 세션
+	boardDTO board_dto = null;
 	boardDTO mboard_dto = (boardDTO) session.getAttribute("mboard_dto");
 	//보드 세션
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	boardDTO board_dto1 = (boardDTO) session.getAttribute("board_dto");
+	
+	//업데이트가 없을때 보드 세션으로 나온다.
+	if (mboard_dto == null) {
+		board_dto = board_dto1;
+	} else if (mboard_dto != null) {
+		board_dto = mboard_dto;
+	}
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
@@ -185,34 +193,34 @@ th, td {
 			<div class="row">
 				<div class="section-header col-md-12">
 					<h2>☁︎ COMMUNITY VIEW</h2>
-					<span><%=mboard_dto.getMb_id()%>회원님 <b>#<%=mboard_dto.getM_article_region()%></b></span>
+					<span><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b></span>
 				</div>
 				<!-- /.section-header -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
 				<div class="blog-image col-md-12">
-				<a href="t_community_search.jsp?region=<%=mboard_dto.getM_article_region() %>">
+				<a href="t_community_search.jsp?region=<%=board_dto.getM_article_region() %>">
 					<h1 style="font-size: 200%">
-						#<%=mboard_dto.getM_article_region()%></h1></a>
-					<img src="<%=mboard_dto.getM_article_img()%>"
+						#<%=board_dto.getM_article_region()%></h1></a>
+					<img src="<%=board_dto.getM_article_img()%>"
 						style="width: 100%; height: 100%;" id="m_article_preview">
 				</div>
 				<!-- /.blog-image -->
 				<div class="blog-info col-md-12">
 					<div class="box-content">
-						<h2 class="blog-title"><%=mboard_dto.getM_article_subject()%></h2>
+						<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
 						<span class="blog-meta"><%=board_dto.getM_article_date() %></span>
-						<p><%=mboard_dto.getM_article_content()%></p>
+						<p><%=board_dto.getM_article_content()%></p>
 					</div>
 				</div>
 
-		<%if (mboard_dto.getM_board_type().equals("미션 게시판")) { } else {%>
+		<%if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
 
 			<!-- /.row -->
 				<%
 					commDAO comm_dao = new commDAO();
-				ArrayList<commDTO> arr = comm_dao.comm_all(mboard_dto.getM_article_seq());
+				ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
 				int cnt = 0;
 				for (int i = 0; i < arr.size(); i++) {
 				%>
