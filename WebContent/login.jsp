@@ -217,6 +217,8 @@ th, td {
                         <button class = "submit" style="color: #7AE2DE; font-weight: bolder;" >회원가입</button>
                         
                         
+                        
+                        
 	</div>
 </body>
 </html>
