@@ -90,6 +90,7 @@ ul {
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
+
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -147,8 +148,12 @@ ul {
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">today</a></li>
+											<%
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
+											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
 										</ul>
@@ -213,13 +218,13 @@ ul {
 						<span class="post-masonry col-md-4 col-sm-6">
 							<div class="blog-thumb">
 								<!-- 사진 출력부-->
-								<img src="<%=arr.get(i).getM_article_img()%>" >
+								<img src="<%=arr.get(i).getM_article_img()%>">
 								<div class="overlay-b">
 									<div class="overlay-inner">
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
-										
+
 										</a>
 									</div>
 								</div>

@@ -209,4 +209,36 @@ public class mboardDAO {
 				return cnt;
 			}
 	
+			public int Mboard_like(String article_seq, String like_count, String counter) {
+				boardDTO dto =null;
+				int cnt = 0;
+				int ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+				if (counter.equals("o")) {
+				ARTICLE_LIKES = Integer.parseInt(like_count)+1;
+				} else {
+				ARTICLE_LIKES = Integer.parseInt(like_count);
+				}
+				System.out.println("sql 전달전");
+				try {
+					
+					getConn();
+					String sql = "Update t_mission_community set M_ARTICLE_LIKES = ? where M_ARTICLE_SEQ = ? ";
+					psmt = conn.prepareStatement(sql);
+					psmt.setInt(1, ARTICLE_LIKES);
+					psmt.setString(2, article_seq);
+					
+
+					cnt = psmt.executeUpdate();
+					System.out.println("sql 전달후");
+				
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					close();
+				}	
+				return cnt;
+			}
+			
+			
 }

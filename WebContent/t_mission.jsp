@@ -66,18 +66,21 @@ tr {
 }
 
 .model {
- position : ;
- width: 100%; height: 100%;
- background: raba(0,0,0,0.8);
- top:0; left:0;
- display: block; 
-
+	position:;
+	width: 100%;
+	height: 100%;
+	background: raba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	display: block;
 }
 </style>
 </head>
 <body>
 	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+
+
+	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -122,8 +125,6 @@ tr {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="login.html">login</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="team">join</a></li>
 											<%
 												} else {
 											%>
@@ -139,9 +140,13 @@ tr {
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">today</a></li>
+												href="t_mission.jsp">mission</a></li>
+											<%
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
+											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
 										</ul>
@@ -213,12 +218,13 @@ tr {
 
 							<div class="post-masonry col-md-4 col-sm-6">
 								<div class="project-thumb">
-								<img src="<%=arr.get(i).getM_article_img()%>" class="modal_function">
-									<div class="modal">
-										<div class="modal_content">
-											<img src="<%=arr.get(i).getM_article_img()%>" style="width: 50%; position: relative; left: 25%">
-										</div>
-									</div>
+									 <img src="<%=arr.get(i).getM_article_img()%>" onclick="func2(<%=i %>)" class="modal_con">
+										<div class="modal">
+											<div class="modal_content" style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
+												<img  src="<%=arr.get(i).getM_article_img()%>"
+													 class ="modal_img">
+											</div>
+										</div>							
 								</div>
 								<div class="box-content project-detail">
 
@@ -249,9 +255,7 @@ tr {
 											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
 										<li class="upd" style="list-style: none;"><a
 											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										<%
-											}
-										%>
+
 										<li style="right: 30%; list-style: none;">
 											<div class="like-button-wrapper">
 												<a class="like_button"
@@ -262,6 +266,9 @@ tr {
 
 											</div>
 										</li>
+										<%
+											}
+										%>
 									</ul>
 								</div>
 							</div>
@@ -314,7 +321,7 @@ tr {
     			var param = {"article_seq" : article_seq,"like_count" : like_count, "counter" : counter };
     			$.ajax({
     				type : "post", //데이터를 보낼 방식
-    				url : "LikeService", //데이터를 보낼 url
+    				url : "MLikeService", //데이터를 보낼 url
     				data : param, //보낼 데이터
 
     				success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지
@@ -369,12 +376,66 @@ tr {
     			
     		});
     		
-    		$(".modal_function").on("click", function(){  
-        		$(".modal").fadeIn();		
+    		
+    		function func2(f){
+    			console.log(f)
+    			
+    			var numbers =  {"numbers" : f};
+    			
+    			$.ajax({
+    				type : "post", 
+    				url : "MBoardViewService", 
+    				data : numbers, 
+
+    				success : function() {
+    				
+    				}
+    			});
+    			$(".modal_con").click(function(){
+    				var img =$('.modal_img');
+    				
+    				try {
+    				if(f == 0) {
+        				img.attr('src','<%=arr.get(0).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 1) {
+        				img.attr('src','<%=arr.get(1).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 2) {
+        				img.attr('src','<%=arr.get(2).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 3) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 4) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 5) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 6) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 7) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 8) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} else if (f == 9) {
+        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				$(".modal").fadeIn();
+    				} 
+ 		
+    				} catch (err) {
+    					
+    				}
+ 
+    			});
         		$(".modal_content").click(function(){
             		$(".modal").fadeOut();
-            		});   		
-        	});
+            	});   		
+        	};
     		
     		
         </script>
