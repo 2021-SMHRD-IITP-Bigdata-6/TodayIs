@@ -144,9 +144,8 @@
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
-                            >today</a
-                          >
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
+                            >today</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="contact.html">my</a>

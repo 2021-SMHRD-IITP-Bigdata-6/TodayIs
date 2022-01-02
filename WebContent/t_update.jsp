@@ -88,182 +88,179 @@ th, td {
 </style>
 </head>
 <body>
-		<%
+	<%
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		memberDTO dto = (memberDTO) session.getAttribute("dto");	
 		
-		System.out.print(board_dto.getM_board_type());
 
-		
 		%>
-<div class="tm-page-wrap mx-auto">
-      <div class="position-relative">
-         <div class="potition-absolute tm-site-header">
-            <div class="container-fluid position-relative">
-               <div class="row">                  
-                        <div class="col-5 col-md-8 ml-auto mr-0">
-                            <div class="tm-site-nav">
-                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
-                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
-                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
-                                        aria-expanded="false" aria-label="Toggle navigation">
-                                        <span>
-                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
-                                            <i class="fas fa-times tm-menu-opened-icon"></i>
-                                        </span>
-                                    </button>
-                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"  >
-                      <ul class="navbar-nav text-uppercase">
-                        <%if(dto != null){ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#">
-                          	<%=dto.getMb_nickname()%> 's
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
-                          	<%=dto.getMb_region()%>
-                          </a>
-                        </li>
-                        <%} %>
-                        <%if(dto == null){ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="login.html">login</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="team">join</a>
-                        </li>
-                        <%}else{ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" 
-                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
-                        </li>
-                        <%} %>
-                        <li class="nav-item active">
-                          <a class="nav-link tm-nav-link" href="t_community.jsp"
-                            >weather <span class="sr-only">(current)</span></a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
-                            >today</a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="region.html">map</a>
-                        </li>
-                      </ul>
-                    </div>
-                                </nav>
-                            </div>
-                        </div>
-               </div>
-            </div>
-         </div>
-            
-         <div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
-             </div>
-
-            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
-      </div>
- 
-	<!-- community_click-->
-	<div class="content-wrapper">
-		<div class="inner-container container">
-			<div class="row" >
-				<div class="section-header col-md-10" >
-					<h2>☁︎ COMMUNITY UPDATE </h2>
-
+	<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">
+						<div class="col-5 col-md-8 ml-auto mr-0">
+							<div class="tm-site-nav">
+								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
+									id="tm-main-nav">
+									<button
+										class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										type="button" data-toggle="collapse" data-target="#navbar-nav"
+										aria-controls="navbar-nav" aria-expanded="false"
+										aria-label="Toggle navigation">
+										<span> <i class="fas fa-bars tm-menu-closed-icon"></i>
+											<i class="fas fa-times tm-menu-opened-icon"></i>
+										</span>
+									</button>
+									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+										<ul class="navbar-nav text-uppercase">
+											<%if(dto != null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#"> <%=dto.getMb_nickname()%> 's
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#" id=Mb_region> <%=dto.getMb_region()%>
+											</a></li>
+											<%} %>
+											<%if(dto == null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.html">login</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="team">join</a></li>
+											<%}else{ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
+											<%} %>
+											<li class="nav-item active"><a
+												class="nav-link tm-nav-link" href="t_community.jsp">weather
+													<span class="sr-only">(current)</span>
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">today</a>
+											</li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="contact.html">my</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="region.html">map</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
 				</div>
-				<!-- /.section-header -->
 			</div>
-			<!-- /.row -->
-			<div class="row" style="display: block;">
-				<form name="form" method="post" action="WriteUpdateService?article_seq=<%=board_dto.getM_article_seq() %>" enctype="multipart/form-data">
-					<table class="table table-striped"
-						style="text-align: center;">
-						<thead>
-							<tr>
-								<th colspan="7"
-									style="background-color: #eeeeee; text-align: center; font-size: 20px">
-									오늘의 멋진 하루를 공유해주세요 ^^</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td colspan="3"><input type="text" class="form-control" id="inputSubject"
-									placeholder="글 제목" name="m_article_subject" maxlength="50"/></td>
-								<td><input type="hidden" class="form-control"
-									placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id"/>
-									<input type="text" class="form-control"
-									placeholder="글쓴이" maxlength="20" id="inputnick" readonly/></td>
-									<td><select name="article-sort" id="inputArticle-Sort" class="" >
 
-										<%if(board_dto.getM_board_type().equals("메인 게시판")) {%>
-											<option>메인 게시판</option>
-											<option>미션 게시판</option>
-										<input type="hidden" class="form-control" id ="inputArticle"
-										value="메인 게시판" name="inputArticle-Sort" maxlength="20" readonly>
-										<%} else { %>	
-											<option>미션 게시판</option>
-											<option>메인 게시판</option>
-										<input type="hidden" class="form-control" id ="inputArticle"
-										value="미션 게시판" name="inputArticle-Sort" maxlength="20" readonly>
-										<% } %>
-										</select>
-										</td>
-								 <td>
-								<select id="big" name="h_area1" class="" onChange="cat1_change(this.value,h_area2)" class="h_area1" >
-								  <option ><%=board_dto.getM_article_region().substring(0,2) %></option>
-								  <option value='1'>서울</option>
-								  <option value='2'>부산</option>
-								  <option value='3'>대구</option>
-								  <option value='4'>인천</option>
-								  <option value='5'>광주</option>
-								  <option value='6'>대전</option>
-								  <option value='7'>울산</option>
-								  <option value='8'>강원</option>
-								  <option value='9'>경기</option>
-								  <option value='10'>경남</option>
-								  <option value='11'>경북</option>
-								  <option value='12'>전남</option>
-								  <option value='13'>전북</option>
-								  <option value='14'>제주</option>
-								  <option value='15'>충남</option>
-								  <option value='16'>충북</option>
-								</select></td>
-								<td><select id="small" name="h_area2" class="h_area2" >
-								  <option><%=board_dto.getM_article_region().substring(2) %></option>
-								</select><input type="hidden" class="form-control" id ="region" 
-									placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20" readonly> </td>
-							</tr>
-							<tr>
-								<td colspan="7"><textarea class="form-control" placeholder="글 내용" id ="inputcontent"
-								name="m_article_content" maxlength="2048" style="height: 350px;"><%=board_dto.getM_article_content() %></textarea></td>
-							</tr>
-						
-					<tr>
-			  		  <td><input type="file" class="m_article_img"  name="m_article_img" onchange="readURL(this)"></td>
-			  		  <td colspan="5"><img style="width: 100%; height: 100%;" id="m_article_preview"></img></td>
-			  		  <td><input type="submit" value="등록하기"></td>	
-					</tr>
-						</tbody>
-					</table>
-					<table>
-					 </table>
-					 <input type="hidden" class="form-control" name ="m_article_img_name" id ="m_article_img_name" readonly>
-					 </form>
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+			</div>
+
+			<div id="tm-fixed-header-bg"></div>
+			<!-- Header image -->
+		</div>
+
+		<!-- community_click-->
+		<div class="content-wrapper">
+			<div class="inner-container container">
+				<div class="row">
+					<div class="section-header col-md-10">
+						<h2>☁︎ COMMUNITY UPDATE</h2>
+
+					</div>
+					<!-- /.section-header -->
 				</div>
 				<!-- /.row -->
+				<div class="row" style="display: block;">
+					<form name="form" method="post"
+						action="WriteUpdateService?article_seq=<%=board_dto.getM_article_seq() %>&select_img=<%=board_dto.getM_article_img() %>"
+						enctype="multipart/form-data">
+						<table class="table table-striped" style="text-align: center;">
+							<thead>
+								<tr>
+									<th colspan="7"
+										style="background-color: #eeeeee; text-align: center; font-size: 20px">
+										오늘의 멋진 하루를 공유해주세요 ^^</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="3"><input type="text" class="form-control"
+										id="inputSubject" placeholder="글 제목" name="m_article_subject"
+										maxlength="50"></td>
+									<td><input type="hidden" class="form-control"
+										placeholder="글쓴이" name="mb_id" maxlength="20" id="inputmb_id" />
+										<input type="text" class="form-control" placeholder="글쓴이"
+										maxlength="20" id="inputnick" readonly /></td>
+									<td><select name="article-sort" id="inputArticle-Sort"
+										class="">
+
+											<%if(board_dto.getM_board_type().equals("메인 게시판")) {%>
+											<option>메인 게시판</option>
+											<option>미션 게시판</option>
+											<input type="hidden" class="form-control" id="inputArticle"
+											value="메인 게시판" name="inputArticle-Sort" maxlength="20"
+											readonly>
+											<%} else { %>
+											<option>미션 게시판</option>
+											<option>메인 게시판</option>
+											<input type="hidden" class="form-control" id="inputArticle"
+											value="미션 게시판" name="inputArticle-Sort" maxlength="20"
+											readonly>
+											<% } %>
+									</select></td>
+									<td><select id="big" name="h_area1" class=""
+										onChange="cat1_change(this.value,h_area2)" class="h_area1">
+											<option><%=board_dto.getM_article_region().substring(0,2) %></option>
+											<option value='1'>서울</option>
+											<option value='2'>부산</option>
+											<option value='3'>대구</option>
+											<option value='4'>인천</option>
+											<option value='5'>광주</option>
+											<option value='6'>대전</option>
+											<option value='7'>울산</option>
+											<option value='8'>강원</option>
+											<option value='9'>경기</option>
+											<option value='10'>경남</option>
+											<option value='11'>경북</option>
+											<option value='12'>전남</option>
+											<option value='13'>전북</option>
+											<option value='14'>제주</option>
+											<option value='15'>충남</option>
+											<option value='16'>충북</option>
+									</select></td>
+									<td><select id="small" name="h_area2" class="h_area2">
+											<option><%=board_dto.getM_article_region().substring(2) %></option>
+									</select><input type="hidden" class="form-control" id="region"
+										placeholder="지역을 선택해주세요" name="m_article_region"
+										maxlength="20" readonly></td>
+								</tr>
+								<tr>
+									<td colspan="7"><textarea class="form-control"
+											placeholder="글 내용" id="inputcontent" name="m_article_content"
+											maxlength="2048" style="height: 350px;"><%=board_dto.getM_article_content() %></textarea></td>
+								</tr>
+
+								<tr>
+									<td><input type="file" class="m_article_img"
+										name="m_article_img" id="m_article_img"
+										onchange="readURL(this)"></td>
+									<td colspan="5"><img style="width: 100%; height: 100%;"
+										id="m_article_preview"></img></td>
+									<td><input type="submit" value="등록하기"></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+						</table>
+						<input type="hidden" class="form-control"
+							name="m_article_img_name" id="m_article_img_name" readonly>
+					</form>
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.inner-content -->
 		</div>
-		<!-- /.inner-content -->
-	</div>
 	</div>
 	<!-- /.content-wrapper -->
 
@@ -386,34 +383,31 @@ th, td {
 	  }
 	};
 	
+	
+	//업데이트용 주제 내용을 각각 로드
 	m_article_mb_id = "${dto.getMb_id()}";
 	document.getElementById("inputmb_id").value = m_article_mb_id;
 	
 	dto_nickname = "${dto.getMb_nickname()}";
 	document.getElementById("inputnick").value = dto_nickname;
 	
+	m_article_subject = "${board_dto.getM_article_subject()}";
+	document.getElementById("inputSubject").value = m_article_subject;
 	
+	m_article_region = "${board_dto.getM_article_region()}";
+	document.getElementById("region").value = m_article_region;
+
+	m_article_board_type = "${board_dto.getM_board_type()}";
+	document.getElementById("inputArticle").value = m_article_board_type;
+
 	
-	//업데이트용 주제 내용을 각각 로드
-
-
-
-
 	$(document).ready(function() {
 		m_article_inputimg = "${board_dto.getM_article_img()}";
 		$("#m_article_preview").attr("src",m_article_inputimg);
 		
-		m_article_subject = "${board_dto.getM_article_subject()}";
-		document.getElementById("inputSubject").value = m_article_subject;
+		m_article_img = "${board_dto.getM_article_img()}";
+		document.getElementById("m_article_img").value = m_article_img;
 		
-		m_article_mb_id = "${board_dto.getMb_id()}";
-		document.getElementById("inputmb_id").value = m_article_mb_id;
-		
-		m_article_board_type = "${board_dto.getM_board_type()}";
-		document.getElementById("inputArticle").value = m_article_board_type;
-		
-		m_article_inputregion = "${board_dto.getM_article_region()}";
-		document.getElementById("region").value = m_article_inputregion;
 	});
 	
 	

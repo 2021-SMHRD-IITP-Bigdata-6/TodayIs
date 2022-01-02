@@ -89,7 +89,18 @@ th, td {
 </head>
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	//업데이트후 세션
+	boardDTO board_dto = null;
+	boardDTO mboard_dto = (boardDTO) session.getAttribute("mboard_dto");
+	//보드 세션
+	boardDTO board_dto1 = (boardDTO) session.getAttribute("board_dto");
+	
+	//업데이트가 없을때 보드 세션으로 나온다.
+	if (mboard_dto == null) {
+		board_dto = board_dto1;
+	} else if (mboard_dto != null) {
+		board_dto = mboard_dto;
+	}
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
@@ -147,9 +158,8 @@ th, td {
                           >
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
-                            >today</a
-                          >
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
+                            >today</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="contact.html">my</a>
@@ -200,7 +210,7 @@ th, td {
 				<div class="blog-info col-md-12">
 					<div class="box-content">
 						<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
-						<span class="blog-meta">2021-12-12</span>
+						<span class="blog-meta"><%=board_dto.getM_article_date() %></span>
 						<p><%=board_dto.getM_article_content()%></p>
 					</div>
 				</div>
