@@ -105,177 +105,171 @@ th, td {
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
 	%>
-	
-<div class="tm-page-wrap mx-auto">
-      <div class="position-relative">
-         <div class="potition-absolute tm-site-header">
-            <div class="container-fluid position-relative">
-               <div class="row">                  
-                        <div class="col-5 col-md-8 ml-auto mr-0">
-                            <div class="tm-site-nav">
-                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
-                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
-                                        data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
-                                        aria-expanded="false" aria-label="Toggle navigation">
-                                        <span>
-                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
-                                            <i class="fas fa-times tm-menu-opened-icon"></i>
-                                        </span>
-                                    </button>
-                                    <div class="collapse navbar-collapse tm-nav"    id="navbar-nav"      >
-                      <ul class="navbar-nav text-uppercase">
-                        <%if(dto != null){ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#">
-                          	<%=dto.getMb_nickname()%> 's
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
-                          	<%=dto.getMb_region()%>
-                          </a>
-                        </li>
-                        <%} %>
-                        <%if(dto == null){ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="login.html">login</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="team">join</a>
-                        </li>
-                        <%}else{ %>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" 
-                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
-                        </li>
-                        <%} %>
-                        <li class="nav-item active">
-                          <a class="nav-link tm-nav-link" href="t_community.jsp"
-                            >weather <span class="sr-only">(current)</span></a
-                          >
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
-                            >today</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="region.html">map</a>
-                        </li>
-                      </ul>
-                    </div>
-                                </nav>
-                            </div>
-                        </div>
-               </div>
-            </div>
-         </div>
-            
-         <div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
-            <!--
+
+	<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">
+						<div class="col-5 col-md-8 ml-auto mr-0">
+							<div class="tm-site-nav">
+								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
+									id="tm-main-nav">
+									<button
+										class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										type="button" data-toggle="collapse" data-target="#navbar-nav"
+										aria-controls="navbar-nav" aria-expanded="false"
+										aria-label="Toggle navigation">
+										<span> <i class="fas fa-bars tm-menu-closed-icon"></i>
+											<i class="fas fa-times tm-menu-opened-icon"></i>
+										</span>
+									</button>
+									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+										<ul class="navbar-nav text-uppercase">
+											<%if(dto != null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#"> <%=dto.getMb_nickname()%> 's
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#" id=Mb_region> <%=dto.getMb_region()%>
+											</a></li>
+											<%} %>
+											<%if(dto == null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.html">login</a></li>
+											<%}else{ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
+											<%} %>
+											<li class="nav-item active"><a
+												class="nav-link tm-nav-link" href="t_community.jsp">weather
+													<span class="sr-only">(current)</span>
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">mission</a>
+											</li>
+											<%
+												if (dto != null) {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mymain.jsp">my</a></li>
+											<%} %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="region.html">map</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+				<!--
                 <div class="text-center">
                <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
             </div>                
                 -->
-            </div>
-
-            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
-      </div>
- 
-	<!-- community_click-->
-	<div class="content-wrapper">
-		<div class="inner-container container">
-			<div class="row">
-				<div class="section-header col-md-12">
-					<h2>☁︎ COMMUNITY VIEW</h2>
-					<span><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b></span>
-				</div>
-				<!-- /.section-header -->
 			</div>
-			<!-- /.row -->
-			<div class="row">
-				<div class="blog-image col-md-12">
-				<a href="t_community_search.jsp?region=<%=board_dto.getM_article_region() %>">
-					<h1 style="font-size: 200%">
-						#<%=board_dto.getM_article_region()%></h1></a>
-					<img src="<%=board_dto.getM_article_img()%>"
-						style="width: 100%; height: 100%;" id="m_article_preview">
-				</div>
-				<!-- /.blog-image -->
-				<div class="blog-info col-md-12">
-					<div class="box-content">
-						<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
-						<span class="blog-meta"><%=board_dto.getM_article_date() %></span>
-						<p><%=board_dto.getM_article_content()%></p>
+
+			<div id="tm-fixed-header-bg"></div>
+			<!-- Header image -->
+		</div>
+
+		<!-- community_click-->
+		<div class="content-wrapper">
+			<div class="inner-container container">
+				<div class="row">
+					<div class="section-header col-md-12">
+						<h2>☁︎ COMMUNITY VIEW</h2>
+						<span><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b></span>
 					</div>
+					<!-- /.section-header -->
 				</div>
+				<!-- /.row -->
+				<div class="row">
+					<div class="blog-image col-md-12">
+						<a
+							href="t_community_search.jsp?region=<%=board_dto.getM_article_region() %>">
+							<h1 style="font-size: 200%">
+								#<%=board_dto.getM_article_region()%></h1>
+						</a> <img src="<%=board_dto.getM_article_img()%>"
+							style="width: 100%; height: 100%;" id="m_article_preview">
+					</div>
+					<!-- /.blog-image -->
+					<div class="blog-info col-md-12">
+						<div class="box-content">
+							<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
+							<span class="blog-meta"><%=board_dto.getM_article_date() %></span>
+							<p><%=board_dto.getM_article_content()%></p>
+						</div>
+					</div>
 
-		<%if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
+					<%if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
 
-			<!-- /.row -->
-				<%
+					<!-- /.row -->
+					<%
 					commDAO comm_dao = new commDAO();
 				ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
 				int cnt = 0;
 				for (int i = 0; i < arr.size(); i++) {
 				%>
-				<div class="row">
-					<div class="col-md-12">
-						<h2 class="comment-heading"><%=i+1 + "번째 댓글" %></h2>
-						<div class="box-content">
-							<div class="comment">
-								<div class="comment-inner">
-									<div class="author-avatar">
-										<img src="images/blog/basic_user.png" alt="" />
-									</div>
-									<div class="comment-body">
-										<h4><%=arr.get(i).getMb_id()%></h4>
-										<span><%=arr.get(i).getComm_date()%></span>
-										<p><%=arr.get(i).getComm_content()%></p>
-										<a href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
-											삭제 </a>
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="comment-heading"><%=i+1 + "번째 댓글" %></h2>
+							<div class="box-content">
+								<div class="comment">
+									<div class="comment-inner">
+										<div class="author-avatar">
+											<img src="images/blog/basic_user.png" alt="" />
+										</div>
+										<div class="comment-body">
+											<h4><%=arr.get(i).getMb_id()%></h4>
+											<span><%=arr.get(i).getComm_date()%></span>
+											<p><%=arr.get(i).getComm_content()%></p>
+											<a
+												href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
+												삭제 </a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<%
+							<%
 						cnt = cnt +1;
 							}
 						%>
 						</div>
-					<!-- /.col-md-12 -->
-			
-				<!-- /.row -->
-			
-					<div class="col-md-12 comment-form">
-						<h2 class="comment-heading">Leave a Comment</h2>
-						<div class="box-content">
-							<p>
-								<label for="name">Nick-name :</label> <input type="text"
-									name="name" id="id_name" placeholder="로그인이 필요합니다." readonly>
-							</p>
-							<p>
-								<label for="comment">Your comment:</label>
-								<textarea name="comment" id="replytext"></textarea>
-							</p>
-							<button type="button" id="btnReply">댓글쓰기</button>
+						<!-- /.col-md-12 -->
+
+						<!-- /.row -->
+
+						<div class="col-md-12 comment-form">
+							<h2 class="comment-heading">Leave a Comment</h2>
+							<div class="box-content">
+								<p>
+									<label for="name">Nick-name :</label> <input type="text"
+										name="name" id="id_name" placeholder="로그인이 필요합니다." readonly>
+								</p>
+								<p>
+									<label for="comment">Your comment:</label>
+									<textarea name="comment" id="replytext"></textarea>
+								</p>
+								<button type="button" id="btnReply">댓글쓰기</button>
+							</div>
+							<!-- /.box-content -->
 						</div>
-						<!-- /.box-content -->
+						<!-- /.comment-form -->
 					</div>
-					<!-- /.comment-form -->
-				</div>
-				
-				<%} %>
+
+					<%} %>
 				</div>
 				<!-- /.row -->
+			</div>
+			<!-- /.inner-content -->
 		</div>
-		<!-- /.inner-content -->
-	</div>
 	</div>
 	<!-- /.content-wrapper -->
 
