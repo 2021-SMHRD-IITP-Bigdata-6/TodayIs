@@ -1,3 +1,4 @@
+<%@page import="com.today.DTO.boardDTO"%>
 <%@page import="com.today.DTO.mainLifeDTO"%>
 <%@page import="com.today.DAO.mainLifeDAO"%>
 <%@page import="com.today.DAO.moveDAO"%>
@@ -10,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video Catalog</title>
+    <title>Main</title>
     <link rel="stylesheet" href="fontawesome/css/all.min.css" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -26,6 +27,8 @@
 // main 페이지 연결
 memberDTO dto = (memberDTO)session.getAttribute("dto");
 mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
+boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
+
 moveDAO move_dao = new moveDAO();
 	
 // main 상세 페이지 연결
@@ -72,14 +75,11 @@ mainLifeDTO life_dto = null;
                     >
                       <ul class="navbar-nav text-uppercase">
                         <%if(dto != null){ %>
-                        <li class="nav-item">
+                        <li class="nav-item active">
+                          
                           <a class="nav-link tm-nav-link" href="#">
-                          	<%=dto.getMb_nickname()%> 's
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
-                          	<%=dto.getMb_region()%>
+                          	<%=dto.getMb_nickname()%> 's 
+                          	<%=dto.getMb_region()%><span class="sr-only">(current)</span>
                           </a>
                         </li>
                         <%} %>
@@ -87,25 +87,17 @@ mainLifeDTO life_dto = null;
                         <li class="nav-item">
                           <a class="nav-link tm-nav-link" href="login.html">login</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="team">join</a>
-                        </li>
                         <%}else{ %>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
-                        </li>
-                        <li class="nav-item">
                           <a class="nav-link tm-nav-link" 
-                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
+                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">logout</a>
                         </li>
                         <%} %>
-                        <li class="nav-item active">
-                          <a class="nav-link tm-nav-link" href="#"
-                            >weather <span class="sr-only">(current)</span></a
-                          >
+                        <li class="nav-item">
+                          <a class="nav-link tm-nav-link" href="t_community.jsp">weather</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="about.html"
+                          <a class="nav-link tm-nav-link" href="t_mission.jsp"
                             >today</a
                           >
                         </li>
@@ -113,7 +105,7 @@ mainLifeDTO life_dto = null;
                           <a class="nav-link tm-nav-link" href="contact.html">my</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link tm-nav-link" href="region.html">region</a>
+                          <a class="nav-link tm-nav-link" href="region.html">map</a>
                         </li>
                       </ul>
                     </div>
@@ -145,36 +137,36 @@ mainLifeDTO life_dto = null;
         		|| move_dao.Move(dto.getMb_region()).getW_status().equals("")){ %>
 		          <video autoplay muted loop id="tm-video">
 		            <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
-		            <source src="video/Sun.mp4" type="video/mp4" />
+		            <source src="video/sun.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름많음")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/CloudMore.mp4" type="video/mp4" />
+		            <source src="video/cloud.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("구름조금")){%>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/CloudLess.mp4" type="video/mp4" />
+		            <source src="video/star.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비많음")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Forest .mp4" type="video/mp4" />
+		            <source src="video/forest.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("비적음")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Rainless.mp4" type="video/mp4" />
+		            <source src="video/rain.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("번개")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Lightning.mp4" type="video/mp4" />
+		            <source src="video/thunder.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 단속적") 
 		    		 || move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 연속적")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Snow.mp4" type="video/mp4" />
+		            <source src="video/snow.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("흐림")){ %>
 		     	<video autoplay muted loop id="tm-video">
-		            <source src="video/Grey.mp4" type="video/mp4" />
+		            <source src="video/grey.mp4" type="video/mp4" />
 		          </video>
 		     <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("박무")){ %>
 		     	<video autoplay muted loop id="tm-video">
@@ -183,9 +175,9 @@ mainLifeDTO life_dto = null;
 		     <%} %>
 	  <%}else{ %>
 	  	<video autoplay muted loop id="tm-video">
-		     <source src="video/smog.mp4" type="video/mp4" />
+	     <source src="video/sun.mp4" type="video/mp4" />
 		</video>
-	  <%} %>	
+ 	  <%} %>	
       </div>
         <i id="tm-video-control-button" class="fas fa-pause"></i>
       </div>
@@ -232,7 +224,29 @@ mainLifeDTO life_dto = null;
 	                    <span class="tm-text-secondary">
 	                   	<%=move_dao.Move(dto.getMb_region()).getW_body_temp()%>℃	
 	                    </span>
-	                <%}%><br />추워요.
+	                <%}%><br />
+	                <%if(dto != null){
+		               float move = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_body_temp());
+		               int data = (int)move;
+		               
+		               if(data >= 50){ %>
+		               	    뜨거워요. 화상에 주의하세요.
+		               <%}else if(data >= 38){ %>
+		               		더워요. 잠깐만 움직여도 땀이 날 거에요.
+		               <%}else if(data >= 29){ %>
+	              			낮에는 덥지만 저녁에는 선선할거에요.
+	              	   <%}else if(data >= 25){ %>
+	              			날씨가 쌀쌀합니다. 가디건 챙기세요
+	              	   <%}else if(data >= 18){ %>
+	              			추워요. 오늘은 코드 어떨가요?
+	              	   <%}else if(data >= 13){ %>
+	              			추워요. 얇은 패딩을 추천합니다.
+	              	   <%}else if(data >= 5){ %>
+	              			많이 추워요. 패딩과 목도리 잊지 마세요.
+	              	   <%}else{ %>
+	              			이렇게 추운데..꼭 나가야 할까요?
+	              	   <%} %>
+	              	 <%} %>
                   </p>
                 </div>
               </div>
@@ -255,7 +269,19 @@ mainLifeDTO life_dto = null;
                     	<span class="tm-text-secondary">
                     	<%=move_dao.Move(dto.getMb_region()).getW_humidity()%>%
                     	</span>
-                    <%} %><br />대체로 좋아요.
+                    <%} %><br />
+                    <%if(dto != null){
+		                float move2 = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_humidity());
+		                int data2 = (int)move2;
+		               
+		                if(data2>= 70){ %>
+		               	    습하네요.
+		                <%}else if(data2 >= 57){ %>
+		               		평균이에요.
+		                <%}else{ %>
+	              			건조합니다.
+	              	    <%} %>
+	              	 <%} %>
                   </p>
                 </div>
               </div>
@@ -277,7 +303,10 @@ mainLifeDTO life_dto = null;
                     	<span class="tm-text-secondary">
                     	<%=move_dao.Move(dto.getMb_region()).getW_wind()%>
                     	</span>
-                    	<%} %><br />바람이 세요.
+                    	<%} %><br />
+                    	<%if(dto != null){%>
+			                바람이 부네요
+	              	 <%} %>
                   </p>
                 </div>
               </div>
@@ -320,7 +349,23 @@ mainLifeDTO life_dto = null;
 	                      <span class="tm-text-secondary">
 	                      <%=life_dao.life_dto(dto.getMb_region()).getw_wash() %>%
 	                      </span>
-                      <%} %><br />빨래하기  좋은 날씨입니다.
+                      <%} %><br />
+                      <%if(dto != null){
+			                float move3 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getw_wash());
+			                int data3 = (int)move3;
+			               
+			                if(data3>= 80){ %>
+			               	    밀린 빨래하기 좋은 날이네요.
+			                <%}else if(data3 >= 70){ %>
+			               		야외 건조 좋아요
+			               	<%}else if(data3 >= 50){ %>
+			               		야외에서 빨래를 말리려면 날씨를 한번 더 확인해주세요.
+			               	<%}else if(data3 >= 30){ %>
+			               		실내에서 말리세요.
+			                <%}else{ %>
+		              		    마르지 않아 냄새가 날 수 있어요.
+		              	    <%} %>
+		              <%} %>
                     </p>
                   </div>
                 </div>
@@ -340,9 +385,27 @@ mainLifeDTO life_dto = null;
                     <p class="tm-catalog-item-text">
                       <%if(dto != null){ %>
 	                      <span class="tm-text-secondary">
-	                      <%=life_dao.life_dto(dto.getMb_region()).getW_out() %>%
+	                      <%=life_dao.life_dto(dto.getMb_region()).getW_out()%>%
 	                      </span>
-                      <%} %><br />외출하기 좋은 날씨입니다.
+                      <%} %><br />
+                      <%if(dto != null){
+			                float move4 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_out());
+			                int data4 = (int)move4;
+			               
+			                if(data4>= 90){ %>
+			               	    상쾌한 야외 공기를 느껴보세요.
+			               	<%}else if(data4 >= 80){ %>
+			               		맑은 하늘을 느껴보세요.
+			               	<%}else if(data4 >= 70){ %>
+			               		교외로 드라이브 다녀오는 건 어떨까요?
+			               	<%}else if(data4 >= 50){ %>
+			               		가벼운 외출은 어떨까요?
+			               	<%}else if(data4 >= 40){ %>
+			               	       실내 활동은 어떠세요?
+			                <%}else{ %>
+		              		   가급적 외출을 피하세요.
+		              	    <%} %>
+	              	    <%} %>
                     </p>
                   </div>
                 </div>
@@ -364,7 +427,23 @@ mainLifeDTO life_dto = null;
 	                      <span class="tm-text-secondary">
 	                      <%=life_dao.life_dto(dto.getMb_region()).getW_exercise() %>%
 	                      </span>
-                      <%} %><br />실내운동을 즐겨요.
+                      <%} %><br />
+                      <%if(dto != null){
+			                float move10 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_exercise());
+			                int data10 = (int)move10;
+			               
+			                if(data10 >= 90){ %>
+			               	    상쾌한 야외 공기를 느껴보세요.
+			               	<%}else if(data10 >= 80){ %>
+			               		운동하기 좋은 날입니다.
+			               	<%}else if(data10 >= 60){ %>
+			               		준비운동을 철저히 하세요.
+			               	<%}else if(data10 >= 30){ %>
+			               		실내에서 가볍게 운동하세요.
+			                <%}else{ %>
+		              		   운동하기 좋지 않아요.
+		              	    <%} %>
+		              <%} %>  
                     </p>
                   </div>
                 </div>
@@ -375,8 +454,7 @@ mainLifeDTO life_dto = null;
                                 <a href="video-page.html" class="position-absolute tm-img-overlay">
                                     <i class="fas fa-play tm-overlay-icon"></i>
                                 </a>
-                            </div>    
-                            -->
+                            </div> -->
                   <div class="p-4 tm-bg-gray tm-catalog-item-description">
                     <h3 class="tm-text-primary mb-3 tm-catalog-item-title">
                       세차 지수
@@ -386,7 +464,21 @@ mainLifeDTO life_dto = null;
 	                      <span class="tm-text-secondary">
 	                      <%=life_dao.life_dto(dto.getMb_region()).getW_washcar() %>%
 	                      </span>
-                      <%} %><br />세차하기 좋은 날씨입니다.
+                      <%} %><br />
+					  <%if(dto != null){
+			                float move11 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_washcar());
+			                int data11 = (int)move11;
+			               
+			                if(data11 >= 80){ %>
+			               	    꼼꼼한 세차 좋아요.
+			               	<%}else if(data11 >= 60){ %>
+			               		간단히 닦아요.
+			               	<%}else if(data11 >= 40){ %>
+			               	       차 내부 정돈이 좋아요.
+			                <%}else{ %>
+		              		   세차는 다음 기회에..
+		              	    <%} %>
+		              <%} %>
                     </p>
                   </div>
                 </div>
@@ -409,7 +501,25 @@ mainLifeDTO life_dto = null;
 	                      <span class="tm-text-secondary">
 	                      <%=life_dao.life_dto(dto.getMb_region()).getW_rain() %>%
 	                      </span>
-                      <%} %><br />휴대 편리한 우산으로 준비하세요.
+                      <%} %><br />
+                      <%if(dto != null){
+			                float move5 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_rain());
+			                int data5 = (int)move5;
+			               
+			                if(data5>= 90){ %>
+			               	    꼭 우산을 챙기세요.
+			               	<%}else if(data5 >= 70){ %>
+			               		우산을 챙기면 후회하지 않을 거에요.
+			               	<%}else if(data5 >= 40){ %>
+			               		가방에 작은 우산 정도.
+			               	<%}else if(data5 >= 30){ %>
+			               		가벼운 외출은 어떨까요?
+			               	<%}else if(data5 >= 10){ %>
+			               	       우산이 없어도 좋아요.
+			                <%}else{ %>
+		              		   우산 걱정없이 외출하세요.
+		              	    <%} %>
+		              <%} %>
                     </p>
                   </div>
                 </div>
@@ -431,7 +541,25 @@ mainLifeDTO life_dto = null;
 	                      <span class="tm-text-secondary">
 	                      <%=life_dao.life_dto(dto.getMb_region()).getW_sleep() %>%
 	                      </span>
-                      <%} %><br />쾌적하게 수면할 수 있습니다.
+                      <%} %><br />
+                      <%if(dto != null){
+			                float move6 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_sleep());
+			                int data6 = (int)move6;
+			               
+			                if(data6>= 90){ %>
+			               	    푹 주무세요. 숙면하기 좋은 날입니다.
+			               	<%}else if(data6 >= 80){ %>
+								숙면하기 좋은 날씨입니다.
+			               	<%}else if(data6 >= 70){ %>
+			               		이불 잘 덮고 주무세요.
+			               	<%}else if(data6 >= 50){ %>
+			               		잠들기에 나쁘지 않아요.
+			               	<%}else if(data6 >= 40){ %>
+			               	       잠들기 좀 힘들어요.
+			                <%}else{ %>
+		              		   난방이 필요합니다.
+		              	    <%} %>
+		              <%} %>
                     </p>
                   </div>
                 </div>
@@ -456,7 +584,23 @@ mainLifeDTO life_dto = null;
 	                    <span class="tm-text-secondary">
 	                    <%=life_dao.life_dto(dto.getMb_region()).getW_cold() %>%
 	                    </span>
-                    <%} %><br />감기 걸리지 않게 유의하세요.
+                    <%} %><br />
+                    <%if(dto != null){
+		                float move7 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_cold());
+		                int data7 = (int)move7;
+		               
+		                if(data7>= 90){ %>
+		               	    외출시 일교차 주의하세요.
+		               	<%}else if(data7 >= 70){ %>
+							따뜻하게 하세요.
+		               	<%}else if(data7 >= 50){ %>
+		               		비타민 섭취 좋아요.
+		               	<%}else if(data7 >= 30){ %>
+		               		건강한 생활습관을 유지하세요.
+		                <%}else{ %>
+	              		   낮아도 방심은 금물!
+	              	    <%} %>
+	               <%} %>
                   </p>
                 </div>
               </div>
@@ -479,7 +623,23 @@ mainLifeDTO life_dto = null;
 	                    <span class="tm-text-secondary">
 	                    <%=life_dao.life_dto(dto.getMb_region()).getW_fire() %>%
 	                    </span>
-                    <%} %><br />세심하게 주위를 살펴요.
+                    <%} %><br />
+                    <%if(dto != null){
+		                float move8 = Float.parseFloat(life_dao.life_dto(dto.getMb_region()).getW_fire());
+		                int data8 = (int)move8;
+		               
+		                if(data8>= 85){ %>
+		               	    세심하게 주위를 살펴요.
+		               	<%}else if(data8 >= 60){ %>
+							불이 번지기 쉬워요.
+		               	<%}else if(data8 >= 50){ %>
+		               		주변의 불씨를 잘 살펴요.
+		               	<%}else if(data8 >= 20){ %>
+		               		소화기 점검은 평소에 하세요.
+		                <%}else{ %>
+	              		   낮아도 방심은 금물!
+	              	    <%} %>
+	              	 <%} %>
                   </p>
                 </div>
               </div>
@@ -501,7 +661,23 @@ mainLifeDTO life_dto = null;
 	                  <span class="tm-text-secondary">
 	                  <%=move_dao.Move(dto.getMb_region()).getW_temp()%>℃
 	                  </span>
-                  <%} %><br />목도리 장갑  준비하세요.
+                  <%} %><br />
+                  <%if(dto != null){
+		                float move9 = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_temp());
+		                int data9 = (int)move9;
+		               
+		                if(data9>= 50){ %>
+		               	    목도리 장갑을 준비하세요.
+		               	<%}else if(data9 >= 80){ %>
+							피부에 영양을 주세요.
+		               	<%}else if(data9 >= 60){ %>
+							클렌징을 철저하게 해주세요.
+		               	<%}else if(data9 >= 50){ %>
+		               		수분 크림을 발라주세요.
+		                <%}else{ %>
+	              		   피부 관리는 평소에 하는 거 아시죠?
+	              	    <%} %>
+	              <%} %>
                   </p>
                 </div>
               </div>
@@ -554,25 +730,29 @@ mainLifeDTO life_dto = null;
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
               <div class="p-5 tm-bg-gray">
-                <h3 class="tm-text-primary mb-4">Quick Links</h3>
+                <h3 class="tm-text-primary mb-4">Today Developers</h3>
                 <ul class="list-unstyled tm-footer-links">
-                  <li><a href="#">Duis bibendum</a></li>
-                  <li><a href="#">Purus non dignissim</a></li>
-                  <li><a href="#">Sapien metus gravida</a></li>
-                  <li><a href="#">Eget consequat</a></li>
-                  <li><a href="#">Praesent eu pulvinar</a></li>
+                  <li><a href="#">전웅철</a></li>
+                  <li><a href="#">박서현</a></li>
+                  <li><a href="#">김현철</a></li>
+                  <li><a href="#">유현지</a></li>
+                  <li><a href="login.html">그 외 도움을 주신분들♥</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
               <div class="p-5 tm-bg-gray h-100">
-                <h3 class="tm-text-primary mb-4">Our Pages</h3>
+                <h3 class="tm-text-primary mb-4">Today Menu</h3>
                 <ul class="list-unstyled tm-footer-links">
-                  <li><a href="#">Our Videos</a></li>
-                  <li><a href="#">License Terms</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Privacy Policies</a></li>
+                  <%if(dto == null){ %>
+                        <li><a href="login.html">login</a></li>
+                     <%}else{ %>
+                        <li><a href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
+                        <li><a href="region.html">map</a></li>
+                        <%} %>
+                  <li><a href="index.jsp">weather</a></li>
+                  <li><a href="#">today</a></li>
+                  <li><a href="#">my</a></li>
                 </ul>
               </div>
             </div>

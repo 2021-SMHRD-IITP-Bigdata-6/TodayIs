@@ -38,7 +38,7 @@ public class LoginService extends HttpServlet {
 			session.setAttribute("board_dto", board_dto);
 			
 		}else {
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 			
 		}
 	}

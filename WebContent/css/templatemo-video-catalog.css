@@ -37,11 +37,11 @@ body {
 
 a {
     transition: all 0.3s ease;
-    color: #666;
+    color: #777777;
 }
 
 a:hover {
-    color: #29BBCC;
+    color: #3399cc;
     text-decoration: none;
 }
 
@@ -314,7 +314,7 @@ h2, p { color: #666666; }
 .tm-category-link.active,
 .tm-category-link:hover {
     border-bottom: 3px solid #3399CC;
-    color: #3399CC;
+    color: ##3399cc;
 }
 
 .tm-paging-link {
@@ -395,7 +395,7 @@ h2, p { color: #666666; }
 
 #tm-fixed-header-bg { height: 450px; }
 .tm-fixed-header-1 { background-image: url(../img/video-detail-1.jpg); }
-.tm-fixed-header-2 { background-image: url(../img/about-1.jpg); }
+.tm-fixed-header-2 { background-image: url(../img/contact-2.jpg); }
 .tm-fixed-header-3 { background-image: url(../img/contact-1.jpg); }
 
 video {
@@ -499,7 +499,7 @@ video {
         border-top-right-radius: 0;
         padding: 10px 15px;
     }
-
+ss
     .nav-item { margin-bottom: 10px; }
 
     .navbar-toggler {

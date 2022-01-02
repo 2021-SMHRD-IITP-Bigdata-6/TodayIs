@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'S-CoreDream-5Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'S-CoreDream-5Medium';
+    font-size: 18px;
 }
 .wrap {
     height: 100%;
@@ -13,44 +20,56 @@
 }
 .form-wrap {
     width: 380px;
-    height: 410px;
+    height: 480px;
     position: relative;
     margin: 6% auto;
     background: #fff;
     padding: 5px;
     overflow: hidden;
-	box-shadow: 38px 30px 97px #7ae2de;
+    box-shadow: 38px 30px 97px #7ae2de;    
+}
+.form-wraps {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;    
 }
 .button-wrap {
-    width: 150px;
-    padding: 10px 30px;
-    cursor: pointer;
-    display: block;
-    margin: inherit;
-    border: 0;
-    outline: none;
+    width: 230px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 600px 9px #fcae8f;
     border-radius: 30px;
-    border-bottom: solid 5px #7AE2DE;
-    background-color: #414A52;
 }
 .togglebtn {
-    padding: 10px 7px;
+    padding: 10px 30px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
-    width: 150px;
-    
+}
+.togglebtn1 {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
 }
 #btn {
     top: 0;
     left: 0;
     position: absolute;
+    width: 120px;
     height: 100%;
-    background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
     transition: .5s;
+    border-bottom: solid 5px #7AE2DE;
+    background-color: #414A52;
 }
 .social-icons {
     margin: 30px auto;
@@ -61,9 +80,9 @@
     cursor: pointer;
 }
 .input-group {
-    top: 120px;
+    top: 100px;
     position: absolute;
-    width: 285px;
+    width: 280px;
     transition: .5s;
 }
 .input-field {
@@ -102,9 +121,9 @@ span {
     bottom: 68px;
     position: absolute;
 }
-#login {
+#logout {
     left: 50px;
 }
-#register {
+#update {
     left: 450px;
 }
