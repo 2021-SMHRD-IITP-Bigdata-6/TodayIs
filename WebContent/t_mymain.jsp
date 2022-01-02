@@ -1,3 +1,4 @@
+<%@page import="com.today.DAO.memberDAO"%>
 <%@page import="com.today.DAO.mboardDAO"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -54,15 +55,10 @@
 }
 
 td {
-	border: 1px solid #3399cc;
-	padding: 10px;
+	border: 25px solid #efefef;
+	background-color: #efefef;
 	font-size: small;
-}
-
-tr {
-	border: 1px solid #3399cc;
-	padding: 10px;
-	font-size: small;
+	width: 20%;
 }
 
 .model {
@@ -78,14 +74,13 @@ tr {
 </head>
 <body>
 	<%
-
-
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
-	mboardDAO mboard_dao = new mboardDAO();
-	ArrayList<boardDTO> arr = mboard_dao.mboard_all();
+	memberDAO dao = new memberDAO();
+
+	ArrayList<boardDTO> arr = dao.m_board_all(dto.getMb_id());
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -141,12 +136,8 @@ tr {
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">mission</a></li>
-											<%
-												if (dto != null) {
-											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mymain.jsp">my</a></li>
-											<%} %>
+												href="contact.html">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
 										</ul>
@@ -177,128 +168,117 @@ tr {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ COMMUNITY MISSION</h2>
-						<span>mission : TURE BLUE SKY</span> <a href="t_write.jsp"
+						<h2>☁︎ MY MEMORRY</h2>
+						<span><select name="article-sort" id="inputArticle-Sort"
+							class="">
+								<option style="font-size: 15px">메인 게시판</option>
+								<option style="font-size: 15px">미션 게시판</option>
+						</select></span> <span> 지난 게시물을 확인해봐요~ +_+</span> <a href="t_write.jsp"
 							style="float: right;"><h2>New Write ☁︎</h2></a>
 					</div>
 					<!-- /.section-header -->
 				</div>
 				<!-- /.row -->
 				<div class="projects-holder-3">
-					<!--
-                    <div class="filter-categories">
-                        <ul class="project-filter">
-                            <li class="filter" data-filter="all"><span>지역</span></li>
-                            <li class="filter" data-filter="buildings"><span>서울</span></li>
-                            <li class="filter" data-filter="design"><span>부산</span></li>
-                            <li class="filter" data-filter="architecture"><span>대구</span></li>
-                            <li class="filter" data-filter="ic"><span>인천</span></li>
-                            <li class="filter" data-filter="gj"><span>광주</span></li>
-                            <li class="filter" data-filter="nature"><span>대전</span></li>
-                            <li class="filter" data-filter="nature"><span>울산</span></li>
-                            <li class="filter" data-filter="nature"><span>강원</span></li>
-                            <li class="filter" data-filter="nature"><span>경기</span></li>
-                            <li class="filter" data-filter="nature"><span>경남</span></li>
-                            <li class="filter" data-filter="nature"><span>경북</span></li>
-                            <li class="filter" data-filter="nature"><span>전남</span></li>
-                            <li class="filter" data-filter="nature"><span>전북</span></li>
-                            <li class="filter" data-filter="nature"><span>제주</span></li>
-                            <li class="filter" data-filter="nature"><span>충남</span></li>
-                            <li class="filter" data-filter="nature"><span>충북</span></li>
-                        </ul>
-                    </div>
-                    -->
-
-					<div class="blog-masonry masonry-true">
-						<div class="row">
+					<div class="row">
+						<table>
 							<!--미션글_1-->
 							<%
-								for (int i = 0; i < arr.size(); i++) {
+								try {
+								int i = 0;
+								//행 관리
+								for (int k = 0; k < 5; k++) {
 							%>
-
-							<div class="post-masonry col-md-4 col-sm-6">
-								<div class="project-thumb">
-									 <img src="<%=arr.get(i).getM_article_img()%>" onclick="func2(<%=i %>)" class="modal_con">
+							<tr valign="top">
+								<%
+									for (int j = 0; j < 5; j++) {
+									//열 관리
+								%>
+								<td valign="top">
+									<div class="project-thumb">
+										<img src="<%=arr.get(i).getM_article_img()%>"
+											onclick="func2(<%=i %>)" class="modal_con">
 										<div class="modal">
-											<div class="modal_content" style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
-												<img  src="<%=arr.get(i).getM_article_img()%>"
-													 class ="modal_img">
+											<div class="modal_content"
+												style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
+												<img src="<%=arr.get(i).getM_article_img()%>"
+													class="modal_img">
 											</div>
-										</div>							
-								</div>
-								<div class="box-content project-detail">
+										</div>
+									</div>
+									<div class="box-content project-detail">
 
-									<h2>
-										<a
-											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
-											<h3
-												style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
-												#<%=arr.get(i).getM_article_region()%></h3>
-										</a>
-									</h2>
-									<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
-									<span class="blog-meta"
-										style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=arr.get(i).getM_article_date()%></span>
-									<p><%=arr.get(i).getM_article_content()%></p>
+										<h2>
+											<a
+												href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+												<h3
+													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
+													#<%=arr.get(i).getM_article_region()%></h3>
+											</a>
+										</h2>
+										<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
+										<span class="blog-meta"
+											style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=arr.get(i).getM_article_date()%></span>
+										<p><%=arr.get(i).getM_article_content().substring(0, 40) + "..."%></p>
 
-									<ul>
-										<!-- 작성자만 수정 삭제 가능 기능-->
-										<%
-											if (dto == null) {
-										%>
-										<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제시
-											로그인이 필요해요</li>
-										<%
-											} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
-										%>
-										<li class="upd" style="list-style: none;"><a
-											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
-										<li class="upd" style="list-style: none;"><a
-											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+										<ul>
+											<!-- 작성자만 수정 삭제 가능 기능-->
+											<%
+												if (dto == null) {
+											%>
+											<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제시
+												로그인이 필요해요</li>
+											<%
+												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
+											%>
+											<li class="upd" style="list-style: none;"><a
+												href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
+											<li class="upd" style="list-style: none;"><a
+												href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
 
-										<li style="right: 30%; list-style: none;">
-											<div class="like-button-wrapper">
-												<a class="like_button"
-													onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
-													<i class="like-counter fa fa-heart-o"></i> <span
-													class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-												</a>
+											<li style="right: 30%; list-style: none;">
+												<div class="like-button-wrapper">
+													<a class="like_button"
+														onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+														<i class="like-counter fa fa-heart-o"></i> <span
+														class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+													</a>
 
-											</div>
-										</li>
-										<%
-											}
-										%>
-									</ul>
-								</div>
-							</div>
+												</div>
+											</li>
+											<%
+												}
+											%>
+										</ul>
+									</div>
+									</div>
+								</td>
+								<%
+									i = i + 1;
+								}
+								%>
+							</tr>
 							<%
 								}
+							} catch (Exception e) {
+							}
 							%>
-							<!-- /.row -->
-
-							<!--더보기 버튼<div class="load-more">
-                            <a href="javascript:void(0)" class="load-more">Load More</a>
-                        </div>
-                    </div> 
-                    -->
-							<!-- /.projects-holder -->
-						</div>
-						<!-- /.projects-holder-2 -->
+						</table>
 					</div>
-					<!-- /.inner-content -->
+					<!-- /.projects-holder-2 -->
 				</div>
-				<!-- /.content-wrapper -->
+				<!-- /.inner-content -->
 			</div>
+			<!-- /.content-wrapper -->
 		</div>
-	</div>
-	<script src="js/vendor/jquery-1.11.0.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
 
-	<!-- Preloader -->
-	<script type="text/javascript">
+		<script src="js/vendor/jquery-1.11.0.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+
+		<!-- Preloader -->
+		<script type="text/javascript">
             //<![CDATA[
             $(window).load(function() { 
                 $('.loader-item').fadeOut(); 
@@ -396,34 +376,34 @@ tr {
     				
     				try {
     				if(f == 0) {
-        				img.attr('src','<%=arr.get(0).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(0).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 1) {
-        				img.attr('src','<%=arr.get(1).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(1).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 2) {
-        				img.attr('src','<%=arr.get(2).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(2).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 3) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 4) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 5) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 6) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 7) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 8) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} else if (f == 9) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
         				$(".modal").fadeIn();
     				} 
  		
@@ -439,6 +419,5 @@ tr {
     		
     		
         </script>
-
 </body>
 </html>

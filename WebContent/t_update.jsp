@@ -125,8 +125,6 @@ th, td {
 											<%if(dto == null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="login.html">login</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="team">join</a></li>
 											<%}else{ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout</a></li>
@@ -138,10 +136,14 @@ th, td {
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">today</a>
+												href="t_mission.jsp">mission</a>
 											</li>
+											<%
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
+											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
 										</ul>
