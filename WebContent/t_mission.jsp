@@ -64,6 +64,15 @@ tr {
 	padding: 10px;
 	font-size: small;
 }
+
+.model {
+ position : ;
+ width: 100%; height: 100%;
+ background: raba(0,0,0,0.8);
+ top:0; left:0;
+ display: block; 
+
+}
 </style>
 </head>
 <body>
@@ -204,12 +213,10 @@ tr {
 
 							<div class="post-masonry col-md-4 col-sm-6">
 								<div class="project-thumb">
-
-									<img src="<%=arr.get(i).getM_article_img()%>" alt="">
-									<div class="overlay-b">
-										<div class="overlay-inner">
-											<a href="t_community_click.jsp" class="fancybox fa fa-expand"
-												title="글내용"></a>
+								<img src="<%=arr.get(i).getM_article_img()%>" class="modal_function">
+									<div class="modal">
+										<div class="modal_content">
+											<img src="<%=arr.get(i).getM_article_img()%>" style="width: 50%; position: relative; left: 25%">
 										</div>
 									</div>
 								</div>
@@ -218,7 +225,8 @@ tr {
 									<h2>
 										<a
 											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
-											<h3	style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
+											<h3
+												style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
 												#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h2>
@@ -350,8 +358,6 @@ tr {
 
     		        //db 관련 정보들
 
-    		
-
     			}else if(a.hasClass("fa-heart")){
     				console.log("좋아요 -1")
     				t.html(1 * t.html() - 1);
@@ -362,7 +368,15 @@ tr {
     			
     			
     		});
-    	      
+    		
+    		$(".modal_function").on("click", function(){  
+        		$(".modal").fadeIn();		
+        		$(".modal_content").click(function(){
+            		$(".modal").fadeOut();
+            		});   		
+        	});
+    		
+    		
         </script>
 
 </body>

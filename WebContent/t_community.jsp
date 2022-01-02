@@ -213,12 +213,13 @@ ul {
 						<span class="post-masonry col-md-4 col-sm-6">
 							<div class="blog-thumb">
 								<!-- 사진 출력부-->
-								<img src="<%=arr.get(i).getM_article_img()%>">
+								<img src="<%=arr.get(i).getM_article_img()%>" >
 								<div class="overlay-b">
 									<div class="overlay-inner">
 										<!-- 게시물로 이동-->
 										<a class="fa fa-link"
 											href="BoardViewService?M_article_seq=<%=arr.get(i).getM_article_seq()%>">
+										
 										</a>
 									</div>
 								</div>
