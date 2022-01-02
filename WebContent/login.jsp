@@ -202,25 +202,109 @@
 	<input type="text" name="mb_phone"  class="input-field" placeholder="Your phone number" required>
                         
                         <select name ="mb_region" class="input-fields">
-                        	<option>-지역 선택-</option>
-                        	<option>서울</option>
-                        	<option>부산</option>
-                        	<option>대구</option>
-                        	<option>인천</option>
-                        	<option>광주</option>
-                        	<option>대전</option>
-                        	<option>울산</option>
-                        	<option>강원</option>
-                        	<option>경기</option>
-                        	<option>경남</option>
-                        	<option>경북</option>
-                        	<option>전남</option>
-                        	<option>전북</option>
-                        	<option>제주</option>
-                        	<option>충남</option>
-                        	<option>충북</option>
+                        	<option>-선택-</option>
+                        	<option value='1'>서울</option>
+				            <option value='2'>경기</option>
+				            <option value='3'>인천</option>
+				            <option value='4'>충북</option>
+				            <option value='5'>충남</option>
+				            <option value='6'>세종</option>
+				            <option value='7'>대전</option>
+				            <option value='8'>강원</option>
+				            <option value='9'>전북</option>
+				            <option value='10'>전남</option>
+				            <option value='11'>광주</option>
+				            <option value='12'>경북</option>
+				            <option value='13'>울산</option>
+				            <option value='14'>부산</option>
+				            <option value='15'>경남</option>
+				            <option value='16'>제주</option>
                         </select><br>
+                        <select id="small" name="h_area2" class="form-control" >
+                        	<option>-선택-</option>
+                        </select>
+                        	<input type="text" class="form-control" id ="region" placeholder="지역을 선택" name="m_article_region" maxlength="20" readonly>   
                         <button class = "submit"> join </button>
+</div>
+   <script src="./js/jquery-3.4.1.min.js"></script>
+   <script>
+   
+   var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+   var cat1_name = new Array('서울','경기','인천','충북','충남','세종','대전','강원','전북','전남','광주','경북','울산','부산','경남','제주');
+   
+    cat2_num[1] = new Array(1);
+    cat2_name[1] = new Array('서울');
+   
+    cat2_num[2] = new Array(2,3,4,5,6);
+    cat2_name[2] = new Array('파주','이천','양평','수원','동두천');
+   
+    cat2_num[3] = new Array(7,8);
+    cat2_name[3] = new Array('백령동','강화');
+   
+    cat2_num[4] = new Array(9,10,11,12,13);
+    cat2_name[4] = new Array('충주','추풍령','청주','제천','보은');
+   
+    cat2_num[5] = new Array(14,15,16,17,18,19);
+    cat2_name[5] = new Array('홍성','천안','서산','부여','보령','금산');
+   
+    cat2_num[6] = new Array(20);
+    cat2_name[6] = new Array('세종');
+   
+    cat2_num[7] = new Array(21);
+    cat2_name[7] = new Array('대전');
+   
+    cat2_num[8] = new Array(22,23,24,25,26,27,28,29,30,31,32,33,34);
+    cat2_name[8] = new Array('홍천','정선','영월','대관령','태백','춘천시','철원','인제','원주','동해','속초','북춘천','북강릉');
+   
+    cat2_num[9] = new Array(35,36,37,38,39,40,41,42,43);
+    cat2_name[9] = new Array('정읍','전주','장수','임실','순창','부안','남원','군산','고창');
+   
+    cat2_num[10] = new Array(44,45,46,47,48,49,50,51,52,53,54,55,56);
+    cat2_name[10] = new Array('고흥','해남','진도','장흥','완도','영광군','여수','순천','보성군','목포','광양','강진','흑산도');
+   
+    cat2_num[11] = new Array(57);
+    cat2_name[11] = new Array('광주');
+   
+    cat2_num[12] = new Array(58,59,60,61,62,63,64,65,66,67,68,69,70,71);
+    cat2_name[12] = new Array('포항','청송','의성','울진','영천','영주','영덕','안동','상주','봉화','문경','구미','경주','울릉도');
+   
+    cat2_num[13] = new Array(72);
+    cat2_name[13] = new Array('울산');
+   
+    cat2_num[14] = new Array(73);
+    cat2_name[14] = new Array('부산');
+   
+    cat2_num[15] = new Array(74,75,76,77,78,79,80,81,82,83,84,85,86,87,88);
+    cat2_name[15] = new Array('합천','함양군','통영','창원','진주','의령군','양산시','성산','산청','북창원','밀양','남해','김해시','거제','거창');
+   
+    cat2_num[16] = new Array(89,90);
+    cat2_name[16] = new Array('제주','서귀포');
+   
+    function cat1_change(key,sel){
+        if(key == '') return;
+        var name = cat2_name[key];
+        var val = cat2_num[key];
+       
+        for(i=sel.length-1; i>=0; i--)
+         sel.options[i] = null;
+        sel.options[0] = new Option('-선택-','', '', 'true');
+        for(i=0; i<name.length; i++){
+         sel.options[i+1] = new Option(name[i],val[i]);
+        }
+       }
+       
+       var selected_big
+       var selected_small
+       
+       //상세지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기 
+       $('#small').on('click', function(){
+          selected_small = $('#small option:selected').text();
+          console.log(selected_small);
+          var result = selected_small;
+          document.getElementById("region").value=result;
+       });
+</script>
+
 </div>
 </body>
 </html>
