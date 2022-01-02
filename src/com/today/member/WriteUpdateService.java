@@ -23,6 +23,8 @@ public class WriteUpdateService extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String m_article_seq = request.getParameter("article_seq");
+		String select_img = request.getParameter("select_img");
+		
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
         String m_article_imgpath = "C:/Users/smhrd/git/RealMK2/WebContent/UploadWrite"; 
@@ -37,6 +39,9 @@ public class WriteUpdateService extends HttpServlet {
 		String m_board_type = mr.getParameter("inputArticle-Sort");
 		String m_article_img = mr.getParameter("m_article_img");
 		String m_article_img_name ="UploadWrite/" + mr.getParameter("m_article_img_name");
+		if (!select_img.equals(m_article_img_name)) {
+			m_article_img_name = select_img;
+		}
 		boardDAO dao = new boardDAO();
 		mboardDAO mdao = new mboardDAO();
 	    
@@ -49,8 +54,8 @@ public class WriteUpdateService extends HttpServlet {
 	    	
 	    	
 		if (cnt > 0) {
-			boardDTO board_dto = new boardDTO(cnt ,m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region, m_board_type);
-			session.setAttribute("board_dto", board_dto); 
+			boardDTO mboard_dto = new boardDTO(cnt ,m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region, m_board_type);
+			session.setAttribute("mboard_dto", mboard_dto); 
 			response.sendRedirect("t_community_click.jsp");
 			
 			
