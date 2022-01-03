@@ -33,9 +33,9 @@ public class commDAO {
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 
 			if (conn != null) {
-				System.out.println("연결성공");
+				System.out.println("댓글 연결 성공");
 			} else {
-				System.out.println("연결실패");
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

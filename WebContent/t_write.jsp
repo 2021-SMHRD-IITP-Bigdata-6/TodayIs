@@ -222,8 +222,8 @@ th, td {
 											<option value='14'>부산</option>
 											<option value='15'>경남</option>
 											<option value='16'>제주</option>
-
-									</select></td>
+									</select>
+									</td>
 									<td><select id="small" name="h_area2" class="h_area2">
 											<option>-시/구-</option>
 									</select><input type="hidden" class="form-control" id="region"
@@ -270,7 +270,7 @@ th, td {
 	<!-- Preloader -->
 	<script type="text/javascript">
 
-	 var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+	 	var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 	    var cat1_name = new Array('서울','경기','인천','충북','충남','세종','대전','강원','전북','전남','광주','경북','울산','부산','경남','제주');
 	   
 	    var cat2_num = new Array();
@@ -326,6 +326,7 @@ th, td {
 
 	
 	function cat1_change(key,sel){
+		console.log("test"+sel);
 	 if(key == '') return;
 	 var name = cat2_name[key];
 	 var val = cat2_num[key];

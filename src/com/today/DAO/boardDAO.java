@@ -34,9 +34,9 @@ public class boardDAO {
 				conn = DriverManager.getConnection(url, dbid, dbpw);
 
 				if (conn != null) {
-					System.out.println("연결성공");
+					System.out.println("보드 연결 성공");
 				} else {
-					System.out.println("연결실패");
+
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -55,7 +55,6 @@ public class boardDAO {
 					rs.close();
 				}
 			} catch (SQLException e) {
-				System.out.println("연결 끊기 실패");
 				e.printStackTrace();
 			}
 		}

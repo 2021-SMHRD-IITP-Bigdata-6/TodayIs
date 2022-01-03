@@ -31,7 +31,7 @@ public class moveDAO {
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 
 			if (conn != null) {
-				System.out.println("연결성공");
+				System.out.println("동적 연결 성공");
 			} else {
 				System.out.println("연결실패");
 			}
@@ -77,7 +77,7 @@ public class moveDAO {
 	        	 
 	        	String w_region = rs.getString(2);
 	        	String w_status = rs.getString(3);
-	        	String w_temp = rs.getString(4);
+	        	float w_temp = rs.getFloat(4);
 	        	String w_body_temp = rs.getNString(5);
 	        	String w_humidity = rs.getNString(6);
 	        	String w_wind = rs.getNString(7);
