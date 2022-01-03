@@ -200,5 +200,39 @@ public class memberDAO {
 		}
 		return board_arr;
 	}
+	
+	// 개인 게시판 전체 조회 기능(미션)
+	public ArrayList<boardDTO> m_mboard_all(String m_mb_id) {
+		ArrayList<boardDTO> mboard_arr = new ArrayList<boardDTO>();
+		try {
+			getConn();
+			String sql = "select * from t_mission_community where mb_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, m_mb_id);
+			rs = psmt.executeQuery();
+			
+			while (rs.next() == true) {
+				int m_article_seq = rs.getInt(1);
+				String m_article_subject = rs.getString(2);
+				String m_article_content = rs.getString(3);
+				String m_article_img = rs.getString(4);
+				String m_article_date = rs.getString(5);					
+				int m_article_likes = rs.getInt(6);
+				String mb_id = rs.getString(7);
+				String m_article_region = rs.getString(8);
+				int m_article_latitude = rs.getInt(9);
+				int m_article_logitude = rs.getInt(10);
+				boardDTO dto = new boardDTO(m_article_seq, m_article_subject, m_article_content, m_article_img, m_article_date, m_article_likes, mb_id, m_article_region, m_article_latitude, m_article_logitude);
+				mboard_arr.add(dto);
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mboard_arr;
+	}
 
 }
