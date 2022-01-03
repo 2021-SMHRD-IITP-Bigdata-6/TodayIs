@@ -119,34 +119,10 @@ tr {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
-
-												href="index.jsp"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp" id=Mb_region> <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
 											%>
-<<<<<<< HEAD
-											
-=======
-											<%
-												if (dto == null) {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=2">login</a></li>
-											<%
-												} else {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id()%>">update</a></li>
-											<%
-												}
-											%>
->>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
 											<li class="nav-item"><a
 												class="nav-link tm-nav-link" href="t_community.jsp">with
 											</a></li>
