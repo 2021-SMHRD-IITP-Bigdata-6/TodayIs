@@ -114,6 +114,10 @@
    String mb_id = request.getParameter("mb_id");
    System.out.print(mb_id);
    
+   // 로그인 한 장소에 대한 체크문
+   String numbers = request.getParameter("numbers");
+   
+   
    boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 %>
 
@@ -203,6 +207,8 @@
 			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
 		<a href="LoginService"><button class="submit" style="margin: 5px 0 2px -10px;">login</button></a>
+
+		<br><br>
 		</form>
 		
 		<form id="register" action="JoinService" style ="top: 20px; "method="post" class="input-group">

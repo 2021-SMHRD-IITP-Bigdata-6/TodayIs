@@ -118,10 +118,10 @@ tr {
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
+												href="index.jsp"> <%=dto.getMb_nickname()%> 's
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
+												href="index.jsp" id=Mb_region> <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
@@ -130,7 +130,7 @@ tr {
 												if (dto == null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login</a></li>
+												href="login.jsp?numbers=2">login</a></li>
 											<%
 												} else {
 											%>
