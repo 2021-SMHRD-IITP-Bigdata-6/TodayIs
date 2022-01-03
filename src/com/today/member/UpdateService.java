@@ -32,6 +32,7 @@ public class UpdateService extends HttpServlet {
 		
 		System.out.println("service= "+mb_id);
 		System.out.println("service1= "+mb_pw);
+		System.out.println("service1= "+mb_region);
 		memberDAO dao = new memberDAO();
 		int cnt = dao.Update(mb_id, mb_pw, mb_nickname, mb_phone, mb_region);
 
