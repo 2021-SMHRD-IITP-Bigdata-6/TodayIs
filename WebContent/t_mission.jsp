@@ -221,7 +221,7 @@ tr {
 							<%
 								for (int i = 0; i < arr.size(); i++) {
 							%>
-
+					
 							<div class="post-masonry col-md-4 col-sm-6">
 								<div class="project-thumb">
 									 <img src="<%=arr.get(i).getM_article_img()%>" onclick="func2(<%=i %>)" class="modal_con">
@@ -385,52 +385,53 @@ tr {
     		
     		function func2(f){
     			console.log(f)
-    			
-    			var numbers =  {"numbers" : f};
-    			
-    			$.ajax({
-    				type : "post", 
-    				url : "MBoardViewService", 
-    				data : numbers, 
 
-    				success : function() {
-    				
-    				}
-    			});
+    			var temp = f;
+				<% int i = 0; %>
     			$(".modal_con").click(function(){
     				var img =$('.modal_img');
     				
     				try {
     				if(f == 0) {
-        				img.attr('src','<%=arr.get(0).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
+        				<%
+        				if (i <= arr.size()-1) {
+        					i=i+1;
+        				}
+        				 %>
     				} else if (f == 1) {
-        				img.attr('src','<%=arr.get(1).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
+        				<%
+        				if (i < arr.size()-1) {
+        					i=i+1;
+        				}
+        				 %>
     				} else if (f == 2) {
-        				img.attr('src','<%=arr.get(2).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
+        				<%
+        				if (i < arr.size()-1) {
+        					i=i+1;
+        				}
+        				 %>
     				} else if (f == 3) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
+        				<% i=i+1; %>
     				} else if (f == 4) {
-        				img.attr('src','<%=arr.get(4).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
+        				<%
+        				if (i < arr.size()-1) {
+        					i=i+1;
+        				}
+        				 %>
     				} else if (f == 5) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
         				$(".modal").fadeIn();
-    				} else if (f == 6) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
-        				$(".modal").fadeIn();
-    				} else if (f == 7) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
-        				$(".modal").fadeIn();
-    				} else if (f == 8) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
-        				$(".modal").fadeIn();
-    				} else if (f == 9) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
-        				$(".modal").fadeIn();
+        				<% i=i+1; %>
     				} 
  		
     				} catch (err) {

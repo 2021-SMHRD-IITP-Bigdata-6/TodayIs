@@ -92,7 +92,6 @@ th, td {
 		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 		memberDTO dto = (memberDTO) session.getAttribute("dto");	
 		
-
 		%>
 	<div class="tm-page-wrap mx-auto">
 		<div class="position-relative">
