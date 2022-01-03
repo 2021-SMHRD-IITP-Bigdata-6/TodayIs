@@ -119,8 +119,6 @@ tr {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
-
-												href="index.jsp"> <%=dto.getMb_nickname()%> 's
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="index.jsp" id=Mb_region> <%=dto.getMb_region()%>
@@ -128,9 +126,7 @@ tr {
 											<%
 												}
 											%>
-<<<<<<< HEAD
-											
-=======
+
 											<%
 												if (dto == null) {
 											%>
@@ -146,7 +142,7 @@ tr {
 											<%
 												}
 											%>
->>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
+
 											<li class="nav-item"><a
 												class="nav-link tm-nav-link" href="t_community.jsp">with
 											</a></li>
