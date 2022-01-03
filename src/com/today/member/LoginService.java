@@ -20,7 +20,9 @@ public class LoginService extends HttpServlet {
 
 		String mb_id = request.getParameter("mb_id");
 		String mb_pw = request.getParameter("mb_pw");
-
+		
+		System.out.println(mb_id);
+		System.out.println(mb_pw);
 		memberDAO dao = new memberDAO();
 		memberDTO dto_two = new memberDTO(mb_id, mb_pw);
 		memberDTO dto = dao.Login(dto_two);
@@ -38,7 +40,8 @@ public class LoginService extends HttpServlet {
 			session.setAttribute("board_dto", board_dto);
 			
 		}else {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("index.jsp");
+			System.out.println("login실패");
 			
 		}
 	}

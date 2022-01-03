@@ -326,6 +326,7 @@ th, td {
 
 	
 	function cat1_change(key,sel){
+		console.log("test"+sel);
 	 if(key == '') return;
 	 var name = cat2_name[key];
 	 var val = cat2_num[key];
