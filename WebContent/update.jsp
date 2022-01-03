@@ -1,4 +1,5 @@
 
+<%@page import="com.today.DAO.memberDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="com.today.DTO.commDTO"%>
@@ -103,7 +104,12 @@
 	String mb_id = request.getParameter("mb_id");
 	System.out.print(mb_id);
 	
+	System.out.print(dto.getMb_nickname());
+	System.out.print(dto.getMb_phone());
+	System.out.print(dto.getMb_pw());
+	
 	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	
 %>
 
 <div class="tm-page-wrap mx-auto">
@@ -125,11 +131,11 @@
                                    <div class="collapse navbar-collapse tm-nav"  id="navbar-nav" >
 			                      <ul class="navbar-nav text-uppercase">
 			                        <%if(dto != null){ %>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="#">
-			                          	<%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
-			                          </a>
-			                        </li>
+				                        <li class="nav-item">
+				                          <a class="nav-link tm-nav-link" href="#">
+				                          	<%=dto.getMb_nickname() %>'s <%=dto.getMb_region()%>
+				                          </a>
+				                        </li>
 			                        <%} %>
 			                        <%if(dto == null){ %>
 			                        <li class="nav-item">

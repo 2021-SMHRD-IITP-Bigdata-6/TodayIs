@@ -22,7 +22,6 @@ public class UpdateService extends HttpServlet {
 		// session: ?>??
 		HttpSession session = request.getSession();
 		memberDTO dto = (memberDTO)session.getAttribute("dto");
-		
 
 		String mb_id = dto.getMb_id();
 		String mb_pw = request.getParameter("mb_pw");
@@ -32,6 +31,7 @@ public class UpdateService extends HttpServlet {
 		
 		System.out.println("service= "+mb_id);
 		System.out.println("service1= "+mb_pw);
+		System.out.println("service1= "+mb_nickname);
 		System.out.println("service1= "+mb_region);
 		memberDAO dao = new memberDAO();
 		int cnt = dao.Update(mb_id, mb_pw, mb_nickname, mb_phone, mb_region);

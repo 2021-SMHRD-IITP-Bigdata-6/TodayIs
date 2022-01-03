@@ -131,7 +131,7 @@ mainLifeDTO life_dto = null;
 		<div id="tm-video-container">
 			<% if(dto != null){%>
 			<%if(move_dao.Move(dto.getMb_region()).getW_status().equals("맑음") 
-	        		|| move_dao.Move(dto.getMb_region()).getW_status().equals("")){ %>
+	        		|| move_dao.Move(dto.getMb_region()).getW_status() == null){ %>
 			<video autoplay muted loop id="tm-video">
 				<!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
 				<source src="video/sun.mp4" type="video/mp4" />
@@ -172,7 +172,7 @@ mainLifeDTO life_dto = null;
 			<%} %>
 			<%}else{ %>
 			<%if(move_dao.Move("광주").getW_status().equals("맑음") 
-	        		|| move_dao.Move("광주").getW_status().equals("")){ %>
+	        		|| move_dao.Move("광주").getW_status()== null){ %>
 			<video autoplay muted loop id="tm-video">
 				<!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
 				<source src="video/sun.mp4" type="video/mp4" />
