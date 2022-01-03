@@ -283,7 +283,7 @@ th, td {
 	    cat2_name[2] = new Array('파주','이천','양평','수원','동두천');
 	   
 	    cat2_num[3] = new Array(7,8);
-	    cat2_name[3] = new Array('백령동','강화');
+	    cat2_name[3] = new Array('백령도','강화');
 	   
 	    cat2_num[4] = new Array(9,10,11,12,13);
 	    cat2_name[4] = new Array('충주','추풍령','청주','제천','보은');

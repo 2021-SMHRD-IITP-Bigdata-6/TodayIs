@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="com.today.DTO.commDTO"%>
@@ -34,88 +33,77 @@
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
-	.layer {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 100px;
-		height: 100px;
-		margin: -250px 0 0 -50px;
+	.layer{
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:200px;
+		height:100px;
+		margin:	-250px 30px 0 0;
 	}
-	
-	.input-field {
-		margin: 5px 0 0 -140px;
-		width: 380px;
+	.input-field{
+		margin:5px 0 5px -70px;
 		border-radius: 10px;
 	}
-	
-	.input-fields {
-		margin: 5px 0 5px -140px;
-		width: 380px;
-		border-radius: 10px;
+	#big{
+		margin: 0 -18px 5px -10px;
+		border-radius:10px;
+		height: 48px
 	}
-	
-	.submit {
-		margin: 5px 0 3px -10px;
+	#small{
+		margin: 1px -5px 0 -5px;
+		border-radius:10px;
+		height: 48px;
+	}
+	.submit{
+		margin:0 15px 0 0px;
 		width: 100px;
-		height: 45px;
-		background-color: #efefef;
-		border-color: #efefef;
-		color: #777777;
-		position: relative;
-		font-size: 20px;
-		padding: 0;
-		cursor: pointer;
-		transition: 800ms ease all;
-		outline: none;
+		height: 50px;
+		background-color:#efefef;
+		border-color:#efefef;
+	    color:#777777;
+	    position:relative;
+	    font-size:20px;
+	    padding:0;
+	    cursor:pointer;
+	    transition:800ms ease all;
+	    outline:none;
 	}
-	
-	.submit:hover {
-		background: #efefef;
-		color: #054E32;
+	.submit:hover{
+	  background:#efefef;
+	  color:#0064CD;
 	}
-	
-	.submit:before, .submit:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 2px;
-		width: 0;
-		background: #58B28F;
-		transition: 400ms ease all;
+	.submit:before,.submit:after{
+	  content:'';
+	  position:absolute;
+	  top:0;
+	  right:0;
+	  height:2px;
+	  width:0;
+	  background:#98DFFF;
+	  transition:400ms ease all;
 	}
-	
-	.submit:after {
-		right: inherit;
-		top: inherit;
-		left: 0;
-		bottom: 0;
+	.submit:after{
+	  right:inherit;
+	  top:inherit;
+	  left:0;
+	  bottom:0;
 	}
-	
-	.submit:hover:before, .submit:hover:after {
-		width: 100%;
-		transition: 800ms ease all;
-	}
-	.h_area1{
-		margin: 0 0 5px -140px;
-		border-radius:10px;
-		width: 380px;
-	}
-	.h_area2{
-		margin: 0 0 0 -140px;
-		border-radius:10px;
-		width: 380px;
+	.submit:hover:before,.submit:hover:after{
+	  width:100%;
+	  transition:800ms ease all;
 	}
 </style>
 </head>
-<body>
+<body style="height:100%; width:100%;">
 
 <%
    memberDTO dto = (memberDTO) session.getAttribute("dto");
    String mb_id = request.getParameter("mb_id");
    System.out.print(mb_id);
    
+   // 로그인 한 장소에 대한 체크문
+   String numbers = request.getParameter("numbers");
    boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 %>
 
@@ -196,16 +184,20 @@
 		<span>오늘도 사용해 주셔서 감사합니다.</span> <a href="login.jsp"
 			style="float: right;"><h2>LOGIN & JOIN ☁︎</h2></a>
 	</div>
-
-	<div class="layer">
+	
+		<div class="layer">
+		 <form id="login" action="LoginService" method="post" class="input-group">
 		<h2>LOGIN</h2>
 		<input type="text" name="mb_id" class="input-field"
 			placeholder="User id" required> 
 			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
-		<a href="LoginService"><button class="submit" style="margin: 5px 0 2px -10px;">login</button></a>
-		<br><br>
+		<button class="submit" style="margin: 5px 0 2px -10px;" onclick="location:href='LoginService'">login</button>
 
+		<br><br>
+		</form>
+		
+		<form id="register" action="JoinService" style ="top: 20px; "method="post" class="input-group">
 		<h2>JOIN</h2>
 		<input type="text" name="mb_id" class="input-field" placeholder="User id" required> 
 		<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required> 
@@ -214,8 +206,8 @@
 			
 			<select id="big"
 			name="h_area1" class="" onChange="cat1_change(this.value,document.getElementById('small'))"
-			class="h_area1" style="margin: 0 0 5px -140px; border-radius:10px; width: 380px;">
-			<option>-지역-</option>
+			class="h_area1" style="margin: 2px 15px 5px -70px; border-radius:10px;">
+			<option>- 지역 -</option>
 			<option value='1'>서울</option>
 			<option value='2'>경기</option>
 			<option value='3'>인천</option>
@@ -235,12 +227,13 @@
 		</select> 
 		
 		<select id="small" name="h_area2" class="h_area2">
-			<option>-시/구-</option>
+			<option>- 시/구 -</option>
 		</select>
 			<input type="hidden" class="form-control" id="region"
-			placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
+			placeholder="지역을 선택해주세요" name="mb_region" maxlength="20"
 			readonly>
-		<button class="submit"><a herf="JoinService"> join </a></button>
+		<button class="submit" onclick="location.href='JoinService'"> join </button>
+	</form>
 	</div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
@@ -267,7 +260,7 @@
 	    cat2_name[2] = new Array('파주','이천','양평','수원','동두천');
 	   
 	    cat2_num[3] = new Array(7,8);
-	    cat2_name[3] = new Array('백령동','강화');
+	    cat2_name[3] = new Array('백령도','강화');
 	   
 	    cat2_num[4] = new Array(9,10,11,12,13);
 	    cat2_name[4] = new Array('충주','추풍령','청주','제천','보은');
@@ -323,7 +316,6 @@
 	 }
 	}
 	
-	var selected_big
 	var selected_small
 	
 	//상세지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기 
