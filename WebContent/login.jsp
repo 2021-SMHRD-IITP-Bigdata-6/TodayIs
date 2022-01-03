@@ -204,6 +204,7 @@
 			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
 		<a href="LoginService"><button class="submit" style="margin: 5px 0 2px -10px;">login</button></a>
+		
 		<br><br>
 
 		<h2>JOIN</h2>
