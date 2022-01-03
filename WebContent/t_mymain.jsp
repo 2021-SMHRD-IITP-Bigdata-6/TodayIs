@@ -74,7 +74,7 @@ td {
 </head>
 <body>
 	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -136,8 +136,12 @@ td {
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">mission</a></li>
+											<%
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
+											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
 										</ul>
@@ -156,13 +160,9 @@ td {
 				</div>                
                 -->
 			</div>
-
 			<div id="tm-fixed-header-bg"></div>
 			<!-- Header image -->
 		</div>
-
-
-
 		<!--page start-->
 		<div class="content-wrapper">
 			<div class="inner-container container">
@@ -184,14 +184,16 @@ td {
 						<table>
 							<!--미션글_1-->
 							<%
-								try {
 								int i = 0;
+							try {
 								//행 관리
+								Loop1 :
 								for (int k = 0; k < 5; k++) {
 							%>
 							<tr valign="top">
 								<%
 									for (int j = 0; j < 5; j++) {
+										System.out.print(i);
 									//열 관리
 								%>
 								<td valign="top">
@@ -201,13 +203,13 @@ td {
 										<div class="modal">
 											<div class="modal_content"
 												style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
-												<img src="<%=arr.get(i).getM_article_img()%>"
-													class="modal_img">
+												<img src="<%=arr.get(i).getM_article_img()%>" 
+													class="modal_img"  >
 											</div>
 										</div>
 									</div>
 									<div class="box-content project-detail">
-
+			
 										<h2>
 											<a
 												href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
@@ -219,7 +221,9 @@ td {
 										<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
 										<span class="blog-meta"
 											style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=arr.get(i).getM_article_date()%></span>
-										<p><%=arr.get(i).getM_article_content().substring(0, 40) + "..."%></p>
+										<p><%=arr.get(i).getM_article_content().substring(0, 10) + "..."%></p><br>
+								
+										
 
 										<ul>
 											<!-- 작성자만 수정 삭제 가능 기능-->
@@ -254,8 +258,16 @@ td {
 									</div>
 								</td>
 								<%
+								
+								if (i < arr.size()-1){
 									i = i + 1;
+								} else {
+									break Loop1;
+									
 								}
+						
+								}
+								
 								%>
 							</tr>
 							<%
@@ -357,66 +369,7 @@ td {
     		});
     		
     		
-    		function func2(f){
-    			console.log(f)
-    			
-    			var numbers =  {"numbers" : f};
-    			
-    			$.ajax({
-    				type : "post", 
-    				url : "MBoardViewService", 
-    				data : numbers, 
-
-    				success : function() {
-    				
-    				}
-    			});
-    			$(".modal_con").click(function(){
-    				var img =$('.modal_img');
-    				
-    				try {
-    				if(f == 0) {
-        				img.attr('src','<%=arr.get(0).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 1) {
-        				img.attr('src','<%=arr.get(1).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 2) {
-        				img.attr('src','<%=arr.get(2).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 3) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 4) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 5) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 6) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 7) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 8) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} else if (f == 9) {
-        				img.attr('src','<%=arr.get(3).getM_article_img()%>');
-        				$(".modal").fadeIn();
-    				} 
- 		
-    				} catch (err) {
-    					
-    				}
- 
-    			});
-        		$(".modal_content").click(function(){
-            		$(".modal").fadeOut();
-            	});   		
-        	};
-    		
+    	
     		
         </script>
 </body>

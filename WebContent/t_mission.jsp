@@ -86,6 +86,12 @@ tr {
 
 	mboardDAO mboard_dao = new mboardDAO();
 	ArrayList<boardDTO> arr = mboard_dao.mboard_all();
+	
+	System.out.print(arr.get(0).getM_article_seq() + " ");
+	System.out.print(arr.get(1).getM_article_seq() + " ");
+	System.out.print(arr.get(2).getM_article_seq() + " ");
+	System.out.print(arr.get(3).getM_article_seq() + " ");
+	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -408,7 +414,7 @@ tr {
         				img.attr('src','<%=arr.get(3).getM_article_img() %>');
         				$(".modal").fadeIn();
     				} else if (f == 4) {
-        				img.attr('src','<%=arr.get(3).getM_article_img() %>');
+        				img.attr('src','<%=arr.get(4).getM_article_img() %>');
         				$(".modal").fadeIn();
     				} else if (f == 5) {
         				img.attr('src','<%=arr.get(3).getM_article_img() %>');
