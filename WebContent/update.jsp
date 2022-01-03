@@ -24,13 +24,13 @@
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900" />
 
-<link rel="stylesheet" href="t_css/bootstrap.css" />
-<link rel="stylesheet" href="t_css/font-awesome.css" />
-<link rel="stylesheet" href="t_css/animate.css" />
-<link rel="stylesheet" href="t_css/templatemo-misc.css" />
-<link rel="stylesheet" href="t_css/templatemo-style.css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+<link rel="stylesheet" href="t_css/bootstrap.css?after" />
+<link rel="stylesheet" href="t_css/font-awesome.css?after" />
+<link rel="stylesheet" href="t_css/animate.css?after" />
+<link rel="stylesheet" href="t_css/templatemo-misc.css?after" />
+<link rel="stylesheet" href="t_css/templatemo-style.css?after" />
+<link rel="stylesheet" href="css/bootstrap.min.css?after" />
+<link rel="stylesheet" href="css/templatemo-video-catalog.css?after" />
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
@@ -40,16 +40,16 @@
 		left:50%;
 		width:100px;
 		height:100px;
-		margin:-90px 0 0 -50px;	
+		margin:-110px 0 0 -50px;	
 	}
 	.input-field{
-		margin:5px 0 5px -120px;
+		margin:5px 0 5px -80px;
 		width: 380px;
 		border-radius: 10px;
 	}
 	.input-fields{
-		margin:5px 0 5px -120px;
-		width: 380px;
+		margin:5px 0 5px 40px;
+		width: 10%;
 		border-radius: 10px;
 	}
 	.submit{
@@ -77,7 +77,7 @@
 	  right:0;
 	  height:2px;
 	  width:0;
-	  background: #58B28F;
+	  background:#98DFFF;
 	  transition:400ms ease all;
 	}
 	.submit:after{
@@ -91,18 +91,18 @@
 	  transition:800ms ease all;
 	}
 	.h_area1{
-		margin: 0 0 5px -120px;
+		margin: 0 0 5px -70px;
 		border-radius:10px;
-		width: 380px;
+		width: 400px;
 	}
 	.h_area2{
-		margin: 0 0 0 -120px;
+		margin: 0 0 0 -70px;
 		border-radius:10px;
-		width: 380px;
+		width: 400px;
 	}
 </style>
 </head>
-<body style="height:850px; width:auto;">
+<body style="height:100%; width:100%;">
 
 <%
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
@@ -193,20 +193,20 @@
 <div class="section-header col-md-12" style="margin:-210px 0 0 0">
 	<h2>☁︎ TODAY?</h2>
 	<span>오늘도 사용해 주셔서 감사합니다.</span>
-	<a href="login.jsp" style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
+	<a href="update.jsp" style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
 </div>
 
-	<form id="logout" action="LogoutService" style ="top: -10px; "method="post" class="input-group">
-	<div  class="layer">                
+<div  class="layer"> 
+	<form id="logout" action="LogoutService" style ="top: -20px; "method="post" class="input-group">
 	<!-- LOGOUT 기능 -->            
 	<h2 id="title">LOGOUT</h2>
 	<button class="submit" id="lay" ><a href="LogoutService"> logout </a></button>
 	</form>
 
-	<form id="update" action="UpdateService" style ="top: 30px; "method="post" class="input-group">
+	<form id="update" action="UpdateService" style ="top: 30px; "method="post" class="input-group" >
 	<!-- UPDATE 기능 -->               
 	<h2 id="title">UPDATE</h2>
-	<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required>
+	<input style="width:380px;" type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required>
 	<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
 	<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
                         
