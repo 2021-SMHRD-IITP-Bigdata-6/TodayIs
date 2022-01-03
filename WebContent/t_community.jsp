@@ -10,7 +10,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8" />
-<title>🌤 Today</title>
+<title>TODAY☁︎WITH</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -90,7 +90,6 @@ ul {
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
-
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -117,45 +116,41 @@ ul {
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
+												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
 											%>
-											<%
-												if (dto == null) {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="team">join</a></li>
-											<%
-												} else {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id()%>">update</a></li>
-											<%
-												}
-											%>
+											
 											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
+												class="nav-link tm-nav-link" href="t_community.jsp">with
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">today</a></li>
+												href="t_mission.jsp">moment</a></li>
 											<%
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
-											<%} %>
+											<%
+												}
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
+												<%
+												if (dto == null) {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.html">login ☁︎ join</a></li>
+											<%
+												} else {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout ☁︎ update</a></li>
+											<%
+												}
+											%>
 										</ul>
 									</div>
 								</nav>
@@ -187,13 +182,16 @@ ul {
   <path
 									d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
 </svg>
-							Community
+							&nbsp with
 						</h2>
 						<span>Region Shared</span>
 						<h2>
-							<a href="t_write.jsp" style="float: right;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-</svg> new</a>
+							<a href="t_write.jsp" style="float: right;"><svg
+									xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+									fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+  <path
+										d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+</svg>&nbsp new</a>
 						</h2>
 
 					</div>
@@ -232,7 +230,7 @@ ul {
 											href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 											<h3
 												style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
-												<%=arr.get(i).getM_article_region()%></h3>
+												#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
 									<span class="blog-meta"><%=arr.get(i).getM_article_date()%></span>
@@ -246,12 +244,13 @@ ul {
 										<%
 											if (dto == null) {
 										%>
-										<li class="upd" style="font-size: 15px">수정/삭제시 로그인이 필요해요</li>
+										<li class="upd" style="font-size: 15px">수정&삭제 시 로그인이 필요해요</li>
 										<%
 											} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 										%>
-										<li class="upd" style="position: relative; top: 30%; left: 77%;">
-										<a href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+										<li class="upd"
+											style="position: relative; top: 30%; left: 77%;"><a
+											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
 													fill="currentColor" class="bi bi-pencil-square"
 													viewBox="0 0 16 16">
@@ -267,7 +266,7 @@ ul {
 										<li class="upd"
 											style="position: relative; top: -50%; right: -10%;"><a
 											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
-													style="position: relative; top:-35px; right: -82%;xmlns="
+													style="position: relative; top: -35px; right: -82%;xmlns="
 													http://www.w3.org/2000/svg" width="22" height="22"
 													fill="currentColor" class="bi bi-x-square"
 													viewBox="0 0 16 16">
@@ -283,54 +282,55 @@ ul {
 										<%
 											}
 										%>
-										<span class="like-button-wrapper" style="position: relative; left:87%; top:37px;"> <a
-												class="like_button"
-												onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
-													<i class="like-counter fa fa-heart-o"></i> <span
-													class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-											</a>
+										<span class="like-button-wrapper"
+											style="position: relative; left: 87%; top: 37px;"> <a
+											class="like_button"
+											onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<i class="like-counter fa fa-heart-o"></i> <span
+												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+										</a>
 										</span>
-										
+
 									</ul>
 
 									<ul>
-									<li class="replymenu" style="list-style: none;"><a
-										href="#" onclick="return false;"
-										style="font-size: 1rem; width: 100%; position: relative; top: -30px;"><svg
-												"xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-												fill="currentColor" class="bi bi-hand-index-thumb"
-												viewBox="0 0 16 16">
+										<li class="replymenu" style="list-style: none;"><a
+											href="#" onclick="return false;"
+											style="font-size: 1rem; width: 100%; position: relative; top: -30px;"><svg
+													"xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+													fill="currentColor" class="bi bi-hand-index-thumb"
+													viewBox="0 0 16 16">
 									 <path
-													d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z" />
-									</svg>Reply</a>
-										<ul class="replyhide">
-											<table style="width: 100%; margin-top: 10px; table-layout: fixed; word-break: break-all; border: 0.5px solid #3399cc;">
-												<tr>
-													<td width="50%">댓글내용</td>
-													<td width="20%">작성자</td>
-													<td width="20%">일 자</td>
-												</tr>
-												<%
-													cnt = 0;
-												for (int j = 0; j < all.size(); j++) {
-													if (arr.get(i).getM_article_seq() == all.get(j).getComm_seq()) {
-												%>
-												<tr>
-													<td width="50%"><%=all.get(j).getComm_content()%></td>
-													<td width="20%"><%=all.get(j).getMb_id()%></td>
-													<td width="20%"><%=all.get(j).getComm_date()%></td>
-												</tr>
-												<%
-													cnt += 1;
-												%>
-												<%
+														d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z" />
+									</svg> COMMENT</a>
+											<ul class="replyhide">
+												<table
+													style="width: 100%; margin-top: 10px; table-layout: fixed; word-break: break-all; border: 0.5px solid #3399cc;">
+													<tr>
+														<td width="50%">댓글내용</td>
+														<td width="20%">작성자</td>
+														<td width="20%">일 자</td>
+													</tr>
+													<%
+														cnt = 0;
+													for (int j = 0; j < all.size(); j++) {
+														if (arr.get(i).getM_article_seq() == all.get(j).getComm_seq()) {
+													%>
+													<tr>
+														<td width="50%"><%=all.get(j).getComm_content()%></td>
+														<td width="20%"><%=all.get(j).getMb_id()%></td>
+														<td width="20%"><%=all.get(j).getComm_date()%></td>
+													</tr>
+													<%
+														cnt += 1;
+													%>
+													<%
+														}
 													}
-												}
-												%>
-											</table>
-										</ul>
-									</li>
-								</ul>
+													%>
+												</table>
+											</ul></li>
+									</ul>
 									<ul>
 										<li class="article-category" style="list-style: none;"></li>
 										<li class="article-comments" style="list-style: none;"><span><i

@@ -11,7 +11,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8" />
-<title>🌤 Today</title>
+<title>TODAY☁︎MOMENT</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -118,34 +118,17 @@ tr {
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
+												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
 											%>
-											<%
-												if (dto == null) {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login</a></li>
-											<%
-												} else {
-											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id()%>">update</a></li>
-											<%
-												}
-											%>
+											
 											<li class="nav-item"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
+												class="nav-link tm-nav-link" href="t_community.jsp">with
 											</a></li>
 											<li class="nav-item active"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">mission<span class="sr-only">(current)</span></a></li>
+												href="t_mission.jsp">moment<span class="sr-only">(current)</span></a></li>
 											<%
 												if (dto != null) {
 											%>
@@ -154,6 +137,20 @@ tr {
 											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="region.html">map</a></li>
+												<%
+												if (dto == null) {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.html">login ☁︎ join</a></li>
+											<%
+												} else {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout ☁︎ update</a></li>
+											
+											<%
+												}
+											%>
 										</ul>
 									</div>
 								</nav>
@@ -182,7 +179,9 @@ tr {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ COMMUNITY MISSION</h2>
+						<h2><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-easel-fill" viewBox="0 0 16 16">
+  <path d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z"/>
+</svg>&nbsp MOMENT</h2>
 						<span>mission : TRUE BLUE SKY</span> <a href="t_write.jsp"
 							style="float: right;"><h2><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
@@ -217,7 +216,7 @@ tr {
                     -->
 
 					<div class="blog-masonry masonry-true">
-						<div class="row">
+					<div class="row">
 							<!--미션글_1-->
 							<%
 								for (int i = 0; i < arr.size(); i++) {
@@ -252,8 +251,7 @@ tr {
 										<%
 											if (dto == null) {
 										%>
-										<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제 시
-											로그인이 필요해요</li>
+										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제 시 로그인이 필요해요</li>
 										<%
 											} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 										%>
