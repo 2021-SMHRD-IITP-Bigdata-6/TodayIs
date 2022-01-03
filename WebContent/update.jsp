@@ -102,7 +102,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="height:850px; width:auto;">
 
 <%
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
@@ -196,13 +196,14 @@
 	<a href="login.jsp" style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
 </div>
 
+	<form id="logout" action="LogoutService" style ="top: -10px; "method="post" class="input-group">
+	<div  class="layer">                
+	<!-- LOGOUT 기능 -->            
+	<h2 id="title">LOGOUT</h2>
+	<button class="submit" id="lay" ><a href="LogoutService"> logout </a></button>
+	</form>
 
-<div  class="layer">                
-<!-- LOGOUT 기능 -->            
-<h2 id="title">LOGOUT</h2>
-<button class="submit" id="lay" ><a href="LogoutService"> logout </a></button>
-<br><br>
-
+	<form id="update" action="UpdateService" style ="top: 30px; "method="post" class="input-group">
 	<!-- UPDATE 기능 -->               
 	<h2 id="title">UPDATE</h2>
 	<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required>
@@ -236,6 +237,8 @@
 										maxlength="20" readonly>
                         <button class = "submit"><a href="UpdateService"> update </a></button>
                         <br>
+                        </form>
+    </div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 		window.jQuery

@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="com.today.DTO.commDTO"%>
@@ -34,13 +33,21 @@
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
-	.layer {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 100px;
-		height: 100px;
-		margin: -250px 0 0 -50px;
+	.layer1{
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:100px;
+		height:100px;
+		margin:-90px 0 0 -50px;	
+	}
+	.layer2{
+		position:absolute;
+		top:50%;
+		left:50%;
+		width:100px;
+		height:100px;
+		margin:-90px 0 0 -50px;	
 	}
 	
 	.input-field {
@@ -200,17 +207,21 @@
 		<span>오늘도 사용해 주셔서 감사합니다.</span> <a href="login.jsp"
 			style="float: right;"><h2>LOGIN & JOIN ☁︎</h2></a>
 	</div>
-
-	<div class="layer">
+	
+		 <form id="login" action="LoginService" method="post" class="input-group">
+		<div class="layer1">
 		<h2>LOGIN</h2>
 		<input type="text" name="mb_id" class="input-field"
 			placeholder="User id" required> 
 			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
 		<a href="LoginService"><button class="submit" style="margin: 5px 0 2px -10px;">login</button></a>
-		
-		<br><br>
 
+		<br><br>
+		</form>
+		
+		<form id="register" action="JoinService" style ="top: 100px; "method="post" class="input-group">
+		<div class="layer2">
 		<h2>JOIN</h2>
 		<input type="text" name="mb_id" class="input-field" placeholder="User id" required> 
 		<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required> 
@@ -219,7 +230,7 @@
 			
 			<select id="big"
 			name="h_area1" class="" onChange="cat1_change(this.value,document.getElementById('small'))"
-			class="h_area1" style="margin: 0 0 5px -140px; border-radius:10px; width: 380px;">
+			class="h_area1" style="margin: 5px 0 5px -140px; border-radius:10px; width: 380px;">
 			<option>-지역-</option>
 			<option value='1'>서울</option>
 			<option value='2'>경기</option>
@@ -247,6 +258,7 @@
 			readonly>
 		<button class="submit"><a herf="JoinService"> join </a></button>
 	</div>
+	</form>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 		window.jQuery
