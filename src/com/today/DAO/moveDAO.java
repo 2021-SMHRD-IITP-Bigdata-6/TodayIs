@@ -31,7 +31,7 @@ public class moveDAO {
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 
 			if (conn != null) {
-				System.out.println("연결성공");
+				System.out.println("동적 연결 성공");
 			} else {
 				System.out.println("연결실패");
 			}

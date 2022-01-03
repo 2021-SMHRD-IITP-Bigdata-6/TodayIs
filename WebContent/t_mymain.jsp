@@ -336,9 +336,9 @@ td {
 												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 											%>
 											<li class="upd" style="list-style: none;"><a
-												href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
-											<li class="upd" style="list-style: none;"><a
-												href='MyDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+											href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>수정</a></li>
+										<li class="upd" style="list-style: none;"><a
+											href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>삭제</a></li>
 
 											<li style="right: 30%; list-style: none;">
 												<div class="like-button-wrapper">

@@ -224,7 +224,7 @@ tr {
 					
 							<div class="post-masonry col-md-4 col-sm-6">
 								<div class="project-thumb">
-									 <img src="<%=arr.get(i).getM_article_img()%>" onclick="func2(<%=i %>)" class="modal_con">
+									 <img src="<%=arr.get(i).getM_article_img()%>" onclick="func2('<%=arr.get(i).getM_article_img()%>')" class="modal_con">
 										<div class="modal">
 											<div class="modal_content" style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
 												<img  src="<%=arr.get(i).getM_article_img()%>"
@@ -387,56 +387,11 @@ tr {
     			console.log(f)
 
     			var temp = f;
-				<% int i = 0; %>
+    			var path = "C:/Users/smhrd/git/RealMK2/WebContent/";
     			$(".modal_con").click(function(){
     				var img =$('.modal_img');
-    				
-    				try {
-    				if(f == 0) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<%
-        				if (i <= arr.size()-1) {
-        					i=i+1;
-        				}
-        				 %>
-    				} else if (f == 1) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<%
-        				if (i < arr.size()-1) {
-        					i=i+1;
-        				}
-        				 %>
-    				} else if (f == 2) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<%
-        				if (i < arr.size()-1) {
-        					i=i+1;
-        				}
-        				 %>
-    				} else if (f == 3) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<% i=i+1; %>
-    				} else if (f == 4) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<%
-        				if (i < arr.size()-1) {
-        					i=i+1;
-        				}
-        				 %>
-    				} else if (f == 5) {
-        				img.attr('src','<%=arr.get(i).getM_article_img() %>');
-        				$(".modal").fadeIn();
-        				<% i=i+1; %>
-    				} 
- 		
-    				} catch (err) {
-    					
-    				}
+    				img.attr('src', f );
+    				$(".modal").fadeIn();
  
     			});
         		$(".modal_content").click(function(){

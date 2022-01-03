@@ -29,7 +29,7 @@ public class mainLifeDAO {
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 
 			if (conn != null) {
-				System.out.println("연결성공");
+				System.out.println("실시간 값 연결성공");
 			} else {
 				System.out.println("연결실패");
 			}
@@ -50,7 +50,7 @@ public class mainLifeDAO {
 				rs.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("연결 끊기 실패");
+
 			e.printStackTrace();
 		}
 
