@@ -116,6 +116,10 @@
    String mb_id = request.getParameter("mb_id");
    System.out.print(mb_id);
    
+   // 로그인 한 장소에 대한 체크문
+   String numbers = request.getParameter("numbers");
+   
+   
    boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 %>
 
