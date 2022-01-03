@@ -34,77 +34,86 @@
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
-	.layer{
-		position:absolute;
-		top:50%;
-		left:50%;
-		width:100px;
-		height:100px;
-		margin:-110px 0 0 -50px;	
-	}
-	.input-field{
-		margin:5px 0 5px -80px;
-		width: 380px;
-		border-radius: 10px;
-	}
-	.input-fields{
-		margin:5px 0 5px 40px;
-		width: 10%;
-		border-radius: 10px;
-	}
-	.submit{
-		margin:5px 0 5px 12px;
-		width: 100px;
-		height: 50px;
-		background-color:#efefef;
-		border-color:#efefef;
-	    color:#777777;
-	    position:relative;
-	    font-size:20px;
-	    padding:0;
-	    cursor:pointer;
-	    transition:800ms ease all;
-	    outline:none;
-	}
-	.submit:hover{
-	  background:#efefef;
-	  color:#054E32;
-	}
-	.submit:before,.submit:after{
-	  content:'';
-	  position:absolute;
-	  top:0;
-	  right:0;
-	  height:2px;
-	  width:0;
-	  background:#98DFFF;
-	  transition:400ms ease all;
-	}
-	.submit:after{
-	  right:inherit;
-	  top:inherit;
-	  left:0;
-	  bottom:0;
-	}
-	.submit:hover:before,.submit:hover:after{
-	  width:100%;
-	  transition:800ms ease all;
-	}
-	.h_area1{
-		margin: 0 0 5px -70px;
-		border-radius:10px;
-		width: 400px;
-	}
-	.h_area2{
-		margin: 0 0 0 -70px;
-		border-radius:10px;
-		width: 400px;
-	}
+.layer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	margin: -110px 0 0 -50px;
+}
+
+.input-field {
+	margin: 5px 0 5px -80px;
+	width: 380px;
+	border-radius: 10px;
+}
+
+.input-fields {
+	margin: 5px 0 5px 40px;
+	width: 10%;
+	border-radius: 10px;
+}
+
+.submit {
+	margin: 5px 0 5px 12px;
+	width: 100px;
+	height: 50px;
+	background-color: #efefef;
+	border-color: #efefef;
+	color: #777777;
+	position: relative;
+	font-size: 20px;
+	padding: 0;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+
+.submit:hover {
+	background: #efefef;
+	color: #054E32;
+}
+
+.submit:before, .submit:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #98DFFF;
+	transition: 400ms ease all;
+}
+
+.submit:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+.submit:hover:before, .submit:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+
+.h_area1 {
+	margin: 0 0 5px -70px;
+	border-radius: 10px;
+	width: 400px;
+}
+
+.h_area2 {
+	margin: 0 0 0 -70px;
+	border-radius: 10px;
+	width: 400px;
+}
 </style>
 </head>
-<body style="height:100%; width:100%;">
+<body style="height: 100%; width: 100%;">
 
-<%
+	<%
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 	String mb_id = request.getParameter("mb_id");
 	System.out.print(mb_id);
@@ -113,132 +122,130 @@
 	memberDTO dto2 = (memberDTO) session.getAttribute("dto");	
 %>
 
-<div class="tm-page-wrap mx-auto">
-	<div class="position-relative">
-		<div class="potition-absolute tm-site-header">
-			<div class="container-fluid position-relative">
-				<div class="row">                  
-					<div class="col-5 col-md-8 ml-auto mr-0">
-						<div class="tm-site-nav">
-                             <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
-                                  <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed" type="button"
-                                          data-toggle="collapse" data-target="#navbar-nav" aria-controls="navbar-nav"
-                                          aria-expanded="false" aria-label="Toggle navigation">
-                                        <span>
-                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
-                                            <i class="fas fa-times tm-menu-opened-icon"></i>
-                                        </span>
-                                   </button>
-                                   <div class="collapse navbar-collapse tm-nav"  id="navbar-nav" >
-			                      <ul class="navbar-nav text-uppercase">
-			                        <%if(dto != null){ %>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="#">
-			                          	<%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
-			                          </a>
-			                        </li>
-			                        <%} %>
-			                        <%if(dto == null){ %>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="login.jsp">login</a>
-			                        </li>
-			                        <%}else{ %>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="LogoutService">logout</a>
-			                        </li>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" 
-			                             href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a>
-			                        </li>
-			                        <%} %>
-			                        <li class="nav-item active">
-			                          <a class="nav-link tm-nav-link" href="t_community.jsp"
-			                            >weather <span class="sr-only">(current)</span></a
-			                          >
-			                        </li>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="about.html"
-			                            >today</a
-			                          >
-			                        </li>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="contact.html">my</a>
-			                        </li>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="region.html">map</a>
-			                        </li>
-			                      </ul>
-                    			</div>
-                  			</nav>
+	<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">
+						<div class="col-5 col-md-8 ml-auto mr-0">
+							<div class="tm-site-nav">
+								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
+									id="tm-main-nav">
+									<button
+										class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										type="button" data-toggle="collapse" data-target="#navbar-nav"
+										aria-controls="navbar-nav" aria-expanded="false"
+										aria-label="Toggle navigation">
+										<span> <i class="fas fa-bars tm-menu-closed-icon"></i>
+											<i class="fas fa-times tm-menu-opened-icon"></i>
+										</span>
+									</button>
+									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+										<ul class="navbar-nav text-uppercase">
+											<%if(dto != null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+											</a></li>
+											<%} %>
+											<%if(dto == null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.jsp">login</a></li>
+											<%}else{ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
+											<%} %>
+											<li class="nav-item active"><a
+												class="nav-link tm-nav-link" href="t_community.jsp">weather
+													<span class="sr-only">(current)</span>
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="about.html">today</a>
+											</li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="contact.html">my</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="region.html">map</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- 배너 사진 -->      
-		<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2" style="height:200px;">
-		   <!--
+			<!-- 배너 사진 -->
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2"
+				style="height: 200px;">
+				<!--
 		   <div class="text-center">
 		      <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
 		   </div>                
 		   -->
+			</div>
+
+			<!-- Header image -->
+			<div id="tm-fixed-header-bg"></div>
 		</div>
-		
-		<!-- Header image -->
-		<div id="tm-fixed-header-bg"></div> 
 	</div>
-</div>
- 	
-<!-- LOOUT & UPDATE PAGE -->
-<div class="section-header col-md-12" style="margin:-210px 0 0 0">
-	<h2>☁︎ TODAY?</h2>
-	<span>오늘도 사용해 주셔서 감사합니다.</span>
-	<a href="update.jsp" style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
-</div>
 
-<div  class="layer"> 
-	<form id="logout" action="LogoutService" style ="top: -20px; "method="post" class="input-group">
-	<!-- LOGOUT 기능 -->            
-	<h2 id="title">LOGOUT</h2>
-	<button class="submit" id="lay" ><a href="LogoutService"> logout </a></button>
-	</form>
+	<!-- LOOUT & UPDATE PAGE -->
+	<div class="section-header col-md-12" style="margin: -210px 0 0 0">
+		<h2>☁︎ TODAY?</h2>
+		<span>오늘도 사용해 주셔서 감사합니다.</span> <a href="update.jsp"
+			style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
+	</div>
 
-	<form id="update" action="UpdateService" style ="top: 30px; "method="post" class="input-group" >
-	<!-- UPDATE 기능 -->               
-	<h2 id="title">UPDATE</h2>
-	<input style="width:380px;" type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required>
-	<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
-	<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
-                        
-                        <select id="big" name="h_area1" class="h_area1" onChange="cat1_change(this.value,document.getElementById('small'))">                          					
-										    <option>- 지역 선택 -</option>											
-										    <option value='1'>서울</option>
-											<option value='2'>부산</option>
-											<option value='3'>대구</option>
-											<option value='4'>인천</option>
-											<option value='5'>광주</option>
-											<option value='6'>대전</option>
-											<option value='7'>울산</option>
-											<option value='8'>강원</option>
-											<option value='9'>경기</option>
-											<option value='10'>경남</option>
-											<option value='11'>경북</option>
-											<option value='12'>전남</option>
-											<option value='13'>전북</option>
-											<option value='14'>제주</option>
-											<option value='15'>충남</option>
-											<option value='16'>충북</option>
-                        </select>
-                        <select id="small" name="h_area2" class="h_area2">
-											<option>- 시/군 -</option>
-						</select>
-						<input type="hidden" class="form-control" id="region"
-										placeholder="지역을 선택해주세요" name="m_article_region"
-										maxlength="20" readonly>
-                        <button class = "submit"><a href="UpdateService"> update </a></button>
-                        <br>
-                        </form>
-    </div>
+	<div class="layer">
+		<form id="logout" action="LogoutService" style="top: -20px;"
+			method="post" class="input-group">
+			<!-- LOGOUT 기능 -->
+			<h2 id="title">LOGOUT</h2>
+			<button class="submit" id="lay">
+				<a href="LogoutService"> logout </a>
+			</button>
+		</form>
+
+		<form id="update" action="UpdateService" style="top: 30px;"
+			method="post" class="input-group">
+			<!-- UPDATE 기능 -->
+			<h2 id="title">UPDATE</h2>
+			<input style="width: 380px;" type="password" name="mb_pw"
+				class="input-field" placeholder="Enter Password" required> <input
+				type="text" name="mb_nickname" class="input-field"
+				placeholder="Your nick name" required> <input type="text"
+				name="mb_phone" class="input-field" placeholder="Your phone number"
+				required> <select id="big" name="h_area1" class="h_area1"
+				onChange="cat1_change(this.value,document.getElementById('small'))">
+				<option>- 지역 선택 -</option>
+				<option value='1'>서울</option>
+				<option value='2'>부산</option>
+				<option value='3'>대구</option>
+				<option value='4'>인천</option>
+				<option value='5'>광주</option>
+				<option value='6'>대전</option>
+				<option value='7'>울산</option>
+				<option value='8'>강원</option>
+				<option value='9'>경기</option>
+				<option value='10'>경남</option>
+				<option value='11'>경북</option>
+				<option value='12'>전남</option>
+				<option value='13'>전북</option>
+				<option value='14'>제주</option>
+				<option value='15'>충남</option>
+				<option value='16'>충북</option>
+			</select> <select id="small" name="h_area2" class="h_area2">
+				<option>- 시/군 -</option>
+			</select> <input type="hidden" class="form-control" id="region"
+				placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
+				readonly>
+			<button class="submit">
+				<a href="UpdateService"> update </a>
+			</button>
+			<br>
+		</form>
+	</div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 		window.jQuery
@@ -335,6 +342,6 @@
 		document.getElementById("inputArticle").value = selected_article;
 	});
 	</script>
-</div>  
+	</div>
 </body>
 </html>

@@ -244,7 +244,7 @@
 			<option>-시/구-</option>
 		</select>
 			<input type="hidden" class="form-control" id="region"
-			placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
+			placeholder="지역을 선택해주세요" name="mb_region" maxlength="20"
 			readonly>
 		<button class="submit"><a herf="JoinService"> join </a></button>
 	</form>
