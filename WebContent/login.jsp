@@ -33,31 +33,22 @@
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
-	.layer1{
+	.layer{
 		position:absolute;
 		top:50%;
 		left:50%;
 		width:100px;
 		height:100px;
-		margin:-90px 0 0 -50px;	
+		margin:-240px 0 0 -50px;	
 	}
-	.layer2{
-		position:absolute;
-		top:50%;
-		left:50%;
-		width:100px;
-		height:100px;
-		margin:-90px 0 0 -50px;	
-	}
-	
 	.input-field {
-		margin: 5px 0 0 -140px;
-		width: 380px;
+		margin: 5px 0 0 -80px;
+		width: 380px !important;
 		border-radius: 10px;
 	}
 	
-	.input-fields {
-		margin: 5px 0 5px -140px;
+	<!--.input-fields {-->
+		margin: 5px 0 5px -80px;
 		width: 380px;
 		border-radius: 10px;
 	}
@@ -79,7 +70,7 @@
 	
 	.submit:hover {
 		background: #efefef;
-		color: #054E32;
+		color:#054E32;
 	}
 	
 	.submit:before, .submit:after {
@@ -89,7 +80,7 @@
 		right: 0;
 		height: 2px;
 		width: 0;
-		background: #58B28F;
+		background: #98DFFF;
 		transition: 400ms ease all;
 	}
 	
@@ -104,19 +95,19 @@
 		width: 100%;
 		transition: 800ms ease all;
 	}
-	.h_area1{
-		margin: 0 0 5px -140px;
+	#big{
+		margin: 0 0 5px -50px;
 		border-radius:10px;
 		width: 380px;
 	}
 	.h_area2{
-		margin: 0 0 0 -140px;
+		margin: 0 0 0 -80px;
 		border-radius:10px;
-		width: 380px;
+		width: 500px;
 	}
 </style>
 </head>
-<body>
+<body style="height:100%; width:100%;">
 
 <%
    memberDTO dto = (memberDTO) session.getAttribute("dto");
@@ -208,8 +199,8 @@
 			style="float: right;"><h2>LOGIN & JOIN ☁︎</h2></a>
 	</div>
 	
+		<div class="layer">
 		 <form id="login" action="LoginService" method="post" class="input-group">
-		<div class="layer1">
 		<h2>LOGIN</h2>
 		<input type="text" name="mb_id" class="input-field"
 			placeholder="User id" required> 
@@ -220,8 +211,7 @@
 		<br><br>
 		</form>
 		
-		<form id="register" action="JoinService" style ="top: 100px; "method="post" class="input-group">
-		<div class="layer2">
+		<form id="register" action="JoinService" style ="top: 20px; "method="post" class="input-group">
 		<h2>JOIN</h2>
 		<input type="text" name="mb_id" class="input-field" placeholder="User id" required> 
 		<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required> 
@@ -230,7 +220,7 @@
 			
 			<select id="big"
 			name="h_area1" class="" onChange="cat1_change(this.value,document.getElementById('small'))"
-			class="h_area1" style="margin: 5px 0 5px -140px; border-radius:10px; width: 380px;">
+			class="h_area1" style="margin: 5px 0 5px -140px; border-radius:10px;">
 			<option>-지역-</option>
 			<option value='1'>서울</option>
 			<option value='2'>경기</option>
@@ -257,8 +247,8 @@
 			placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
 			readonly>
 		<button class="submit"><a herf="JoinService"> join </a></button>
-	</div>
 	</form>
+	</div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 		window.jQuery
