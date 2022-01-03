@@ -47,7 +47,7 @@ public class JoinService extends HttpServlet {
 			// 1. 세션활용
 			// 2. QueryString활용  / 보안, 객체 없다.
 		} else {
-			
+			System.out.println("회원가입 실패");
 		}
 
 	}
