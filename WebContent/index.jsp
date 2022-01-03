@@ -16,20 +16,12 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-<!--
 
-=======
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-    <!--
->>>>>>> branch 'branches' of https://github.com/2021-SMHRD-IITP-Bigdata-6/TodayIs.git
-    TemplateMo 552 Video Catalog
-<<<<<<< HEAD
-
-    https://templatemo.com/tm-552-video-catalog
-
-    -->
+   
 <title>TODAY? MAIN PAGE</title>
+
 </head>
 <body>
 
@@ -71,6 +63,39 @@ mainLifeDTO life_dto = null;
 										</span>
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+
+                              <ul class="navbar-nav text-uppercase">
+                                 <%if(dto != null){ %>
+                                    <li class="nav-item active">
+                                       <a class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s <%=dto.getMb_region()%>
+                                       <span class="sr-only">(current)</span>
+                                       </a>
+                                    </li>
+                                 <%} %>
+                                 <%if(dto == null){ %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="login.jsp">login</a></li>
+                                 <%}else{ %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="update.jsp?mb_id=<%=dto.getMb_id() %>"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-check-fill" viewBox="0 0 16 16">
+  <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 4.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+</svg></a></li>
+                                 <%} %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="t_community.jsp">weather</a></li>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="t_mission.jsp">today</a>
+                                 </li>
+                                 <%
+                                    if (dto != null) {
+                                 %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="t_mymain.jsp">my</a></li>
+                                 <%} %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="region.html">map</a></li>
+                              </ul>
+                           </div>
 										<ul class="navbar-nav text-uppercase">
 											<%if(dto != null){ %>
 												<li class="nav-item active">
@@ -101,6 +126,7 @@ mainLifeDTO life_dto = null;
 												href="region.html">map</a></li>
 										</ul>
 									</div>
+
 								</nav>
 							</div>
 						</div>
@@ -249,7 +275,10 @@ mainLifeDTO life_dto = null;
                             -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
 								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">
-									체감온도</h3>
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-thermometer-half" viewBox="0 0 16 16">
+  <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/>
+  <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
+</svg> 체감온도</h3>
 								<p class="tm-catalog-item-text">
 									<%if (dto != null) {%>
 									<span class="tm-text-secondary"> <%=move_dao.Move(dto.getMb_region()).getW_body_temp()%>℃
@@ -317,7 +346,9 @@ mainLifeDTO life_dto = null;
                             </div>
                             -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
-								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">습도</h3>
+								<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+  <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+</svg> 습도</h3>
 								<p class="tm-catalog-item-text">
 									<%if(dto != null){ %>
 									<span class="tm-text-secondary"> <%=move_dao.Move(dto.getMb_region()).getW_humidity()%>%
@@ -339,6 +370,7 @@ mainLifeDTO life_dto = null;
 									건조합니다.
 									<%} %>
 									<%}else{ %>
+									
 										<%float move2 = Float.parseFloat(move_dao.Move("광주").getW_humidity());
 						                int data2 = (int)move2;
 							               
@@ -363,7 +395,9 @@ mainLifeDTO life_dto = null;
                             </div>                            
                             -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
-								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">풍향</h3>
+								<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+  <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+</svg> 풍향</h3>
 								<p class="tm-catalog-item-text">
 									<%if(dto != null){ %>
 									<span class="tm-text-secondary"> <%=move_dao.Move(dto.getMb_region()).getW_wind()%>
@@ -412,7 +446,9 @@ mainLifeDTO life_dto = null;
                             -->
 
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">세탁
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><img alt="" src="./img/wash.png" width="35" height="35" style="filter: invert(52%) sepia(52%) saturate(668%) hue-rotate(155deg) brightness(94%) contrast(82%);
+
+									" > 세탁
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -467,7 +503,10 @@ mainLifeDTO life_dto = null;
                             </div>
                             -->
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">외출
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-emoji-sunglasses" viewBox="0 0 16 16">
+  <path d="M4.968 9.75a.5.5 0 1 0-.866.5A4.498 4.498 0 0 0 8 12.5a4.5 4.5 0 0 0 3.898-2.25.5.5 0 1 0-.866-.5A3.498 3.498 0 0 1 8 11.5a3.498 3.498 0 0 1-3.032-1.75zM7 5.116V5a1 1 0 0 0-1-1H3.28a1 1 0 0 0-.97 1.243l.311 1.242A2 2 0 0 0 4.561 8H5a2 2 0 0 0 1.994-1.839A2.99 2.99 0 0 1 8 6c.393 0 .74.064 1.006.161A2 2 0 0 0 11 8h.438a2 2 0 0 0 1.94-1.515l.311-1.242A1 1 0 0 0 12.72 4H10a1 1 0 0 0-1 1v.116A4.22 4.22 0 0 0 8 5c-.35 0-.69.04-1 .116z"/>
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-1 0A7 7 0 1 0 1 8a7 7 0 0 0 14 0z"/>
+</svg> 외출
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -525,7 +564,9 @@ mainLifeDTO life_dto = null;
                             </div>              
                             -->
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">운동
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z"/>
+</svg>운동
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -579,7 +620,7 @@ mainLifeDTO life_dto = null;
                                 </a>
                             </div> -->
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">세차
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><img src="./img/car.svg" width="35" height="35"> 세차
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -631,7 +672,9 @@ mainLifeDTO life_dto = null;
                             </div>
                             -->
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">우산
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-umbrella" viewBox="0 0 16 16">
+  <path d="M8 0a.5.5 0 0 1 .5.5v.514C12.625 1.238 16 4.22 16 8c0 0 0 .5-.5.5-.149 0-.352-.145-.352-.145l-.004-.004-.025-.023a3.484 3.484 0 0 0-.555-.394A3.166 3.166 0 0 0 13 7.5c-.638 0-1.178.213-1.564.434a3.484 3.484 0 0 0-.555.394l-.025.023-.003.003s-.204.146-.353.146-.352-.145-.352-.145l-.004-.004-.025-.023a3.484 3.484 0 0 0-.555-.394 3.3 3.3 0 0 0-1.064-.39V13.5H8h.5v.039l-.005.083a2.958 2.958 0 0 1-.298 1.102 2.257 2.257 0 0 1-.763.88C7.06 15.851 6.587 16 6 16s-1.061-.148-1.434-.396a2.255 2.255 0 0 1-.763-.88 2.958 2.958 0 0 1-.302-1.185v-.025l-.001-.009v-.003s0-.002.5-.002h-.5V13a.5.5 0 0 1 1 0v.506l.003.044a1.958 1.958 0 0 0 .195.726c.095.191.23.367.423.495.19.127.466.229.879.229s.689-.102.879-.229c.193-.128.328-.304.424-.495a1.958 1.958 0 0 0 .197-.77V7.544a3.3 3.3 0 0 0-1.064.39 3.482 3.482 0 0 0-.58.417l-.004.004S5.65 8.5 5.5 8.5c-.149 0-.352-.145-.352-.145l-.004-.004a3.482 3.482 0 0 0-.58-.417A3.166 3.166 0 0 0 3 7.5c-.638 0-1.177.213-1.564.434a3.482 3.482 0 0 0-.58.417l-.004.004S.65 8.5.5 8.5C0 8.5 0 8 0 8c0-3.78 3.375-6.762 7.5-6.986V.5A.5.5 0 0 1 8 0zM6.577 2.123c-2.833.5-4.99 2.458-5.474 4.854A4.124 4.124 0 0 1 3 6.5c.806 0 1.48.25 1.962.511a9.706 9.706 0 0 1 .344-2.358c.242-.868.64-1.765 1.271-2.53zm-.615 4.93A4.16 4.16 0 0 1 8 6.5a4.16 4.16 0 0 1 2.038.553 8.688 8.688 0 0 0-.307-2.13C9.434 3.858 8.898 2.83 8 2.117c-.898.712-1.434 1.74-1.731 2.804a8.687 8.687 0 0 0-.307 2.131zm3.46-4.93c.631.765 1.03 1.662 1.272 2.53.233.833.328 1.66.344 2.358A4.14 4.14 0 0 1 13 6.5c.77 0 1.42.23 1.897.477-.484-2.396-2.641-4.355-5.474-4.854z"/>
+</svg> 우산
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -690,7 +733,7 @@ mainLifeDTO life_dto = null;
                             </div>              
                             -->
 								<div class="p-4 tm-bg-gray tm-catalog-item-description">
-									<h3 class="tm-text-primary mb-3 tm-catalog-item-title">수면
+									<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><img alt="" src="./img/bed.svg" width="35" height="35"> 수면
 										지수</h3>
 									<p class="tm-catalog-item-text">
 										<%if(dto != null){ %>
@@ -752,7 +795,10 @@ mainLifeDTO life_dto = null;
                         </div>    
                         -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
-								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">감기
+								<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-emoji-dizzy" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M9.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm-5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM10 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+</svg> 감기
 									지수</h3>
 								<p class="tm-catalog-item-text">
 									<%if(dto != null){ %>
@@ -808,7 +854,7 @@ mainLifeDTO life_dto = null;
                         </div>
                         -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
-								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">불조심
+								<h3 class="tm-text-primary mb-3 tm-catalog-item-title"><img src="./img/flame1.svg" width="35" height="35"> 불조심
 									지수</h3>
 								<p class="tm-catalog-item-text">
 									<%if(dto != null){ %>
@@ -864,7 +910,10 @@ mainLifeDTO life_dto = null;
                         -->
 							<div class="p-4 tm-bg-gray tm-catalog-item-description">
 								<h3 class="tm-text-primary mb-3 tm-catalog-item-title">
-									피부지수</h3>
+									<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-emoji-neutral" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M4 10.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5zm3-4C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5S9.448 8 10 8s1-.672 1-1.5z"/>
+</svg> 피부지수</h3>
 								<p class="tm-catalog-item-text">
 									<%if(dto != null){ %>
 									<span class="tm-text-secondary"> <%=move_dao.Move(dto.getMb_region()).getW_temp()%>℃

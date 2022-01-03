@@ -16,14 +16,19 @@
 	<script src="leaflet/leaflet-languageselector.js"></script>
 	<script src="files/map_i18n.js"></script>
 	<script src="files/map.js"></script>
+	<script type="text/javascript" src="leaflet.js"></script>
+	<link rel="stylesheet" type="text/css" href="leaflet-openweathermap.css" />
+	<script type="text/javascript" src="leaflet-openweathermap.js"></script>
 </head>
 <body>
 	<div id="map"></div>
  	<script>
-		initMap();
-		if (!confirm("http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=525d9590dcf5d022fdaacdafcffdabf8")) {
-			window.location.href = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=525d9590dcf5d022fdaacdafcffdabf8";
-		}
+		initMap(); 
+		if (!confirm("http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=8ce05d385b2a8fe29ed5e328ce0946f7")) {
+			window.location.href = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=8ce05d385b2a8fe29ed5e328ce0946f7";
+		}		
+		
+	
 	</script>
 </body>
 </html>
