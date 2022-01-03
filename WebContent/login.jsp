@@ -34,74 +34,84 @@
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 <style>
-.layer {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 100px;
-	height: 100px;
-	margin: -250px 0 0 -50px;
-}
-
-.input-field {
-	margin: 5px 0 5px -140px;
-	width: 380px;
-	border-radius: 10px;
-}
-
-.input-fields {
-	margin: 5px 0 5px -140px;
-	width: 380px;
-	border-radius: 10px;
-}
-
-.submit {
-	margin: 5px 0 5px -10px;
-	width: 100px;
-	height: 50px;
-	background-color: #efefef;
-	border-color: #efefef;
-	color: #777777;
-	position: relative;
-	font-size: 20px;
-	padding: 0;
-	cursor: pointer;
-	transition: 800ms ease all;
-	outline: none;
-}
-
-.submit:hover {
-	background: #efefef;
-	color: #054E32;
-}
-
-.submit:before, .submit:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 2px;
-	width: 0;
-	background: #58B28F;
-	transition: 400ms ease all;
-}
-
-.submit:after {
-	right: inherit;
-	top: inherit;
-	left: 0;
-	bottom: 0;
-}
-
-.submit:hover:before, .submit:hover:after {
-	width: 100%;
-	transition: 800ms ease all;
-}
+	.layer {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		margin: -250px 0 0 -50px;
+	}
+	
+	.input-field {
+		margin: 5px 0 0 -140px;
+		width: 380px;
+		border-radius: 10px;
+	}
+	
+	.input-fields {
+		margin: 5px 0 5px -140px;
+		width: 380px;
+		border-radius: 10px;
+	}
+	
+	.submit {
+		margin: 5px 0 3px -10px;
+		width: 100px;
+		height: 45px;
+		background-color: #efefef;
+		border-color: #efefef;
+		color: #777777;
+		position: relative;
+		font-size: 20px;
+		padding: 0;
+		cursor: pointer;
+		transition: 800ms ease all;
+		outline: none;
+	}
+	
+	.submit:hover {
+		background: #efefef;
+		color: #054E32;
+	}
+	
+	.submit:before, .submit:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 2px;
+		width: 0;
+		background: #58B28F;
+		transition: 400ms ease all;
+	}
+	
+	.submit:after {
+		right: inherit;
+		top: inherit;
+		left: 0;
+		bottom: 0;
+	}
+	
+	.submit:hover:before, .submit:hover:after {
+		width: 100%;
+		transition: 800ms ease all;
+	}
+	.h_area1{
+		margin: 0 0 5px -140px;
+		border-radius:10px;
+		width: 380px;
+	}
+	.h_area2{
+		margin: 0 0 0 -140px;
+		border-radius:10px;
+		width: 380px;
+	}
 </style>
 </head>
 <body>
 
-	<%
+<%
    memberDTO dto = (memberDTO) session.getAttribute("dto");
    String mb_id = request.getParameter("mb_id");
    System.out.print(mb_id);
@@ -151,7 +161,8 @@
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="about.html">today</a></li>
+												href="about.html">today</a>
+											</li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="contact.html">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
@@ -189,61 +200,59 @@
 	<div class="layer">
 		<h2>LOGIN</h2>
 		<input type="text" name="mb_id" class="input-field"
-			placeholder="User id" required> <input type="password"
-			name="mb_pw" class="input-field" placeholder="Enter Password"
+			placeholder="User id" required> 
+			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
-		<button class="submit">login</button>
-		<br> <br>
+		<a href="LoginService"><button class="submit" style="margin: 5px 0 2px -10px;">login</button></a>
+		<br><br>
 
 		<h2>JOIN</h2>
-		<input type="text" name="mb_id" class="input-field"
-			placeholder="User id" required> <input type="password"
-			name="mb_pw" class="input-field" placeholder="Enter Password"
-			required> <input type="text" name="mb_nickname"
-			class="input-field" placeholder="Your nick name" required> <input
-			type="text" name="mb_phone" class="input-field"
-			placeholder="Your phone number" required>
+		<input type="text" name="mb_id" class="input-field" placeholder="User id" required> 
+		<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required> 
+		<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required> 
+		<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
 			
-		<select id="big"
-			name="h_area1" class="" onChange="cat1_change(this.value,h_area2)"
-			class="h_area1">
-			<option>-선택-</option>
+			<select id="big"
+			name="h_area1" class="" onChange="cat1_change(this.value,document.getElementById('small'))"
+			class="h_area1" style="margin: 0 0 5px -140px; border-radius:10px; width: 380px;">
+			<option>-지역-</option>
 			<option value='1'>서울</option>
-			<option value='2'>부산</option>
-			<option value='3'>대구</option>
-			<option value='4'>인천</option>
-			<option value='5'>광주</option>
-			<option value='6'>대전</option>
-			<option value='7'>울산</option>
+			<option value='2'>경기</option>
+			<option value='3'>인천</option>
+			<option value='4'>충북</option>
+			<option value='5'>충남</option>
+			<option value='6'>세종</option>
+			<option value='7'>대전</option>
 			<option value='8'>강원</option>
-			<option value='9'>경기</option>
-			<option value='10'>경남</option>
-			<option value='11'>경북</option>
-			<option value='12'>전남</option>
-			<option value='13'>전북</option>
-			<option value='14'>제주</option>
-			<option value='15'>충남</option>
-			<option value='16'>충북</option>
-		</select>
+			<option value='9'>전북</option>
+			<option value='10'>전남</option>
+			<option value='11'>광주</option>
+			<option value='12'>경북</option>
+			<option value='13'>울산</option>
+			<option value='14'>부산</option>
+			<option value='15'>경남</option>
+			<option value='16'>제주</option>
+		</select> 
 		
 		<select id="small" name="h_area2" class="h_area2">
-			<option>-시군-</option>
+			<option>-시/구-</option>
 		</select>
-		<input type="hidden" class="form-control" id="region"
+			<input type="hidden" class="form-control" id="region"
 			placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
 			readonly>
-		<button class="submit">join</button>
-		<script src="js/vendor/jquery-1.11.0.min.js"></script>
-		<script>
+		<button class="submit"><a herf="JoinService"> join </a></button>
+	</div>
+	<script src="js/vendor/jquery-1.11.0.min.js"></script>
+	<script>
 		window.jQuery
 				|| document
 						.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>');
 	</script>
-		<script src="js/plugins.js"></script>
-		<script src="js/main.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
 
-		<!-- Preloader -->
-		<script type="text/javascript">
+	<!-- Preloader -->
+	<script type="text/javascript">
 
 	 var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
 	    var cat1_name = new Array('서울','경기','인천','충북','충남','세종','대전','강원','전북','전남','광주','경북','울산','부산','경남','제주');
@@ -301,6 +310,7 @@
 
 	
 	function cat1_change(key,sel){
+	console.log("test"+sel);
 	 if(key == '') return;
 	 var name = cat2_name[key];
 	 var val = cat2_num[key];
@@ -331,7 +341,27 @@
 		document.getElementById("inputArticle").value = selected_article;
 	});
 	
+	// 사진 게시물 미리보기 기능
+	function readURL(input) {
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(e) {
+	      document.getElementById('m_article_preview').src = e.target.result;
+	    };
+	    reader.readAsDataURL(input.files[0]);
+		console.log(input.files[0].name);
+		document.getElementById("m_article_img_name").value = input.files[0].name;
+
+	  } else {
+	    document.getElementById('m_article_preview').src = "";
+	  }
+	};
 	
+	m_article_mb_id = "${dto.getMb_id()}";
+	document.getElementById("inputmb_id").value = m_article_mb_id;
+	
+	dto_nickname = "${dto.getMb_nickname()}";
+	document.getElementById("inputnick").value = dto_nickname;
 	</script>
 	</div>
 </body>

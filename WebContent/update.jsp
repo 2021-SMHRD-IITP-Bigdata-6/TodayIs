@@ -90,6 +90,16 @@
 	  width:100%;
 	  transition:800ms ease all;
 	}
+	.h_area1{
+		margin: 0 0 5px -120px;
+		border-radius:10px;
+		width: 380px;
+	}
+	.h_area2{
+		margin: 0 0 0 -120px;
+		border-radius:10px;
+		width: 380px;
+	}
 </style>
 </head>
 <body>
@@ -124,12 +134,7 @@
 			                        <%if(dto != null){ %>
 			                        <li class="nav-item">
 			                          <a class="nav-link tm-nav-link" href="#">
-			                          	<%=dto.getMb_nickname()%> 's
-			                          </a>
-			                        </li>
-			                        <li class="nav-item">
-			                          <a class="nav-link tm-nav-link" href="#" id=Mb_region>
-			                          	<%=dto.getMb_region()%>
+			                          	<%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 			                          </a>
 			                        </li>
 			                        <%} %>
@@ -193,9 +198,9 @@
 
 
 <div  class="layer">                
-<!-- LOGIN 기능 -->            
+<!-- LOGOUT 기능 -->            
 <h2 id="title">LOGOUT</h2>
-<button class="submit" id="lay" onclick="location.href='UpdateService';"> logout </button>
+<button class="submit" id="lay" ><a href="LogoutService"> logout </a></button>
 <br><br>
 
 	<!-- UPDATE 기능 -->               
@@ -204,8 +209,8 @@
 	<input type="text" name="mb_nickname" class="input-field" placeholder="Your nick name" required>
 	<input type="text" name="mb_phone" class="input-field" placeholder="Your phone number" required>
                         
-                        <select id="big" name="h_area1" class="input_fields" onChange="cat1_change(this.value,h_area2)" class="h_area1">                          					
-										    <option><%=board_dto.getM_article_region().substring(0,2) %></option>											
+                        <select id="big" name="h_area1" class="h_area1" onChange="cat1_change(this.value,document.getElementById('small'))">                          					
+										    <option>- 지역 선택 -</option>											
 										    <option value='1'>서울</option>
 											<option value='2'>부산</option>
 											<option value='3'>대구</option>
@@ -224,9 +229,12 @@
 											<option value='16'>충북</option>
                         </select>
                         <select id="small" name="h_area2" class="h_area2">
-											<option><%=board_dto.getM_article_region().substring(2) %></option>
+											<option>- 시/군 -</option>
 						</select>
-                        <button class = "submit"> update </button>
+						<input type="hidden" class="form-control" id="region"
+										placeholder="지역을 선택해주세요" name="m_article_region"
+										maxlength="20" readonly>
+                        <button class = "submit"><a href="UpdateService"> update </a></button>
                         <br>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
@@ -306,6 +314,23 @@
 	  sel.options[i+1] = new Option(name[i],val[i]);
 	 }
 	}
+	
+	var selected_small
+	
+	//상세지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기 
+	$('#small').on('click', function(){
+		selected_small = $('#small option:selected').text();
+		console.log(selected_small);
+		var result = selected_big + " " + selected_small;
+		document.getElementById("region").value=result;
+	});
+	
+	// 게시판 구분해서 가져오는 기능
+	$('#inputArticle-Sort').on('click', function(){
+		selected_article = $('#inputArticle-Sort option:selected').text();
+		console.log(selected_article);
+		document.getElementById("inputArticle").value = selected_article;
+	});
 	</script>
 </div>  
 </body>
