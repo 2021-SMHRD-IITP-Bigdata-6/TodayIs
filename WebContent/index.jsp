@@ -47,8 +47,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
                   <div class="col-5 col-md-8 ml-auto mr-0">
                      <div class="tm-site-nav">
                         <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
-                           <button class="navbar-toggler tm-bg-black py-2 px-3
-                                          mr-0 ml-auto collapsed" type="button" data-toggle="collapse" data-target="#navbar-nav"></button>
+                           
                            <button
                               class="navbar-toggler
                                           tm-bg-black
