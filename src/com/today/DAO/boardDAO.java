@@ -177,7 +177,7 @@ public class boardDAO {
 				}
 				
 				// boardDTO의 getM_article_seq의 기준으로 역정렬한다.
-				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_date)).collect(Collectors.toList());
+				board_arr.stream().sorted(Comparator.comparing(boardDTO::getM_article_seq).reversed()).collect(Collectors.toList());
 
 			} catch (Exception e) {
 				e.printStackTrace();

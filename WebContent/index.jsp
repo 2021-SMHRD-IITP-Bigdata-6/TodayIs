@@ -217,7 +217,13 @@
          <source src="video/smog.mp4" type="video/mp4" />
       </video>
       <%
-         }
+         } else {
+             %>
+             <video autoplay muted loop id="tm-video">
+               <source src="video/sun.mp4" type="video/mp4" />
+             </video>
+             <%
+                } 
       %>
       <%
          } else {
