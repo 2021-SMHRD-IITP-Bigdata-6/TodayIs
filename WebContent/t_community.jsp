@@ -186,7 +186,7 @@ ul {
 						</h2>
 						<span>Region Shared</span>
 						<h2>
-							<a href="t_write.jsp" style="float: right;"><svg
+							<a href="t_write.jsp?numberring=1" style="float: right;"><svg
 									xmlns="http://www.w3.org/2000/svg" width="26" height="26"
 									fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
   <path
