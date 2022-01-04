@@ -278,11 +278,6 @@ tr {
 														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
 														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
 										</a></li>
-
-
-										<%
-                                 }
-                              %>
 										<span class="like-button-wrapper"
 											style="color: #aaaaaa; position: relative; left: -20%">
 											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
@@ -290,11 +285,30 @@ tr {
 												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
 										</a>
 										</span>
+
+										<%
+                                 }
+                              %>
+                              <% try {
+                              if (!dto.getMb_id().equals(arr.get(i).getMb_id())) { %>
+										<span class="like-button-wrapper"
+											style="color: #aaaaaa; position: relative;">
+											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<i class="like-counter fa fa-heart-o"></i> <span
+												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+										</a>
+										</span>
+										<%} 
+                              }
+                              catch (Exception e) {
+                             	
+                             }
+										%>
 									</ul>
 								</div>
 							</div>
 							<%
-                        }
+                              }
                      %>
 							<!-- /.row -->
 
