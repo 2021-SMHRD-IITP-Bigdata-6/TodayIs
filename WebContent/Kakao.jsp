@@ -129,8 +129,6 @@
 .overlaybox li:hover .down {
 	background-position: 0 -20px;
 }
-
-
 </style>
 </head>
 <body>
@@ -171,41 +169,43 @@
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
 											<%
-                                    if (dto != null) {
-                                 %>
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<%
-                                    }
-                                 %>
+												}
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_community.jsp">with </a></li>
 											<li class="nav-item active"><a
 												class="nav-link tm-nav-link" href="t_mission.jsp">moment<span
 													class="sr-only">(current)</span></a></li>
 											<%
-                                    if (dto != null) {
-                                 %>
+												if (dto != null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
-											<%} %>
+											<%
+												}
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
 											<%
-                                    if (dto == null) {
-                                 %>
+												if (dto == null) {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="login.jsp?numbers=2">login ☁︎ join</a></li>
 											<%
-                                    } else {
-                                 %>
+												} else {
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout ☁︎ update</a></li>
 
 											<%
-                                    }
-                                 %>
+												}
+											%>
 										</ul>
 									</div>
 								</nav>
@@ -340,7 +340,7 @@
 		var content1 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">서울 날씨 </div>'
 			+ '    <div class="first">' 
-		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_temp() %>℃</div>'
+		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
 			+ '            <span class="title"><%=wm_dao.Move("서울").getW_status()%></span>'
@@ -368,7 +368,7 @@
 		var content2 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">경기 날씨 </div>'
 			+ '    <div class="first">' 
-		    + '    <div class="movietitle text"><%=wm_dao.Move("수원").getW_temp() %>℃</div>'
+		    + '    <div class="movietitle text"><%=wm_dao.Move("수원").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
 			+ '            <span class="title"><%=wm_dao.Move("수원").getW_status()%></span>'
@@ -700,7 +700,6 @@
 				+ '           ' + '        </li>'
 				+ '        <li>' + ' <span class="number"></span>'
 				+ '            <span class="title"><%=wm_dao.Move("대구").getW_body_temp()%>℃</span>'
-				+ '            <span class="arrow up"></span>'
 				+ '           ' + '        </li>'
 				+ '    </ul>' + '</div>';
 		var position14 = new kakao.maps.LatLng(35.9409719, 128.5193229);
@@ -725,9 +724,7 @@
 				+ '           ' + '        </li>'
 				+ '        <li>' + ' <span class="number"></span>'
 				+ '            <span class="title"><%=wm_dao.Move("제주").getW_body_temp()%>℃</span>'
-				+ '            <span class="arrow up"></span>'
-				+ '           ' + '        </li>'
-				+ '    </ul>' + '</div>';
+				+ '        </li>' + '    </ul>' + '</div>';
 		var position15 = new kakao.maps.LatLng(33.3871676, 126.5429675);
 		var customOverlay15 = new kakao.maps.CustomOverlay({
 			position : position15,
@@ -737,12 +734,7 @@
 		});
 		customOverlay15.setMap(map);
 		//* 제주  *//
-		
-		
-		
-		
-		
-		
+
 		//* 서울  *//
 		function panTo1() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -752,7 +744,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		// 경기
 		function panTo2() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -762,7 +754,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		// 인천
 		function panTo3() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -772,7 +764,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		// 충주
 		function panTo4() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -782,7 +774,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		// 세종
 		function panTo5() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -792,7 +784,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		// 대전
 		function panTo6() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -802,8 +794,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
-		
+
 		// 강원
 		function panTo7() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -813,7 +804,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		function panTo8() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(35.8624242, 127.0758648);
@@ -822,7 +813,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		function panTo9() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(34.8030064, 127.3505135);
@@ -831,7 +822,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		//* 광주  *//
 		function panTo10() {
 			// 이동할 위도 경도 위치를 생성합니다 
@@ -840,9 +831,9 @@
 			// 지도 중심을 부드럽게 이동시킵니다
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
-		
+
 		}
-		
+
 		function panTo11() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(36.9835881, 128.8818743);
@@ -851,8 +842,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
-		
+
 		function panTo12() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(35.6185699, 129.3624188);
@@ -869,7 +859,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		function panTo14() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(35.9409719, 128.5193229);
@@ -878,7 +868,7 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
+
 		function panTo15() {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new kakao.maps.LatLng(33.3871676, 126.5429675);
@@ -887,8 +877,6 @@
 			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
 			map.panTo(moveLatLon);
 		}
-		
-		
 	</script>
 </body>
 </html>

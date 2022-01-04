@@ -11,7 +11,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8" />
-<title>🌤 Today</title>
+<title>TODAY☁︎MOMENT</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -70,6 +70,26 @@ li {
 ul {
 	list-style: none;
 }
+
+.fa-bars:before {
+	content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-weight: 800;
+   
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-size: 20px; 
+    font-family: FontAwesome;
+}
+.fa, .far, .fas {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-variant: normal;
+    format: "woff";  
+    src :url("../webfonts/fa-solid-800.ttf") ;
 </style>
 </head>
 <body>
@@ -95,12 +115,18 @@ ul {
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
 					<div class="row">
-						<div class="col-5 col-md-8 ml-auto mr-0">
+						<div class="col-6 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
 								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
 									id="tm-main-nav">
 									<button
-										class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										class="navbar-toggler
+                                          tm-bg-black
+                                          py-2
+                                          px-3
+                                          mr-0
+                                          ml-auto
+                                          collapsed"
 										type="button" data-toggle="collapse" data-target="#navbar-nav"
 										aria-controls="navbar-nav" aria-expanded="false"
 										aria-label="Toggle navigation">
@@ -110,38 +136,42 @@ ul {
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
-											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=5">login</a></li>
-											<%}else{ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
-													<span class="sr-only">(current)</span>
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">mission</a>
-											</li>
 											<%
-												if (dto != null) {
-											%>
+                                    if (dto != null) {
+                                 %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+											</a></li>
+											<%
+                                    }
+                                 %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with </a></li>
+											<li class="nav-item active"><a
+												class="nav-link tm-nav-link" href="t_mission.jsp">moment<span
+													class="sr-only">(current)</span></a></li>
+											<%
+                                    if (dto != null) {
+                                 %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
 											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
+											<%
+                                    if (dto == null) {
+                                 %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.jsp?numbers=2">login ☁︎ join</a></li>
+											<%
+                                    } else {
+                                 %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">logout ☁︎ update</a></li>
+
+											<%
+                                    }
+                                 %>
 										</ul>
 									</div>
 								</nav>
@@ -164,12 +194,24 @@ ul {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ COMMUNITY MISSION</h2>
-						<span>mission : TURE BLUE SKY</span> <a href="t_write.jsp"
-							style="float: right;"><h2>New Write ☁︎</h2></a>
+						<h2>
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+								fill="currentColor" class="bi bi-easel-fill" viewBox="0 0 16 16">
+  <path
+									d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z" />
+</svg>
+							&nbsp MOMENT
+						</h2>
+						<span>mission : TRUE BLUE SKY</span> <a
+							href="t_write.jsp?numberring=2" style="float: right;"><h2>
+								<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+									fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+  <path
+										d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+</svg>
+								&nbsp new
+							</h2></a>
 					</div>
-					<!-- /.section-header -->
-				</div>
 				<!-- /.row -->
 				<div class="row">
 					<div class="blog-masonry masonry-true">
@@ -211,24 +253,50 @@ ul {
 									<!-- 댓글 구현부-->
 									<ul>
 										<!-- 작성자만 수정 삭제 가능 기능-->
-										<% if(dto == null) {%>
-										<li class="upd" style="font-size: 15px">수정/삭제시 로그인이 필요해요</li>
-										<%} else if (dto.getMb_id().equals(arr.get(i).getMb_id())){ %>
-										<li class="upd"><a
-											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
-										<li class="upd"><a
-											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
-										<li style="right: 30%; list-style: none;">
-											<div class="like-button-wrapper">
-												<a class="like_button"
-													onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
-													<i class="like-counter fa fa-heart-o"></i> <span
-													class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-												</a>
+																				<%
+                                 if (dto == null) {
+                              %>
+										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
+											시 로그인이 필요해요</li>
+										<%
+                                 } else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
+                              %>
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 77%;"><a
+											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+													fill="currentColor" class="bi bi-pencil-square"
+													viewBox="0 0 16 16"> <path
+														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+														fill-rule="evenodd"
+														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
+														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+														fill-rule="evenodd"
+														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 81%;"><a
+											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
+													fill="currentColor" class="bi bi-x-square"
+													viewBox="0 0 16 16">
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
+										</a></li>
+										<span class="like-button-wrapper"
+											style="color: #aaaaaa; position: relative; left: -20%">
+											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<i class="like-counter fa fa-heart-o"></i> <span
+												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+										</a>
+										</span>
 
-											</div>
-										</li>
-										<%} %>
+										<%
+                                 }
+                              %>
 									</ul>
 								</div>
 							</div>

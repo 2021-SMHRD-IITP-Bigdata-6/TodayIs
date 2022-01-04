@@ -134,7 +134,7 @@ justify-content: space-between;}
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%>'s <%=dto.getMb_region()%>
+												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
@@ -173,6 +173,7 @@ justify-content: space-between;}
 				</div>
 			</div>
 
+
 			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
 				<!--
         			<div class="text-center">
@@ -188,18 +189,11 @@ justify-content: space-between;}
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2 style="display:inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+						<h2 style="display:inline-block; "><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
   <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
 </svg>&nbsp MY MEMORY</h2> <span> Remember your memory</span>
 						<form name="Search_type" method="post">
-								<h2>
-							<a href="t_write.jsp?numberring=3" ><svg
-									xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-									fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-  <path
-										d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-</svg>&nbsp new</a>
-						</h2>
+								
 						</form>
 					</div>
 					<!-- /.section-header -->
@@ -261,32 +255,50 @@ justify-content: space-between;}
 
 										<ul>
 											<!-- 작성자만 수정 삭제 가능 기능-->
-											<%
-												if (dto == null) {
-											%>
-											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
-												시 로그인이 필요해요</li>
-											<%
-												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
-											%>
-											<li class="upd" style="list-style: none;"><a
-												href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>수정</a></li>
-											<li class="upd" style="list-style: none;"><a
-												href='MyDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'>삭제</a></li>
+																					<%
+                                 if (dto == null) {
+                              %>
+										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
+											시 로그인이 필요해요</li>
+										<%
+                                 } else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
+                              %>
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 77%;"><a
+											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+													fill="currentColor" class="bi bi-pencil-square"
+													viewBox="0 0 16 16"> <path
+														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+														fill-rule="evenodd"
+														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
+														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+														fill-rule="evenodd"
+														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 81%;"><a
+											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
+													fill="currentColor" class="bi bi-x-square"
+													viewBox="0 0 16 16">
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
+										</a></li>
+										<span class="like-button-wrapper"
+											style="color: #aaaaaa; position: relative; left: -20%">
+											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+												<i class="like-counter fa fa-heart-o"></i> <span
+												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+										</a>
+										</span>
 
-											<li style="right: 30%; list-style: none;">
-												<div class="like-button-wrapper">
-													<a class="like_button"
-														onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
-														<i class="like-counter fa fa-heart-o"></i> <span
-														class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-													</a>
-
-												</div>
-											</li>
-											<%
-												}
-											%>
+										<%
+                                 }
+                              %>
 										</ul>
 									</div>
 									</div>

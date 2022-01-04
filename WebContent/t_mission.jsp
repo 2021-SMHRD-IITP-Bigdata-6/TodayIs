@@ -82,7 +82,7 @@ tr {
 
 *, ::after, ::before {
     box-sizing: border-box;
-    font-size: 21px; 
+    font-size: 20px; 
     font-family: FontAwesome;
 }
 .fa, .far, .fas {
@@ -117,7 +117,7 @@ tr {
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
 					<div class="row">
-						<div class="col-6 col-md-10 ml-auto mr-0">
+						<div class="col-6 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
 								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
 									id="tm-main-nav">
@@ -142,7 +142,7 @@ tr {
                                     if (dto != null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
 											</a></li>
 											<%
                                     }

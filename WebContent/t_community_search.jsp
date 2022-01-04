@@ -10,7 +10,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8" />
-<title>🌤 Today</title>
+<title>TODAY☁︎WITH</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -69,6 +69,27 @@ li {
 ul {
 	list-style: none;
 }
+
+
+.fa-bars:before {
+	content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-weight: 800;
+   
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-size: 20px; 
+    font-family: FontAwesome;
+}
+.fa, .far, .fas {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-variant: normal;
+    format: "woff";  
+    src :url("../webfonts/fa-solid-800.ttf") ;
 </style>
 </head>
 <body>
@@ -93,12 +114,19 @@ ul {
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
 					<div class="row">
-						<div class="col-5 col-md-8 ml-auto mr-0">
+						<div class="col-5 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
 								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
 									id="tm-main-nav">
+
 									<button
-										class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										class="navbar-toggler
+                                          tm-bg-black
+                                          py-2
+                                          px-3
+                                          mr-0
+                                          ml-auto
+                                          collapsed"
 										type="button" data-toggle="collapse" data-target="#navbar-nav"
 										aria-controls="navbar-nav" aria-expanded="false"
 										aria-label="Toggle navigation">
@@ -107,44 +135,67 @@ ul {
 										</span>
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
-											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=4">login</a></li>
-											<%}else{ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
-													<span class="sr-only">(current)</span>
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">mission</a></li>
 											<%
 												if (dto != null) {
 											%>
+											<li class="nav-item"><a
+												class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s
+													<%=dto.getMb_region()%> 
+											</a></li>
+											<%
+												}
+											%>
+
+											<%
+												if (dto == null) {
+											%>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">&nbsp with<span class="sr-only">(current)</span>
+												</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a></li>
+											<%
+												}
+											%>
+
+
+											<%
+												if (dto != null) {
+											%>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with<span class="sr-only">(current)</span></a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
-											<%} %>
+											<%
+												}
+											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="Kakao.jsp">map</a></li>
-										</ul>
-									</div>
+												href="region.html">map</a></li>
+											<%
+												if (dto == null) {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.jsp">login ☁︎ join</a></li>
+											<%
+												} else {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="update.jsp?mb_id=<%=dto.getMb_id()%>">logout ☁︎
+													update</a></li>
+											<%
+												}
+											%>
+											</ul>
+								</div>
 								</nav>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 
@@ -161,7 +212,17 @@ ul {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ Community</h2>
+						<h2>
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+								fill="currentColor" class="bi bi-chat-square-quote"
+								viewBox="0 0 16 16">
+  <path
+									d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+  <path
+									d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
+</svg>
+							&nbsp with
+						</h2>
 						<span>Region Shared</span>
 					</div>
 					<!-- /.section-header -->
