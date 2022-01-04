@@ -700,7 +700,6 @@
 				+ '           ' + '        </li>'
 				+ '        <li>' + ' <span class="number"></span>'
 				+ '            <span class="title"><%=wm_dao.Move("대구").getW_body_temp()%>℃</span>'
-				+ '            <span class="arrow up"></span>'
 				+ '           ' + '        </li>'
 				+ '    </ul>' + '</div>';
 		var position14 = new kakao.maps.LatLng(35.9409719, 128.5193229);

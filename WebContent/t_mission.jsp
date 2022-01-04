@@ -20,22 +20,14 @@
 	href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100" />
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900" />
-
-
+	
 <link rel="stylesheet" href="t_css/font-awesome.css" />
 <link rel="stylesheet" href="t_css/bootstrap.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
-
-
-
+<link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-
-<link rel="stylesheet" href="t_css/animate.css" />
-
-<link rel="stylesheet" href="t_css/templatemo-style.css" />
-
-
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <style>
@@ -84,13 +76,13 @@ tr {
 	content: "\f0c9";
     display: inline-block;
     font-family: "FontAwesome";
-    font-weight: 900;
+    font-weight: 800;
    
 }
 
 *, ::after, ::before {
     box-sizing: border-box;
-    font-size: 21px; 
+    font-size: 20px; 
     font-family: FontAwesome;
 }
 .fa, .far, .fas {
@@ -98,7 +90,7 @@ tr {
     font-style: normal;
     font-variant: normal;
     format: "woff";  
-    src :url("../webfonts/fa-solid-900.ttf") ;
+    src :url("../webfonts/fa-solid-800.ttf") ;
 }
 </style>
 </head>
@@ -125,7 +117,7 @@ tr {
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
 					<div class="row">
-						<div class="col-6 col-md-10 ml-auto mr-0">
+						<div class="col-6 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
 								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
 									id="tm-main-nav">
@@ -150,7 +142,7 @@ tr {
                                     if (dto != null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
 											</a></li>
 											<%
                                     }

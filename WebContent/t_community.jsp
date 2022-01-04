@@ -81,7 +81,7 @@ ul {
 	content: "\f0c9";
     display: inline-block;
     font-family: "FontAwesome";
-    font-weight: 900;
+    font-weight: 800;
    
 }
 
@@ -95,7 +95,7 @@ ul {
     font-style: normal;
     font-variant: normal;
     format: "woff";  
-    src :url("../webfonts/fa-solid-900.ttf") ;
+    src :url("../webfonts/fa-solid-800.ttf") ;
 }
 </style>
 </head>
@@ -117,7 +117,6 @@ ul {
 		<div class="position-relative">
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
-
 					<div class="row">
 						<div class="col-5 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
@@ -157,7 +156,7 @@ ul {
 												if (dto == null) {
 											%>
 											<li class="nav-item active"><a class="nav-link tm-nav-link"
-												href="t_community.jsp">with<span class="sr-only">(current)</span>
+												href="t_community.jsp">&nbsp with<span class="sr-only">(current)</span>
 												</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">moment</a></li>
