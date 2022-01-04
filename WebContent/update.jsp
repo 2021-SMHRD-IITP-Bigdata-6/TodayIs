@@ -136,7 +136,7 @@
 										<ul class="navbar-nav text-uppercase">
 											<%if(dto != null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<%} %>
 											<%if(dto == null){ %>
@@ -186,14 +186,14 @@
 <div class="section-header col-md-12" style="margin:-210px 0 0 0">
 	<h2>☁︎ TODAY?</h2>
 	<span>오늘도 사용해 주셔서 감사합니다.</span>
-	<a href="update.jsp" style="float: right;"><h2>LOOUT & UPDATE☁︎</h2></a>
+	<a href="index.jsp" style="float: right;"><h2>LOGOUT & UPDATE☁︎</h2></a>
 </div>
 
 <div  class="layer"> 
 	<form id="logout" action="LogoutService" style ="margin:-20px 0 0 0; "method="post" class="input-group">
 	<!-- LOGOUT 기능 -->            
 	<h2 id="title">LOGOUT</h2>
-	<button class="submit" id="lay" onclick="location.href='UpdateService'"> logout </button>
+	<button class="submit" id="lay" onclick="location.href='index.jsp'"> logout </button>
 	</form>
 	
 	<form id="update" action="UpdateService" style ="top: 30px; "method="post" class="input-group" >
@@ -228,7 +228,7 @@
 						<input type="hidden" class="form-control" id="region"
 										placeholder="지역을 선택해주세요" name="mb_region"
 										maxlength="20" readonly>
-                        <button class = "submit" onclick="location.href='UpdateService'"> update </button>
+                        <button class = "submit" > update </button>
                         <br>
                         </form>
 </div>
