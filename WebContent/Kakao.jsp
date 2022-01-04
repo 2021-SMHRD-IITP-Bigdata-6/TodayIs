@@ -12,7 +12,7 @@
 .overlaybox {
 	position: relative;
 	width: 100px;
-	height: 220px;
+	height: 200px;
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png')
 		no-repeat;
@@ -210,7 +210,7 @@
 			+ '            <span class="title"><%=wm_dao.Move("서울").getW_status()%></span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + ' <span class="number"></span>'
+			+ '        <li>' 
 			+ '            <span class="title"><%=wm_dao.Move("서울").getW_body_temp()%>℃</span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
@@ -242,10 +242,6 @@
 			+ '            <span class="title"><%=wm_dao.Move("양평").getW_body_temp()%>℃</span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + '            <span class="number"></span>'
-			+ '            <span class="title"><%=wm_dao.Move("양평").getW_wind()%></span>'
-			+ '            <span class="arrow down"></span>'
-			+ '            ' + '        </li>'
 			+ '    </ul>' + '</div>';
 
 	var position2 = new kakao.maps.LatLng(37.4980273, 127.5117792);
@@ -273,10 +269,6 @@
 			+ '            <span class="title"><%=wm_dao.Move("인천").getW_body_temp()%>℃</span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + '            <span class="number"></span>'
-			+ '            <span class="title"><%=wm_dao.Move("인천").getW_wind()%></span>'
-			+ '            <span class="arrow down"></span>'
-			+ '            ' + '        </li>'
 			+ '    </ul>' + '</div>';
 
 	var position3 = new kakao.maps.LatLng(37.4485339, 126.6355905);
@@ -304,10 +296,33 @@
 			+ '            <span class="title"><%=wm_dao.Move("인천").getW_body_temp()%>℃</span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + '            <span class="number"></span>'
-			+ '            <span class="title"><%=wm_dao.Move("인천").getW_wind()%></span>'
-			+ '            <span class="arrow down"></span>'
-			+ '            ' + '        </li>'
+			+ '    </ul>' + '</div>';
+
+	var position3 = new kakao.maps.LatLng(37.4485339, 126.6355905);
+		var customOverlay3 = new kakao.maps.CustomOverlay({
+			position : position3,
+			content : content3,
+			xAnchor : 0.3,
+			yAnchor : 0.80
+		    
+		});
+		customOverlay3.setMap(map);
+		//* 충북 *//	
+		
+	//* 충남 *//
+		var content3 = '<div class="overlaybox">'
+			+ '    <div class="boxtitle">인천 날씨 </div>'
+			+ '    <div class="first">' 
+		    + '    <div class="movietitle text"><%=wm_dao.Move("인천").getW_temp()%>℃</div>'
+			+ '    </div>' + '    <ul>' + '        <li class="up">'
+			+ '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_status()%></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + ' <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_body_temp()%>℃</span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
 			+ '    </ul>' + '</div>';
 
 	var position3 = new kakao.maps.LatLng(37.4485339, 126.6355905);
@@ -336,10 +351,7 @@
 				+ '            <span class="title"><%=wm_dao.Move("광주").getW_body_temp()%>℃</span>'
 				+ '            <span class="arrow up"></span>'
 				+ '           ' + '        </li>'
-				+ '        <li>' + '            <span class="number"></span>'
-				+ '            <span class="title"><%=wm_dao.Move("광주").getW_wind()%></span>'
-				+ '            <span class="arrow down"></span>'
-				+ '            ' + '        </li>' + '    </ul>' + '</div>';
+				+ '    </ul>' + '</div>';
 		var position11 = new kakao.maps.LatLng(35.1595454, 126.8526012);
 		var customOverlay11 = new kakao.maps.CustomOverlay({
 			position : position11,

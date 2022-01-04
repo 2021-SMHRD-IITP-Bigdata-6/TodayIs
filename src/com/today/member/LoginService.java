@@ -71,7 +71,7 @@ public class LoginService extends HttpServlet {
 		}  else {
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
-			response.sendRedirect("t_mission_search.jsp");
+			response.sendRedirect("index.jsp");
 			session.setAttribute("board_dto", board_dto);
 		}
 	}

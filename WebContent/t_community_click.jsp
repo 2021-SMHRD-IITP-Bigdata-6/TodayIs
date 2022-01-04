@@ -1,3 +1,4 @@
+<%@page import="com.today.DAO.boardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="com.today.DTO.commDTO"%>
@@ -105,6 +106,10 @@ th, td {
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
+	boardDAO dao = new boardDAO();
+	
+
+	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -203,7 +208,7 @@ th, td {
 					<div class="blog-info col-md-12">
 						<div class="box-content">
 							<h2 class="blog-title"><%=board_dto.getM_article_subject()%></h2>
-							<span class="blog-meta"><%=board_dto.getM_article_date() %></span>
+							<span class="blog-meta"><%=dao.board_tocomm(String.valueOf(board_dto1.getM_article_seq())).getM_article_date() %></span>
 							<p><%=board_dto.getM_article_content()%></p>
 						</div>
 					</div>
