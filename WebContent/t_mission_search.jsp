@@ -140,7 +140,7 @@ ul {
                                     if (dto != null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
 											</a></li>
 											<%
                                     }
