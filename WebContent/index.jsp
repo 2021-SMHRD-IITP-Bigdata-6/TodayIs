@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
 
+<title>TODAY? MAIN PAGE</title>
 
 </head>
 <body>
@@ -351,7 +352,7 @@
 
 								<%
 									if (dto != null) {
-									float move = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_body_temp());
+									float move = move_dao.Move(dto.getMb_region()).getW_body_temp();
 									int data = (int) move;
 
 									if (data >= 50) {
@@ -392,7 +393,7 @@
 									} else {
 								%>
 								<%
-									float move = Float.parseFloat(move_dao.Move("광주").getW_body_temp());
+									float move = move_dao.Move("광주").getW_body_temp();
 								int data = (int) move;
 
 								if (data >= 50) {

@@ -11,12 +11,12 @@
 <style>
 .overlaybox {
 	position: relative;
-	width: 360px;
-	height: 350px;
+	width: 100px;
+	height: 220px;
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png')
 		no-repeat;
-	padding: 15px 10px;
+	padding: 10px;
 }
 
 .overlaybox div, ul {
@@ -39,8 +39,8 @@
 
 .overlaybox .first {
 	position: relative;
-	width: 247px;
-	height: 136px;
+	width: 100px;
+	height: 100px;
 	background: url('UploadWrite/무등산.jpg') no-repeat;
 	background-position: center center;
 	background-size: 100%;
@@ -62,7 +62,7 @@
 }
 
 .overlaybox ul {
-	width: 247px;
+	width: 100%;
 }
 
 .overlaybox li {
@@ -114,58 +114,49 @@
 .overlaybox li:hover .down {
 	background-position: 0 -20px;
 }
+
+// 메인 DIV 관련 CSS
+
+
+
 </style>
 </head>
 <body>
 
 	<%
-//로그인 정보 dto
-memberDTO dto = (memberDTO) session.getAttribute("dto");
+		//로그인 정보 dto
+	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
-//실시간 날씨 관련 데이터
-mainLifeDAO w_dao = new mainLifeDAO();
-moveDAO wm_dao = new moveDAO();
-
-
-
-%>
+	//실시간 날씨 관련 데이터
+	mainLifeDAO w_dao = new mainLifeDAO();
+	moveDAO wm_dao = new moveDAO();
+	%>
+	<div style="background-color: #aaaaaa; width: 100%; height: 100%;">
+	<div style=" position: relative;" >
 	<button onclick="panTo1()">서울</button>
-	<button onclick="panTo2()">광주</button>
-<table>
-<tr>
+	<button onclick="panTo2()">경기</button>
+	<button onclick="panTo3()">인천</button>
+	<button onclick="panTo4()">충북</button>
+	<button onclick="panTo5()">충남</button>
+	<button onclick="panTo6()">세종</button>
+	<button onclick="panTo7()">대전</button>
+	<button onclick="panTo8()">강원</button> <br>
+	<button onclick="panTo9()">전북</button>
+	<button onclick="panTo10()">전남</button>
+	<button onclick="panTo11()">광주</button>
+	<button onclick="panTo12()">경북</button>
+	<button onclick="panTo13()">울산</button>
+	<button onclick="panTo14()">부산</button>
+	<button onclick="panTo15()">경남</button>
+	<button onclick="panTo16()">제주</button>
+	</div>
+	<div id="map" style="width: 800px; height: 800px; position: relative; left:25% "></div>		
 
-	<td><select id="big" name="h_area1" class="" >
-			<option>-지역-</option>
-			<option value='1'>서울</option>
-			<option value='2'>경기</option>
-			<option value='3'>인천</option>
-			<option value='4'>충북</option>
-			<option value='5'>충남</option>
-			<option value='6'>세종</option>
-			<option value='7'>대전</option>
-			<option value='8'>강원</option>
-			<option value='9'>전북</option>
-			<option value='10'>전남</option>
-			<option value='11'>광주</option>
-			<option value='12'>경북</option>
-			<option value='13'>울산</option>
-			<option value='14'>부산</option>
-			<option value='15'>경남</option>
-			<option value='16'>제주</option>
-	</select></td>
-	<td>><input type="hidden" class="form-control" id="region"
-		placeholder="지역을 선택해주세요" name="m_article_region" maxlength="20"
-		readonly></td>
-		
-	</table>
-	<div id="map" style="width: 800px; height: 800px;"></div>
-
-
-<div ></div>
+	</div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc7696aa31445fcfe21fc7bb8d6cc220"></script>
-			<script src="js/vendor/jquery-1.11.0.min.js"></script>
+	<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 	
 
@@ -208,105 +199,197 @@ moveDAO wm_dao = new moveDAO();
 		});
 
 	
-		var content = '<div class="overlaybox">'
-				+ '    <div class="boxtitle">광주 날씨 </div>'
-				+ '    <div class="first">' 
-			    + '    <div class="movietitle text"><%=wm_dao.Move("광주").getW_body_temp() %>℃</div>'
-				+ '    </div>' + '    <ul>' + '        <li class="up">'
-				+ '            <span class="number">날씨상태</span>'
-				+ '            <span class="title"><%=wm_dao.Move("광주").getW_status() %></span>'
-				+ '            <span class="arrow up"></span>'
-				+ '           ' + '        </li>'
-				+ '        <li>' + ' <span class="number">체감온도</span>'
-				+ '            <span class="title"><%=wm_dao.Move("광주").getW_body_temp() %>℃</span>'
-				+ '            <span class="arrow up"></span>'
-				+ '           ' + '        </li>'
-				+ '        <li>' + '            <span class="number">습도</span>'
-				+ '            <span class="title"><%=wm_dao.Move("광주").getW_humidity() %></span>'
-				+ '            <span class="arrow up"></span>'
-				+ '          ' + '        </li>'
-				+ '        <li>' + '            <span class="number">풍향</span>'
-				+ '            <span class="title"><%=wm_dao.Move("광주").getW_wind() %></span>'
-				+ '            <span class="arrow down"></span>'
-				+ '            ' + '        </li>'
-				+ '    </ul>' + '</div>';
-
-		// 커스텀 오버레이가 표시될 위치입니다 
-		var position = new kakao.maps.LatLng(35.1595454, 126.8526012);
-
-		
+	
+	//* 서울  *//
 		var content1 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">서울 날씨 </div>'
 			+ '    <div class="first">' 
-		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_body_temp() %>℃</div>'
+		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_temp() %>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
-			+ '            <span class="number">날씨상태</span>'
-			+ '            <span class="title"><%=wm_dao.Move("서울").getW_status() %></span>'
+			+ '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_status()%></span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + ' <span class="number">체감온도</span>'
-			+ '            <span class="title"><%=wm_dao.Move("서울").getW_body_temp() %>℃</span>'
+			+ '        <li>' + ' <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_body_temp()%>℃</span>'
 			+ '            <span class="arrow up"></span>'
 			+ '           ' + '        </li>'
-			+ '        <li>' + '            <span class="number">습도</span>'
-			+ '            <span class="title"><%=wm_dao.Move("서울").getW_humidity() %></span>'
-			+ '            <span class="arrow up"></span>'
-			+ '          ' + '        </li>'
-			+ '        <li>' + '            <span class="number">풍향</span>'
-			+ '            <span class="title"><%=wm_dao.Move("서울").getW_wind() %></span>'
-			+ '            <span class="arrow down"></span>'
-			+ '            ' + '        </li>'
 			+ '    </ul>' + '</div>';
 
-	// 커스텀 오버레이가 표시될 위치입니다 
 	var position1 = new kakao.maps.LatLng(37.5406890, 126.9930664);
-	
-	
-		// 커스텀 오버레이를 생성합니다
-		var customOverlay = new kakao.maps.CustomOverlay({
-			position : position,
-			content : content,
-			xAnchor : 0.3,
-			yAnchor : 0.80
-
-		});
-
 		var customOverlay1 = new kakao.maps.CustomOverlay({
 			position : position1,
 			content : content1,
 			xAnchor : 0.3,
+			yAnchor : 0.70
+		    
+		});
+		customOverlay1.setMap(map);
+	//* 서울  *//
+	
+	
+	//* 경기(양평)  *//
+		var content2 = '<div class="overlaybox">'
+			+ '    <div class="boxtitle">경기 날씨 </div>'
+			+ '    <div class="first">' 
+		    + '    <div class="movietitle text"><%=wm_dao.Move("양평").getW_temp() %>℃</div>'
+			+ '    </div>' + '    <ul>' + '        <li class="up">'
+			+ '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("양평").getW_status()%></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + ' <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("양평").getW_body_temp()%>℃</span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("양평").getW_wind()%></span>'
+			+ '            <span class="arrow down"></span>'
+			+ '            ' + '        </li>'
+			+ '    </ul>' + '</div>';
+
+	var position2 = new kakao.maps.LatLng(37.4980273, 127.5117792);
+		var customOverlay2 = new kakao.maps.CustomOverlay({
+			position : position2,
+			content : content2,
+			xAnchor : 0.3,
 			yAnchor : 0.80
 		    
 		});
-		// 커스텀 오버레이를 지도에 표시합니다
-		customOverlay.setMap(map);
-		customOverlay1.setMap(map);
-		
-		
-		
-		
-		
-		
+		customOverlay2.setMap(map);
+	//* 경기(양평)  *//	
+	
+	//* 인천 *//
+		var content3 = '<div class="overlaybox">'
+			+ '    <div class="boxtitle">인천 날씨 </div>'
+			+ '    <div class="first">' 
+		    + '    <div class="movietitle text"><%=wm_dao.Move("인천").getW_temp()%>℃</div>'
+			+ '    </div>' + '    <ul>' + '        <li class="up">'
+			+ '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_status()%></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + ' <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_body_temp()%>℃</span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_wind()%></span>'
+			+ '            <span class="arrow down"></span>'
+			+ '            ' + '        </li>'
+			+ '    </ul>' + '</div>';
 
+	var position3 = new kakao.maps.LatLng(37.4485339, 126.6355905);
+		var customOverlay3 = new kakao.maps.CustomOverlay({
+			position : position3,
+			content : content3,
+			xAnchor : 0.3,
+			yAnchor : 0.80
+		    
+		});
+		customOverlay3.setMap(map);
+		//* 인천 *//	
+		
+		//* 충북 *//
+		var content3 = '<div class="overlaybox">'
+			+ '    <div class="boxtitle">인천 날씨 </div>'
+			+ '    <div class="first">' 
+		    + '    <div class="movietitle text"><%=wm_dao.Move("인천").getW_temp()%>℃</div>'
+			+ '    </div>' + '    <ul>' + '        <li class="up">'
+			+ '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_status()%></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + ' <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_body_temp()%>℃</span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + '            <span class="number"></span>'
+			+ '            <span class="title"><%=wm_dao.Move("인천").getW_wind()%></span>'
+			+ '            <span class="arrow down"></span>'
+			+ '            ' + '        </li>'
+			+ '    </ul>' + '</div>';
+
+	var position3 = new kakao.maps.LatLng(37.4485339, 126.6355905);
+		var customOverlay3 = new kakao.maps.CustomOverlay({
+			position : position3,
+			content : content3,
+			xAnchor : 0.3,
+			yAnchor : 0.80
+		    
+		});
+		customOverlay3.setMap(map);
+		//* 충북 *//	
+	
+	
+	//* 광주  *//
+		var content11 = '<div class="overlaybox">'
+				+ '    <div class="boxtitle">광주 날씨 </div>'
+				+ '    <div class="first">' 
+			    + '    <div class="movietitle text"><%=wm_dao.Move("광주").getW_temp()%>℃</div>'
+				+ '    </div>' + '    <ul>' + '        <li class="up">'
+				+ '            <span class="number"></span>'
+				+ '            <span class="title"><%=wm_dao.Move("광주").getW_status()%></span>'
+				+ '            <span class="arrow up"></span>'
+				+ '           ' + '        </li>'
+				+ '        <li>' + ' <span class="number"></span>'
+				+ '            <span class="title"><%=wm_dao.Move("광주").getW_body_temp()%>℃</span>'
+				+ '            <span class="arrow up"></span>'
+				+ '           ' + '        </li>'
+				+ '        <li>' + '            <span class="number"></span>'
+				+ '            <span class="title"><%=wm_dao.Move("광주").getW_wind()%></span>'
+				+ '            <span class="arrow down"></span>'
+				+ '            ' + '        </li>' + '    </ul>' + '</div>';
+		var position11 = new kakao.maps.LatLng(35.1595454, 126.8526012);
+		var customOverlay11 = new kakao.maps.CustomOverlay({
+			position : position11,
+			content : content11,
+			xAnchor : 0.3,
+			yAnchor : 0.80
+		});
+		customOverlay11.setMap(map);
+		//* 광주  *//
+
+		
+		//* 서울  *//
 		function panTo1() {
-		    // 이동할 위도 경도 위치를 생성합니다 
-		    var moveLatLon = new kakao.maps.LatLng(37.3306890, 126.5930664);
-		    
-		    // 지도 중심을 부드럽게 이동시킵니다
-		    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-		    map.panTo(moveLatLon);            
-		}  
+			// 이동할 위도 경도 위치를 생성합니다 
+			var moveLatLon = new kakao.maps.LatLng(37.3306890, 126.5930664);
+
+			// 지도 중심을 부드럽게 이동시킵니다
+			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			map.panTo(moveLatLon);
+		}
 		
+		// 경기
 		function panTo2() {
-		    // 이동할 위도 경도 위치를 생성합니다 
-		    var moveLatLon = new kakao.maps.LatLng(35.1595454, 126.8526012);
-		    
-		    // 지도 중심을 부드럽게 이동시킵니다
-		    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-		    map.panTo(moveLatLon);            
-		}   
+			// 이동할 위도 경도 위치를 생성합니다 
+			var moveLatLon = new kakao.maps.LatLng(37.4980273, 127.5117792);
 
+			// 지도 중심을 부드럽게 이동시킵니다
+			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			map.panTo(moveLatLon);
+		}
+		
+		// 인천
+		function panTo3() {
+			// 이동할 위도 경도 위치를 생성합니다 
+			var moveLatLon = new kakao.maps.LatLng(37.4585339, 126.7055905);
 
+			// 지도 중심을 부드럽게 이동시킵니다
+			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			map.panTo(moveLatLon);
+		}
+
+		//* 광주  *//
+		function panTo11() {
+			// 이동할 위도 경도 위치를 생성합니다 
+			var moveLatLon = new kakao.maps.LatLng(35.1595454, 126.8526012);
+
+			// 지도 중심을 부드럽게 이동시킵니다
+			// 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+			map.panTo(moveLatLon);
+		}
 	</script>
 </body>
 </html>
