@@ -144,7 +144,7 @@ th, td {
 												href="t_mymain.jsp">my</a></li>
 											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 										</ul>
 									</div>
 								</nav>

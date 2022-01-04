@@ -20,9 +20,12 @@ public class LoginService extends HttpServlet {
 
 		String mb_id = request.getParameter("mb_id");
 		String mb_pw = request.getParameter("mb_pw");
+		String numbers = request.getParameter("numbers");
 		
 		System.out.println(mb_id);
 		System.out.println(mb_pw);
+		System.out.println(numbers);
+		
 		memberDAO dao = new memberDAO();
 		memberDTO dto_two = new memberDTO(mb_id, mb_pw);
 		memberDTO dto = dao.Login(dto_two);
@@ -31,18 +34,45 @@ public class LoginService extends HttpServlet {
 		boardDAO board_dao = new boardDAO();
 		boardDTO board_dto = board_dao.board_tologin();
 		
-		if (dto!=null) {
-			System.out.println("여긴오나");
+		if (numbers.contentEquals("1")) {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("t_community.jsp");
 			session.setAttribute("board_dto", board_dto);
 			
-		}else {
-			response.sendRedirect("index.jsp");
-			System.out.println("login실패");
-			
+		}else if(numbers.contentEquals("2")) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("t_mission.jsp");
+			session.setAttribute("board_dto", board_dto);
+		} else if(numbers.contentEquals("3")) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("t_community_click.jsp");
+			session.setAttribute("board_dto", board_dto);
+			session.setAttribute("numbers", numbers);
+		} else if(numbers.contentEquals("4")) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("t_community_search.jsp");
+			session.setAttribute("board_dto", board_dto);
+			session.setAttribute("numbers", numbers);
+		} else if(numbers.contentEquals("5")) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("t_community_search.jsp");
+			session.setAttribute("board_dto", board_dto);
+			session.setAttribute("numbers", numbers);
+		}  else {
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("t_mission_search.jsp");
+			session.setAttribute("board_dto", board_dto);
 		}
 	}
 

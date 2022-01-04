@@ -131,7 +131,7 @@ td {
 												}
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 												<%
 												if(dto != null) {
 												%>
