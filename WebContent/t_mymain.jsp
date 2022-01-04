@@ -238,7 +238,7 @@ justify-content: space-between;}
 									<div class="box-content project-detail">
 
 										<h2>
-											<a href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+											<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 												<h3 style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;"> #<%=arr.get(i).getM_article_region()%></h3>
 											</a>
 										</h2>
@@ -262,7 +262,7 @@ justify-content: space-between;}
                               %>
 										<li class="upd"
 											style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
-											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
 													fill="currentColor" class="bi bi-pencil-square"
 													viewBox="0 0 16 16"> <path
@@ -274,7 +274,7 @@ justify-content: space-between;}
 														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
 										<li class="upd"
 											style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
-											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
 													fill="currentColor" class="bi bi-x-square"
 													viewBox="0 0 16 16">
@@ -319,7 +319,9 @@ justify-content: space-between;}
 
 						</table>
 
+
 						<table>
+											
 							<span><svg xmlns="http://www.w3.org/2000/svg" width="26"
 									height="26" fill="currentColor" class="bi bi-easel-fill"
 									viewBox="0 0 16 16">
@@ -327,11 +329,16 @@ justify-content: space-between;}
 										d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z" />
 </svg>&nbsp MOMENT </span>
 							<!--미션글_1-->
+							
+
 							<%
 								i = 0;
+								
+								
 							try {
 								//행 관리
-								Loop1 : for (int k = 0; k < 5; k++) {
+								Loop2 :
+									for (int k = 0; k < 5; k++) {
 							%>
 							<tr valign="top">
 								<%
@@ -370,20 +377,30 @@ justify-content: space-between;}
 
 
 										<ul>
-											<!-- 작성자만 수정 삭제 가능 기능-->
-											<%
-												if (dto == null) {
-											%>
-											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제 시
-												로그인이 필요해요</li>
-											<%
-												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
-											%>
-											<li class="upd" style="list-style: none;"><a
-												href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>수정</a></li>
-											<li class="upd" style="list-style: none;"><a
-												href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>삭제</a></li>
 
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
+											href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'><svg
+													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+													fill="currentColor" class="bi bi-pencil-square"
+													viewBox="0 0 16 16"> <path 	d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+														<path	fill-rule="evenodd"			d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
+														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+														fill-rule="evenodd"
+														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
+										<li class="upd"
+											style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
+											href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'><svg
+													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
+													fill="currentColor" class="bi bi-x-square"
+													viewBox="0 0 16 16">
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+  <path
+														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
+										</a></li>
 											<li style="right: 30%; list-style: none;">
 												<div class="like-button-wrapper">
 													<a class="like_button"
@@ -394,9 +411,7 @@ justify-content: space-between;}
 
 												</div>
 											</li>
-											<%
-												}
-											%>
+
 										</ul>
 									</div>
 									</div>
@@ -405,7 +420,7 @@ justify-content: space-between;}
 									if (i < all.size() - 1) {
 									i = i + 1;
 								} else {
-									break Loop1;
+									break Loop2;
 
 								}
 
@@ -417,8 +432,9 @@ justify-content: space-between;}
 							} catch (Exception e) {
 							}
 							%>
-
+	</tr>
 						</table>
+
 
 
 

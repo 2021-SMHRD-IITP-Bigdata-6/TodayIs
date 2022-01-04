@@ -212,7 +212,7 @@ th, td {
 									</select></td>
 									<td><select id="big" name="h_area1" class=""
 										onChange="cat1_change(this.value,h_area2)" class="h_area1">
-											<option><%=board_dto.getM_article_region().substring(0,2) %></option>
+											<option><%=board_dto.getM_article_region() %></option>
 											<option value='1'>서울</option>
 											<option value='2'>부산</option>
 											<option value='3'>대구</option>
@@ -231,7 +231,7 @@ th, td {
 											<option value='16'>충북</option>
 									</select></td>
 									<td><select id="small" name="h_area2" class="h_area2">
-											<option><%=board_dto.getM_article_region().substring(2) %></option>
+											<option><%=board_dto.getM_article_region() %></option>
 									</select><input type="hidden" class="form-control" id="region"
 										placeholder="지역을 선택해주세요" name="m_article_region"
 										maxlength="20" readonly></td>

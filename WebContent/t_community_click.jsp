@@ -96,6 +96,9 @@ th, td {
 	//보드 세션
 	boardDTO board_dto1 = (boardDTO) session.getAttribute("board_dto");
 	String numbers = (String) session.getAttribute("numbers");
+	System.out.print(board_dto1.getM_article_seq());
+	
+	board_dto = board_dto1;
 	
 	//업데이트가 없을때 보드 세션으로 나온다.
 	if (mboard_dto == null) {
