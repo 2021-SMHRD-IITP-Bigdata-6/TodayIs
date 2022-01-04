@@ -725,7 +725,6 @@
 				+ '           ' + '        </li>'
 				+ '        <li>' + ' <span class="number"></span>'
 				+ '            <span class="title"><%=wm_dao.Move("제주").getW_body_temp()%>℃</span>'
-				+ '            <span class="arrow up"></span>'
 				+ '        </li>' + '    </ul>' + '</div>';
 		var position15 = new kakao.maps.LatLng(33.3871676, 126.5429675);
 		var customOverlay15 = new kakao.maps.CustomOverlay({
