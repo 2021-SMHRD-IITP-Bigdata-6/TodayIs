@@ -33,6 +33,7 @@
 	// main 상세 페이지 연결
 	mainLifeDAO life_dao = new mainLifeDAO();
 	mainLifeDTO life_dto = null;
+	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -159,8 +160,8 @@
 			if (dto != null) {
 		%>
 		<%
-			if (move_dao.Move(dto.getMb_region()).getW_status().equals("맑음")
-				|| move_dao.Move(dto.getMb_region()).getW_status().equals("")) {
+		System.out.print("날씨:"+move_dao.Move(dto.getMb_region()).getW_status().length());
+			if (move_dao.Move(dto.getMb_region()).getW_status().equals("맑음")) {
 		%>
 		<video autoplay muted loop id="tm-video">
 			<!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
@@ -216,13 +217,17 @@
 			<source src="video/smog.mp4" type="video/mp4" />
 		</video>
 		<%
-			}
+			} else{	
 		%>
-		<%
+		<video autoplay muted loop id="tm-video">
+			<!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+			<source src="video/sun.mp4" type="video/mp4" />
+		</video>
+		<%}
 			} else {
 		%>
 		<%
-			if (move_dao.Move("광주").getW_status().equals("맑음") || move_dao.Move("광주").getW_status().equals("")) {
+			if (move_dao.Move("광주").getW_status().equals("맑음")) {
 		%>
 		<video autoplay muted loop id="tm-video">
 			<!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->

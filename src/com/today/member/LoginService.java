@@ -54,6 +54,7 @@ public class LoginService extends HttpServlet {
 			response.sendRedirect("t_community_click.jsp");
 			session.setAttribute("board_dto", board_dto);
 			session.setAttribute("numbers", numbers);
+			
 		} else if(numbers.contentEquals("4")) {
 
 			HttpSession session = request.getSession();
