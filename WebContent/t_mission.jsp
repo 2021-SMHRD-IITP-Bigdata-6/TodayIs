@@ -239,9 +239,9 @@ tr {
 										class="modal_con">
 									<div class="modal">
 										<div class="modal_content"
-											style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
+											style="border: 10px solid #aaaaaa; width: 50%;  position: relative; left: 25%; top: 150px;">
 											<img src="<%=arr.get(i).getM_article_img()%>"
-												class="modal_img">
+												class="modal_img" style="height: 25%">
 										</div>
 									</div>
 								</div>

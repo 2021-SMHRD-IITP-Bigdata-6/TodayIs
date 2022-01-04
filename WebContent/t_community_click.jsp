@@ -252,9 +252,11 @@ th, td {
 											<h4><%=arr.get(i).getMb_id()%></h4>
 											<span><%=arr.get(i).getComm_date()%></span>
 											<p><%=arr.get(i).getComm_content()%></p>
+											<%if(dto.getMb_id().equals(arr.get(i).getMb_id())) {%>
 											<a
 												href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
 												삭제 </a>
+												<%} %>
 										</div>
 									</div>
 								</div>
