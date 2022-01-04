@@ -104,6 +104,7 @@
    
    // 로그인 한 장소에 대한 체크문
    String numbers = request.getParameter("numbers");
+
    boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 %>
 
@@ -186,7 +187,7 @@
 	</div>
 	
 		<div class="layer">
-		 <form id="login" action="LoginService" method="post" class="input-group">
+		 <form id="login" action="LoginService?numbers=<%=numbers %>" method="post" class="input-group">
 		<h2>LOGIN</h2>
 		<input type="text" name="mb_id" class="input-field"
 			placeholder="User id" required> 

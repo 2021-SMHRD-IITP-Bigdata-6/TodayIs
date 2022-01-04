@@ -220,12 +220,12 @@
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="about.html">today</a>
+												href="t_mission.jsp">today</a>
 											</li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 										</ul>
 									</div>
 								</nav>

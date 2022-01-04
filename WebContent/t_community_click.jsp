@@ -94,6 +94,7 @@ th, td {
 	boardDTO mboard_dto = (boardDTO) session.getAttribute("mboard_dto");
 	//보드 세션
 	boardDTO board_dto1 = (boardDTO) session.getAttribute("board_dto");
+	String numbers = (String) session.getAttribute("numbers");
 	
 	//업데이트가 없을때 보드 세션으로 나온다.
 	if (mboard_dto == null) {
@@ -136,7 +137,7 @@ th, td {
 											<%} %>
 											<%if(dto == null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login</a></li>
+												href="login.jsp?numbers=3">login</a></li>
 											<%}else{ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout</a></li>
@@ -148,8 +149,7 @@ th, td {
 													<span class="sr-only">(current)</span>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">mission</a>
-											</li>
+												href="t_mission.jsp">mission</a></li>
 											<%
 												if (dto != null) {
 											%>
@@ -157,7 +157,7 @@ th, td {
 												href="t_mymain.jsp">my</a></li>
 											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 										</ul>
 									</div>
 								</nav>
@@ -207,15 +207,16 @@ th, td {
 							<p><%=board_dto.getM_article_content()%></p>
 						</div>
 					</div>
-
-					<%if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
+					
+					<%try {
+					if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
 
 					<!-- /.row -->
 					<%
 					commDAO comm_dao = new commDAO();
-				ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
-				int cnt = 0;
-				for (int i = 0; i < arr.size(); i++) {
+					ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
+					int cnt = 0;
+					for (int i = 0; i < arr.size(); i++) {
 				%>
 					<div class="row">
 						<div class="col-md-12">
@@ -264,7 +265,11 @@ th, td {
 						<!-- /.comment-form -->
 					</div>
 
-					<%} %>
+					<%
+					}
+				} catch (Exception e) {
+				}
+					%>
 				</div>
 				<!-- /.row -->
 			</div>

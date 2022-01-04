@@ -120,7 +120,7 @@ ul {
 											<%} %>
 											<%if(dto == null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login</a></li>
+												href="login.jsp?numbers=5">login</a></li>
 											<%}else{ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout</a></li>
@@ -141,7 +141,7 @@ ul {
 												href="t_mymain.jsp">my</a></li>
 											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 										</ul>
 									</div>
 								</nav>
