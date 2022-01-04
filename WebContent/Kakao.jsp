@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TODAY☁︎MAP</title>
 
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100" />
@@ -215,8 +215,7 @@
 				</div>
 			</div>
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2"
-				style="background-image: url(./img/sky1.jpg)">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-5">
 				<!--
                  <div class="text-center">
                <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   

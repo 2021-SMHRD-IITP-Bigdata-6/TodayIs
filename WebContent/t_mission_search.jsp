@@ -181,7 +181,7 @@ ul {
 				</div>
 			</div>
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-4">
 
 			</div>
 
