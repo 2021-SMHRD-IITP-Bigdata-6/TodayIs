@@ -215,7 +215,7 @@ th, td {
 					<div class="blog-image col-md-12">
 						<a
 							href="t_community_search.jsp?region=<%=board_dto.getM_article_region() %>">
-							<h1 style="font-size: 200%">
+							<h1 style="font-size: 200%; color: #3399cc;">
 								#<%=board_dto.getM_article_region()%></h1>
 						</a> <img src="<%=board_dto.getM_article_img()%>"
 							style="width: 100%; height: 100%;" id="m_article_preview">
