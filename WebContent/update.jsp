@@ -16,7 +16,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>☁︎ LOGOUT & UPDATE</title>
+<title>TODAY☁︎SIGN OUT</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 

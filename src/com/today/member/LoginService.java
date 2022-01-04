@@ -66,10 +66,17 @@ public class LoginService extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
-			response.sendRedirect("t_community_search.jsp");
+			response.sendRedirect("t_mission_search.jsp");
 			session.setAttribute("board_dto", board_dto);
 			session.setAttribute("numbers", numbers);
-		}  else {
+		}  else if(numbers.contentEquals("6")) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("dto", dto);
+			response.sendRedirect("Kakao.jsp");
+			session.setAttribute("board_dto", board_dto);
+			session.setAttribute("numbers", numbers);
+		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("dto", dto);
 			response.sendRedirect("index.jsp");

@@ -15,7 +15,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>☁︎ COMMUNITY</title>
+<title>TODAY ☁︎ COMMUNITY</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -132,37 +132,43 @@ th, td {
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
-											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=3">login</a></li>
-											<%}else{ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
-													<span class="sr-only">(current)</span>
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">mission</a></li>
+											
 											<%
-												if (dto != null) {
-											%>
+											//로그인 한 상태
+											if(dto != null){ %>
+											<li class="nav-item "><a
+                                    class="nav-link tm-nav-link" href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
+                                 </a></li>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with<span class="sr-only">(current)</span>
+												</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
-											<%} %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="update.jsp?mb_id=<%=dto.getMb_id()%>">sign out</a></li>
+											
+											<%
+											//로그인 안 한 상태
+											}else{ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+                                    			href="index.jsp">☁︎ today</a></li>
+                                    		<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with<span class="sr-only">(current)</span>
+												</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a></li>	
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="Kakao.jsp">map</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.jsp?numbers=4">sign in</a></li>
+											<%
+												}
+											%>
+											
 										</ul>
 									</div>
 								</nav>
@@ -189,7 +195,17 @@ th, td {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2>☁︎ COMMUNITY VIEW</h2>
+						<h2>
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+								fill="currentColor" class="bi bi-chat-square-quote"
+								viewBox="0 0 16 16">
+  <path
+									d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+  <path
+									d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
+</svg>
+							&nbsp with
+						</h2>
 						<span><%=board_dto.getMb_id()%>회원님 <b>#<%=board_dto.getM_article_region()%></b></span>
 					</div>
 					<!-- /.section-header -->

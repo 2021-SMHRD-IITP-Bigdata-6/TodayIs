@@ -169,43 +169,44 @@
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
 											<%
-												if (dto != null) {
+											//로그인을 하면	
+											if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
-											<%
-												}
-											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_community.jsp">with </a></li>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_mission.jsp">moment<span
-													class="sr-only">(current)</span></a></li>
-											<%
-												if (dto != null) {
-											%>
+											<li class="nav-item "><a
+												class="nav-link tm-nav-link" href="t_mission.jsp">moment</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="Kakao.jsp">map<span class="sr-only">(current)</span></a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">sign out</a></li>
 											<%
 												}
 											%>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="Kakao.jsp">map</a></li>
+											
 											<%
+											//로그인 안 한 상태
 												if (dto == null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=2">login ☁︎ join</a></li>
-											<%
-												} else {
-											%>
+                                    			href="index.jsp">☁︎ today</a></li>
+                                    		<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with </a></li>
+											<li class="nav-item"><a
+												class="nav-link tm-nav-link" href="t_mission.jsp">moment</a></li>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="Kakao.jsp">map<span class="sr-only">(current)</span></a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout ☁︎ update</a></li>
-
+												href="login.jsp?numbers=6">sign in</a></li>							
 											<%
-												}
+												} 
 											%>
+
 										</ul>
 									</div>
 								</nav>

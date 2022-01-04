@@ -67,16 +67,19 @@
                                     if (dto != null) {
                                  %>
                                  <li class="nav-item active"><a
-                                    class="nav-link tm-nav-link" href="update.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%> <span class="sr-only">(current)</span>
+                                    class="nav-link tm-nav-link" href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
                                  </a></li>
                                  <%
                                     }
+                                 
                                  %>
 
 
                                  <%
                                     if (dto == null) {
                                  %>
+                                 <li class="nav-item"><a class="nav-link tm-nav-link"
+                                    href="index.jsp">☁︎ today</a></li>
                                  <li class="nav-item"><a class="nav-link tm-nav-link"
                                     href="t_community.jsp">with</a></li>
                                  <li class="nav-item"><a class="nav-link tm-nav-link"
@@ -104,13 +107,12 @@
                                     if (dto == null) {
                                  %>
                                  <li class="nav-item"><a class="nav-link tm-nav-link"
-                                    href="login.jsp">login ☁︎ join</a></li>
+                                    href="login.jsp">sign in</a></li>
                                  <%
                                     } else {
                                  %>
                                  <li class="nav-item"><a class="nav-link tm-nav-link"
-                                    href="update.jsp?mb_id=<%=dto.getMb_id()%>">logout ☁︎
-                                       update</a></li>
+                                    href="update.jsp?mb_id=<%=dto.getMb_id()%>">sign out</a></li>
                                  <%
                                     }
                                  %>
@@ -614,11 +616,11 @@
 
                               if (data3 >= 80) {
                            %>
-                           밀린 빨래하기 좋은 날이네요.
+                           밀린 빨래하기 좋은 날이에요.
                            <%
                               } else if (data3 >= 70) {
                            %>
-                           야외 건조 좋아요
+                           야외에서 건조하기 좋아요.
                            <%
                               } else if (data3 >= 50) {
                            %>
@@ -643,11 +645,11 @@
 
                            if (data3 >= 80) {
                            %>
-                           밀린 빨래하기 좋은 날이네요.
+                           밀린 빨래하기 좋은 날이에요.
                            <%
                               } else if (data3 >= 70) {
                            %>
-                           야외 건조 좋아요
+                           야외에서 건조하기 좋아요.
                            <%
                               } else if (data3 >= 50) {
                            %>
@@ -913,7 +915,7 @@
                            <%
                               } else {
                            %>
-                           세차는 다음 기회에..
+                           세차는 미루세요.
                            <%
                               }
                            %>
@@ -938,7 +940,7 @@
                            <%
                               } else {
                            %>
-                           세차는 다음 기회에..
+                           세차는 미루세요.
                            <%
                               }
                            %>
@@ -995,7 +997,7 @@
                            <%
                               } else if (data5 >= 40) {
                            %>
-                           가방에 작은 우산 정도.
+                           가방에 작은 우산 정도 챙기세요.
                            <%
                               } else if (data5 >= 30) {
                            %>
@@ -1028,7 +1030,7 @@
                            <%
                               } else if (data5 >= 40) {
                            %>
-                           가방에 작은 우산 정도.
+                           가방에 작은 우산 정도 챙기세요.
                            <%
                               } else if (data5 >= 30) {
                            %>
@@ -1461,28 +1463,30 @@
          <div class="row mt-5 pt-3">
             <div class="col-xl-6 col-lg-12 mb-4">
                <div class="tm-bg-gray p-5 h-100">
-                  <h3 class="tm-text-primary mb-3">Our Team - ☁︎ Today</h3>
+                  <h3 class="tm-text-primary mb-3">OUR TEAM - ☁︎ TODAY</h3>
                   <div class="p-5 tm-bg-gray">
                      <ul class="list-unstyled tm-footer-links">
                         <li><a href="#">전웅철</a></li>
                         <li><a href="#">박서현</a></li>
                         <li><a href="#">김현철</a></li>
                         <li><a href="#">유현지</a></li>
-                        <li><a href="login.html">그 외 도움을 주신 분들♥</a></li>
+                        <li><a href="#">그 외 도움을 주신 분들♥</a></li>
                      </ul>
                   </div>
                </div>
             </div>
             <div class="col-xl-6 col-lg-12 mb-4">
                <div class="tm-bg-gray p-5 h-100">
-                  <h3 class="tm-text-primary mb-3">Menu - ☁︎ Today</h3>
+                  <h3 class="tm-text-primary mb-3">MENU - ☁︎ TODAY</h3>
                   <div class="p-5 tm-bg-gray">
                      <ul class="list-unstyled tm-footer-links">
                         <li><a href="tm-text-primary mb-4"></a></li>
-                        <li><a href="#">login</a></li>
-                        <li><a href="#">update</a></li>
-                        <li><a href="#">map</a></li>
-                        <li><a href="login.html">my</a></li>
+                        <li><a href="#">WITH</a></li>
+                        <li><a href="#">MOMENT</a></li>
+                        <li><a href="#">MY</a></li>
+                        <li><a href="#">MAP</a></li>
+                        <li><a href="#">LOGIN</a></li>
+                        <li><a href="#">LOGOUT</a></li>
                      </ul>
                   </div>
                </div>

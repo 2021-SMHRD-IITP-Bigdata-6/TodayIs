@@ -142,7 +142,7 @@ tr {
                                     if (dto != null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
 											<%
                                     }
@@ -164,12 +164,12 @@ tr {
                                     if (dto == null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=2">login ☁︎ join</a></li>
+												href="login.jsp?numbers=2">sign in</a></li>
 											<%
                                     } else {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout ☁︎ update</a></li>
+												href="LogoutService">sign out</a></li>
 
 											<%
                                     }
@@ -183,8 +183,7 @@ tr {
 				</div>
 			</div>
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2"
-				style="background-image: url(./img/sky1.jpg)">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
 				<!--
                  <div class="text-center">
                <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
@@ -266,8 +265,7 @@ tr {
 										<%
                                  if (dto == null) {
                               %>
-										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
-											시 로그인이 필요해요</li>
+										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제 시 로그인이 필요해요</li>
 										<%
                                  } else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
                               %>

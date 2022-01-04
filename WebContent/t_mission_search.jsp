@@ -140,7 +140,7 @@ ul {
                                     if (dto != null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
 											<%
                                     }
@@ -162,12 +162,12 @@ ul {
                                     if (dto == null) {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp?numbers=2">login ☁︎ join</a></li>
+												href="login.jsp?numbers=5">sign in</a></li>
 											<%
                                     } else {
                                  %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout ☁︎ update</a></li>
+												href="LogoutService">sign out</a></li>
 
 											<%
                                     }

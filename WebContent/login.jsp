@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>☁︎ LOGIN & JOIN</title>
+<title>TODAY☁︎SIGN IN</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 
@@ -166,31 +166,42 @@
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
+											<%
+											//로그인 한 상태
+											if(dto != null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp"> <%=dto.getMb_nickname()%>'s <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp">login</a></li>
-											<%}else{ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
-													<span class="sr-only">(current)</span>
+											<li class="nav-item"><a
+												class="nav-link tm-nav-link" href="t_community.jsp">with
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="about.html">today</a>
+												href="t_mission.jsp">moment</a>
 											</li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="contact.html">my</a></li>
+												href="t_mymain.jsp">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="LogoutService">sign out</a></li>
+											<%} %>
+											<%
+											//로그인을 안 한 상태
+											if(dto == null){ %>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="index.jsp">☁︎ today</a></li>
+											<li class="nav-item"><a
+												class="nav-link tm-nav-link" href="t_community.jsp">with
+											</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a>
+											</li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="Kakao.jsp">map</a></li>
+											
+											<%}else{ %>
+											<%} %>
+										
 										</ul>
 									</div>
 								</nav>

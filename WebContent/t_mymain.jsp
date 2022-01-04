@@ -134,7 +134,7 @@ justify-content: space-between;}
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
@@ -159,7 +159,7 @@ justify-content: space-between;}
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout ☁︎ update</a></li>
+												href="LogoutService">sign out</a></li>
 											<%
 												}
 											%>
@@ -174,7 +174,7 @@ justify-content: space-between;}
 			</div>
 
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-3">
 				<!--
         			<div class="text-center">
 					<p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                	

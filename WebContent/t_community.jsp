@@ -142,53 +142,37 @@ ul {
 
 										<ul class="navbar-nav text-uppercase">
 											<%
-												if (dto != null) {
-											%>
-											<li class="nav-item"><a
-												class="nav-link tm-nav-link" href="index.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%> 
-											</a></li>
-											<%
-												}
-											%>
-
-											<%
-												if (dto == null) {
-											%>
+											//로그인 한 상태
+											if(dto != null){ %>
+											<li class="nav-item "><a
+                                    class="nav-link tm-nav-link" href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
+                                 </a></li>
 											<li class="nav-item active"><a class="nav-link tm-nav-link"
-												href="t_community.jsp">&nbsp with<span class="sr-only">(current)</span>
+												href="t_community.jsp">with<span class="sr-only">(current)</span>
 												</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">moment</a></li>
-											<%
-												}
-											%>
-
-
-											<%
-												if (dto != null) {
-											%>
-											<li class="nav-item active"><a class="nav-link tm-nav-link"
-												href="t_community.jsp">with<span class="sr-only">(current)</span></a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">moment</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
-											<%
-												}
-											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
-											<%
-												if (dto == null) {
-											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp">login ☁︎ join</a></li>
+												href="update.jsp?mb_id=<%=dto.getMb_id()%>">sign out</a></li>
+											
 											<%
-												} else {
-											%>
+											//로그인 안 한 상태
+											}else{ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id()%>">logout ☁︎
-													update</a></li>
+                                    			href="index.jsp">☁︎ today</a></li>
+                                    		<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with<span class="sr-only">(current)</span>
+												</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_mission.jsp">moment</a></li>	
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="Kakao.jsp">map</a></li>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="login.jsp?numbers=4">sign in</a></li>
 											<%
 												}
 											%>
@@ -201,13 +185,15 @@ ul {
 
 				</div>
 			</div>
+			
+			<!--  -->
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2">
-
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-1">
 			</div>
 
-			<div id="tm-fixed-header-bg"></div>
+
 			<!-- Header image -->
+			<div id="tm-fixed-header-bg"></div>
 		</div>
 
 		<!-- section-header -->
