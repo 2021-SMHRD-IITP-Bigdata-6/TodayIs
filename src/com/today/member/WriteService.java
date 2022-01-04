@@ -49,12 +49,14 @@ public class WriteService extends HttpServlet {
 	    }	
 	    	
 	    	
-		if (cnt > 0) {
+		if (cnt > 0 && m_board_type.equals("메인 게시판")) {
 			boardDTO board_dto = new boardDTO(cnt ,m_article_subject, m_article_content, m_article_img_name, mb_id, m_article_region, m_board_type);
 			session.setAttribute("board_dto", board_dto); 
 			response.sendRedirect("t_community_click.jsp");
 			
 			
+		} else if(m_board_type.equals("미션 게시판")) {
+			response.sendRedirect("t_mission.jsp");
 		} else {
 			response.sendRedirect("t_write.jsp");
 		}
