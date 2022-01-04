@@ -78,7 +78,7 @@ public class moveDAO {
 	        	String w_region = rs.getString(2);
 	        	String w_status = rs.getString(3);
 	        	float w_temp = rs.getFloat(4);
-	        	String w_body_temp = rs.getNString(5);
+	        	float w_body_temp = rs.getFloat(5);
 	        	String w_humidity = rs.getNString(6);
 	        	String w_wind = rs.getNString(7);
 	        	

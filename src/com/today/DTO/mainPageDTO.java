@@ -7,11 +7,11 @@ public class mainPageDTO {
 	private String w_status;
 	//private String w_temp;
 	private float w_temp;
-	private String w_body_temp;
+	private float w_body_temp;
 	private String w_humidity;
 	private String w_wind;
 	
-	public mainPageDTO(String w_index, String w_local, String w_status, float w_temp, String w_body_temp,
+	public mainPageDTO(String w_index, String w_local, String w_status, float w_temp, float w_body_temp,
 			String w_humidity, String w_wind) {
 		super();
 		this.w_index = w_index;
@@ -23,7 +23,7 @@ public class mainPageDTO {
 		this.w_wind = w_wind;
 	}
 	
-	public mainPageDTO(String w_local, String w_status, float w_temp, String w_body_temp, String w_humidity,
+	public mainPageDTO(String w_local, String w_status, float w_temp, float w_body_temp, String w_humidity,
 			String w_wind) {
 		super();
 		this.w_local = w_local;
@@ -78,11 +78,11 @@ public class mainPageDTO {
 		this.w_temp = w_temp;
 	}
 
-	public String getW_body_temp() {
+	public float getW_body_temp() {
 		return w_body_temp;
 	}
 
-	public void setW_body_temp(String w_body_temp) {
+	public void setW_body_temp(float w_body_temp) {
 		this.w_body_temp = w_body_temp;
 	}
 

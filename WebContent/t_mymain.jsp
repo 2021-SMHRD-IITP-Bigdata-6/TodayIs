@@ -210,8 +210,7 @@ td {
 										<img src="<%=arr.get(i).getM_article_img()%>"
 											onclick="func2(<%=i%>)" class="modal_con">
 										<div class="modal">
-											<div class="modal_content"
-												style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
+											<div class="modal_content" style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
 												<img src="<%=arr.get(i).getM_article_img()%>"
 													class="modal_img">
 											</div>
@@ -221,7 +220,7 @@ td {
 
 										<h2>
 											<a
-												href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 												<h3
 													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
 													#<%=arr.get(i).getM_article_region()%></h3>
