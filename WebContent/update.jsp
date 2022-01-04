@@ -134,31 +134,26 @@
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
 										<ul class="navbar-nav text-uppercase">
-											<%if(dto != null){ %>
+											<%
+											//로그인 한 상태
+											if(dto != null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
 											</a></li>
-											<%} %>
-											<%if(dto == null){ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.jsp">login</a></li>
-											<%}else{ %>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">logout</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="update.jsp?mb_id=<%=dto.getMb_id() %>">update</a></li>
-											<%} %>
-											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">weather
-													<span class="sr-only">(current)</span>
+											<li class="nav-item "><a
+												class="nav-link tm-nav-link" href="t_community.jsp">with
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="t_mission.jsp">today</a>
+												href="t_mission.jsp">moment</a>
 											</li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mymain.jsp">my</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
+											<li class="nav-item active"><a class="nav-link tm-nav-link"
+												href="LogoutService">sign out<span class="sr-only">(current)</span></a></li>
+											<%
+											}%>
 										</ul>
 									</div>
 								</nav>
