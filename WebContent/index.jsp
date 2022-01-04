@@ -19,9 +19,6 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-
-<title>TODAY? MAIN PAGE</title>
-
 </head>
 <body>
 
@@ -70,7 +67,7 @@
 												if (dto != null) {
 											%>
 											<li class="nav-item active"><a
-												class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s
+												class="nav-link tm-nav-link" href="update.jsp"> <%=dto.getMb_nickname()%>'s
 													<%=dto.getMb_region()%> <span class="sr-only">(current)</span>
 											</a></li>
 											<%

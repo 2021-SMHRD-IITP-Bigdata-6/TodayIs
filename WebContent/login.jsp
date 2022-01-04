@@ -179,7 +179,7 @@
 	<!-- LOGIN & JOIN PAGE -->
 	<div class="section-header col-md-12" style="margin: -280px 0 0 0">
 		<h2>☁︎ TODAY?</h2>
-		<span>오늘도 사용해 주셔서 감사합니다.</span> <a href="login.jsp"
+		<span>오늘도 사용해 주셔서 감사합니다.</span> <a href="index.jsp"
 			style="float: right;"><h2>LOGIN & JOIN ☁︎</h2></a>
 	</div>
 	
@@ -230,7 +230,7 @@
 			<input type="hidden" class="form-control" id="region"
 			placeholder="지역을 선택해주세요" name="mb_region" maxlength="20"
 			readonly>
-		<button class="submit" onclick="location.href='JoinService'"> join </button>
+		<button class="submit" onclick="location.href='login.jsp'"> join </button>
 	</form>
 	</div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>

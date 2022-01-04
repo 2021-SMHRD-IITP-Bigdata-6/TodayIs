@@ -103,8 +103,9 @@ justify-content: space-between;}
 										type="button" data-toggle="collapse" data-target="#navbar-nav"
 										aria-controls="navbar-nav" aria-expanded="false"
 										aria-label="Toggle navigation">
-										<span> <i class="fas fa-bars tm-menu-closed-icon"></i>
-											<i class="fas fa-times tm-menu-opened-icon"></i>
+										<span>
+										<i class="fas fa-bars tm-menu-closed-icon"></i>
+										<i class="fas fa-times tm-menu-opened-icon"></i>
 										</span>
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">

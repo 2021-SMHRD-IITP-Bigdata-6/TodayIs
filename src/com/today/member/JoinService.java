@@ -1,6 +1,7 @@
 package com.today.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,8 +41,9 @@ public class JoinService extends HttpServlet {
 		if (cnt > 0) {
 			request.setAttribute("dto", dto);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
 			dis.forward(request, response);
+			
 			
 			// JoinCon에서 joinSuccess.jsp로 값을 보낼  수 있는 두가지 방법
 			// 1. 세션활용

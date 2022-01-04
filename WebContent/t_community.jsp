@@ -76,6 +76,27 @@ li {
 ul {
 	list-style: none;
 }
+
+.fa-bars:before {
+	content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-weight: 900;
+   
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-size: 21px; 
+    font-family: FontAwesome;
+}
+.fa, .far, .fas {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-variant: normal;
+    format: "woff";  
+    src :url("../webfonts/fa-solid-900.ttf") ;
+}
 </style>
 </head>
 <body>
