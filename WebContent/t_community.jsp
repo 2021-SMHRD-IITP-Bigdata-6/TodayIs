@@ -1,3 +1,5 @@
+<%@page import="java.util.stream.Collectors"%>
+<%@page import="java.util.Comparator"%>
 <%@page import="com.today.DAO.commDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.today.DAO.boardDAO"%>
@@ -111,6 +113,7 @@ ul {
 	commDAO comm_dao = new commDAO();
 	ArrayList<commDTO> all = comm_dao.comm_selectall();
 	int cnt = 0;
+
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -228,7 +231,7 @@ ul {
 
 						<%
 							try {
-							for (int i = 0; i < arr.size(); i++) {
+							for (int i = arr.size()-1; i > 0; i--) {
 						%>
 						<!-- 1번 게시물 -->
 

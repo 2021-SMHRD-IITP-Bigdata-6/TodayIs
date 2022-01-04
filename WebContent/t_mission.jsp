@@ -229,7 +229,7 @@ tr {
 						<div class="row">
 							<!--미션글_1-->
 							<%
-                        for (int i = 0; i < arr.size(); i++) {
+                        for (int i = arr.size()-1; i > 0; i--) {
                      %>
 
 							<div class="post-masonry col-md-4 col-sm-6">
