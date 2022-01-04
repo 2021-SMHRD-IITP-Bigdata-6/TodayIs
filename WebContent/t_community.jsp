@@ -137,12 +137,12 @@ ul {
 												}
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 												<%
 												if (dto == null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="login.html">login ☁︎ join</a></li>
+												href="login.jsp?numbers=1">login ☁︎ join</a></li>
 											<%
 												} else {
 											%>
@@ -467,5 +467,6 @@ ul {
 		});
 	      
     </script>
+    
 </body>
 </html>

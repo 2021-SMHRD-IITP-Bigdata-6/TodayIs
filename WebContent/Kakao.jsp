@@ -129,9 +129,12 @@ moveDAO wm_dao = new moveDAO();
 
 
 %>
+	<button onclick="panTo1()">서울</button>
+	<button onclick="panTo2()">광주</button>
 <table>
 <tr>
-	<td><select id="big" name="h_area1" class="" onChange="cat1_change()">
+
+	<td><select id="big" name="h_area1" class="" >
 			<option>-지역-</option>
 			<option value='1'>서울</option>
 			<option value='2'>경기</option>
@@ -165,48 +168,46 @@ moveDAO wm_dao = new moveDAO();
 			<script src="js/vendor/jquery-1.11.0.min.js"></script>
 	<script>
 	
-	function cat1_change(key,sel){
-		console.log("test"+sel);
-	 if(key == '') return;
-	
-	 for(i=sel.length-1; i>=0; i--)
-	  sel.options[i] = null;
-	 sel.options[0] = new Option('-선택-','', '', 'true');
-	 for(i=0; i<name.length; i++){
-	  sel.options[i+1] = new Option(name[i],val[i]);
-	 }
+
 	
 	var selected_big
-	
-	// 지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기
-	$('#big').on('click', function(){
-		selected_big = $('#big option:selected').text();
-		console.log(selected_big);
-	});
-	}
-	
-	
-	
 		var region = [
 			[37.3306890, 126.5930664], // 서울
 			[37.4980273, 127.5117792], // 경기도(양평)
 			[37.4585339, 126.7055905], // 인천(강화도)
-			[35.1595454, 126.8526012], // 광주
+			[35.1595454, 126.8526012] // 광주
 			
 		];
-		
-		var region_name =['서울','경기','인천','충북','충남','세종','대전','강원','전북','전남','광주','경북','울산','부산','경남','제주'];
-		
 	
+		var a = 35.1595454;
+		var b = 126.8526012;
+		
 		var container = document.getElementById('map');
 		var options = {
 			//광주 위도 경도가 기본값
-			center : new kakao.maps.LatLng(region[0][0], region[0][1]),
+			center : new kakao.maps.LatLng(a , b),
 			level : 11
-		};
-
+		}
 		var map = new kakao.maps.Map(container, options);
+		
+	// 지역 클릭 시 선택된 option태그의 내용을 text형태로 가지고 오기
+	$('#big').on('click', function(){
+		selected_big = $('#big option:selected').text();
+		var region_name =['서울','경기','인천','충북','충남','세종','대전','강원','전북','전남','광주','경북','울산','부산','경남','제주'];
+		
+		
+		
+		for (var i = 0; i < 16; i ++) {
+		if( selected_big == region_name[i]) {
+			console.log(region_name[i]);
+			a = region[i][0];
+			b = region[i][1];
 
+		};
+		};
+		});
+
+	
 		var content = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">광주 날씨 </div>'
 				+ '    <div class="first">' 
@@ -233,18 +234,77 @@ moveDAO wm_dao = new moveDAO();
 		// 커스텀 오버레이가 표시될 위치입니다 
 		var position = new kakao.maps.LatLng(35.1595454, 126.8526012);
 
+		
+		var content1 = '<div class="overlaybox">'
+			+ '    <div class="boxtitle">서울 날씨 </div>'
+			+ '    <div class="first">' 
+		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_body_temp() %>℃</div>'
+			+ '    </div>' + '    <ul>' + '        <li class="up">'
+			+ '            <span class="number">날씨상태</span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_status() %></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + ' <span class="number">체감온도</span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_body_temp() %>℃</span>'
+			+ '            <span class="arrow up"></span>'
+			+ '           ' + '        </li>'
+			+ '        <li>' + '            <span class="number">습도</span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_humidity() %></span>'
+			+ '            <span class="arrow up"></span>'
+			+ '          ' + '        </li>'
+			+ '        <li>' + '            <span class="number">풍향</span>'
+			+ '            <span class="title"><%=wm_dao.Move("서울").getW_wind() %></span>'
+			+ '            <span class="arrow down"></span>'
+			+ '            ' + '        </li>'
+			+ '    </ul>' + '</div>';
+
+	// 커스텀 오버레이가 표시될 위치입니다 
+	var position1 = new kakao.maps.LatLng(37.5406890, 126.9930664);
+	
+	
 		// 커스텀 오버레이를 생성합니다
 		var customOverlay = new kakao.maps.CustomOverlay({
 			position : position,
 			content : content,
 			xAnchor : 0.3,
-			yAnchor : 0.91
+			yAnchor : 0.80
+
 		});
 
+		var customOverlay1 = new kakao.maps.CustomOverlay({
+			position : position1,
+			content : content1,
+			xAnchor : 0.3,
+			yAnchor : 0.80
+		    
+		});
 		// 커스텀 오버레이를 지도에 표시합니다
 		customOverlay.setMap(map);
+		customOverlay1.setMap(map);
+		
+		
+		
+		
+		
 		
 
+		function panTo1() {
+		    // 이동할 위도 경도 위치를 생성합니다 
+		    var moveLatLon = new kakao.maps.LatLng(37.3306890, 126.5930664);
+		    
+		    // 지도 중심을 부드럽게 이동시킵니다
+		    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+		    map.panTo(moveLatLon);            
+		}  
+		
+		function panTo2() {
+		    // 이동할 위도 경도 위치를 생성합니다 
+		    var moveLatLon = new kakao.maps.LatLng(35.1595454, 126.8526012);
+		    
+		    // 지도 중심을 부드럽게 이동시킵니다
+		    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+		    map.panTo(moveLatLon);            
+		}   
 
 
 	</script>
