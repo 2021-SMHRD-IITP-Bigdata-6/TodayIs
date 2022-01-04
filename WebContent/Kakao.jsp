@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TODAY☁︎MAP</title>
 
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100" />
@@ -215,8 +215,7 @@
 				</div>
 			</div>
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-2"
-				style="background-image: url(./img/sky1.jpg)">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-5">
 				<!--
                  <div class="text-center">
                <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                   
@@ -236,19 +235,19 @@
 				<div class="row">
 					<div class="section-header col-md-12">
 						<h2>
-							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-								fill="currentColor" class="bi bi-easel-fill" viewBox="0 0 16 16">
-  <path
-									d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z" />
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
 </svg>
 							&nbsp MAP
 						</h2>
 						<span> WEATHER STATUS/ TEMP / BODY-TEMP </span>
+						
+						
 					</div>
 					<!-- /.section-header -->
 				</div>
 				<!-- /.row -->
-				<div class="projects-holder-3">
+			<div class="projects-holder-3">
 
 					<div class="blog-masonry masonry-true">
 						<div class="row" align="center">
@@ -277,7 +276,7 @@
 				</div >
 			</div>
 		</div>
-	</div>
+
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc7696aa31445fcfe21fc7bb8d6cc220"></script>
