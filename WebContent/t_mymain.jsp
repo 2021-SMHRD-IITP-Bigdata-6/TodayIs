@@ -75,6 +75,26 @@ td {
 display: flex;
 justify-content: space-between;}
 
+.fa-bars:before {
+	content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-weight: 600;
+   }
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-size: 20px; 
+    font-family: FontAwesome;
+}
+.fa, .far, .fas {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-variant: normal;
+    format: "woff";  
+    src :url("../webfonts/fa-solid-600.ttf") ;
+}
+
 </style>
 </head>
 <body>

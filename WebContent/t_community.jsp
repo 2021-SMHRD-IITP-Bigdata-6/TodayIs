@@ -81,7 +81,7 @@ ul {
 	content: "\f0c9";
     display: inline-block;
     font-family: "FontAwesome";
-    font-weight: 900;
+    font-weight: 800;
    
 }
 
@@ -95,7 +95,7 @@ ul {
     font-style: normal;
     font-variant: normal;
     format: "woff";  
-    src :url("../webfonts/fa-solid-900.ttf") ;
+    src :url("../webfonts/fa-solid-800.ttf") ;
 }
 </style>
 </head>

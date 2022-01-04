@@ -20,22 +20,14 @@
 	href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100" />
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900" />
-
-
+	
 <link rel="stylesheet" href="t_css/font-awesome.css" />
 <link rel="stylesheet" href="t_css/bootstrap.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
-
-
-
+<link rel="stylesheet" href="t_css/templatemo-style.css" />
+<link rel="stylesheet" href="t_css/animate.css" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-
-<link rel="stylesheet" href="t_css/animate.css" />
-
-<link rel="stylesheet" href="t_css/templatemo-style.css" />
-
-
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 
 <style>
@@ -84,7 +76,7 @@ tr {
 	content: "\f0c9";
     display: inline-block;
     font-family: "FontAwesome";
-    font-weight: 900;
+    font-weight: 800;
    
 }
 
@@ -98,7 +90,7 @@ tr {
     font-style: normal;
     font-variant: normal;
     format: "woff";  
-    src :url("../webfonts/fa-solid-900.ttf") ;
+    src :url("../webfonts/fa-solid-800.ttf") ;
 }
 </style>
 </head>
