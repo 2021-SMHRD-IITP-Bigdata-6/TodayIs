@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
-<title>TODAY☁︎COMMUNITY</title>
+<title>TODAY☁︎EDIT</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
 

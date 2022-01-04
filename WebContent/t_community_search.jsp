@@ -240,7 +240,7 @@ ul {
 										<a
 											href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 											<h3
-												style="margin-top: 10%; margin-bottom: 5%; color: #7AE2DE; font-weight: bold;">
+												style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: bold;">
 												#<%=arr.get(i).getM_article_region()%></h3>
 										</a>
 									</h3>
