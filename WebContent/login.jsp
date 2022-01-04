@@ -129,10 +129,7 @@
 										<ul class="navbar-nav text-uppercase">
 											<%if(dto != null){ %>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's
-											</a></li>
-											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#" id=Mb_region> <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%>'s <%=dto.getMb_region()%>
 											</a></li>
 											<%} %>
 											<%if(dto == null){ %>
@@ -192,7 +189,7 @@
 			placeholder="User id" required> 
 			<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password"
 			required>
-		<button class="submit" style="margin: 5px 0 2px -10px;" onclick="location:href='LoginService'">login</button>
+		<button class="submit" style="margin: 5px 0 2px -10px;" >login</button>
 
 		<br><br>
 		</form>

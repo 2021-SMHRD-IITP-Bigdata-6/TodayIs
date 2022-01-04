@@ -28,13 +28,24 @@
    <%
 // main 페이지 연결
 memberDTO dto = (memberDTO)session.getAttribute("dto");
+
+// 업데이트용 dto
+memberDTO update_dto = (memberDTO)session.getAttribute("update_dto");
 mainPageDTO move_dto = (mainPageDTO)session.getAttribute("move_dto");
 boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
 
 
-   moveDAO move_dao = new moveDAO();
+if (update_dto != null) {
+	
+System.out.print(update_dto.getMb_id());
+System.out.print(update_dto.getMb_nickname());
 
-   // main 상세 페이지 연결
+}
+
+   moveDAO move_dao = new moveDAO();
+   
+
+   //main 상세 페이지 연결
    mainLifeDAO life_dao = new mainLifeDAO();
    mainLifeDTO life_dto = null;
    %>
@@ -68,16 +79,23 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
 
                               <ul class="navbar-nav text-uppercase">
                                  <%
-                                    if (dto != null) {
+                                 	try {
+                                    if (update_dto != null) {
                                  %>
-                                 <li class="nav-item active"><a
-                                    class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s
-                                       <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
-                                 </a></li>
-                                 <%
-                                    }
-                                 %>
-                                 
+		                                 <li class="nav-item active"> 
+		                                 <a class="nav-link tm-nav-link" href="update.jsp"> <%=update_dto.getMb_nickname()%>'s
+		                                       <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
+		                                 </a></li>
+                                 <%} else if (dto != null) {%>
+                                 		   <li class="nav-item active"> 
+		                                 <a class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s
+		                                       <%=dto.getMb_region()%> <span class="sr-only">(current)</span>
+		                                 </a></li>
+		                                 <%} 
+                                 	} catch(Exception e) { 
+                                 		
+                                 	}
+		                                 %>
 
                                  <%if(dto == null){ %>
                                  <li class="nav-item"><a class="nav-link tm-nav-link"
@@ -151,9 +169,10 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
          </div>
       </div>
       <div id="tm-video-container">
+      
          <% if(dto != null){%>
          <%if(move_dao.Move(dto.getMb_region()).getW_status().equals("맑음") 
-                 || move_dao.Move(dto.getMb_region()).getW_status().equals("")){ %>
+                 || move_dao.Move(dto.getMb_region()).getW_status()==null){System.out.println("test7889549416519841"); %>
          <video autoplay muted loop id="tm-video">
             <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
             <source src="video/sun.mp4" type="video/mp4" />
@@ -179,7 +198,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
             <source src="video/thunder.mp4" type="video/mp4" />
          </video>
          <%}else if(move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 단속적") 
-                    || move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 연속적")){ %>
+                    || move_dao.Move(dto.getMb_region()).getW_status().equals("약한 눈 연속적")){%>
          <video autoplay muted loop id="tm-video">
             <source src="video/snow.mp4" type="video/mp4" />
          </video>
@@ -194,7 +213,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
          <%} %>
          <%}else{ %>
          <%if(move_dao.Move("광주").getW_status().equals("맑음") 
-                 || move_dao.Move("광주").getW_status().equals("")){ %>
+                 || move_dao.Move("광주").getW_status()== null){ %>
          <video autoplay muted loop id="tm-video">
             <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
             <source src="video/sun.mp4" type="video/mp4" />
@@ -293,7 +312,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
                         <%} %><br />
 
                         <%if(dto != null){
-                                    float move = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_body_temp());
+                                    float move = move_dao.Move(dto.getMb_region()).getW_body_temp();
                                     int data = (int)move;
                         
                                     if(data >= 50){ %>
@@ -314,7 +333,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
                         이렇게 추운데..꼭 나가야 할까요?
                         <%} %>
                         <%}else{ %>
-                        <% float move = Float.parseFloat(move_dao.Move("광주").getW_body_temp());
+                        <% float move = move_dao.Move("광주").getW_body_temp();
                                     int data = (int)move;
                         
                                    if(data >= 50){ %>
@@ -418,9 +437,9 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
                         </span>
                         <%} %><br />
                         <%if(dto != null){%>
-                        바람이 부네요
+                        바람이 부네요.
                         <%}else{%>
-                        바람이 부네요
+                        바람이 부네요.
                         <%} %><br />
                      </p>
                   </div>
@@ -971,6 +990,7 @@ boardDTO board_dto = (boardDTO)request.getAttribute("board_dto");
                         <%}else{ %>
                         피부 관리는 평소에 하는 거 아시죠?
                         <%} %>
+                        
                         <%}else{ %>
                         <%float move9 = move_dao.Move("광주").getW_temp();
                                     /*  float move9 = Float.parseFloat(move_dao.Move(dto.getMb_region()).getW_temp()); */

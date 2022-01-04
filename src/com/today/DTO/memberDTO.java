@@ -34,8 +34,7 @@ public class memberDTO {
 		this.mb_region = mb_region;
 	}
 
-	
-	
+	// 업데이트 후 세션용
 	public memberDTO(String mb_id, String mb_pw, String mb_nickname, String mb_region) {
 		super();
 		this.mb_id = mb_id;

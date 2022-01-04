@@ -150,9 +150,8 @@ public class memberDAO {
 			psmt.setString(3, mb_nickname);
 			psmt.setString(4, mb_region);
 			psmt.setString(5, mb_id);
-
+			
 			cnt = psmt.executeUpdate();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 
