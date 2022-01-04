@@ -174,7 +174,7 @@ justify-content: space-between;}
 			</div>
 
 
-			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-3">
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-4">
 				<!--
         			<div class="text-center">
 					<p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">Another Image BG<br>it can be fixed.<br>Content will simply slide over.</p>                	
