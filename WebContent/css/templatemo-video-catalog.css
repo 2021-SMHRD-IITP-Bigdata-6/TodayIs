@@ -1,3 +1,4 @@
+templatemo-video-catalog.css
 
 
 @font-face {
@@ -159,7 +160,7 @@ h2, p { color: #666666; }
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
-    font-family: "Font Awesome 5 Free";
+    font-family: "S-CoreDream-5Medium";
     font-style: normal;
     font-weight: 900;
     line-height: 1;
@@ -491,14 +492,15 @@ video {
         border-top-right-radius: 0;
         padding: 10px 15px;
     }
-ss
-    .nav-item { margin-bottom: 10px; }
-
-    .navbar-toggler {
+	ss.nav-item { margin-bottom: 10px; }
+	
+	.navbar-toggler {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         width: 52px;
         height: 40px;
+        display: flex;
+        justify-content: center;
     }
 
     .navbar-toggler.collapsed {
@@ -506,7 +508,7 @@ ss
         border-bottom-right-radius: .25rem;   
     }
 
-    .navbar-toggler i.tm-menu-opened-icon { display: block; }
+    .navbar-toggler i.tm-menu-opened-icon { display: block;}
     .navbar-toggler i.tm-menu-closed-icon { display: none; }
     .navbar-toggler.collapsed i.tm-menu-opened-icon { display: none; }
     .navbar-toggler.collapsed i.tm-menu-closed-icon { display: block; }

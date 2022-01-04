@@ -70,11 +70,16 @@ td {
 	left: 0;
 	display: block;
 }
+
+.section-header col-md-12 h2, form{
+display: flex;
+justify-content: space-between;}
+
 </style>
 </head>
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -82,7 +87,6 @@ td {
 
 	ArrayList<boardDTO> arr = dao.m_board_all(dto.getMb_id());
 	ArrayList<boardDTO> all = dao.m_mboard_all(dto.getMb_id());
-	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -90,7 +94,7 @@ td {
 			<div class="potition-absolute tm-site-header">
 				<div class="container-fluid position-relative">
 					<div class="row">
-						<div class="col-5 col-md-8 ml-auto mr-0">
+						<div class="col-5 col-md-11 ml-auto mr-0">
 							<div class="tm-site-nav">
 								<nav class="navbar navbar-expand-lg mr-0 ml-auto"
 									id="tm-main-nav">
@@ -109,36 +113,36 @@ td {
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#">  <%=dto.getMb_nickname()%>'s
-													<%=dto.getMb_region()%> 
+												href="#"> <%=dto.getMb_nickname()%>'s <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
 											%>
-											
-											<li class="nav-item"><a
-												class="nav-link tm-nav-link" href="t_community.jsp">with
-													
-											</a></li>
+
+											<li class="nav-item"><a class="nav-link tm-nav-link"
+												href="t_community.jsp">with </a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_mission.jsp">moment</a></li>
 											<%
 												if (dto != null) {
 											%>
-											<li class="nav-item active"><a class="nav-link tm-nav-link"
-												href="t_mymain.jsp">my<span class="sr-only">(current)</span></a></li>
+											<li class="nav-item active"><a
+												class="nav-link tm-nav-link" href="t_mymain.jsp">my<span
+													class="sr-only">(current)</span></a></li>
 											<%
 												}
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map</a></li>
-												<%
-												if(dto != null) {
-												%>
-												<li class="nav-item"><a class="nav-link tm-nav-link"
+											<%
+												if (dto != null) {
+											%>
+											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="LogoutService">logout ☁︎ update</a></li>
-												<%} %>
-												
+											<%
+												}
+											%>
+
 										</ul>
 									</div>
 								</nav>
@@ -163,20 +167,19 @@ td {
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2 style="display:inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
-  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-</svg>&nbsp MY MEMORY</h2> <span> Remember your memory</span>
-						<form name="Search_type" method="post">
-
-							 <a href="t_write.jsp">
-								<h2>
-							<a href="t_write.jsp" ><svg
-									xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-									fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-  <path
-										d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-</svg>&nbsp new</a>
+						<h2 style="display: inline-block;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+								fill="currentColor" class="bi bi-calendar-check-fill"
+								viewBox="0 0 16 16"><path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z" /></svg>
+							&nbsp MY MEMORY
 						</h2>
+						<span> Remember your memory</span>
+						<form name="Search_type" method="post">
+							<a href="t_write.jsp">
+								<h2>
+									<a href="t_write.jsp"><svg
+											xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16"> <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" /></svg>&nbsp new</a>
+								</h2>
 						</form>
 					</div>
 					<!-- /.section-header -->
@@ -185,15 +188,14 @@ td {
 				<div class="projects-holder-3">
 					<div class="row">
 						<table>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-								fill="currentColor" class="bi bi-chat-square-quote"
-								viewBox="0 0 16 16">
+							<span><svg xmlns="http://www.w3.org/2000/svg" width="26"
+									height="26" fill="currentColor" class="bi bi-chat-square-quote"
+									viewBox="0 0 16 16">
   <path
-									d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+										d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
   <path
-									d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
-</svg>
-							&nbsp WITH</span>
+										d="M7.066 4.76A1.665 1.665 0 0 0 4 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112zm4 0A1.665 1.665 0 0 0 8 5.668a1.667 1.667 0 0 0 2.561 1.406c-.131.389-.375.804-.777 1.22a.417.417 0 1 0 .6.58c1.486-1.54 1.293-3.214.682-4.112z" />
+</svg> &nbsp WITH</span>
 							<!--미션글_1-->
 							<%
 								int i = 0;
@@ -212,7 +214,8 @@ td {
 										<img src="<%=arr.get(i).getM_article_img()%>"
 											onclick="func2(<%=i%>)" class="modal_con">
 										<div class="modal">
-											<div class="modal_content" style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
+											<div class="modal_content"
+												style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
 												<img src="<%=arr.get(i).getM_article_img()%>"
 													class="modal_img">
 											</div>
@@ -222,7 +225,7 @@ td {
 
 										<h2>
 											<a
-											href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+												href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 												<h3
 													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
 													#<%=arr.get(i).getM_article_region()%></h3>
@@ -241,7 +244,8 @@ td {
 											<%
 												if (dto == null) {
 											%>
-											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제 시 로그인이 필요해요</li>
+											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
+												시 로그인이 필요해요</li>
 											<%
 												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 											%>
@@ -283,12 +287,15 @@ td {
 							} catch (Exception e) {
 							}
 							%>
-														
+
 						</table>
-						
+
 						<table>
-							<span><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-easel-fill" viewBox="0 0 16 16">
-  <path d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z"/>
+							<span><svg xmlns="http://www.w3.org/2000/svg" width="26"
+									height="26" fill="currentColor" class="bi bi-easel-fill"
+									viewBox="0 0 16 16">
+  <path
+										d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z" />
 </svg>&nbsp MOMENT </span>
 							<!--미션글_1-->
 							<%
@@ -338,15 +345,15 @@ td {
 											<%
 												if (dto == null) {
 											%>
-											<li class="upd" style="font-size: 15px; list-style: none;">수정/삭제시
+											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제 시
 												로그인이 필요해요</li>
 											<%
 												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
 											%>
 											<li class="upd" style="list-style: none;"><a
-											href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>수정</a></li>
-										<li class="upd" style="list-style: none;"><a
-											href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>삭제</a></li>
+												href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>수정</a></li>
+											<li class="upd" style="list-style: none;"><a
+												href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'>삭제</a></li>
 
 											<li style="right: 30%; list-style: none;">
 												<div class="like-button-wrapper">
@@ -381,11 +388,11 @@ td {
 							} catch (Exception e) {
 							}
 							%>
-														
+
 						</table>
-						
-						
-						
+
+
+
 					</div>
 					<!-- /.projects-holder-2 -->
 				</div>
@@ -398,6 +405,9 @@ td {
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/vendor/jquery-1.11.0.min.js"></script>
 
 		<!-- Preloader -->
 		<script type="text/javascript">
