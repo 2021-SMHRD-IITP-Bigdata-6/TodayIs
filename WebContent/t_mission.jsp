@@ -11,6 +11,7 @@
 <html class="no-js">
 <head>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TODAY☁︎MOMENT</title>
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width" />
@@ -20,14 +21,19 @@
 <link rel="stylesheet"
    href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900" />
 
-<link rel="stylesheet" href="t_css/bootstrap.css" />
+
 <link rel="stylesheet" href="t_css/font-awesome.css" />
-<link rel="stylesheet" href="t_css/animate.css" />
+<link rel="stylesheet" href="t_css/bootstrap.css" />
 <link rel="stylesheet" href="t_css/templatemo-misc.css" />
-<link rel="stylesheet" href="t_css/templatemo-style.css" />
+
+
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
+
+<link rel="stylesheet" href="t_css/animate.css" />
+
+<link rel="stylesheet" href="t_css/templatemo-style.css" />
 
 
 <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
@@ -73,6 +79,26 @@ tr {
    top: 0;
    left: 0;
    display: block;
+}
+.fa-bars:before {
+	content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    font-weight: 900;
+   
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-size: 21px; 
+    font-family: FontAwesome;
+}
+.fa, .far, .fas {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-variant: normal;
+    format: "woff";  
+    src :url("../webfonts/fa-solid-900.ttf") ;
 }
 </style>
 </head>

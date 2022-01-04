@@ -19,9 +19,6 @@
 
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/templatemo-video-catalog.css" />
-
-<title>TODAY? MAIN PAGE</title>
-
 </head>
 <body>
 
