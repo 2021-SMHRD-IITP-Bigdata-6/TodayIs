@@ -26,7 +26,7 @@
 <style>
 .overlaybox {
 	position: relative;
-	width: 120px;
+	width: 160px;
 	height: 230px;
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/box_movie.png')
@@ -54,9 +54,8 @@
 
 .overlaybox .first {
 	position: relative;
-	width: 100px;
+	width: 140px;
 	height: 100px;
-	background: url('UploadWrite/무등산.jpg') no-repeat;
 	background-position: center center;
 	background-size: 100%;
 	margin-bottom: 8px;
@@ -173,7 +172,7 @@
 											if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="index.jsp"> <%=dto.getMb_nickname()%> ☁︎ <%=dto.getMb_region()%>
+												href=""> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_community.jsp">with </a></li>
@@ -275,7 +274,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div >
 			</div>
 		</div>
 	</div>
@@ -338,9 +337,9 @@
 	
 	
 	//* 서울  *//
-		var content1 = '<div class="overlaybox">'
+		var content1 = '<div class="overlaybox" >'
 			+ '    <div class="boxtitle">서울 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/서울로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("서울").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -368,7 +367,7 @@
 	//* 경기(수원)  *//
 		var content2 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">경기 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/경기도로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("수원").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -395,7 +394,7 @@
 	//* 인천 *//
 		var content3 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">인천 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/인천로고.png\') no-repeat;background-position: center center;background-size: 200%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("인천").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -423,7 +422,7 @@
 		//* 충북(청주) *//
 		var content4 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">충북 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/충북로고.png\') no-repeat;background-position: center center;background-size: 200%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("청주").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -452,7 +451,7 @@
 	//* 세종 *//
 		var content5 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">세종 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/세종로고.png\') no-repeat;background-position: center center;background-size: 200%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("홍성").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -480,7 +479,7 @@
 		//* 대전 *//
 		var content6 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">대전 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/대전로고.png\') no-repeat;background-position: center center;background-size: 200%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("대전").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -508,7 +507,7 @@
 		//* 강원 *//
 		var content7 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">강원 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/강원로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("북강릉").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -535,7 +534,7 @@
 		//* 전북 *//
 		var content8 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">전북 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/전북로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("전주").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -562,7 +561,7 @@
 		//* 전남 *//
 		var content9 = '<div class="overlaybox">'
 			+ '    <div class="boxtitle">전남 날씨 </div>'
-			+ '    <div class="first">' 
+			+ '    <div class="first" style="background: url(\'UploadWrite/전남로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 		    + '    <div class="movietitle text"><%=wm_dao.Move("여수").getW_temp()%>℃</div>'
 			+ '    </div>' + '    <ul>' + '        <li class="up">'
 			+ '            <span class="number"></span>'
@@ -591,7 +590,7 @@
 	//* 광주  *//
 		var content10 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">광주 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/무등산.jpg\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("광주").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
@@ -617,7 +616,7 @@
 		//* 경북  *//
 		var content11 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">경북 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/경북로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("영주").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
@@ -642,7 +641,7 @@
 	//* 울산  *//
 		var content12 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">울산 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/울산로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("울산").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
@@ -667,7 +666,7 @@
 		//* 부산  *//
 		var content13 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">부산 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/부산로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("부산").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
@@ -692,7 +691,7 @@
 		//* 경남  *//
 		var content14 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">경남 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/경남로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("대구").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
@@ -716,7 +715,7 @@
 		//* 제주  *//
 		var content15 = '<div class="overlaybox">'
 				+ '    <div class="boxtitle">제주 날씨 </div>'
-				+ '    <div class="first">' 
+				+ '    <div class="first" style="background: url(\'UploadWrite/제주로고.png\') no-repeat;background-position: center center;background-size: 100%;">' 
 			    + '    <div class="movietitle text"><%=wm_dao.Move("제주").getW_temp()%>℃</div>'
 				+ '    </div>' + '    <ul>' + '        <li class="up">'
 				+ '            <span class="number"></span>'
