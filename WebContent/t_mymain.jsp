@@ -99,7 +99,7 @@ justify-content: space-between;}
 </head>
 <body>
 	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -239,7 +239,7 @@ justify-content: space-between;}
 
 										<h2>
 											<a
-												href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+												href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
 												<h3
 													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
 													#<%=arr.get(i).getM_article_region()%></h3>

@@ -101,7 +101,7 @@ ul {
 </head>
 <body>
 	<%
-		boardDTO board_dto = (boardDTO) session.getAttribute("mboard_dto");
+	boardDTO board_dto = (boardDTO) session.getAttribute("mboard_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
