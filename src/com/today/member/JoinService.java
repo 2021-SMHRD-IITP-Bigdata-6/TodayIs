@@ -24,6 +24,8 @@ public class JoinService extends HttpServlet {
 		String mb_phone = request.getParameter("mb_phone");
 		String mb_region = request.getParameter("mb_region");
 		
+		boolean result = false;
+		
 		memberDTO dto = new memberDTO(mb_id, mb_pw, mb_nickname, mb_phone, mb_region);
 		
 		System.out.println(mb_id);
@@ -40,10 +42,10 @@ public class JoinService extends HttpServlet {
 		
 		if (cnt > 0) {
 			request.setAttribute("dto", dto);
-			
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-			dis.forward(request, response);
-			
+			result = true;
+			/*RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+			dis.forward(request, response);*/
+
 			
 			// JoinCon에서 joinSuccess.jsp로 값을 보낼  수 있는 두가지 방법
 			// 1. 세션활용
@@ -51,6 +53,9 @@ public class JoinService extends HttpServlet {
 		} else {
 			System.out.println("회원가입 실패");
 		}
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(result);
 
 	}
 
