@@ -141,7 +141,7 @@ ul {
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a
-												class="nav-link tm-nav-link" href="#"> <%=dto.getMb_nickname()%>'s
+												class="nav-link tm-nav-link" href="index.jsp"> <%=dto.getMb_nickname()%>'s
 													<%=dto.getMb_region()%> 
 											</a></li>
 											<%
@@ -174,7 +174,7 @@ ul {
 												}
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="region.html">map</a></li>
+												href="Kakao.jsp">map</a></li>
 											<%
 												if (dto == null) {
 											%>

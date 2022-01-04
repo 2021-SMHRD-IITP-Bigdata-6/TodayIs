@@ -38,8 +38,13 @@ public class UpdateService extends HttpServlet {
 		int cnt = dao.Update(mb_id, mb_pw, mb_nickname, mb_phone, mb_region);
 
 		if(cnt>0) {
-			memberDTO update_dto =  new memberDTO(mb_id, mb_pw, mb_nickname, mb_region);
-			session.setAttribute("update_dto", update_dto);
+			dto.setMb_pw(mb_pw);
+			dto.setMb_nickname(mb_nickname);
+			dto.setMb_region(mb_region);
+			dto.setMb_phone(mb_phone);
+			//memberDTO update_dto =  new memberDTO(mb_id, mb_pw, mb_nickname, mb_region);
+			//session.setAttribute("update_dto", update_dto);
+			session.setAttribute("dto", dto);
 			response.sendRedirect("index.jsp");
 			
 		}else {

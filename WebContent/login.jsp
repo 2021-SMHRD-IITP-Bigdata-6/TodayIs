@@ -93,6 +93,44 @@
 	  width:100%;
 	  transition:800ms ease all;
 	}
+	#btnJoin{
+		margin:0 15px 0 0px;
+		width: 100px;
+		height: 50px;
+		background-color:#efefef;
+		border-color:#efefef;
+	    color:#777777;
+	    position:relative;
+	    font-size:20px;
+	    padding:0;
+	    cursor:pointer;
+	    transition:800ms ease all;
+	    outline:none;
+	}
+	#btnJoin:hover{
+	  background:#efefef;
+	  color:#0064CD;
+	}
+	#btnJoin:before,#btnJoin:after{
+	  content:'';
+	  position:absolute;
+	  top:0;
+	  right:0;
+	  height:2px;
+	  width:0;
+	  background:#98DFFF;
+	  transition:400ms ease all;
+	}
+	.#btnJoin:after{
+	  right:inherit;
+	  top:inherit;
+	  left:0;
+	  bottom:0;
+	}
+	.#btnJoin:hover:before,#btnJoin:hover:after{
+	  width:100%;
+	  transition:800ms ease all;
+	}
 </style>
 </head>
 <body style="height:100%; width:100%;">
@@ -195,7 +233,7 @@
 		<br><br>
 		</form>
 		
-		<form id="register" action="JoinService" style ="top: 20px; "method="post" class="input-group">
+		<form id="register" style ="top: 20px; "method="post" class="input-group">
 		<h2>JOIN</h2>
 		<input type="text" name="mb_id" class="input-field" placeholder="User id" required> 
 		<input type="password" name="mb_pw" class="input-field" placeholder="Enter Password" required> 
@@ -230,7 +268,7 @@
 			<input type="hidden" class="form-control" id="region"
 			placeholder="지역을 선택해주세요" name="mb_region" maxlength="20"
 			readonly>
-		<button class="submit" onclick="location.href='login.jsp'"> join </button>
+		<button class="button" id="btnJoin" onclick="joincheck();return false;"> join </button>
 	</form>
 	</div>
 	<script src="js/vendor/jquery-1.11.0.min.js"></script>
@@ -242,6 +280,33 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
 
+	<script>
+	function joincheck(){
+		var formData = $("#register").serialize();
+		$.ajax({
+			url: "JoinService",
+			type: "get",
+			// javascript 객체 형식
+			// { 보낼 이름 : 값}
+			// input[속성 = 속성값]
+			data:formData,
+			success: function(res){ 
+				console.log(res);
+				if(res == 'true'){
+					alert("회원가입에 성공하였습니다.")
+					console.log(res)
+				}else if(res == 'false'){
+					alert("회원가입에 실패하였습니다.")
+					
+				}
+			},
+			error : function(){
+				alert("요청 실패!");
+			}
+		});
+	
+	}
+	</script>
 	<!-- Preloader -->
 	<script type="text/javascript">
 

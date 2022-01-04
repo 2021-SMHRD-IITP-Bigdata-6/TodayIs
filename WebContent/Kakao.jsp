@@ -172,7 +172,7 @@
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href=""> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}

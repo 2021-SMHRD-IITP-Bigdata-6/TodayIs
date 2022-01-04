@@ -99,7 +99,7 @@ justify-content: space-between;}
 </head>
 <body>
 	<%
-	boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
+		boardDTO board_dto = (boardDTO) session.getAttribute("board_dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 
@@ -134,7 +134,7 @@ justify-content: space-between;}
 												if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="#"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%>'s &nbsp<%=dto.getMb_region()%>
 											</a></li>
 											<%
 												}
@@ -238,11 +238,8 @@ justify-content: space-between;}
 									<div class="box-content project-detail">
 
 										<h2>
-											<a
-												href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
-												<h3
-													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
-													#<%=arr.get(i).getM_article_region()%></h3>
+											<a href="t_mission_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+												<h3 style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;"> #<%=arr.get(i).getM_article_region()%></h3>
 											</a>
 										</h2>
 										<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
@@ -264,7 +261,7 @@ justify-content: space-between;}
                                  } else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
                               %>
 										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 77%;"><a
+											style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
 											href='MBoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
 													fill="currentColor" class="bi bi-pencil-square"
@@ -276,7 +273,7 @@ justify-content: space-between;}
 														fill-rule="evenodd"
 														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
 										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 81%;"><a
+											style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
 											href='MBoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
 													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
 													fill="currentColor" class="bi bi-x-square"
@@ -289,7 +286,7 @@ justify-content: space-between;}
 														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
 										</a></li>
 										<span class="like-button-wrapper"
-											style="color: #aaaaaa; position: relative; left: -20%">
+											style="color: #aaaaaa; position: relative; left: -40%; top:3px;">
 											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
 												<i class="like-counter fa fa-heart-o"></i> <span
 												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
