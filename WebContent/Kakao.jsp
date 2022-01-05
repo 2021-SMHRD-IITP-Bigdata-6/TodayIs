@@ -183,7 +183,7 @@
 											<li class="nav-item active"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map<span class="sr-only">(current)</span></a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">sign out</a></li>
+												href="update.jsp">sign out</a></li>
 											<%
 												}
 											%>

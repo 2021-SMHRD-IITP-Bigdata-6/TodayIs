@@ -228,7 +228,8 @@
       <%
          } else {
       %>
-      <%
+      
+      <%-- <%
          if (move_dao.Move("광주").getW_status().equals("맑음") || move_dao.Move("광주").getW_status().equals("")) {
       %>
       <video autoplay muted loop id="tm-video">
@@ -254,7 +255,8 @@
          <source src="video/forest.mp4" type="video/mp4" />
       </video>
       <%
-         } else if (move_dao.Move("광주").getW_status().equals("비적음")) {
+         } else if (move_dao.Move("광주").getW_status().equals("비적음") ||
+         move_dao.Move("광주").getW_status().equals("약한 비 연속적")) {
       %>
       <video autoplay muted loop id="tm-video">
          <source src="video/rain.mp4" type="video/mp4" />
@@ -286,7 +288,13 @@
       </video>
       <%
          }
-      %>
+      %> --%>
+      <video autoplay muted loop id="tm-video">
+         <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+         <source src="video/sun.mp4" type="video/mp4" />
+      </video>
+      
+      
       <%
          }
       %>
@@ -397,7 +405,7 @@
                            } else {
                         %>
                         <%
-                           float move = move_dao.Move("광주").getW_body_temp();
+                        float move = move_dao.Move("광주").getW_body_temp();
                         int data = (int) move;
 
                         if (data >= 50) {
@@ -495,7 +503,7 @@
                            } else {
                         %>
 
-                        <%
+                     <%
                            float move2 = Float.parseFloat(move_dao.Move("광주").getW_humidity());
                         int data2 = (int) move2;
 
@@ -512,7 +520,7 @@
                         건조합니다.
                         <%
                            }
-                        %>
+                        %> 
                         <%
                            }
                         %>
@@ -793,8 +801,7 @@
                             -->
                      <div class="p-4 tm-bg-gray tm-catalog-item-description">
                         <h3 class="tm-text-primary mb-3 tm-catalog-item-title">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
-                              fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
   <path fill-rule="evenodd"
                                  d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2Z" />
 </svg>
