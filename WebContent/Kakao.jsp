@@ -172,7 +172,7 @@
 											if (dto != null) {
 											%>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href=""> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
+												href="index.jsp"> <%=dto.getMb_nickname()%> 's <%=dto.getMb_region()%>
 											</a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
 												href="t_community.jsp">with </a></li>
@@ -183,7 +183,7 @@
 											<li class="nav-item active"><a class="nav-link tm-nav-link"
 												href="Kakao.jsp">map<span class="sr-only">(current)</span></a></li>
 											<li class="nav-item"><a class="nav-link tm-nav-link"
-												href="LogoutService">sign out</a></li>
+												href="update.jsp">sign out</a></li>
 											<%
 												}
 											%>

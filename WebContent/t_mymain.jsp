@@ -71,30 +71,31 @@ td {
 	display: block;
 }
 
-.section-header col-md-12 h2, form{
-display: flex;
-justify-content: space-between;}
+.section-header col-md-12 h2, form {
+	display: flex;
+	justify-content: space-between;
+}
 
 .fa-bars:before {
 	content: "\f0c9";
-    display: inline-block;
-    font-family: "FontAwesome";
-    font-weight: 600;
-   }
+	display: inline-block;
+	font-family: "FontAwesome";
+	font-weight: 600;
+}
 
 *, ::after, ::before {
-    box-sizing: border-box;
-    font-size: 20px; 
-    font-family: FontAwesome;
-}
-.fa, .far, .fas {
-    font-family: "FontAwesome";
-    font-style: normal;
-    font-variant: normal;
-    format: "woff";  
-    src :url("../webfonts/fa-solid-600.ttf") ;
+	box-sizing: border-box;
+	font-size: 20px;
+	font-family: FontAwesome;
 }
 
+.fa, .far, .fas {
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-variant: normal;
+	format: "woff";
+	src: url("../webfonts/fa-solid-600.ttf");
+}
 </style>
 </head>
 <body>
@@ -107,6 +108,7 @@ justify-content: space-between;}
 
 	ArrayList<boardDTO> arr = dao.m_board_all(dto.getMb_id());
 	ArrayList<boardDTO> all = dao.m_mboard_all(dto.getMb_id());
+	
 	%>
 
 	<div class="tm-page-wrap mx-auto">
@@ -123,9 +125,8 @@ justify-content: space-between;}
 										type="button" data-toggle="collapse" data-target="#navbar-nav"
 										aria-controls="navbar-nav" aria-expanded="false"
 										aria-label="Toggle navigation">
-										<span>
-										<i class="fas fa-bars tm-menu-closed-icon"></i>
-										<i class="fas fa-times tm-menu-opened-icon"></i>
+										<span> <i class="fas fa-bars tm-menu-closed-icon"></i>
+											<i class="fas fa-times tm-menu-opened-icon"></i>
 										</span>
 									</button>
 									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
@@ -189,12 +190,17 @@ justify-content: space-between;}
 			<div class="inner-container container">
 				<div class="row">
 					<div class="section-header col-md-12">
-						<h2 style="display:inline-block; "><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
-  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-</svg>&nbsp MY MEMORY</h2> <span> Remember your memory</span>
-						<form name="Search_type" method="post">
-								
-						</form>
+						<h2 style="display: inline-block;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+								fill="currentColor" class="bi bi-calendar-check-fill"
+								viewBox="0 0 16 16">
+  <path
+									d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+</svg>
+							&nbsp MY MEMORY
+						</h2>
+						<span> Remember your memory</span>
+						<form name="Search_type" method="post"></form>
 					</div>
 					<!-- /.section-header -->
 				</div>
@@ -214,6 +220,7 @@ justify-content: space-between;}
 							<%
 								int i = 0;
 							try {
+								if(arr.get(0).getM_article_content() != null) {
 								//행 관리
 								Loop1 : for (int k = 0; k < 5; k++) {
 							%>
@@ -238,8 +245,11 @@ justify-content: space-between;}
 									<div class="box-content project-detail">
 
 										<h2>
-											<a href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
-												<h3 style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;"> #<%=arr.get(i).getM_article_region()%></h3>
+											<a
+												href="t_community_search.jsp?region=<%=arr.get(i).getM_article_region()%>">
+												<h3
+													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
+													#<%=arr.get(i).getM_article_region()%></h3>
 											</a>
 										</h2>
 										<span style="font-size: 120%;"><%=arr.get(i).getM_article_subject()%></span><br>
@@ -252,50 +262,51 @@ justify-content: space-between;}
 
 										<ul>
 											<!-- 작성자만 수정 삭제 가능 기능-->
-																					<%
-                                 if (dto == null) {
-                              %>
-										<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
-											시 로그인이 필요해요</li>
-										<%
-                                 } else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
-                              %>
-										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
-											href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
-													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
-													fill="currentColor" class="bi bi-pencil-square"
-													viewBox="0 0 16 16"> <path
-														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
-														fill-rule="evenodd"
-														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
-														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
-														fill-rule="evenodd"
-														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
-										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
-											href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
-													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
-													fill="currentColor" class="bi bi-x-square"
-													viewBox="0 0 16 16">
+											<%
+												if (dto == null) {
+											%>
+											<li class="upd" style="font-size: 15px; list-style: none;">수정&삭제
+												시 로그인이 필요해요</li>
+											<%
+												} else if (dto.getMb_id().equals(arr.get(i).getMb_id())) {
+											%>
+											<li class="upd"
+												style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
+												href='BoardUpdateService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+														xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+														fill="currentColor" class="bi bi-pencil-square"
+														viewBox="0 0 16 16"> <path
+															d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+															fill-rule="evenodd"
+															d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
+															d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+															fill-rule="evenodd"
+															d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
+											<li class="upd"
+												style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
+												href='BoardDelService?ARTICLE_SEQ=<%=arr.get(i).getM_article_seq()%>'><svg
+														xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
+														fill="currentColor" class="bi bi-x-square"
+														viewBox="0 0 16 16">
   <path
-														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
-														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+															d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+															d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
   <path
-														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
-														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
-										</a></li>
-										<span class="like-button-wrapper"
-											style="color: #aaaaaa; position: relative; left: -40%; top:3px;">
-											<a class="like_button"	onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
-												<i class="like-counter fa fa-heart-o"></i> <span
-												class="like_count"><%=arr.get(i).getM_article_likes()%></span>
-										</a>
-										</span>
+															d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+															d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
+											</a></li>
+											<span class="like-button-wrapper"
+												style="color: #aaaaaa; position: relative; left: -40%; top: 3px;">
+												<a class="like_button"
+												onclick="func(<%=arr.get(i).getM_article_seq()%>,<%=arr.get(i).getM_article_likes()%>)">
+													<i class="like-counter fa fa-heart-o"></i> <span
+													class="like_count"><%=arr.get(i).getM_article_likes()%></span>
+											</a>
+											</span>
 
-										<%
-                                 }
-                              %>
+											<%
+												}
+											%>
 										</ul>
 									</div>
 									</div>
@@ -313,15 +324,22 @@ justify-content: space-between;}
 							</tr>
 							<%
 								}
+								} %>
+							<tr>
+								<td><div>여기?</div></td>
+							</tr>
+
+								<%
 							} catch (Exception e) {
+							 e.getStackTrace();
 							}
 							%>
-
+							
 						</table>
 
 
 						<table>
-											
+
 							<span><svg xmlns="http://www.w3.org/2000/svg" width="26"
 									height="26" fill="currentColor" class="bi bi-easel-fill"
 									viewBox="0 0 16 16">
@@ -329,31 +347,33 @@ justify-content: space-between;}
 										d="M8.473.337a.5.5 0 0 0-.946 0L6.954 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1.85l-1.323 3.837a.5.5 0 1 0 .946.326L4.908 11H7.5v2.5a.5.5 0 0 0 1 0V11h2.592l1.435 4.163a.5.5 0 0 0 .946-.326L12.15 11H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H9.046L8.473.337z" />
 </svg>&nbsp MOMENT </span>
 							<!--미션글_1-->
-							
+
 
 							<%
 								i = 0;
+
+							try { if(all.get(0).getM_article_content() != null) {
 								
 								
-							try {
+							
 								//행 관리
-								Loop2 :
-									for (int k = 0; k < 5; k++) {
+
+								Loop2: for (int f = 0; f < 5; f++) {
 							%>
 							<tr valign="top">
 								<%
-									for (int j = 0; j < 5; j++) {
-									System.out.print(i);
+									for (int g = 0; g < 5; g++) {
+									System.out.print(g);
 									//열 관리
 								%>
 								<td valign="top">
 									<div class="project-thumb">
-										<img src="<%=all.get(i).getM_article_img()%>"
-											onclick="func2(<%=i%>)" class="modal_con">
+										<img src="<%=all.get(g).getM_article_img()%>"
+											class="modal_con">
 										<div class="modal">
 											<div class="modal_content"
 												style="border: 10px solid #aaaaaa; width: 50%; position: relative; left: 25%; top: 150px;">
-												<img src="<%=all.get(i).getM_article_img()%>"
+												<img src="<%=all.get(g).getM_article_img()%>"
 													class="modal_img">
 											</div>
 										</div>
@@ -362,51 +382,53 @@ justify-content: space-between;}
 
 										<h2>
 											<a
-												href="t_mission_search.jsp?region=<%=all.get(i).getM_article_region()%>">
+												href="t_mission_search.jsp?region=<%=all.get(g).getM_article_region()%>">
 												<h3
 													style="margin-top: 10%; margin-bottom: 5%; color: #3399cc; font-weight: 550;">
-													#<%=all.get(i).getM_article_region()%></h3>
+													#<%=all.get(g).getM_article_region()%></h3>
 											</a>
 										</h2>
-										<span style="font-size: 120%;"><%=all.get(i).getM_article_subject()%></span><br>
+										<span style="font-size: 120%;"><%=all.get(g).getM_article_subject()%></span><br>
 										<span class="blog-meta"
-											style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=all.get(i).getM_article_date()%></span>
-										<p><%=all.get(i).getM_article_content().substring(0, 10) + "..."%></p>
+											style="font-size: 85%; color: #aaaaaa; font-size: 0.84em;"><%=all.get(g).getM_article_date()%></span>
+										<p><%=all.get(g).getM_article_content() + "..."%></p>
 										<br>
 
 
 
 										<ul>
 
-										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
-											href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'><svg
-													xmlns="http://www.w3.org/2000/svg" width="23" height="23"
-													fill="currentColor" class="bi bi-pencil-square"
-													viewBox="0 0 16 16"> <path 	d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-														<path	fill-rule="evenodd"			d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
-														d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
-														fill-rule="evenodd"
-														d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
-										<li class="upd"
-											style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
-											href='MBoardDelService?ARTICLE_SEQ=<%=all.get(i).getM_article_seq()%>'><svg
-													xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
-													fill="currentColor" class="bi bi-x-square"
-													viewBox="0 0 16 16">
+											<li class="upd"
+												style="list-style: none; display: inline-block; position: relative; left: 65%;"><a
+												href='MBoardUpdateService?ARTICLE_SEQ=<%=all.get(g).getM_article_seq()%>'><svg
+														xmlns="http://www.w3.org/2000/svg" width="23" height="23"
+														fill="currentColor" class="bi bi-pencil-square"
+														viewBox="0 0 16 16"> <path
+															d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+														<path fill-rule="evenodd"
+															d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> <path
+															d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" /> <path
+															fill-rule="evenodd"
+															d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" /> </svg></a></li>
+											<li class="upd"
+												style="list-style: none; display: inline-block; position: relative; left: 70%;"><a
+												href='MBoardDelService?ARTICLE_SEQ=<%=all.get(g).getM_article_seq()%>'><svg
+														xmlns=" http://www.w3.org/2000/svg" width="22" height="22"
+														fill="currentColor" class="bi bi-x-square"
+														viewBox="0 0 16 16">
   <path
-														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
-														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+															d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+															d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
   <path
-														d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
-														d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
-										</a></li>
+															d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" /> <path
+															d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" /> </svg>
+											</a></li>
 											<li style="right: 30%; list-style: none;">
 												<div class="like-button-wrapper">
 													<a class="like_button"
-														onclick="func(<%=all.get(i).getM_article_seq()%>,<%=all.get(i).getM_article_likes()%>)">
+														onclick="func(<%=all.get(g).getM_article_seq()%>,<%=all.get(g).getM_article_likes()%>)">
 														<i class="like-counter fa fa-heart-o"></i> <span
-														class="like_count"><%=all.get(i).getM_article_likes()%></span>
+														class="like_count"><%=all.get(g).getM_article_likes()%></span>
 													</a>
 
 												</div>
@@ -414,12 +436,13 @@ justify-content: space-between;}
 
 										</ul>
 									</div>
-									</div>
+
 								</td>
 								<%
-									if (i < all.size() - 1) {
+								if (i < all.size() - 1) {
 									i = i + 1;
 								} else {
+									
 									break Loop2;
 
 								}
@@ -427,12 +450,19 @@ justify-content: space-between;}
 								}
 								%>
 							</tr>
-							<%
-								}
+							<%	}
+							
+								} %>
+							<tr>
+
+
+								<%
+							System.out.print("여기오니?");
 							} catch (Exception e) {
+					
 							}
 							%>
-	</tr>
+							</tr>
 						</table>
 
 

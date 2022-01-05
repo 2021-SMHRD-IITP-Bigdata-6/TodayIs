@@ -92,26 +92,25 @@ th, td {
 	<%
 	//업데이트후 세션
 	boardDTO board_dto = null;
-	boardDTO mboard_dto = (boardDTO) session.getAttribute("mboard_dto");
+	boardDTO mboard_dto = null;
+	mboard_dto = (boardDTO) session.getAttribute("mboard_dto");
 	//보드 세션
 	boardDTO board_dto1 = (boardDTO) session.getAttribute("board_dto");
 	String numbers = (String) session.getAttribute("numbers");
 	System.out.print(board_dto1.getM_article_seq());
 	
 	board_dto = board_dto1;
-	
-	//업데이트가 없을때 보드 세션으로 나온다.
-	if (mboard_dto == null) {
-		board_dto = board_dto1;
-	} else if (mboard_dto != null) {
-		board_dto = mboard_dto;
+	if(mboard_dto != null) {
+	board_dto = mboard_dto;
 	}
+	//업데이트가 없을때 보드 세션으로 나온다.
+
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
 	commDTO comm_dto = (commDTO) session.getAttribute("comm_dto");
 	
 	boardDAO dao = new boardDAO();
 	
-
+	
 	
 	%>
 
@@ -233,12 +232,15 @@ th, td {
 					</div>
 					
 					<%try {
-					if (board_dto.getM_board_type().equals("미션 게시판")) { } else {%>
+					%>
 
 					<!-- /.row -->
 					<%
 					commDAO comm_dao = new commDAO();
 					ArrayList<commDTO> arr = comm_dao.comm_all(board_dto.getM_article_seq());
+					
+					System.out.print(arr.size());
+					
 					int cnt = 0;
 					for (int i = 0; i < arr.size(); i++) {
 				%>
@@ -255,11 +257,14 @@ th, td {
 											<h4><%=arr.get(i).getMb_id()%></h4>
 											<span><%=arr.get(i).getComm_date()%></span>
 											<p><%=arr.get(i).getComm_content()%></p>
-											<%if(dto.getMb_id().equals(arr.get(i).getMb_id())) {%>
+											
+											<%if(dto != null) {
+												if(dto.getMb_id().equals(arr.get(i).getMb_id())) {%>
+											
 											<a
 												href='CommDelService?COMM_SEQ=<%=arr.get(i).getM_article_seq()%>'>
 												삭제 </a>
-												<%} %>
+												<%}} else {} %>
 										</div>
 									</div>
 								</div>
@@ -292,8 +297,9 @@ th, td {
 					</div>
 
 					<%
-					}
+					
 				} catch (Exception e) {
+					e.printStackTrace();
 				}
 					%>
 				</div>
